@@ -5,8 +5,7 @@ fetch('https://api.gmit.vip/Api/UserInfo').then(data=>data.json()).then(data=>{
     html += '</br>'
     html += '访问IP：' + '<span class="visitor_ip">' + data.data.ip + '</span>'
     html += '</br>'
-    html += '浏览器版本：' + '<span class="visitor_browser">' + data.data.os + '&nbsp;' + data.data.browser + '</span>'
-
+    html += '浏览器版本：' + '<span class="visitor_browser">' + data.data.browser + '</span>'
     html += '</div>'
     document.getElementById('visitor-container').innerHTML = html
 }).catch(function(error) {
