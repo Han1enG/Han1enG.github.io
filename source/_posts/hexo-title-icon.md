@@ -51,4 +51,44 @@ categories: Blog
     }
     ```
 
-3. https://guole.fun/posts/butterfly-custom/ 
+3. 给 H1~H6 标题设置不同颜色，在`title_icon.css`中添加代码
+    ```css
+    #content-inner.layout h1::before {
+        color: #ef50a8 ;
+        margin-left: -1.55rem;
+        font-size: 1.3rem;
+        margin-top: -0.23rem;
+    }
+    #content-inner.layout h2::before {
+        color: #fb7061 ;
+        margin-left: -1.35rem;
+        font-size: 1.1rem;
+        margin-top: -0.12rem;
+    }
+    #content-inner.layout h3::before {
+        color: #ffbf00 ;
+        margin-left: -1.22rem;
+        font-size: 0.95rem;
+        margin-top: -0.09rem;
+    }
+    #content-inner.layout h4::before {
+        color: #a9e000 ;
+        margin-left: -1.05rem;
+        font-size: 0.8rem;
+        margin-top: -0.09rem;
+    }
+    #content-inner.layout h5::before {
+        color: #57c850 ;
+        margin-left: -0.9rem;
+        font-size: 0.7rem;
+        margin-top: 0.0rem;
+    }
+    #content-inner.layout h6::before {
+        color: #5ec1e0 ;
+        margin-left: -0.9rem;
+        font-size: 0.66rem;
+        margin-top: 0.0rem;
+    }
+    ```
+
+    

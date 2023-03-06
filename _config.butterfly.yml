@@ -625,8 +625,8 @@ beautify:
   enable: true
   field: post # site/post
   # title-prefix-icon: # '\f0c1'  # 原锁链标题
-  title-prefix-icon: # '\f14e'
-  title-prefix-icon-color: # '#F47466'
+  title-prefix-icon: '\f14e'
+  title-prefix-icon-color: '#F47466'
 
 # Global font settings
 # Don't modify the following settings unless you know how they work (非必要不要修改)
