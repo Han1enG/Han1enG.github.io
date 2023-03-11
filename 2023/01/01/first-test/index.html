@@ -173,6 +173,7 @@
   }
 }
 window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();}, 5000);
 
 if (true) {
   document.addEventListener('pjax:send', () => { preloader.initLoading() })
