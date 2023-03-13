@@ -3,7 +3,7 @@ title: Hexo + Butterfly 添加阅读时间
 date: 2023-03-09 20:33
 tags:
   - Hexo
-categories: Blogc
+categories: Blog
 ---
 > 参考博客：[花猪](https://cnhuazhu.top/butterfly/2021/02/24/Hexo%E9%AD%94%E6%94%B9/Hexo%E5%A2%9E%E6%B7%BB%E5%85%AC%E5%91%8A%E6%A0%8F%E8%AE%A1%E6%97%B6%E5%99%A8%E5%B0%8F%E9%83%A8%E4%BB%B6/)
 

@@ -668,13 +668,13 @@ subtitle:
 
 # Loading Animation (加載動畫)
 preloader:
-  enable: false
+  enable: true
   # source
   # 1. fullpage-loading
   # 2. pace (progress bar)
-  source: 1
+  source: 2
   # pace theme (see https://codebyzach.github.io/pace/)
-  pace_css_url:
+  pace_css_url: 
 
 # aside (側邊欄)
 # --------------------------------------
@@ -842,7 +842,7 @@ note:
 # It may contain bugs and unstable, give feedback when you find the bugs.
 # https://github.com/MoOx/pjax
 pjax:
-  enable: false
+  enable: true
   exclude:
     # - xxxx
     # - xxxx
@@ -921,18 +921,22 @@ inject:
     - <link rel="stylesheet" href="/css/info_background.css">
   bottom:
     # - <script src="xxxx"></script>
-    - <script src="/js/jquery.min.js"></script>
-    - <script src="/js/fish.js"></script>
-    - <script src="/js/visitor.js"></script>
-    - <script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script>
-    - <script src="/js/weather.js"></script>
-    # - <script src="/js/sakura.js"></script>
-    # - <script src="/js/snow.js"></script>
-    # - <script color="122 103 238" opacity='0.7' zIndex="-2" count="100" src="/js/canvas_nest.min.js"></script>
-    - <script src="/js/funny_title.js"></script>
-    # - <script src="/js/mouse_move.js"></script> #鼠标移动特效
-    - <script src="/js/readtime.js"></script> # 公告栏计时器插件
-    
+    - <script data-pjax src="/js/jquery_fish.min.js"></script> # 页脚小鱼
+    # - <script defer src="https://rmt.dogedoge.com/fetch/~/source/jsdelivr/npm/jquery@latest/dist/jquery.min.js"></script> # 水波荡漾
+    # - <script defer data-pjax src="https://cdn.jsdelivr.net/gh/sirxemic/jquery.ripples/dist/jquery.ripples.js"></script> # 水波荡漾
+    - <script data-pjax src="/js/fish.js"></script> # 页脚小鱼
+    - <script data-pjax src="/js/visitor.js"></script> # 访客统计
+    - <script data-pjax src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script> # 天气
+    - <script data-pjax src="/js/weather.js"></script> # 天气
+    # - <script data-pjax src="/js/sakura.js"></script>
+    # - <script data-pjax src="/js/snow.js"></script>
+    # - <script data-pjax color="122 103 238" opacity='0.7' zIndex="-2" count="100" src="/js/canvas_nest.min.js"></script>
+    - <script data-pjax src="/js/funny_title.js"></script>
+    # - <script data-pjax src="/js/mouse_move.js"></script> #鼠标移动特效
+    - <script data-pjax src="/js/readtime.js"></script> # 公告栏计时器插件
+    - <script defer src="https://rmt.dogedoge.com/fetch/~/source/jsdelivr/npm/jquery@latest/dist/jquery.min.js"></script>
+    - <script defer data-pjax src="https://cdn.jsdelivr.net/gh/sirxemic/jquery.ripples/dist/jquery.ripples.js"></script>
+    # - <script defer data-pjax src="/js/ripples.js"></script> # 水波荡漾
     
 
 
