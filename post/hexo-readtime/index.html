@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Hexo &#43; Butterfly 添加阅读时间" />
+    <title>Hexo &#43; Butterfly 添加阅读时间 | Cold World</title>
+    <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="/css/fonts.css" /> 
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+</head>
+<body><body>
+  <h1 class="site-title">Cold World</h1>
+  <nav>
+    <ul class="menu">
+      
+      <li><a class="no-tag" href="/">Posts</a></li>
+      
+      <li><a class="no-tag" href="/tags/">Tags</a></li>
+      
+      <li><a class="no-tag" href="/categories/">Categories</a></li>
+      
+      <li><a class="no-tag" href="/about/">About</a></li>
+      
+      <li><a class="no-tag" href="/index.xml">RSS</a></li>
+      
+    </ul>
+    <hr />
+  </nav>
+</body>
+<div id="content">
+<div>
+  <h1><span class="title">Hexo + Butterfly 添加阅读时间</span></h1>
+  <h4 class="date">
+    <span class="initpost">Published at:</span> 0001/01/01
+    &nbsp;&nbsp;&nbsp;
+    <span class="lastmod">Last updated:</span> 0001/01/01
+  </h4>
+</div>
+
+<main>
+  <blockquote>
+<p>参考博客：<a href="https://cnhuazhu.top/butterfly/2021/02/24/Hexo%E9%AD%94%E6%94%B9/Hexo%E5%A2%9E%E6%B7%BB%E5%85%AC%E5%91%8A%E6%A0%8F%E8%AE%A1%E6%97%B6%E5%99%A8%E5%B0%8F%E9%83%A8%E4%BB%B6/">花猪</a></p>
+</blockquote>
+<ol>
+<li>
+<p>在<code>\themes\butterfly\source\js</code>目录下创建一个<code>readtime.js</code>文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kd">let</span> <span class="nx">oSpan</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&#34;readtime&#34;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kd">let</span> <span class="nx">localhostTime</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>                                 <span class="c1">//获取页面打开的时间
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">tow</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="k">return</span> <span class="nx">n</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">n</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="o">?</span> <span class="s1">&#39;0&#39;</span> <span class="o">+</span> <span class="nx">n</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="o">+</span> <span class="nx">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="kd">let</span> <span class="nx">goTime</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>                                    <span class="c1">//获取动态时间
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>    <span class="kd">let</span> <span class="nx">diffTime</span> <span class="o">=</span> <span class="nx">goTime</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()</span> <span class="o">-</span> <span class="nx">localhostTime</span><span class="p">.</span><span class="nx">getTime</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="kd">var</span> <span class="nx">second</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">diffTime</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">);</span>                   <span class="c1">//未来时间距离现在的秒数
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span>    <span class="nx">second</span> <span class="o">=</span> <span class="nx">second</span> <span class="o">%</span> <span class="mi">86400</span><span class="p">;</span>                                    <span class="c1">//余数代表剩下的秒数；
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span>    <span class="kd">var</span> <span class="nx">hour</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">second</span> <span class="o">/</span> <span class="mi">3600</span><span class="p">);</span>                       <span class="c1">//整数部分代表小时；
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="c1"></span>    <span class="nx">second</span> <span class="o">%=</span> <span class="mi">3600</span><span class="p">;</span>                                             <span class="c1">//余数代表 剩下的秒数；
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"></span>    <span class="kd">var</span> <span class="nx">minute</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">second</span> <span class="o">/</span> <span class="mi">60</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="nx">second</span> <span class="o">%=</span> <span class="mi">60</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="c1">// var str = tow(day) + &#39;&lt;span class=&#34;time&#34;&gt;天&lt;/span&gt;&#39;
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="c1"></span>    <span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">tow</span><span class="p">(</span><span class="nx">hour</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&lt;span class=&#34;time&#34;&gt;小时&lt;/span&gt;&#39;</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">        <span class="o">+</span> <span class="nx">tow</span><span class="p">(</span><span class="nx">minute</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&lt;span class=&#34;time&#34;&gt;分钟&lt;/span&gt;&#39;</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">        <span class="o">+</span> <span class="nx">tow</span><span class="p">(</span><span class="nx">second</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&lt;span class=&#34;time&#34;&gt;秒&lt;/span&gt;&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="nx">oSpan</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&#34;您已浏览当前界面&#34;</span> <span class="o">+</span> <span class="nx">str</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="p">},</span> <span class="mi">1000</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>在主题配置文件<code>_config.butterfly.yml</code>的<code>inject</code>的<code>bottom</code>处引入该<code>js</code>文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl">- <span class="l">&lt;script src=&#34;/js/readtime.js&#34;&gt;&lt;/script&gt;</span><span class="w">
+</span></span></span></code></pre></div></li>
+<li>
+<p>在<code>\themes\butterfly\layout\includes\widget</code>目录下找到<code>card_announcement.pug</code>文件</p>
+<p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230309211731.png" alt="image-20230309211729348"></p>
+</li>
+</ol>
+
+</main>
+
+<div class="discussion">
+  <script src="https://giscus.app/client.js" data-repo="Zwlin98/blog" data-repo-id="R_kgDOHXDxFA"
+    data-category="Announcements" data-category-id="DIC_kwDOHXDxFM4CPY5Q" data-mapping="og:title"
+    data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast"
+    data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async></script>
+</div>
+</div><footer>
+  <hr />
+  <small>
+    <span>
+      Copyright 2022-2024 <a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2023006518号</a>
+    </span>
+    <span>
+      All articles on this site are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a >
+    </span>
+  </small>
+</footer>
+</body>
+</html>

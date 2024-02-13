@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Angular实践一搭建环境&#43;创建项目" />
+    <title>Angular实践一搭建环境&#43;创建项目 | Cold World</title>
+    <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="/css/fonts.css" /> 
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+</head>
+<body><body>
+  <h1 class="site-title">Cold World</h1>
+  <nav>
+    <ul class="menu">
+      
+      <li><a class="no-tag" href="/">Posts</a></li>
+      
+      <li><a class="no-tag" href="/tags/">Tags</a></li>
+      
+      <li><a class="no-tag" href="/categories/">Categories</a></li>
+      
+      <li><a class="no-tag" href="/about/">About</a></li>
+      
+      <li><a class="no-tag" href="/index.xml">RSS</a></li>
+      
+    </ul>
+    <hr />
+  </nav>
+</body>
+<div id="content">
+<div>
+  <h1><span class="title">Angular实践一搭建环境+创建项目</span></h1>
+  <h4 class="date">
+    <span class="initpost">Published at:</span> 2023/03/07
+    &nbsp;&nbsp;&nbsp;
+    <span class="lastmod">Last updated:</span> 2023/03/07
+  </h4>
+</div>
+
+<main>
+  <blockquote>
+<p>公司要求使用 <code>Angular</code>，学过 <code>VUE</code>，了解过 <code>React</code>，偏偏是没用过的 <code>Angular</code>，重头啃</p>
+</blockquote>
+<h2 id="安装-node">安装 <code>node</code></h2>
+<p>查看版本，之前都是在 <code>cmd</code> 窗口，今天学了个 <code>powershell</code> 窗口，感觉差不多，<code>shift+win+右键</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ node -v
+</span></span><span class="line"><span class="ln">2</span><span class="cl">$ npm -v
+</span></span></code></pre></div><h2 id="安装-angular">安装 Angular</h2>
+<h3 id="脚手架">脚手架</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ npm install -g @angular/cli@14.0.2
+</span></span></code></pre></div><h3 id="查看版本">查看版本</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ ng v <span class="c1"># ng version</span>
+</span></span></code></pre></div><ul>
+<li>报错如下：<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307203249.png" alt="image-20230307203245952"></li>
+<li>解决办法：</li>
+</ul>
+<ol>
+<li>
+<p>管理员运行 <code>Aindows PowerShell</code></p>
+</li>
+<li>
+<p>输入下面指令，并输入<strong>A</strong>更改权限</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ set-ExecutionPolicy RemoteSigned
+</span></span></code></pre></div></li>
+<li>
+<p>输入下面指令查看当前状态</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ get-ExecutionPolicy
+</span></span></code></pre></div></li>
+</ol>
+<p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307204026.png" alt="image-20230307204023044"></p>
+<ul>
+<li>再次查看版本号，安装成功</li>
+</ul>
+<p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307204004.png" alt="image-20230307204001531"></p>
+<h3 id="卸载-angular">卸载 <code>Angular</code></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ npm uninstall -g @angular/cli
+</span></span></code></pre></div><h2 id="创建项目">创建项目</h2>
+<ol>
+<li>
+<p><code>cd</code>到存放项目的目录，输入命令</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ ng new &lt;项目名&gt;
+</span></span><span class="line"><span class="ln">2</span><span class="cl">$ yes
+</span></span><span class="line"><span class="ln">3</span><span class="cl">$ css
+</span></span></code></pre></div><p>安装依赖的时间略久，可以先跳过安装依赖的步骤，只是建项目，等项目建完后再安装依赖</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ ng new &lt;项目名&gt; --skip-install
+</span></span></code></pre></div><p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307210541.png" alt="image-20230307210538230"></p>
+</li>
+<li>
+<p>创建好之后的项目结构如下：
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307211739.png" alt="image-20230307211545952"></p>
+</li>
+<li>
+<p><code>cd</code>到项目的目录地址，输入命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ ng serve --open <span class="c1"># ng serve --o 或 ng serve</span>
+</span></span></code></pre></div><p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307210937.png" alt="image-20230307210934205"></p>
+</li>
+</ol>
+<blockquote>
+<p><code>stackoverflow</code>给出的解释是
+To Fix Error “This command is not available when running the Angular CLI outside a workspace Error”, Do <strong>Right-Click on yours project name in VS Code</strong> and Click <strong>“Open in Integrated Terminal”</strong> Option.</p>
+</blockquote>
+<p><code>VScode</code>中运行，打开默认浏览器，显示 <code>Angular</code>的欢迎界面</p>
+<p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307211346.png" alt="image-20230307211342981">
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307211402.png" alt="image-20230307211359547"></p>
+
+</main>
+
+<div class="discussion">
+  <script src="https://giscus.app/client.js" data-repo="Zwlin98/blog" data-repo-id="R_kgDOHXDxFA"
+    data-category="Announcements" data-category-id="DIC_kwDOHXDxFM4CPY5Q" data-mapping="og:title"
+    data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast"
+    data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async></script>
+</div>
+</div><footer>
+  <hr />
+  <small>
+    <span>
+      Copyright 2022-2024 <a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2023006518号</a>
+    </span>
+    <span>
+      All articles on this site are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a >
+    </span>
+  </small>
+</footer>
+</body>
+</html>

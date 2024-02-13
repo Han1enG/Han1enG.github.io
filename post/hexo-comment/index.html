@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Hexo &#43; Butterfly 添加评论系统" />
+    <title>Hexo &#43; Butterfly 添加评论系统 | Cold World</title>
+    <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="/css/fonts.css" /> 
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+</head>
+<body><body>
+  <h1 class="site-title">Cold World</h1>
+  <nav>
+    <ul class="menu">
+      
+      <li><a class="no-tag" href="/">Posts</a></li>
+      
+      <li><a class="no-tag" href="/tags/">Tags</a></li>
+      
+      <li><a class="no-tag" href="/categories/">Categories</a></li>
+      
+      <li><a class="no-tag" href="/about/">About</a></li>
+      
+      <li><a class="no-tag" href="/index.xml">RSS</a></li>
+      
+    </ul>
+    <hr />
+  </nav>
+</body>
+<div id="content">
+<div>
+  <h1><span class="title">Hexo + Butterfly 添加评论系统</span></h1>
+  <h4 class="date">
+    <span class="initpost">Published at:</span> 2023/03/15
+    &nbsp;&nbsp;&nbsp;
+    <span class="lastmod">Last updated:</span> 2023/03/15
+  </h4>
+</div>
+
+<main>
+  <blockquote>
+<p>参考作者给出的<a href="https://butterfly.js.org/posts/ceeb73f/">教程</a>以及官方文档<a href="https://twikoo.js.org/">twikoo</a>和<a href="https://waline.js.org/">waline</a></p>
+</blockquote>
+<h2 id="通用设置">通用设置</h2>
+<h3 id="主题文件配置">主题文件配置</h3>
+<ol>
+<li>
+<p>在主题配置文件<code>_config.butterfly.yml</code>中找到<code>comments</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="nt">comments</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w">  </span><span class="c"># Up to two comments system, the first will be shown as default</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w">  </span><span class="c"># Choose: Disqus/Disqusjs/Livere/Gitalk/Valine/Waline/Utterances/Facebook Comments/Twikoo/Giscus/Remark42/Artalk</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">  </span><span class="nt">use</span><span class="p">:</span><span class="w"> </span><span class="l">Twikoo,Waline</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">  </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c"># Display the comment name next to the button</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">  </span><span class="c"># lazyload: The comment system will be load when comment element enters the browser&#39;s viewport.</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">  </span><span class="c"># If you set it to true, the comment count will be invalid</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">  </span><span class="nt">lazyload</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">  </span><span class="nt">count</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c"># Display comment count in post&#39;s top_img</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">  </span><span class="nt">card_post_count</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="c"># Display comment count in Home Page</span><span class="w">
+</span></span></span></code></pre></div></li>
+<li>
+<p>在主题配置文件<code>_config.butterfly.yml</code>中找到<code>waline</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="nt">waline</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w">  </span><span class="nt">serverURL</span><span class="p">:</span><span class="w"> </span><span class="l">waline.coldcoding.top </span><span class="w"> </span><span class="c"># 填入刚刚得到的后端 URL（必填,根据实际情况填写你自己的域名）</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w">  </span><span class="nt">option</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">    </span><span class="nt">locale</span><span class="p">:</span><span class="w"> </span>{<span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">      </span><span class="nt">nick</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;昵称&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">      </span><span class="nt">mail</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;邮箱&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">      </span><span class="nt">link</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;你的网站&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">      </span><span class="nt">placeholder</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;欢迎大家文明评论嗷～(填写邮箱可以收到回复通知)&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">      </span><span class="nt">requiredMeta</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">      </span><span class="nt">mailError</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;请填写正确的邮件地址&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w">      </span><span class="nt">sofa</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;快来抢占沙发~&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">      </span><span class="nt">level0</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;列兵&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="w">      </span><span class="nt">level1</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;上等兵&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="w">      </span><span class="nt">level2</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;一期&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="w">      </span><span class="nt">level3</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;二期&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="w">      </span><span class="nt">level4</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;三期&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="w">      </span><span class="nt">level5</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;四期&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="w">      </span><span class="nt">level6</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;五期&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="w">      </span><span class="nt">level7</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;六期&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="w">      </span><span class="nt">level8</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;兵王&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="w">      </span>}<span class="w">
+</span></span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="w">    </span><span class="nt">emoji</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="w">        </span><span class="s1">&#39;https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-emoji&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="w">        </span><span class="s1">&#39;https://cdn.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="w">        </span><span class="s1">&#39;https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="w">        </span><span class="p">]</span><span class="w">
+</span></span></span></code></pre></div></li>
+<li>
+<p>在主题配置文件<code>_config.butterfly.yml</code>中找到<code>twikoo</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="nt">twikoo</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w">  </span><span class="nt">envId</span><span class="p">:</span><span class="w"> </span><span class="l">twikoo.coldcoding.top</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w">  </span><span class="nt">region</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">  </span><span class="nt">visitor</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">  </span><span class="nt">option</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">    </span><span class="nt">locale</span><span class="p">:</span><span class="w"> </span>{<span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">      </span><span class="nt">nick</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;昵称&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">      </span><span class="nt">mail</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;邮箱&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">      </span><span class="nt">link</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;你的网站（选填）&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">      </span><span class="nt">placeholder</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;欢迎大家文明评论嗷～(填写邮箱可以收到回复通知)&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w">      </span><span class="nt">requiredMeta</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">      </span><span class="nt">mailError</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;请填写正确的邮件地址&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="w">      </span><span class="nt">sofa</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;快来抢占沙发~&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="w">      </span><span class="nt">level0</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;列兵&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="w">      </span><span class="nt">level1</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;上等兵&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="w">      </span><span class="nt">level2</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;一期&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="w">      </span><span class="nt">level3</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;二期&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="w">      </span><span class="nt">level4</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;三期&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="w">      </span><span class="nt">level5</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;四期&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="w">      </span><span class="nt">level6</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;五期&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="w">      </span><span class="nt">level7</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;六期&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="w">      </span><span class="nt">level8</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;兵王&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="w">      </span>}<span class="w">
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="w">    </span><span class="nt">emoji</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span></span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="w">        </span><span class="s1">&#39;https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-emoji&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="w">        </span><span class="s1">&#39;https://cdn.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="w">        </span><span class="s1">&#39;https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">28</span><span class="cl"><span class="w">        </span><span class="p">]</span><span class="w">
+</span></span></span></code></pre></div></li>
+</ol>
+<h3 id="安装waline">安装<code>Waline</code></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ npm install @waline/hexo-next --save
+</span></span></code></pre></div><h2 id="waline">Waline</h2>
+<h3 id="leancloud">LeanCloud</h3>
+<h4 id="注册leancloud国际版httpsconsoleleancloudapp">注册<a href="https://console.leancloud.app/">LeanCloud国际版</a></h4>
+<h4 id="创建应用">创建应用</h4>
+<p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230315212506.png" alt="image-20230315121854860"></p>
+<p>进入<code>设置-应用凭证</code>，记下自己的<code>AppID、AppKey、MasterKey</code>。</p>
+<h3 id="vercel">Vercel</h3>
+<p>点击<a href="https://vercel.com/new/clone?repository-url=https://github.com/walinejs/waline/tree/main/example">vercel</a>进行 <code>Server</code> 端部署。</p>
+<ol>
+<li>
+<p>使用<code>GitHub</code>登录。</p>
+<p>吐槽一下需要用手机号登录，国内<code>github</code>一般都是绑定的邮箱，虽然<code>github</code>开了双重认证，但是没有中国地区的选项，之前看到有人发帖反映过问题，得到的答复是国内收到信息的成功率比较低，就直接去掉了。在绑定页面<code>F12</code>进入开发者模式，直接把美国换成中国的<code>+86</code>。
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230315212430.png" alt="image-20230315212428121"></p>
+</li>
+<li>
+<p>新建一个项目
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230316214314.png" alt="image-20230316214304309">
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230316214552.png" alt="image-20230316214548547"></p>
+</li>
+<li>
+<p>点击仪表盘的<code>Settings/Environment Variables</code>，进入环境变量配置页，并配置三个环境变量 <code>LEAN_ID</code>, <code>LEAN_KEY</code> 和 <code>LEAN_MASTER_KEY</code> 。它们的值分别对应上一步在 <code>LeanCloud</code> 中获得的 <code>APP ID</code>, <code>APP KEY</code>, <code>Master Key</code>。
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230316215055.png" alt="image-20230316215052293"></p>
+</li>
+<li>
+<p>环境变量配置完成之后点击顶部的 <code>Deployments</code> 点击顶部最新的一次部署右侧的 <code>Redeploy</code> 按钮进行重新部署。该步骤是为了让刚才设置的环境变量生效。
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230316215315.png" alt="image-20230316215311670"></p>
+</li>
+<li>
+<p>等待片刻后 <code>STATUS</code> 会变成 <code>Ready</code>。此时请点击 <code>Visit</code> ，即可跳转到部署好的网站地址，此地址即为你的服务端地址。</p>
+</li>
+<li>
+<p>点击顶部的 <code>Settings</code> - <code>Domains</code> 进入域名配置页，输入需要绑定的域名并点击 <code>Add</code>
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230317222049.png" alt="image-20230317222046504">
+以上信息表明需要在你的域名商管理后台配置对应的<code>CNAME</code>解析后才能生效，这里以腾讯云为例，按照<code>vervel</code>推荐进行配置，同时可以参考这篇<a href="https://tangly1024.com/article/vercel-domain">教程</a>。
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230317222104.png" alt="image-20230317222100297">
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230317222128.png" alt="image-20230317222125363"></p>
+</li>
+<li>
+<p>等待生效，就可以通过自己的域名来访问了🎉</p>
+<ul>
+<li>评论系统：waline.yourdomain.com</li>
+<li>评论管理：waline.yourdomain.com/ui</li>
+</ul>
+<p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230317222226.png" alt="image-20230317222223707">
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230317222505.png" alt="image-20230317222502134"></p>
+</li>
+</ol>
+<h3 id="部署">部署</h3>
+<p>一键三连<code>hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</code>部署</p>
+<h2 id="twikoo">Twikoo</h2>
+<h3 id="mongodb">MongoDB</h3>
+<ol>
+<li>官方文档给出了多种部署方式，这里选择了 <a href="https://www.mongodb.com/zh-cn/cloud/atlas/register">MongoDB</a>数据库来存储数据，首先进行账号注册，并创建免费数据库。区域推荐选择 <code>AWS / N. Virginia (us-east-1)</code>，在 <code>Clusters</code> 页面点击 <code>CONNECT</code>，按步骤设置允许所有<code> IP</code>地址的连接。
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230315222620.png" alt="image-20230315222619248"></li>
+<li>连接数据库，选择<code>Connect your application</code>
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230315222950.png" alt="image-20230315222948746">
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230318150136.png" alt="image-20230318150133844"></li>
+<li>记录下<code>connection string</code></li>
+</ol>
+<h3 id="vercel-1">Vercel</h3>
+<ol>
+<li>
+<p>点击<a href="https://vercel.com/import/project?template=https://github.com/imaegoo/twikoo/tree/main/src/server/vercel-min">vercel</a>进行<code>server</code>端部署，新建一个仓库。
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230318150814.png" alt="image-20230318150716668">
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230318150946.png" alt="image-20230318150944565"></p>
+</li>
+<li>
+<p>进入 <code>Settings - Environment Variables</code>，添加环境变量 <code>MONGODB_URI</code>，值为上一步的数据库连接字符串，注意将<code>&lt;password&gt;</code>替换为自己设置的用户密码。</p>
+<p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230318151340.png" alt="image-20230318151338849"></p>
+</li>
+<li>
+<p>进入 <code>Deployments</code> , 然后在任意一项后面点击更多（三个点） , 然后点击<code>Redeploy</code> , 最后点击下面的<code>Redeploy</code></p>
+</li>
+<li>
+<p>进入 <code>Overview</code>，点击 <code>Domains</code> 下方的链接，如果环境配置正确，可以看到 “Twikoo 云函数运行正常” 的提示。
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230318151727.png" alt="image-20230318151725984"></p>
+</li>
+<li>
+<p>点击顶部的 <code>Settings</code> - <code>Domains</code> 进入域名配置页，输入需要绑定的域名并点击 <code>Add</code>
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230318152507.png" alt="image-20230318152505606"></p>
+</li>
+<li>
+<p>以上信息表明需要在你的域名商管理后台配置对应的<code>CNAME</code>解析后才能生效，这里以腾讯云为例，按照<code>vervel</code>推荐进行配置，同时可以参考这篇<a href="https://tangly1024.com/article/vercel-domain">教程</a>。
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230318153008.png" alt="image-20230318153006726">
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230318153035.png" alt="image-20230318153033540"></p>
+</li>
+</ol>
+<h3 id="开启管理面板">开启管理面板</h3>
+<p>点击评论窗口的“小齿轮”图标，设置管理员密码</p>
+<h2 id="针对-vercel-部署的更新方式">针对 Vercel 部署的更新方式</h2>
+<ol>
+<li>进入 <a href="https://vercel.com/dashboard">Vercel 仪表板</a> - twikoo - Settings - Git</li>
+<li>点击 <code>Connected Git Repository</code> 下方的仓库地址</li>
+<li>打开 <code>package.json</code>，点击编辑</li>
+<li>将 <code>&quot;twikoo-vercel&quot;: &quot;x.x.x&quot;</code> 其中的版本号修改为最新版本号。点击 <code>Commit changes</code></li>
+<li>部署会自动触发，可以回到 <a href="https://vercel.com/dashboard">Vercel 仪表板</a>，查看部署状态</li>
+</ol>
+
+</main>
+
+<div class="discussion">
+  <script src="https://giscus.app/client.js" data-repo="Zwlin98/blog" data-repo-id="R_kgDOHXDxFA"
+    data-category="Announcements" data-category-id="DIC_kwDOHXDxFM4CPY5Q" data-mapping="og:title"
+    data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast"
+    data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async></script>
+</div>
+</div><footer>
+  <hr />
+  <small>
+    <span>
+      Copyright 2022-2024 <a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2023006518号</a>
+    </span>
+    <span>
+      All articles on this site are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a >
+    </span>
+  </small>
+</footer>
+</body>
+</html>

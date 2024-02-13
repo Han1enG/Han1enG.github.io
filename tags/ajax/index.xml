@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ajax on Cold World</title>
+    <link>http://coldcoding.top/tags/ajax/</link>
+    <description>Recent content in Ajax on Cold World</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 11 Mar 2023 14:48:04 +0000</lastBuildDate>
+    <atom:link href="http://coldcoding.top/tags/ajax/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>网站开启PJAX</title>
+      <link>http://coldcoding.top/post/pjax/</link>
+      <pubDate>Sat, 11 Mar 2023 14:48:04 +0000</pubDate>
+      <guid>http://coldcoding.top/post/pjax/</guid>
+      <description>参考文章： 保罗 云泥 AJAX AJAX = 异步 JavaScript 和 XML，是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新</description>
+    </item>
+  </channel>
+</rss>

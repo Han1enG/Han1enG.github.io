@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Hexo &#43; Butterfly 文章页透明" />
+    <title>Hexo &#43; Butterfly 文章页透明 | Cold World</title>
+    <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="/css/fonts.css" /> 
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+</head>
+<body><body>
+  <h1 class="site-title">Cold World</h1>
+  <nav>
+    <ul class="menu">
+      
+      <li><a class="no-tag" href="/">Posts</a></li>
+      
+      <li><a class="no-tag" href="/tags/">Tags</a></li>
+      
+      <li><a class="no-tag" href="/categories/">Categories</a></li>
+      
+      <li><a class="no-tag" href="/about/">About</a></li>
+      
+      <li><a class="no-tag" href="/index.xml">RSS</a></li>
+      
+    </ul>
+    <hr />
+  </nav>
+</body>
+<div id="content">
+<div>
+  <h1><span class="title">Hexo + Butterfly 文章页透明</span></h1>
+  <h4 class="date">
+    <span class="initpost">Published at:</span> 2023/03/05
+    &nbsp;&nbsp;&nbsp;
+    <span class="lastmod">Last updated:</span> 2023/03/05
+  </h4>
+</div>
+
+<main>
+  <ol>
+<li>
+<p>在 <code>\themes\butterfly\source\css</code>目录下新建 <code>article_transparent.css</code>文件，添加：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="ln">1</span><span class="cl"><span class="c">/* 首页文章栏背景透明 */</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="p">#</span><span class="nn">recent-posts</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">recent-post-item</span><span class="o">,</span><span class="p">.</span><span class="nc">layout_page</span><span class="o">&gt;</span><span class="nt">div</span><span class="p">:</span><span class="nd">first-child</span><span class="p">:</span><span class="nd">not</span><span class="o">(</span><span class="p">.</span><span class="nc">recent-posts</span><span class="o">),</span><span class="p">.</span><span class="nc">layout_post</span><span class="o">&gt;</span><span class="p">#</span><span class="nn">page</span><span class="o">,</span><span class="p">.</span><span class="nc">layout_post</span><span class="o">&gt;</span><span class="p">#</span><span class="nn">post</span><span class="o">,</span><span class="p">.</span><span class="nc">read-mode</span> <span class="p">.</span><span class="nc">layout_post</span><span class="o">&gt;</span><span class="p">#</span><span class="nn">post</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="k">background</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">light_bg_color</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="c">/* 侧边栏透明 */</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="p">#</span><span class="nn">aside-content</span> <span class="p">.</span><span class="nc">card-widget</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl">    <span class="k">background</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">light_bg_color</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">9</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>在主题配置文件 <code>_config.butterfly.yml</code>的 <code>inject</code>，在 <code>head</code>直接引入 <code>css</code>文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl">- <span class="l">&lt;script src=&#34;/css/article_transparent.js&#34;&gt;&lt;/script&gt;</span><span class="w">
+</span></span></span></code></pre></div></li>
+</ol>
+
+</main>
+
+<div class="discussion">
+  <script src="https://giscus.app/client.js" data-repo="Zwlin98/blog" data-repo-id="R_kgDOHXDxFA"
+    data-category="Announcements" data-category-id="DIC_kwDOHXDxFM4CPY5Q" data-mapping="og:title"
+    data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast"
+    data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async></script>
+</div>
+</div><footer>
+  <hr />
+  <small>
+    <span>
+      Copyright 2022-2024 <a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2023006518号</a>
+    </span>
+    <span>
+      All articles on this site are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a >
+    </span>
+  </small>
+</footer>
+</body>
+</html>

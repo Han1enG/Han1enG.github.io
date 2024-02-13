@@ -1,0 +1,193 @@
+body {
+  margin: 0 auto;
+  padding: 1em;
+  line-height: 1.5;
+  background: #fff;
+  max-width: 80ch;
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  text-align: left;
+}
+
+.lastmod {
+  color: #1e28ea;
+}
+
+.initpost {
+  color: #1e28ea;
+}
+
+.date {
+  margin-top: -0.5em;
+  color: #888;
+}
+
+ul {
+  padding-left: 1.5em;
+}
+
+a {
+  color: #1e28ea;
+  text-decoration: none;
+}
+
+a::before {
+  content: "[";
+  font-size: 1em;
+}
+
+a::after {
+  content: "]";
+  font-size: 1em;
+}
+
+.no-tag::after {
+  content: none;
+}
+
+.no-tag::before {
+  content: none;
+}
+
+.inspire a::after {
+  content: none;
+}
+
+.inspire a::before {
+  content: none;
+}
+
+.inspire ul {
+  list-style: none;
+  counter-reset: inspire-counter;
+  padding: 0;
+}
+
+.inspire li {
+  padding-left: 0;
+  margin-bottom: 0.2em;
+}
+
+.inspire li:before {
+  content: "[" counter(inspire-counter) "]   ";
+  counter-increment: inspire-counter;
+}
+
+img {
+  max-width: 100%;
+}
+
+th,
+td {
+  padding: 5px 10px;
+  border-bottom: 2px solid #ddd;
+}
+
+/* header and footer areas */
+.menu {
+  padding: 0;
+}
+
+.menu li {
+  display: inline-block;
+}
+
+.article-meta,
+.menu a {
+  text-decoration: none;
+  padding: 5px;
+}
+
+.title {
+  font-size: 1.1em;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+hr {
+  border-style: dashed;
+  color: #ddd;
+}
+
+.page-list {
+  list-style-type: decimal-leading-zero;
+}
+
+.page-list li {
+  padding: 5px;
+}
+
+.chroma {
+  overflow-x: scroll;
+  border-radius: 10px;
+}
+
+blockquote {
+  border-left: 3px solid #1e28ea;
+  padding: 0 1.4em;
+  color: #666;
+  margin: 0 2px;
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+#content {
+  position: relative;
+}
+
+.btw {
+  width: 25%;
+  right: 100%;
+  text-align: justify;
+  position: absolute;
+  padding-right: 1em;
+  color: #888;
+}
+
+.btw>p {
+  padding-top: 1px;
+  margin-top: 0px;
+  font-size: 80%;
+}
+
+@media screen and (max-width: 80ch) {
+  .btw {
+    font-size: 80%;
+    position: relative;
+    margin: 0.5em 0 0.5em auto;
+    padding: 0.2em 0.2em;
+    right: 0;
+    text-align: left;
+    width: initial;
+    max-width: 75%;
+  }
+
+  .btw>p {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+  }
+}
+
+em {
+  font-style: normal;
+  background-color: #fefad1;
+  color: #000;
+  border-bottom: 1px solid #f6de1a;
+}
+
+strong {
+  font-weight: bold;
+  color: #333;
+}
+
+code {
+  font-family: "Monaco", "Consolas", monospace;
+  font-size: 80%;
+  background-color: #eee9;
+  color: #333;
+  border-radius: 0.2em;
+}

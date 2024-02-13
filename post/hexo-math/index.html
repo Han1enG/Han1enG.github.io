@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Hexo 数学公式渲染(KaTeX)" />
+    <title>Hexo 数学公式渲染(KaTeX) | Cold World</title>
+    <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="/css/fonts.css" /> 
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+</head>
+<body><body>
+  <h1 class="site-title">Cold World</h1>
+  <nav>
+    <ul class="menu">
+      
+      <li><a class="no-tag" href="/">Posts</a></li>
+      
+      <li><a class="no-tag" href="/tags/">Tags</a></li>
+      
+      <li><a class="no-tag" href="/categories/">Categories</a></li>
+      
+      <li><a class="no-tag" href="/about/">About</a></li>
+      
+      <li><a class="no-tag" href="/index.xml">RSS</a></li>
+      
+    </ul>
+    <hr />
+  </nav>
+</body>
+<div id="content">
+<div>
+  <h1><span class="title">Hexo 数学公式渲染(KaTeX)</span></h1>
+  <h4 class="date">
+    <span class="initpost">Published at:</span> 2023/03/02
+    &nbsp;&nbsp;&nbsp;
+    <span class="lastmod">Last updated:</span> 2023/03/02
+  </h4>
+</div>
+
+<main>
+  <blockquote>
+<p>The <em>fastest</em> math typesetting library for the web.</p>
+</blockquote>
+<h2 id="katex">Katex</h2>
+<p>在网页中如何插入公式？如 $x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$</p>
+<p>一个办法是图片，但是极不方便，最好的办法还是用文字来描述数学公式，把渲染的工作交给引擎。<code>LaTeX</code>就是一个常用的排版工具，包括但不限于数学公式、表格、化学公式，而我们更多的需求是展示数学公式，所以只需要一个<code>LaTeX</code>的子集，能渲染数学公式即可，<a href="https://katex.org/">KaTeX</a>就是这样一个支持<code>HTML</code>的轻量级的数学公式引擎。</p>
+<h2 id="文件配置">文件配置</h2>
+<ol>
+<li>
+<p>打开主题配置文件<code>_config.butterfly.yml</code>，禁用<code>MathJax</code>，并修改 <code>KaTeX</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c"># MathJax</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w"></span><span class="nt">mathjax</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w">  </span><span class="nt">enable</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">  </span><span class="nt">per_page</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w"></span><span class="c"># KaTeX</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w"></span><span class="nt">katex</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">  </span><span class="nt">enable: true # false 需要時加載，須在使用的Markdown Front-matter 加上 katex</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">  </span><span class="nt">per_page</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">  </span><span class="nt">hide_scrollbar</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></div></li>
+<li>
+<p>卸載掉<code>marked</code>或者<code>kramed</code>插件，安裝<code>hexo-renderer-markdown-it</code>，可以在<code>package.json</code>文件中查看。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">npm un hexo-renderer-marked --save <span class="c1"># 卸载 marked 插件</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">npm un hexo-renderer-kramed --save <span class="c1"># 卸载 kramed 插件</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">npm i hexo-renderer-markdown-it --save <span class="c1"># 安装渲染插件</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">npm install katex @renbaoshuo/markdown-it-katex <span class="c1"># 安装渲染插件</span>
+</span></span></code></pre></div></li>
+<li>
+<p>在<code>hexo</code>的根目录的<code>_config.yml</code>中配置</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nt">markdown</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w">  </span><span class="nt">plugins</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w">    </span>- <span class="nt">plugin</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;@renbaoshuo/markdown-it-katex&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="w">      </span><span class="nt">enable</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="w">      </span><span class="nt">options</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="w">        </span><span class="nt">strict</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="c"># 禁用掉 KaTeX 在命令行上输出的宂长的警告信息</span><span class="w">
+</span></span></span></code></pre></div></li>
+<li>
+<p>配置成功后，在需要渲染的文章开头，添加参数 <code>katex: true</code> 即可</p>
+</li>
+</ol>
+
+</main>
+
+<div class="discussion">
+  <script src="https://giscus.app/client.js" data-repo="Zwlin98/blog" data-repo-id="R_kgDOHXDxFA"
+    data-category="Announcements" data-category-id="DIC_kwDOHXDxFM4CPY5Q" data-mapping="og:title"
+    data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast"
+    data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async></script>
+</div>
+</div><footer>
+  <hr />
+  <small>
+    <span>
+      Copyright 2022-2024 <a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2023006518号</a>
+    </span>
+    <span>
+      All articles on this site are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a >
+    </span>
+  </small>
+</footer>
+</body>
+</html>

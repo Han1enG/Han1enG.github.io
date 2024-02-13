@@ -1,0 +1,17 @@
+body {
+  font-family: 'Optima', 'Times New Roman', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif;
+}
+
+.highlight {
+  font-family: "Monaco", "Consolas", monospace;
+  font-size: 80%;
+}
+
+.site-title {
+  font-size: 2.4em;
+}
+
+nav {
+  font-size: 1.1em;
+}
+

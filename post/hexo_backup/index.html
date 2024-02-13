@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="利用Github分支备份Hexo博客源文件" />
+    <title>利用Github分支备份Hexo博客源文件 | Cold World</title>
+    <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="/css/fonts.css" /> 
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+</head>
+<body><body>
+  <h1 class="site-title">Cold World</h1>
+  <nav>
+    <ul class="menu">
+      
+      <li><a class="no-tag" href="/">Posts</a></li>
+      
+      <li><a class="no-tag" href="/tags/">Tags</a></li>
+      
+      <li><a class="no-tag" href="/categories/">Categories</a></li>
+      
+      <li><a class="no-tag" href="/about/">About</a></li>
+      
+      <li><a class="no-tag" href="/index.xml">RSS</a></li>
+      
+    </ul>
+    <hr />
+  </nav>
+</body>
+<div id="content">
+<div>
+  <h1><span class="title">利用Github分支备份Hexo博客源文件</span></h1>
+  <h4 class="date">
+    <span class="initpost">Published at:</span> 2023/03/03
+    &nbsp;&nbsp;&nbsp;
+    <span class="lastmod">Last updated:</span> 2023/03/03
+  </h4>
+</div>
+
+<main>
+  <h2 id="前言">前言</h2>
+<p>虽然<code>Hexo</code>部署博客很方便，但是当我们更换电脑时呢，在<code>github</code>中的其实只是在我们本地目录里的<code>.deploy_git</code>里面的内容，显然我们需要把源文件备份<code>push</code>到<code>github</code>上，这样只需要克隆到本地，简单配置后就可以了。</p>
+<h2 id="备份">备份</h2>
+<h3 id="新建分支">新建分支</h3>
+<p>在<code>Github</code>上的博客仓库下创建一个新的分支<code>hexo</code>，并且将这个分支设置为默认分支</p>
+<p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230303220318.png" alt="image-20230303220316508">
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230303220611.png" alt="image-20230303220610166"></p>
+<h3 id="克隆hexo分支">克隆<code>hexo</code>分支</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ git clone git@...git <span class="c1">#(github page 的仓库地址)</span>
+</span></span></code></pre></div><p>把克隆下来的文件夹中的<code>.git</code>文件复制到博客根目录下，如果没有找到<code>.git</code>文件，其实是被隐藏了
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230303221056.png" alt="image-20230303221055486"></p>
+<h3 id="开始备份">开始备份</h3>
+<p>进入到博客的根目录下<code>Git Bash</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ git add .
+</span></span><span class="line"><span class="ln">2</span><span class="cl">$ git commit -m <span class="s2">&#34;Backup&#34;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">$ git push origin hexo
+</span></span></code></pre></div><p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230303221458.png" alt="image-20230303221457304">
+此时可以在<code>Github</code>上发现完成备份。
+之后每次在更改后，可以执行以下命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ hexo clean
+</span></span><span class="line"><span class="ln">2</span><span class="cl">$ git add .
+</span></span><span class="line"><span class="ln">3</span><span class="cl">$ git commit -m <span class="s2">&#34;backup&#34;</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">$ git push
+</span></span><span class="line"><span class="ln">5</span><span class="cl">$ hexo g -d
+</span></span></code></pre></div><h2 id="本地恢复">本地恢复</h2>
+<ol>
+<li>
+<p>换一台电脑，配置好 <code>Hexo</code> 的环境，配置 <code>Git SSH key</code>，把博客源文件代码克隆下来:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ git clone git@...git <span class="c1"># (github page 的仓库地址)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>克隆后，默认分支是 <code>master</code>，需要切换到<code>hexo</code>分支（省略）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ git branch -a <span class="c1"># 查看所有分支</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">$ git checkout origin/hexo <span class="c1"># 切换到xxx分支</span>
+</span></span></code></pre></div></li>
+<li>
+<p>执行如下命令</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">npm install hexo-cli --save
+</span></span><span class="line"><span class="ln">2</span><span class="cl">npm install
+</span></span><span class="line"><span class="ln">3</span><span class="cl">npm install hexo-deployer-git --save
+</span></span></code></pre></div></li>
+</ol>
+
+</main>
+
+<div class="discussion">
+  <script src="https://giscus.app/client.js" data-repo="Zwlin98/blog" data-repo-id="R_kgDOHXDxFA"
+    data-category="Announcements" data-category-id="DIC_kwDOHXDxFM4CPY5Q" data-mapping="og:title"
+    data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast"
+    data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async></script>
+</div>
+</div><footer>
+  <hr />
+  <small>
+    <span>
+      Copyright 2022-2024 <a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2023006518号</a>
+    </span>
+    <span>
+      All articles on this site are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a >
+    </span>
+  </small>
+</footer>
+</body>
+</html>

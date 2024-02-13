@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="网站开启PJAX" />
+    <title>网站开启PJAX | Cold World</title>
+    <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="/css/fonts.css" /> 
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+</head>
+<body><body>
+  <h1 class="site-title">Cold World</h1>
+  <nav>
+    <ul class="menu">
+      
+      <li><a class="no-tag" href="/">Posts</a></li>
+      
+      <li><a class="no-tag" href="/tags/">Tags</a></li>
+      
+      <li><a class="no-tag" href="/categories/">Categories</a></li>
+      
+      <li><a class="no-tag" href="/about/">About</a></li>
+      
+      <li><a class="no-tag" href="/index.xml">RSS</a></li>
+      
+    </ul>
+    <hr />
+  </nav>
+</body>
+<div id="content">
+<div>
+  <h1><span class="title">网站开启PJAX</span></h1>
+  <h4 class="date">
+    <span class="initpost">Published at:</span> 2023/03/11
+    &nbsp;&nbsp;&nbsp;
+    <span class="lastmod">Last updated:</span> 2023/03/11
+  </h4>
+</div>
+
+<main>
+  <blockquote>
+<p>参考文章： <a href="https://paugram.com/coding/add-pjax-to-your-website.html">保罗 </a>   <a href="https://liuyib.github.io/2019/09/24/use-pjax-to-your-site/#%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8">云泥</a></p>
+</blockquote>
+<h2 id="ajax">AJAX</h2>
+<p><a href="https://www.runoob.com/ajax/ajax-intro.html"><code>AJAX</code></a> = 异步 <code>JavaScript</code> 和 <code>XML</code>，是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，<code>AJAX</code> 可以使网页实现异步更新。这意味着可以<strong>在不重新加载整个网页的情况下，对网页的某部分进行更新</strong>。传统的网页（不使用 <code>AJAX</code>）如果需要更新内容，必需重载整个网页面。有很多使用 AJAX 的应用程序案例，最常见的就是页面拉到底时浏览器会自动加载下一页的内容。</p>
+<h2 id="pjax">PJAX</h2>
+<p><code>PJAX = PushState + AJAX</code>，当用户点击链接发起请求时，<code>PJAX</code>  会拦截请求，然后触发 <code>Ajax</code> 请求和 <code>PushState</code>。其中，<code>Ajax</code> 使你的页面<strong>局部刷新</strong>，<code>pushState</code> 用于修改 <code>URL</code> 而不跳转页面，从而实现不跳转页面局部刷新的功能。可以提高用户体验，同时极大的减少服务器和宽带消耗。</p>
+<h2 id="butterfly--pjax">Butterfly + PJAX</h2>
+<h3 id="开启pjax">开启PJAX</h3>
+<p>在<code>Butterfly</code>主题中已经集成了<code>PJAX</code>，在主题配置文件<code>_config.butterfly.yml</code>中找到<code>Pjax</code>将<code>enable</code>设置为<code>true</code>即可。</p>
+<h3 id="重载-js">重载 JS</h3>
+<p>由于通过 <code>PJAX</code> 切换的页面并没有完全刷新，浏览器不会将网页从头执行一遍，因此有些 <code>JS</code> 将不会生效。为了保证功能不失效，需要重新再执行一次，即<strong>重载</strong>。</p>
+<p>在<code>Butterfly</code>主题中已经集成了解决方法在<code>pjax.pug</code>中，每次使用时在引入这些文件的标签上添加 <code>data-pjax</code> 属性</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nt">inject</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w">  </span><span class="nt">bottom</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w">    </span>- <span class="l">&lt;script data-pjax src=&#34;/js/ripples.js&#34;&gt;&lt;/script&gt;</span><span class="w">
+</span></span></span></code></pre></div>
+</main>
+
+<div class="discussion">
+  <script src="https://giscus.app/client.js" data-repo="Zwlin98/blog" data-repo-id="R_kgDOHXDxFA"
+    data-category="Announcements" data-category-id="DIC_kwDOHXDxFM4CPY5Q" data-mapping="og:title"
+    data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast"
+    data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async></script>
+</div>
+</div><footer>
+  <hr />
+  <small>
+    <span>
+      Copyright 2022-2024 <a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2023006518号</a>
+    </span>
+    <span>
+      All articles on this site are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a >
+    </span>
+  </small>
+</footer>
+</body>
+</html>

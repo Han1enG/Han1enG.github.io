@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C&#43;&#43; on Cold World</title>
+    <link>http://coldcoding.top/categories/c&#43;&#43;/</link>
+    <description>Recent content in C&#43;&#43; on Cold World</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Jan 2023 09:48:07 +0000</lastBuildDate>
+    <atom:link href="http://coldcoding.top/categories/c++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>first test</title>
+      <link>http://coldcoding.top/post/first-test/</link>
+      <pubDate>Sun, 01 Jan 2023 09:48:07 +0000</pubDate>
+      <guid>http://coldcoding.top/post/first-test/</guid>
+      <description>质数 质数和合数是针对所有大于 $1$ 的「自然数」来定义的（所有小于等于 $1$ 的数都不是质数）。 所有小于等于 $1$ 的整数既不是质数也不是合数。 质数的判定——</description>
+    </item>
+  </channel>
+</rss>

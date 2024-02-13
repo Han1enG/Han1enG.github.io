@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>域名 on Cold World</title>
+    <link>http://coldcoding.top/tags/%E5%9F%9F%E5%90%8D/</link>
+    <description>Recent content in 域名 on Cold World</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://coldcoding.top/tags/%E5%9F%9F%E5%90%8D/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GitHub Pages绑定个人域名失效</title>
+      <link>http://coldcoding.top/post/hexo-domainname/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://coldcoding.top/post/hexo-domainname/</guid>
+      <description>暂时将博客托管在了 GitHub Pages上，并将个人域名解析指向了博客，但是每次配置好 Custom domain，访问成功后，不知不觉又404了，查询后发现是每次</description>
+    </item>
+  </channel>
+</rss>

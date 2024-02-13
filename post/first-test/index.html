@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="first test" />
+    <title>first test | Cold World</title>
+    <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="/css/fonts.css" /> 
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+</head>
+<body><body>
+  <h1 class="site-title">Cold World</h1>
+  <nav>
+    <ul class="menu">
+      
+      <li><a class="no-tag" href="/">Posts</a></li>
+      
+      <li><a class="no-tag" href="/tags/">Tags</a></li>
+      
+      <li><a class="no-tag" href="/categories/">Categories</a></li>
+      
+      <li><a class="no-tag" href="/about/">About</a></li>
+      
+      <li><a class="no-tag" href="/index.xml">RSS</a></li>
+      
+    </ul>
+    <hr />
+  </nav>
+</body>
+<div id="content">
+<div>
+  <h1><span class="title">first test</span></h1>
+  <h4 class="date">
+    <span class="initpost">Published at:</span> 2023/01/01
+    &nbsp;&nbsp;&nbsp;
+    <span class="lastmod">Last updated:</span> 2023/01/01
+  </h4>
+</div>
+
+<main>
+  <h2 id="质数">质数</h2>
+<ol>
+<li>
+<p>质数和合数是针对所有大于 $1$ 的「自然数」来定义的（所有小于等于 $1$ 的数都不是质数）。</p>
+</li>
+<li>
+<p>所有小于等于 $1$ 的整数既不是质数也不是合数。</p>
+</li>
+<li>
+<p>质数的判定——试除法：</p>
+<p>$d | n$ 代表的含义是 $d$ 能整除 $n$。（这里的 <code>|</code> 代表整除）</p>
+<p>一个合数的约数总是成对出现的，如果 $d|n$，那么 $(n/d)|n$，因此我们判断一个数是否为质数的时候，只需要判断较小的那一个数能否整除 $n$ 就行了，即只需枚举 $d\le(n\div d)$，即 $d\times d\le n$，$d\le \sqrt{n}$ 就行了。</p>
+<p><code>sqrt(n)</code> 这个函数执行的时候<strong>比较慢</strong>。</p>
+<p>$i * i &lt;= n$ 又容易<strong>溢出</strong>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="kt">bool</span> <span class="nf">is_prime</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">i</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="c1">// x / i 是最快且最不容易爆炸的写法
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1"></span>    <span class="p">{</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl">    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">9</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>分解质因数——试除法（算数基本定理）</p>
+<p>算数基本定理：任何一个大于 $1$ 的自然数 $n$，如果 $n$ 不为质数，那么 $n$ 可以唯一分解成有限个质数的乘积 $n=P_1^{a1}P^{a2}_2P^{a3}_3\dots P^{an}_n$，这里 $P_1&lt;P_2&lt;P_3&lt;\dots &lt;P_n$ 均为质数，其中指数 $ai$ 是正整数。</p>
+<p>特别要注意——分解质因数与质因数不一样，分解质因数是一个过程，而质因数是一个数。</p>
+<p><strong>一个合数分解而成的质因数最多只包含一个大于 $\sqrt{n}$ 的质因数。</strong>（反证法，若 $n$ 可以被分解成两个大于 $\sqrt{n}$ 的质因数，则这两个质因数相乘的结果大于 $n$，与事实矛盾）</p>
+<p>当枚举到某一个数 $i$ 的时候，$n$ 的因子里面已经不包含 $[2,i−1]$ 里面的数（已经被除干净了），如果 $n | i$，则 $i$ 的因子里面也已经不包含 $[2,i−1]$ 里面的数，因此每次枚举的数都是质数。</p>
+<p>质因子（质因数）在数论里是指能整除给定正整数的质数。根据算术基本定理，不考虑排列顺序的情况下，每个正整数都能够以唯一的方式表示成它的质因数的乘积。</p>
+<p>两个没有共同质因子的正整数称为互质。因为 $1$ 没有质因子，$1$ 与任何正整数（包括 $1$ 本身）都是互质。</p>
+<p>只有一个质因子的正整数为质数。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">divide</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">i</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">            <span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">            <span class="k">while</span><span class="p">(</span><span class="n">x</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">x</span> <span class="o">/=</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="o">++</span> <span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// 大于sqrt(n)的数
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>筛质数（朴素筛法）</p>
+<p>步骤：把 $[2,n−1]$ 中的所有的数的倍数都标记上，最后没有被标记的数就是质数。</p>
+<p>原理：假定有一个数 $p$ 未被 $[2,p−1]$ 中的数标记过，那么说明，不存在 $[2,p−1]$ 中的任何一个数的倍数是 $p$，也就是说 $[2,p−1]$ 中不存在 $p$ 的约数，因此，根据质数的定义可知：$p$ 是质数。</p>
+<p>调和级数：当 $n$ 趋近于正无穷的时候，$\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\frac{1}{5}+\dots+\frac{1}{n}=\ln n+c$（$c$ 是欧拉常数，约等于 $0.577$ 左右）</p>
+<p>时间复杂度：约为 $O(n\log n)$（注：此处的 $\log$ 特指以 $2$ 为底）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="n">primes</span><span class="p">[</span><span class="n">N</span><span class="p">],</span> <span class="n">cnt</span><span class="p">;</span> <span class="c1">// primes[] 存储所有素数
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="n">st</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>         <span class="c1">// st[x] 存储 x 是否被筛掉
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kt">void</span> <span class="nf">get_primes</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>  
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">st</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="n">primes</span><span class="p">[</span><span class="n">cnt</span> <span class="o">++</span> <span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span> <span class="o">+=</span> <span class="n">i</span><span class="p">)</span> <span class="n">st</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> <span class="c1">// 筛掉 i 的倍数
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>埃氏筛（稍加优化版的筛法）</p>
+<p>质数定理：$1\sim n$ 中有 $n/ln\ n$个质数。</p>
+<p>步骤：在朴素筛法的过程中只用质数项去筛。原理其实很简单，所有的合数都可以用质因数的乘积来表示，所以我们只需要筛掉质数的倍数，合数自然也就被筛掉了。</p>
+<p>时间复杂度：$O(n\log(\log n))$。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="n">primes</span><span class="p">[</span><span class="n">N</span><span class="p">],</span> <span class="n">cnt</span><span class="p">;</span> <span class="c1">// primes[] 存储所有素数
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="n">st</span><span class="p">[</span><span class="n">N</span><span class="p">];</span> <span class="c1">// st[x] 存储 x 是否被筛掉
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kt">void</span> <span class="nf">get_primes</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">st</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="c1">// 没有被筛掉，也就是质数，把质数的倍数筛掉，而不去考虑合数的倍数
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span>        <span class="p">{</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">			<span class="n">primes</span><span class="p">[</span><span class="n">cnt</span> <span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">        	<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span> <span class="o">+=</span> <span class="n">i</span><span class="p">)</span> <span class="n">st</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> 
+</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>线性筛</p>
+<p>若 $n\approx10^6$，线性筛和埃氏筛的时间效率差不多，若 $n\approx10^7$，线性筛会比埃氏筛快了大概一倍。</p>
+<p>埃氏筛法尽管利用了质数的倍数一定不是质数来构造筛子，但还是有重复计算，如 $30$ 不是质数，在 $i = 2$时候，$2 * 15$ 被筛掉了一次，在 $i = 5$ 时候，$5 * 6$又被筛掉了一次，造成效率的浪费。</p>
+<p>我们在枚举倍数时，保证当前质数不能整除这个倍数就好了，当然了，在之前要先筛一次，也就是p是m的p，这样我们在最优性的条件下，对每一个质数，它所有对应的倍数，都被枚举到，也就保证了可行性。</p>
+<p>核心思想：<strong>所有的合数可以表示为两个或多个质数的积。</strong></p>
+<p>核心：<strong>$1\sim n$ 内的合数 $p$ 只会被其最小质因子筛掉。</strong>（算数基本定理）</p>
+<p>原理：$1\sim n$ 之内的任何一个合数一定会被筛掉，而且筛的时候只用最小质因子来筛，然后每一个数都只有一个最小质因子，因此每个数都只会被筛一次，因此线性筛法是线性的。</p>
+<p>枚举到 $i$ 的最小质因子的时候就会停下来，即 <code>if(i % primes[j] == 0) break;</code></p>
+<p>当 <code>i % primes[j] != 0</code> 时，<code>primes[j]</code> 一定小于 $i$ 的最小质因子，<code>primes[j]</code> 一定是 <code>primes[j]*i</code> 的最小质因子。
+当 <code>i % primes[j] == 0</code> 时，<code>primes[j]</code> 一定是 $i$ 的最小质因子，而 <code>primes[j]</code> 又是 <code>primes[j]</code> 的最小质因子，因此 <code>primes[j]</code> 是 <code>primes[j]*i</code> 的最小质因子。</p>
+<p>里面关键就是那个 $break$，如果不 $break$，就是再往大里枚举，那么以后枚举到的质数，一定不是最小质数，因为它都比当前质数大了，怎么可能最小，最小也只可能是当前的质数，从而实现了优化。</p>
+<p>$a$  $\times$  $prime[x]\leqslant n$</p>
+</li>
+</ol>
+<p>​											http://t.zoukankan.com/cyanigence-oi-p-11716066.html</p>
+<p><strong>一个性质：任何一个合数 $n$ 必定包含一个不超过($\sqrt{n}$)的质因子。（待证）</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="n">primes</span><span class="p">[</span><span class="n">N</span><span class="p">],</span> <span class="n">cnt</span><span class="p">;</span> <span class="c1">// primes[]存储所有素数
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="n">st</span><span class="p">[</span><span class="n">N</span><span class="p">];</span> <span class="c1">// st[x]存储x是否被筛掉
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kt">void</span> <span class="nf">get_primes</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">st</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="n">primes</span><span class="p">[</span><span class="n">cnt</span> <span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="c1">// j &lt; cnt 不必要，因为 primes[cnt - 1] = 当前最大质数
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span>        <span class="c1">// 如果 i 不是质数，肯定会在中间就 break 掉
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span>        <span class="c1">// 如果 i 是质数，那么 primes[cnt - 1] = i，也保证了 j &lt; cnt
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="c1"></span>        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">primes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="o">/</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span> <span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">            <span class="n">st</span><span class="p">[</span><span class="n">primes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="n">primes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">            <span class="c1">//如果i是前面某个质数的倍数时, 说明i以后会由某个更大的数乘这个小质数筛去
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="c1"></span>            <span class="c1">//同理, 之后的质数也是没有必要的, 因此在这个时候, 就可以跳出循环了
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="完全平方数">完全平方数</h2>
+<ol>
+<li>一个整数 $a$ 是一个完全平方数，是指它是某一个整数的平方，即存在一个整数 $b$ ，使得 $a=b^2$</li>
+<li>一个正整数如果是完全平方数，那么它的质因数一定全部都是是偶数次。
+例如                               $36 = 2^2 * 3^2$          $ 900 = 2^2 * 3^2 * 5^2$</li>
+<li>一个非完全平方数则至少有一个是奇数次的质因数。
+例如                                                $18 = 2^1 * 3^2$
+若使 $18$ 变为完全平方数，就要使得奇数次变为偶数次，这里就可以乘以一个 $2$ 使得 $2^1$ 变为 $2^2$，最后得到的 $18 * 2 = 36$ 就是我们需要的完全平方数。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// 给定一个正整数 n，请找到最小的正整数 x，使得它们的乘积是一个完全平方数。
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1">// 我们先筛掉所有的偶数次的质因数，然后剩下的就是奇数次的质因数，或者是 1 ，就是我们要的结果
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">LL</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="n">LL</span> <span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">	<span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%lld&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="n">LL</span> <span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="o">/</span><span class="n">i</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    	<span class="k">while</span><span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">n</span> <span class="o">/=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%lld&#34;</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="多重集合的排列数问题">多重集合的排列数问题</h2>
+<p>排列数公式：
+$$
+\frac{(\alpha1+\alpha2+&hellip;+\alpha k)!}{\alpha_1!\cdot\alpha_2!\cdot&hellip;\cdot\alpha_k!}
+$$</p>
+<h2 id="约数">约数</h2>
+<blockquote>
+<p>算数基本定理：任何一个大于 $1$ 的自然数 $n$，如果 $n$ 不为质数，那么 $n$ 可以唯一分解成有限个质数的乘积 $n=P_1^{\alpha_1}P^{\alpha_2}_2P^{\alpha_3}_3\dots P^{\alpha_n}_n$，这里 $P_1&lt;P_2&lt;P_3&lt;\dots &lt;P_n$ 均为质数，其中指数 $\alpha_i$ 是正整数。</p>
+</blockquote>
+<p>eg：</p>
+<ol>
+<li>$12(1, 2, 3, 4, 6, 12)$</li>
+<li>$12 = 2^2\times3^1$</li>
+</ol>
+<h3 id="约数的个数">约数的个数</h3>
+<blockquote>
+<p>$cnt = (\alpha_1 + 1)\times(\alpha_2 + 1)\dots (\alpha_k + 1)$</p>
+</blockquote>
+<p>$eg:$</p>
+<p>​	$cnt = (2 + 1) \times (1 + 1) = 3 \times 2  = 6$</p>
+<h3 id="约数的和">约数的和</h3>
+<blockquote>
+<p>$sum = (P_1^0 + P_1^1 + P_1^2 +\dots + P_1^{\alpha_1})\times(P_2^0 + P_2^1 + P_2^2 +\dots + P_2^{\alpha_2})\times\dots(P_k^0 + P_k^1 + P_k^2 +\dots + P_k^{\alpha_k})$</p>
+</blockquote>
+<p>$eg:$</p>
+<p>​	$sum = (1 + 2^1 + 2^2) \times (1 + 3^1) = 7 \times 4 = 28$</p>
+<p>​	其实也就是排列组合，2 可以取 0 次，1 次，2 次，3 可以取 0 次，1 次。
+$$
+问题:\ 给定一个数\ 1\ ≤\ sum\ ≤\ 2\times10^9,\ 找出所有约数和等于\ sum\ 的数。
+$$
+分析：</p>
+<p>​	问题就是找到某个数，使得它的约数之和为 $sum$</p>
+<ol>
+<li>
+<p>可以首先粗略的估计一下有多少个形如 $(P_1^0 + P_1^1 + P_1^2 +\dots + P_1^{\alpha_1})$ 的项
+$(1 + 2)\times(1 + 3)\times(1 + 5) \times(1 + 7)\times(1 + 11)\times(1 + 13)\times(1 + 17)\times(1 + 19)\times(1+21)\times(1+23)$
+$= 3\times4\times6\times8\times12\times14\times18\times20\times22\times24$
+$= 18\times10^9$
+$&gt;\ 2\ \times10^9$
+所以大概不会超过 10 项，那么这道题可以用 dfs 来爆搜每一个 $P_i$ 和 $\alpha_i$，递归深度不超过 10 层。但是需要剪枝，不然每一层都从 2 开始枚举，时间复杂度仍然是很高的。</p>
+</li>
+<li>
+<p>$sum$ 一般情况下只有两种情况：</p>
+<ol>
+<li>
+<p>$sum = (1 + P_1)(1 + P_2 +\dots)\dots$</p>
+<p>如果$(P_1 &gt; =\sqrt {sum})$ ， 那么一定有 $(1 + P_1)(1 + P_2) &gt; (1 + P_1)^2 &gt; P_1^2&gt;=sum$
+所以 $P_1 &lt;= \sqrt{sum}$</p>
+</li>
+<li>
+<p>$sum = (1 + P_1 + P_1^2 + \dots)(1 + \dots) &gt; P_1^2$
+如果 $P_1 &gt; =\sqrt {sum}$ ，那么一定有 $1 + P_1 + P_1^2 &gt; P_1^2 &gt;= sum$
+所以  $P_1 &lt;= \sqrt{sum}$</p>
+</li>
+</ol>
+<blockquote>
+<p>特判：<strong>如果有 $P_1 &gt; =\sqrt {sum}$，那么一定有 $sum = 1 + P_1$</strong></p>
+<p>若存在 $P_i &gt;= \sqrt {sum},\ P_j&gt;= \sqrt {sum}$，且 $P_i &lt; P_j$，</p>
+<p>那么根据上面的结论一定有 $sum = 1 + P_i,\ sum = 1 + P_j$，得到$P_i = P_j$，与条件相悖</p>
+<p>所以如果存在一个 $P_1 ≥ \sqrt{sum} \ 且满足\ s = 1 + P_1$，那么有且仅有 $P1$ 这一个。</p>
+<p>当 $\alpha_1 = 1$ 时候，且 $sum = 1 + P_1$ ，那么只需要判断 $sum - 1$ 是不是质数即可。
+比如 $s = 12$，$s - 1 = 11$，如果 $s - 1$ 是质数，那么只有 $1$  和本身，相加一定等于 $s$ ，反过来一样的，如果 $s - 1$ 是质数，那么只有 $1$ 和 $s - 1$ 两个约数，相加后一定为 $s$ 。</p>
+</blockquote>
+<p>其实对于每一层的 $sum$，我们都是搜索 $P_1$，然后用 $sum$ 来除以该项，得到：
+$$
+\frac {sum}{1 + P_1^1 +\dots+P_1^{\alpha_1}}
+$$
+整个过程就是能不能找到符合条件的 $(1 + P_1 + P_1^2 + \dots + P_1^{\alpha_1})$ 能够使得
+$$
+sum %(1 + P_1 + P_1^2 + \dots + P_1^{\alpha_1}) == 0
+$$</p>
+<p>有的话，我们就 $sum /= (1 + P_1 + P_1^2 + \dots + P_k^{\alpha_1})$ 再 <strong>dfs</strong> 到下一层。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">for</span><span class="p">(</span><span class="nl">primes</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,...)</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="err">α</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,...)</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">sum</span> <span class="n">mod</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">p1</span><span class="o">+</span><span class="n">p1</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="p">...</span><span class="o">+</span><span class="n">p1</span><span class="o">^</span><span class="err">α</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">            <span class="n">dfs</span><span class="p">(</span><span class="err">下一层</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p><code>dfs(int last, int prod, int s)</code>的三个参数</p>
+<ol>
+<li><code>last</code>
+表示上一个枚举的质数，避免重复，例如，枚举 2 之后再 dfs 到下一层，就应该从 3 开始，而不是从头开始枚举。</li>
+<li><code>prod</code>
+表示 $sum = (P_1^0 + P_1^1 +\dots + P_1^{\alpha_1})\times(P_2^0 + P_2^1 +\dots + P_2^{\alpha_2})\times\dots(P_k^0 + P_k^1+\dots + P_k^{\alpha_k})$ 当前进行到哪一个括号里面的最高次项 $P_i^{\alpha_i}$ 的乘积和，例如 $sum = (1 + 2 + 2^2)\times(1 + 3 + 3^3)(1 + \dots)$，那么 $dfs$ 到第三层的时候，$prod = 2^2 \times 3^3$
+由算术基本定理可知，一个数 $N = P_1^{\alpha_1}\times P_2^{\alpha_2}\times\dots\times P_k^{\alpha_k}$，
+我们求得的 $prod$ 存放的就是这样的乘积，这个乘积也就是答案。
+eg:
+我们要判断一个数 $N$ 的约数之和是否是我们需要的.
+由  $N = P_1^{\alpha_1}\times P_2^{\alpha_2}\times\dots\times P_k^{\alpha_k}$
+可以得到：$12 = 2^2\times 3^1$
+由  $sum = (P_1^0 + P_1^1 +\dots + P_1^{\alpha_1})\times(P_2^0 + P_2^1 +\dots + P_2^{\alpha_2})\times\dots(P_k^0 + P_k^1+\dots + P_k^{\alpha_k})$
+可以得到：$sum = (1 + 2 + 2^2)\times(1 + 3)$
+所以可以根据 $sum$ 中每一项的最高次项的乘积得到答案 N</li>
+<li><code>s</code>
+当 $s == 1$ 的时候，表示已经搜完了最后一个项，保存答案后返回。
+特判 $P_i &gt;= \sqrt s $ 的情况，如果 $s - 1 = P_i$ 那么保存答案
+剩下的就是 $P_i &lt; \sqrt s $ 的一般情况，每次找到可以整除的项就递归到下一层，此时 $s$ 更新为整除后的值</li>
+</ol>
+</li>
+</ol>
+<h3 id="code">Code</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="k">const</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">50000</span><span class="p">;</span> <span class="c1">// N = sqrt(2e9)
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">primes</span><span class="p">[</span><span class="n">N</span><span class="p">],</span> <span class="n">cnt</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="kt">bool</span> <span class="n">st</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="kt">int</span> <span class="n">ans</span><span class="p">[</span><span class="n">N</span><span class="p">],</span> <span class="n">len</span><span class="p">;</span> <span class="c1">// 保存答案和答案个数
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="kt">void</span> <span class="nf">get_primes</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="c1">// 线性筛质数
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="c1"></span><span class="p">{</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">st</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="n">primes</span><span class="p">[</span><span class="n">cnt</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">*</span><span class="n">primes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">            <span class="n">st</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">primes</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="n">primes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">
+</span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="kt">bool</span> <span class="nf">is_prime</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="c1">// 判断是否是质数
+</span></span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="c1"></span><span class="p">{</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">)</span> <span class="k">return</span> <span class="o">!</span><span class="n">st</span><span class="p">[</span><span class="n">n</span><span class="p">];</span> <span class="c1">// 如果没有没筛掉，说明是质数
+</span></span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="c1"></span>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">primes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">n</span><span class="o">/</span><span class="n">primes</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="n">primes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">
+</span></span><span class="line"><span class="ln">34</span><span class="cl"><span class="c1">// last 表示当前要从哪个质数的下标开始枚举，prod 表示要找的答案的部分质数乘积，s 表示当前要分解约数和
+</span></span></span><span class="line"><span class="ln">35</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">last</span><span class="p">,</span> <span class="kt">int</span> <span class="n">prod</span><span class="p">,</span> <span class="kt">int</span> <span class="n">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">36</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln">37</span><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">// 如果分解到最后只剩下一个 1，那么分解结束，返回
+</span></span></span><span class="line"><span class="ln">38</span><span class="cl"><span class="c1"></span>    <span class="p">{</span>
+</span></span><span class="line"><span class="ln">39</span><span class="cl">        <span class="n">ans</span><span class="p">[</span><span class="n">len</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">prod</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">40</span><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">41</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">42</span><span class="cl">
+</span></span><span class="line"><span class="ln">43</span><span class="cl">    <span class="c1">// 首先特判一下 P1 &gt;= sqrt(s), s - 1 = P1 的情况,等价于判断 s - 1 是不是质数，如果是的话，那么 s - 1 就是一种答案
+</span></span></span><span class="line"><span class="ln">44</span><span class="cl"><span class="c1"></span>    <span class="k">if</span><span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">last</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="n">primes</span><span class="p">[</span><span class="n">last</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="c1">// 不仅要是质数，还要是大于上一层质数的质数 
+</span></span></span><span class="line"><span class="ln">45</span><span class="cl"><span class="c1"></span>        <span class="n">ans</span><span class="p">[</span><span class="n">len</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">prod</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">46</span><span class="cl">
+</span></span><span class="line"><span class="ln">47</span><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">last</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">primes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">s</span><span class="o">/</span><span class="n">primes</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="c1">// 从下一个质数开始枚举
+</span></span></span><span class="line"><span class="ln">48</span><span class="cl"><span class="c1"></span>    <span class="p">{</span>
+</span></span><span class="line"><span class="ln">49</span><span class="cl">        <span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="n">primes</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> 
+</span></span><span class="line"><span class="ln">50</span><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="o">+</span><span class="n">p</span><span class="p">,</span><span class="n">t</span><span class="o">=</span><span class="n">p</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;=</span><span class="n">s</span><span class="p">;</span> <span class="n">t</span><span class="o">*=</span><span class="n">p</span><span class="p">,</span><span class="n">j</span><span class="o">+=</span><span class="n">t</span><span class="p">)</span> <span class="c1">//  // j == 1 + Pi^1 + Pi^2 + ... + Pi^αi
+</span></span></span><span class="line"><span class="ln">51</span><span class="cl"><span class="c1"></span>        <span class="p">{</span>
+</span></span><span class="line"><span class="ln">52</span><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">s</span> <span class="o">%</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">prod</span> <span class="o">*</span> <span class="n">t</span><span class="p">,</span> <span class="n">s</span> <span class="o">/</span> <span class="n">j</span><span class="p">);</span> <span class="c1">// 当 j 是 s 的某一项的时候，递归到下一层
+</span></span></span><span class="line"><span class="ln">53</span><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">54</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">55</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">56</span><span class="cl">
+</span></span><span class="line"><span class="ln">57</span><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">58</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln">59</span><span class="cl">    <span class="n">get_primes</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">60</span><span class="cl">
+</span></span><span class="line"><span class="ln">61</span><span class="cl">    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">62</span><span class="cl">    <span class="k">while</span><span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">63</span><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="ln">64</span><span class="cl">        <span class="n">len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">65</span><span class="cl">        <span class="n">dfs</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">66</span><span class="cl">
+</span></span><span class="line"><span class="ln">67</span><span class="cl">        <span class="c1">// 搜索完之后，把答案排序
+</span></span></span><span class="line"><span class="ln">68</span><span class="cl"><span class="c1"></span>        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">len</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">69</span><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">len</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">70</span><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="ln">71</span><span class="cl">            <span class="n">sort</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span> <span class="n">ans</span> <span class="o">+</span> <span class="n">len</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">72</span><span class="cl">            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">len</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ans</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">73</span><span class="cl">            <span class="n">puts</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">74</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">75</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">76</span><span class="cl">
+</span></span><span class="line"><span class="ln">77</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">78</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+</main>
+
+<div class="discussion">
+  <script src="https://giscus.app/client.js" data-repo="Zwlin98/blog" data-repo-id="R_kgDOHXDxFA"
+    data-category="Announcements" data-category-id="DIC_kwDOHXDxFM4CPY5Q" data-mapping="og:title"
+    data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast"
+    data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async></script>
+</div>
+</div><footer>
+  <hr />
+  <small>
+    <span>
+      Copyright 2022-2024 <a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2023006518号</a>
+    </span>
+    <span>
+      All articles on this site are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a >
+    </span>
+  </small>
+</footer>
+</body>
+</html>

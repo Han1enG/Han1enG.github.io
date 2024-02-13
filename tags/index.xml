@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Cold World</title>
+    <link>http://coldcoding.top/tags/</link>
+    <description>Recent content in Tags on Cold World</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 19 Mar 2023 11:29:44 +0000</lastBuildDate>
+    <atom:link href="http://coldcoding.top/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hexo</title>
+      <link>http://coldcoding.top/tags/hexo/</link>
+      <pubDate>Sun, 19 Mar 2023 11:29:44 +0000</pubDate>
+      <guid>http://coldcoding.top/tags/hexo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>http://coldcoding.top/tags/linux/</link>
+      <pubDate>Sun, 19 Mar 2023 11:29:44 +0000</pubDate>
+      <guid>http://coldcoding.top/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pjax</title>
+      <link>http://coldcoding.top/tags/pjax/</link>
+      <pubDate>Sat, 11 Mar 2023 16:20:04 +0000</pubDate>
+      <guid>http://coldcoding.top/tags/pjax/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ajax</title>
+      <link>http://coldcoding.top/tags/ajax/</link>
+      <pubDate>Sat, 11 Mar 2023 14:48:04 +0000</pubDate>
+      <guid>http://coldcoding.top/tags/ajax/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Angular</title>
+      <link>http://coldcoding.top/tags/angular/</link>
+      <pubDate>Tue, 07 Mar 2023 20:21:30 +0000</pubDate>
+      <guid>http://coldcoding.top/tags/angular/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Life</title>
+      <link>http://coldcoding.top/tags/life/</link>
+      <pubDate>Mon, 06 Mar 2023 20:22:39 +0000</pubDate>
+      <guid>http://coldcoding.top/tags/life/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Github</title>
+      <link>http://coldcoding.top/tags/github/</link>
+      <pubDate>Fri, 03 Mar 2023 21:41:58 +0000</pubDate>
+      <guid>http://coldcoding.top/tags/github/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Latex</title>
+      <link>http://coldcoding.top/tags/latex/</link>
+      <pubDate>Thu, 02 Mar 2023 17:03:10 +0000</pubDate>
+      <guid>http://coldcoding.top/tags/latex/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>algorithm</title>
+      <link>http://coldcoding.top/tags/algorithm/</link>
+      <pubDate>Sun, 01 Jan 2023 09:48:07 +0000</pubDate>
+      <guid>http://coldcoding.top/tags/algorithm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>域名</title>
+      <link>http://coldcoding.top/tags/%E5%9F%9F%E5%90%8D/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://coldcoding.top/tags/%E5%9F%9F%E5%90%8D/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

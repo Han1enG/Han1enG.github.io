@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Cold World</title>
+    <link>http://coldcoding.top/tags/linux/</link>
+    <description>Recent content in Linux on Cold World</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 19 Mar 2023 11:29:44 +0000</lastBuildDate>
+    <atom:link href="http://coldcoding.top/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hexo 部署到服务器</title>
+      <link>http://coldcoding.top/post/hexo-centos/</link>
+      <pubDate>Sun, 19 Mar 2023 11:29:44 +0000</pubDate>
+      <guid>http://coldcoding.top/post/hexo-centos/</guid>
+      <description>GitHub Pages 实在太慢了，科学上网有时候也卡住。 搭建Git服务器 首先使用 Xshell连接服务器，并切换 root用户，回退到根路径 安装 openssh 1sudo apt-get install openssh-server # Ubuntu 2sudo yum</description>
+    </item>
+  </channel>
+</rss>

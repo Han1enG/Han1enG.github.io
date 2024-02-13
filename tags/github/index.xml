@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github on Cold World</title>
+    <link>http://coldcoding.top/tags/github/</link>
+    <description>Recent content in Github on Cold World</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Mar 2023 21:41:58 +0000</lastBuildDate>
+    <atom:link href="http://coldcoding.top/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>利用Github分支备份Hexo博客源文件</title>
+      <link>http://coldcoding.top/post/hexo_backup/</link>
+      <pubDate>Fri, 03 Mar 2023 21:41:58 +0000</pubDate>
+      <guid>http://coldcoding.top/post/hexo_backup/</guid>
+      <description>前言 虽然Hexo部署博客很方便，但是当我们更换电脑时呢，在github中的其实只是在我们本地目录里的.deploy_git里面的内容，显然我</description>
+    </item>
+  </channel>
+</rss>

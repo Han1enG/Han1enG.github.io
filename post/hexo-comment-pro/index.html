@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="twikoo评论的气泡美化" />
+    <title>twikoo评论的气泡美化 | Cold World</title>
+    <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="/css/fonts.css" /> 
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+</head>
+<body><body>
+  <h1 class="site-title">Cold World</h1>
+  <nav>
+    <ul class="menu">
+      
+      <li><a class="no-tag" href="/">Posts</a></li>
+      
+      <li><a class="no-tag" href="/tags/">Tags</a></li>
+      
+      <li><a class="no-tag" href="/categories/">Categories</a></li>
+      
+      <li><a class="no-tag" href="/about/">About</a></li>
+      
+      <li><a class="no-tag" href="/index.xml">RSS</a></li>
+      
+    </ul>
+    <hr />
+  </nav>
+</body>
+<div id="content">
+<div>
+  <h1><span class="title">twikoo评论的气泡美化</span></h1>
+  <h4 class="date">
+    <span class="initpost">Published at:</span> 0001/01/01
+    &nbsp;&nbsp;&nbsp;
+    <span class="lastmod">Last updated:</span> 0001/01/01
+  </h4>
+</div>
+
+<main>
+  <blockquote>
+<p>参考<a href="https://blog.shineyu.cn/twikoo-css-tutorial.html">教程</a></p>
+</blockquote>
+<ol>
+<li>
+<p>新建<code>source\css\twikoo.css</code>文件，添加代码</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c">/* 设置文字内容 :nth-child(1)的作用是选择第几个 */</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">.</span><span class="nc">el-input</span><span class="p">.</span><span class="nc">el-input--small</span><span class="p">.</span><span class="nc">el-input-group</span><span class="p">.</span><span class="nc">el-input-group--prepend</span><span class="p">:</span><span class="nd">nth-child</span><span class="o">(</span><span class="nt">1</span><span class="o">)</span><span class="p">:</span><span class="nd">before</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="k">content</span><span class="p">:</span> <span class="s1">&#39;输入QQ号会自动获取昵称和头像🐧&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="p">.</span><span class="nc">el-input</span><span class="p">.</span><span class="nc">el-input--small</span><span class="p">.</span><span class="nc">el-input-group</span><span class="p">.</span><span class="nc">el-input-group--prepend</span><span class="p">:</span><span class="nd">nth-child</span><span class="o">(</span><span class="nt">2</span><span class="o">)</span><span class="p">:</span><span class="nd">before</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="k">content</span><span class="p">:</span> <span class="s1">&#39;收到回复将会发送到您的邮箱📧&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="p">.</span><span class="nc">el-input</span><span class="p">.</span><span class="nc">el-input--small</span><span class="p">.</span><span class="nc">el-input-group</span><span class="p">.</span><span class="nc">el-input-group--prepend</span><span class="p">:</span><span class="nd">nth-child</span><span class="o">(</span><span class="nt">3</span><span class="o">)</span><span class="p">:</span><span class="nd">before</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="k">content</span><span class="p">:</span> <span class="s1">&#39;可以通过昵称访问您的网站🔗&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="c">/* 当用户点击输入框时显示 */</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="p">.</span><span class="nc">el-input</span><span class="p">.</span><span class="nc">el-input--small</span><span class="p">.</span><span class="nc">el-input-group</span><span class="p">.</span><span class="nc">el-input-group--prepend</span><span class="p">:</span><span class="nd">focus-within</span><span class="p">::</span><span class="nd">before</span><span class="o">,</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="p">.</span><span class="nc">el-input</span><span class="p">.</span><span class="nc">el-input--small</span><span class="p">.</span><span class="nc">el-input-group</span><span class="p">.</span><span class="nc">el-input-group--prepend</span><span class="p">:</span><span class="nd">focus-within</span><span class="p">::</span><span class="nd">after</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="k">display</span><span class="p">:</span> <span class="kc">block</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">
+</span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="c">/* 主内容区 */</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="p">.</span><span class="nc">el-input</span><span class="p">.</span><span class="nc">el-input--small</span><span class="p">.</span><span class="nc">el-input-group</span><span class="p">.</span><span class="nc">el-input-group--prepend</span><span class="p">::</span><span class="nd">before</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="c">/* 先隐藏起来 */</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="k">display</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="c">/* 绝对定位 */</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">    <span class="c">/* 向上移动60像素 */</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">    <span class="k">top</span><span class="p">:</span> <span class="mi">-60</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="c">/* 文字强制不换行，防止left:50%导致的文字换行 */</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">    <span class="k">white-space</span><span class="p">:</span> <span class="kc">nowrap</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">    <span class="c">/* 圆角 */</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">    <span class="k">border-radius</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">    <span class="c">/* 距离左边50% */</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">    <span class="k">left</span><span class="p">:</span> <span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl">    <span class="c">/* 然后再向左边挪动自身的一半，即可实现居中 */</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl">    <span class="k">transform</span><span class="p">:</span> <span class="nb">translate</span><span class="p">(</span><span class="mi">-50</span><span class="kt">%</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">36</span><span class="cl">    <span class="c">/* 填充 */</span>
+</span></span><span class="line"><span class="ln">37</span><span class="cl">    <span class="k">padding</span><span class="p">:</span> <span class="mi">14</span><span class="kt">px</span> <span class="mi">18</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">38</span><span class="cl">    <span class="k">background</span><span class="p">:</span> <span class="mh">#444</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">39</span><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="mh">#fff</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">40</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">41</span><span class="cl">
+</span></span><span class="line"><span class="ln">42</span><span class="cl"><span class="c">/* 小角标 */</span>
+</span></span><span class="line"><span class="ln">43</span><span class="cl"><span class="p">.</span><span class="nc">el-input</span><span class="p">.</span><span class="nc">el-input--small</span><span class="p">.</span><span class="nc">el-input-group</span><span class="p">.</span><span class="nc">el-input-group--prepend</span><span class="p">::</span><span class="nd">after</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">44</span><span class="cl">    <span class="k">display</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">45</span><span class="cl">    <span class="k">content</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">46</span><span class="cl">    <span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">47</span><span class="cl">    <span class="c">/* 内容大小（宽高）为0且边框大小不为0的情况下，每一条边（4个边）都是一个三角形，组成一个正方形。
+</span></span></span><span class="line"><span class="ln">48</span><span class="cl"><span class="c">    我们先将所有边框透明，再给其中的一条边添加颜色就可以实现小三角图标 */</span>
+</span></span><span class="line"><span class="ln">49</span><span class="cl">    <span class="k">border</span><span class="p">:</span> <span class="mi">12</span><span class="kt">px</span> <span class="kc">solid</span> <span class="kc">transparent</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">50</span><span class="cl">    <span class="k">border-top-color</span><span class="p">:</span> <span class="mh">#444</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">51</span><span class="cl">    <span class="k">left</span><span class="p">:</span> <span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">52</span><span class="cl">    <span class="k">transform</span><span class="p">:</span> <span class="nb">translate</span><span class="p">(</span><span class="mi">-50</span><span class="kt">%</span><span class="p">,</span> <span class="mi">-48</span><span class="kt">px</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">53</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">54</span><span class="cl">
+</span></span><span class="line"><span class="ln">55</span><span class="cl"><span class="c">/************ twikoo评论中的背景框样式调整 ************/</span>
+</span></span><span class="line"><span class="ln">56</span><span class="cl"><span class="p">#</span><span class="nn">twikoo</span> <span class="p">.</span><span class="nc">tk-content</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">57</span><span class="cl">    <span class="k">background</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="mi">235</span> <span class="mi">235</span> <span class="mi">235</span> <span class="o">/</span> <span class="mi">60</span><span class="kt">%</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">58</span><span class="cl">    <span class="k">padding</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">59</span><span class="cl">    <span class="k">border-radius</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">60</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">61</span><span class="cl">
+</span></span><span class="line"><span class="ln">62</span><span class="cl"><span class="p">.</span><span class="nc">tk-content</span> <span class="o">*</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">63</span><span class="cl">    <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">64</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">65</span><span class="cl"><span class="c">/************ twikoo评论中的背景框样式调整 ************/</span>
+</span></span><span class="line"><span class="ln">66</span><span class="cl">
+</span></span><span class="line"><span class="ln">67</span><span class="cl"><span class="c">/* 收起/展开的长条按钮样式 */</span>
+</span></span><span class="line"><span class="ln">68</span><span class="cl"><span class="p">.</span><span class="nc">tk-expand</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">69</span><span class="cl">  <span class="k">background</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">card</span><span class="o">-</span><span class="n">bg</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">70</span><span class="cl">  <span class="k">border</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span> <span class="mh">#e0e3ed</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">71</span><span class="cl">  <span class="k">box-shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">5</span><span class="kt">px</span> <span class="mi">10</span><span class="kt">px</span> <span class="nb">rgb</span><span class="p">(</span><span class="mi">189</span> <span class="mi">189</span> <span class="mi">189</span> <span class="o">/</span> <span class="mi">10</span><span class="kt">%</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">72</span><span class="cl">  <span class="k">transition</span><span class="p">:</span> <span class="kc">all</span> <span class="mf">.3</span><span class="kt">s</span> <span class="kc">ease-in-out</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">73</span><span class="cl">  <span class="k">border-radius</span><span class="p">:</span> <span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">74</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>在 <code>_config.butterfly.yml </code>主题配置文件中的<code>head</code>处引入<code>css</code>文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="l">&lt;link rel=&#34;stylesheet&#34; href=&#34;/css/twikoo.css&#34;&gt; </span><span class="w"> </span><span class="c"># twikoo评论的气泡美化</span><span class="w">
+</span></span></span></code></pre></div></li>
+<li>
+<p><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code>重新部署即可。</p>
+</li>
+</ol>
+
+</main>
+
+<div class="discussion">
+  <script src="https://giscus.app/client.js" data-repo="Zwlin98/blog" data-repo-id="R_kgDOHXDxFA"
+    data-category="Announcements" data-category-id="DIC_kwDOHXDxFM4CPY5Q" data-mapping="og:title"
+    data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast"
+    data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async></script>
+</div>
+</div><footer>
+  <hr />
+  <small>
+    <span>
+      Copyright 2022-2024 <a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2023006518号</a>
+    </span>
+    <span>
+      All articles on this site are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a >
+    </span>
+  </small>
+</footer>
+</body>
+</html>

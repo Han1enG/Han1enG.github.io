@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Latex on Cold World</title>
+    <link>http://coldcoding.top/tags/latex/</link>
+    <description>Recent content in Latex on Cold World</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 Mar 2023 17:03:10 +0000</lastBuildDate>
+    <atom:link href="http://coldcoding.top/tags/latex/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hexo 数学公式渲染(KaTeX)</title>
+      <link>http://coldcoding.top/post/hexo-math/</link>
+      <pubDate>Thu, 02 Mar 2023 17:03:10 +0000</pubDate>
+      <guid>http://coldcoding.top/post/hexo-math/</guid>
+      <description>The fastest math typesetting library for the web. Katex 在网页中如何插入公式？如 $x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$ 一个办法是图片，但是极不方便，最好的办法还是用文字来描述数学公式，把渲染的工作交给引擎。LaTe</description>
+    </item>
+  </channel>
+</rss>
