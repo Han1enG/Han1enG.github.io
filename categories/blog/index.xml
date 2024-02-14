@@ -6,138 +6,140 @@
     <description>Recent content in Blog on Cold World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>hanlengcold@gmail.com (Cold)</managingEditor>
+    <webMaster>hanlengcold@gmail.com (Cold)</webMaster>
     <lastBuildDate>Sun, 19 Mar 2023 11:29:44 +0000</lastBuildDate>
     <atom:link href="http://coldcoding.top/categories/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hexo 部署到服务器</title>
       <link>http://coldcoding.top/post/hexo-centos/</link>
-      <pubDate>Sun, 19 Mar 2023 11:29:44 +0000</pubDate>
+      <pubDate>Sun, 19 Mar 2023 11:29:44 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/post/hexo-centos/</guid>
       <description>GitHub Pages 实在太慢了，科学上网有时候也卡住。 搭建Git服务器 首先使用 Xshell连接服务器，并切换 root用户，回退到根路径 安装 openssh 1sudo apt-get install openssh-server # Ubuntu 2sudo yum</description>
     </item>
     <item>
       <title>Hexo &#43; Butterfly 添加评论系统</title>
       <link>http://coldcoding.top/post/hexo-comment/</link>
-      <pubDate>Wed, 15 Mar 2023 11:53:52 +0000</pubDate>
+      <pubDate>Wed, 15 Mar 2023 11:53:52 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/post/hexo-comment/</guid>
       <description>参考作者给出的教程以及官方文档twikoo和waline 通用设置 主题文件配置 在主题配置文件_config.butterfly.yml中找到c</description>
     </item>
     <item>
       <title>开启PJAX后的坑</title>
       <link>http://coldcoding.top/post/pjax-readtime/</link>
-      <pubDate>Sat, 11 Mar 2023 16:20:04 +0000</pubDate>
+      <pubDate>Sat, 11 Mar 2023 16:20:04 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/post/pjax-readtime/</guid>
       <description>刚开启的PJAX就出问题了，有些JS虽然加了 data-pjax 属性，依然没有重载，出现在用户自己编写的用于计算阅读时间的js函数中。 1// 原函数写法 2aaaaaaaaaaaaaaa; 3// 现在的写</description>
     </item>
     <item>
       <title>网站开启PJAX</title>
       <link>http://coldcoding.top/post/pjax/</link>
-      <pubDate>Sat, 11 Mar 2023 14:48:04 +0000</pubDate>
+      <pubDate>Sat, 11 Mar 2023 14:48:04 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/post/pjax/</guid>
       <description>参考文章： 保罗 云泥 AJAX AJAX = 异步 JavaScript 和 XML，是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新</description>
     </item>
     <item>
       <title>Hexo &#43; Butterfly 修改H1~H6标题图标</title>
       <link>http://coldcoding.top/post/hexo-title-icon/</link>
-      <pubDate>Sun, 05 Mar 2023 20:10:58 +0000</pubDate>
+      <pubDate>Sun, 05 Mar 2023 20:10:58 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/post/hexo-title-icon/</guid>
       <description>获取图标Unicide值 在 fontawesome上找到需要的图标，记录下Unicode值 配置文件 在主题配置文件_config.butterf</description>
     </item>
     <item>
       <title>Hexo &#43; Butterfly 文章页透明</title>
       <link>http://coldcoding.top/post/hexo-transparent/</link>
-      <pubDate>Sun, 05 Mar 2023 12:16:58 +0000</pubDate>
+      <pubDate>Sun, 05 Mar 2023 12:16:58 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/post/hexo-transparent/</guid>
       <description>在 \themes\butterfly\source\css目录下新建 article_transparent.css文件，添加： 1/* 首页文章栏背</description>
     </item>
     <item>
       <title>Hexo &#43; Butterfly 修改浏览器标题</title>
       <link>http://coldcoding.top/post/hexo-funnytitle/</link>
-      <pubDate>Sun, 05 Mar 2023 12:10:58 +0000</pubDate>
+      <pubDate>Sun, 05 Mar 2023 12:10:58 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/post/hexo-funnytitle/</guid>
       <description>在\themes\butterfly\source\js目录下新建funny_title.js文件，添加： 1var OriginTitle = document.title; 2var titleTime; 3document.addEventListener(&amp;#39;visibilitychange&amp;#39;, function () { 4 if (document.hidden) { 5 $(&amp;#39;[rel=&amp;#34;icon&amp;#34;]&amp;#39;).attr(&amp;#39;href&amp;#39;, &amp;#34;/funny.ico&amp;#34;);</description>
     </item>
     <item>
       <title>Hexo &#43; Butterfly 背景添加雪花、樱花、动线特效</title>
       <link>http://coldcoding.top/post/hexo-snow/</link>
-      <pubDate>Sun, 05 Mar 2023 11:35:58 +0000</pubDate>
+      <pubDate>Sun, 05 Mar 2023 11:35:58 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/post/hexo-snow/</guid>
       <description>雪花 在\themes\butterfly\source\js目录下新建snow.js文件，添加： 1if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) { 2 // 移动端不显示 3 } 4else { 5 (function($){ 6 $.fn.snow = function(options){ 7</description>
     </item>
     <item>
       <title>利用Github分支备份Hexo博客源文件</title>
       <link>http://coldcoding.top/post/hexo_backup/</link>
-      <pubDate>Fri, 03 Mar 2023 21:41:58 +0000</pubDate>
+      <pubDate>Fri, 03 Mar 2023 21:41:58 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/post/hexo_backup/</guid>
       <description>前言 虽然Hexo部署博客很方便，但是当我们更换电脑时呢，在github中的其实只是在我们本地目录里的.deploy_git里面的内容，显然我</description>
     </item>
     <item>
       <title>Hexo &#43; Butterfly 更换加载动画</title>
       <link>http://coldcoding.top/post/hexo-loading-car/</link>
-      <pubDate>Fri, 03 Mar 2023 17:00:00 +0000</pubDate>
+      <pubDate>Fri, 03 Mar 2023 17:00:00 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/post/hexo-loading-car/</guid>
       <description>参考文章：https://blog.zhheo.com/p/32776e99.html 资源文件 CodePen 配置 在主题配置文件_config.butte</description>
     </item>
     <item>
       <title>Hexo &#43; Butterfly 添加鼠标移动特效</title>
       <link>http://coldcoding.top/post/hexo-mouse-move/</link>
-      <pubDate>Fri, 03 Mar 2023 16:37:22 +0000</pubDate>
+      <pubDate>Fri, 03 Mar 2023 16:37:22 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/post/hexo-mouse-move/</guid>
       <description>在/themes/butterfly/source/js文件夹中新建mouse_move.js文件 1(function () { 2 function t() { 3 i(), a(); 4 } 5 function i() { 6 document.addEventListener(&amp;#34;mousemove&amp;#34;, o), 7 document.addEventListener(&amp;#34;touchmove&amp;#34;,</description>
     </item>
     <item>
       <title>hexo_fish</title>
       <link>http://coldcoding.top/post/hexo-fish/</link>
-      <pubDate>Thu, 02 Mar 2023 22:42:41 +0000</pubDate>
+      <pubDate>Thu, 02 Mar 2023 22:42:41 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/post/hexo-fish/</guid>
       <description>参考文章：Hexo页脚养鱼效果 引入必须的jquery文件 https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js 把上述文件保存在\themes\butterfly\source\js并命名为jq</description>
     </item>
     <item>
       <title>Hexo &#43; Butterfly 添加备案信息</title>
       <link>http://coldcoding.top/post/beian/</link>
-      <pubDate>Thu, 02 Mar 2023 22:12:32 +0000</pubDate>
+      <pubDate>Thu, 02 Mar 2023 22:12:32 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/post/beian/</guid>
       <description>在/themes/butterfly/layout/includes/footer.pug文件中添加以下代码 1.framework-info 2 img(src = &amp;#39;https://static.dy208.cn/o_1dfilp8ruo521thr1hvf18ji17soa.png&amp;#39;) 3 span= &amp;#39; &amp;#39; 4 a(href=&amp;#39;https://beian.miit.gov.cn/&amp;#39;)= &amp;#39;</description>
     </item>
     <item>
       <title>Hexo 数学公式渲染(KaTeX)</title>
       <link>http://coldcoding.top/post/hexo-math/</link>
-      <pubDate>Thu, 02 Mar 2023 17:03:10 +0000</pubDate>
+      <pubDate>Thu, 02 Mar 2023 17:03:10 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/post/hexo-math/</guid>
       <description>The fastest math typesetting library for the web. Katex 在网页中如何插入公式？如 $x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$ 一个办法是图片，但是极不方便，最好的办法还是用文字来描述数学公式，把渲染的工作交给引擎。LaTe</description>
     </item>
     <item>
       <title>Hexo 添加天气插件</title>
       <link>http://coldcoding.top/post/widget-weather/</link>
-      <pubDate>Thu, 02 Mar 2023 11:46:21 +0000</pubDate>
+      <pubDate>Thu, 02 Mar 2023 11:46:21 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/post/widget-weather/</guid>
       <description>注册 和风天气 生成代码 根据个人需求自定义创建天气插件，最后点击生成代码。 1&amp;lt;div id=&amp;#34;he-plugin-simple&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; 2&amp;lt;script&amp;gt; 3WIDGET = { 4 &amp;#34;CONFIG&amp;#34;: { 5 &amp;#34;modules&amp;#34;: &amp;#34;01234&amp;#34;, 6 &amp;#34;background&amp;#34;: &amp;#34;5&amp;#34;, 7 &amp;#34;tmpColor&amp;#34;: &amp;#34;FF9900&amp;#34;, 8 &amp;#34;tmpSize&amp;#34;: &amp;#34;16&amp;#34;, 9 &amp;#34;cityColor&amp;#34;: &amp;#34;CCCCCC&amp;#34;, 10 &amp;#34;citySize&amp;#34;: &amp;#34;16&amp;#34;, 11 &amp;#34;aqiColor&amp;#34;: &amp;#34;D9D9D9&amp;#34;, 12 &amp;#34;aqiSize&amp;#34;: &amp;#34;16&amp;#34;, 13 &amp;#34;weatherIconSize&amp;#34;:</description>
     </item>
     <item>
       <title>Hello World</title>
       <link>http://coldcoding.top/post/hello-world/</link>
-      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/post/hello-world/</guid>
       <description>Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.&#xA;Quick Start Create a new post 1$ hexo new &amp;#34;My New Post&amp;#34; More info: Writing&#xA;Run server 1$ hexo server More info: Server&#xA;Generate static files 1$ hexo generate More info: Generating&#xA;Deploy to remote sites 1$ hexo deploy More info: Deployment</description>
     </item>
     <item>
       <title>GitHub Pages绑定个人域名失效</title>
       <link>http://coldcoding.top/post/hexo-domainname/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/post/hexo-domainname/</guid>
       <description>暂时将博客托管在了 GitHub Pages上，并将个人域名解析指向了博客，但是每次配置好 Custom domain，访问成功后，不知不觉又404了，查询后发现是每次</description>
     </item>
     <item>
       <title>Hexo &#43; Butterfly 添加阅读时间</title>
       <link>http://coldcoding.top/post/hexo-readtime/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/post/hexo-readtime/</guid>
       <description>参考博客：花猪 在\themes\butterfly\source\js目录下创建一个readtime.js文件 1let oSpan = document.getElementsByTagName(&amp;#34;readtime&amp;#34;)[0]; 2let localhostTime = new Date(); //获取页面</description>
     </item>
     <item>
       <title>twikoo评论的气泡美化</title>
       <link>http://coldcoding.top/post/hexo-comment-pro/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/post/hexo-comment-pro/</guid>
       <description>参考教程 新建source\css\twikoo.css文件，添加代码 1/* 设置文字内容 :nth-child(1)的作用是选择第几个 */ 2.el-input.el-input--small.el-input-group.el-input-group--prepend:nth-child(1):before { 3 content: &amp;#</description>
     </item>

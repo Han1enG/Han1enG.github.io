@@ -6,11 +6,13 @@
     <description>Recent content in 域名 on Cold World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>hanlengcold@gmail.com (Cold)</managingEditor>
+    <webMaster>hanlengcold@gmail.com (Cold)</webMaster>
     <atom:link href="http://coldcoding.top/tags/%E5%9F%9F%E5%90%8D/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GitHub Pages绑定个人域名失效</title>
       <link>http://coldcoding.top/post/hexo-domainname/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/post/hexo-domainname/</guid>
       <description>暂时将博客托管在了 GitHub Pages上，并将个人域名解析指向了博客，但是每次配置好 Custom domain，访问成功后，不知不觉又404了，查询后发现是每次</description>
     </item>

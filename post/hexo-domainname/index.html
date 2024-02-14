@@ -38,6 +38,8 @@
     <span class="initpost">Published at:</span> 0001/01/01
     &nbsp;&nbsp;&nbsp;
     <span class="lastmod">Last updated:</span> 0001/01/01
+    &nbsp;&nbsp;&nbsp;
+      <span class="pagepv">PagePV:</span> <span id="twikoo_visitors">0</span>
   </h4>
 </div>
 
@@ -54,23 +56,24 @@
 
 </main>
 
-<div class="discussion">
-  <script src="https://giscus.app/client.js"
-        data-repo="Han1enG/Han1enG.github.io"
-        data-repo-id="R_kgDOLRozFg"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOLRozFs4CdL5k"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-</script>
+
+  
+    <div class="pagination__title">
+    <span class="pagination__title-h" style="font-size: 20px;">💬Discussion</span>
+    <hr />
 </div>
+<script src="//cdn.jsdelivr.net/npm/twikoo@1.6.21/dist/twikoo.all.min.js"></script>
+<div id="tcomment"></div><script>
+    twikoo.init({
+        envId: "https:\/\/twikoo.coldcoding.top\/",  
+        el: "#tcomment", 
+        
+        
+    });
+</script>
+
+
+
 </div><footer>
   <hr />
   <small>
