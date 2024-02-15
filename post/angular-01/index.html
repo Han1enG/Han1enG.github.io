@@ -12,26 +12,52 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
 </head>
-<body><body>
-  <h1 class="site-title">Cold World</h1>
-  <nav>
-    <ul class="menu">
+<body><div class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a href="http://www.coldcoding.top" accesskey="h" title="Cold World">
+        
+        Cold World
+      </a>
       
-      <li><a class="no-tag" href="/">Posts</a></li>
-      
-      <li><a class="no-tag" href="/tags/">Tags</a></li>
-      
-      <li><a class="no-tag" href="/categories/">Categories</a></li>
-      
-      <li><a class="no-tag" href="/about/">About</a></li>
-      
-      <li><a class="no-tag" href="/index.xml">RSS</a></li>
-      
-    </ul>
-    <hr />
+    </div>
+    <nav>
+      <ul class="menu">
+        
+        <li>
+          <a class="no-tag" href="/">
+            Posts
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/tags/">
+            Tags
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/categories/">
+            Categories
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/about/">
+            About
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/index.xml">
+            RSS
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
   </nav>
-</body>
-<div id="content">
+</div><div id="content">
 <div>
   <h1><span class="title">Angular实践一搭建环境+创建项目</span></h1>
   <h4 class="date">
@@ -40,10 +66,104 @@
     <span class="lastmod">Last updated:</span> 2023/03/07
     &nbsp;&nbsp;&nbsp;
       <span class="pagepv">PagePV:</span> <span id="twikoo_visitors">0</span>
+      &nbsp;&nbsp;&nbsp;
+    <span class="wordcount">WordCount:</span> 425
   </h4>
 </div>
 
 <main>
+    <div style="position: fixed; right:5px;max-width:300px; overflow:auto; top: 100px; width: 10vw; bottom:50px">
+      
+
+<aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open >
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">Angular实践一搭建环境&#43;创建项目</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e5%ae%89%e8%a3%85-node" aria-label="安装 node">安装 <code>node</code></a></li>
+                    <li>
+                        <a href="#%e5%ae%89%e8%a3%85-angular" aria-label="安装 Angular">安装 Angular</a><ul>
+                            
+                    <li>
+                        <a href="#%e8%84%9a%e6%89%8b%e6%9e%b6" aria-label="脚手架">脚手架</a></li>
+                    <li>
+                        <a href="#%e6%9f%a5%e7%9c%8b%e7%89%88%e6%9c%ac" aria-label="查看版本">查看版本</a></li>
+                    <li>
+                        <a href="#%e5%8d%b8%e8%bd%bd-angular" aria-label="卸载 Angular">卸载 <code>Angular</code></a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e5%88%9b%e5%bb%ba%e9%a1%b9%e7%9b%ae" aria-label="创建项目">创建项目</a>
+                    </li>
+                </ul>
+            </div>
+            <a href="#" id="toc-toggle">Back to the top</a>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 100);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+    </div>
   <blockquote>
 <p>公司要求使用 <code>Angular</code>，学过 <code>VUE</code>，了解过 <code>React</code>，偏偏是没用过的 <code>Angular</code>，重头啃</p>
 </blockquote>

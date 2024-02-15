@@ -12,26 +12,52 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
 </head>
-<body><body>
-  <h1 class="site-title">Cold World</h1>
-  <nav>
-    <ul class="menu">
+<body><div class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a href="http://www.coldcoding.top" accesskey="h" title="Cold World">
+        
+        Cold World
+      </a>
       
-      <li><a class="no-tag" href="/">Posts</a></li>
-      
-      <li><a class="no-tag" href="/tags/">Tags</a></li>
-      
-      <li><a class="no-tag" href="/categories/">Categories</a></li>
-      
-      <li><a class="no-tag" href="/about/">About</a></li>
-      
-      <li><a class="no-tag" href="/index.xml">RSS</a></li>
-      
-    </ul>
-    <hr />
+    </div>
+    <nav>
+      <ul class="menu">
+        
+        <li>
+          <a class="no-tag" href="/">
+            Posts
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/tags/">
+            Tags
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/categories/">
+            Categories
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/about/">
+            About
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/index.xml">
+            RSS
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
   </nav>
-</body>
-<div id="content">
+</div><div id="content">
 <div>
   <h1><span class="title">Hexo + Butterfly 添加备案信息</span></h1>
   <h4 class="date">
@@ -40,10 +66,15 @@
     <span class="lastmod">Last updated:</span> 2023/03/02
     &nbsp;&nbsp;&nbsp;
       <span class="pagepv">PagePV:</span> <span id="twikoo_visitors">0</span>
+      &nbsp;&nbsp;&nbsp;
+    <span class="wordcount">WordCount:</span> 93
   </h4>
 </div>
 
 <main>
+    <div style="position: fixed; right:5px;max-width:300px; overflow:auto; top: 100px; width: 10vw; bottom:50px">
+      
+    </div>
   <p>在<code>/themes/butterfly/layout/includes/footer.pug</code>文件中添加以下代码</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="ln">1</span><span class="cl">.framework-info
 </span></span><span class="line"><span class="ln">2</span><span class="cl">  img(src = &#39;https://static.dy208.cn/o_1dfilp8ruo521thr1hvf18ji17soa.png&#39;)

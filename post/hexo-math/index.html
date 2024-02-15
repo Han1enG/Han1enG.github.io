@@ -12,26 +12,52 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
 </head>
-<body><body>
-  <h1 class="site-title">Cold World</h1>
-  <nav>
-    <ul class="menu">
+<body><div class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a href="http://www.coldcoding.top" accesskey="h" title="Cold World">
+        
+        Cold World
+      </a>
       
-      <li><a class="no-tag" href="/">Posts</a></li>
-      
-      <li><a class="no-tag" href="/tags/">Tags</a></li>
-      
-      <li><a class="no-tag" href="/categories/">Categories</a></li>
-      
-      <li><a class="no-tag" href="/about/">About</a></li>
-      
-      <li><a class="no-tag" href="/index.xml">RSS</a></li>
-      
-    </ul>
-    <hr />
+    </div>
+    <nav>
+      <ul class="menu">
+        
+        <li>
+          <a class="no-tag" href="/">
+            Posts
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/tags/">
+            Tags
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/categories/">
+            Categories
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/about/">
+            About
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/index.xml">
+            RSS
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
   </nav>
-</body>
-<div id="content">
+</div><div id="content">
 <div>
   <h1><span class="title">Hexo 数学公式渲染(KaTeX)</span></h1>
   <h4 class="date">
@@ -40,10 +66,94 @@
     <span class="lastmod">Last updated:</span> 2023/03/02
     &nbsp;&nbsp;&nbsp;
       <span class="pagepv">PagePV:</span> <span id="twikoo_visitors">0</span>
+      &nbsp;&nbsp;&nbsp;
+    <span class="wordcount">WordCount:</span> 466
   </h4>
 </div>
 
 <main>
+    <div style="position: fixed; right:5px;max-width:300px; overflow:auto; top: 100px; width: 10vw; bottom:50px">
+      
+
+<aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open >
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">Hexo 数学公式渲染(KaTeX)</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#katex" aria-label="Katex">Katex</a></li>
+                    <li>
+                        <a href="#%e6%96%87%e4%bb%b6%e9%85%8d%e7%bd%ae" aria-label="文件配置">文件配置</a>
+                    </li>
+                </ul>
+            </div>
+            <a href="#" id="toc-toggle">Back to the top</a>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 100);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+    </div>
   <blockquote>
 <p>The <em>fastest</em> math typesetting library for the web.</p>
 </blockquote>

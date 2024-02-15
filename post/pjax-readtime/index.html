@@ -12,26 +12,52 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
 </head>
-<body><body>
-  <h1 class="site-title">Cold World</h1>
-  <nav>
-    <ul class="menu">
+<body><div class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a href="http://www.coldcoding.top" accesskey="h" title="Cold World">
+        
+        Cold World
+      </a>
       
-      <li><a class="no-tag" href="/">Posts</a></li>
-      
-      <li><a class="no-tag" href="/tags/">Tags</a></li>
-      
-      <li><a class="no-tag" href="/categories/">Categories</a></li>
-      
-      <li><a class="no-tag" href="/about/">About</a></li>
-      
-      <li><a class="no-tag" href="/index.xml">RSS</a></li>
-      
-    </ul>
-    <hr />
+    </div>
+    <nav>
+      <ul class="menu">
+        
+        <li>
+          <a class="no-tag" href="/">
+            Posts
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/tags/">
+            Tags
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/categories/">
+            Categories
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/about/">
+            About
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/index.xml">
+            RSS
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
   </nav>
-</body>
-<div id="content">
+</div><div id="content">
 <div>
   <h1><span class="title">开启PJAX后的坑</span></h1>
   <h4 class="date">
@@ -40,10 +66,15 @@
     <span class="lastmod">Last updated:</span> 2023/03/11
     &nbsp;&nbsp;&nbsp;
       <span class="pagepv">PagePV:</span> <span id="twikoo_visitors">0</span>
+      &nbsp;&nbsp;&nbsp;
+    <span class="wordcount">WordCount:</span> 99
   </h4>
 </div>
 
 <main>
+    <div style="position: fixed; right:5px;max-width:300px; overflow:auto; top: 100px; width: 10vw; bottom:50px">
+      
+    </div>
   <blockquote>
 <p>刚开启的<code>PJAX</code>就出问题了，有些<code>JS</code>虽然加了 <code>data-pjax</code> 属性，依然没有重载，出现在用户自己编写的用于计算阅读时间的<code>js</code>函数中。</p>
 </blockquote>
