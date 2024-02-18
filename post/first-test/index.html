@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head>
+<html lang="zh-CN">
+  <head><head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:title" content="first test" />
@@ -12,7 +13,37 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
 </head>
-<body><div class="header">
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+</noscript>
+  </head><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="first test" />
+    <title>first test | Cold World</title>
+    <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="/css/fonts.css" /> 
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+</head>
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+</noscript><body><div class="header">
   <nav class="nav">
     <div class="logo">
       <a href="http://www.coldcoding.top" accesskey="h" title="Cold World">
@@ -25,7 +56,7 @@
       <ul class="menu">
         
         <li>
-          <a class="no-tag" href="/">
+          <a class="no-tag" href="/post/">
             Posts
           </a>
         </li>
@@ -57,23 +88,8 @@
       </ul>
     </nav>
   </nav>
-</div><div id="content">
-<div>
-  <h1><span class="title">first test</span></h1>
-  <h4 class="date">
-    <span class="initpost">Published at:</span> 2023/01/01
-    &nbsp;&nbsp;&nbsp;
-    <span class="lastmod">Last updated:</span> 2023/01/01
-    &nbsp;&nbsp;&nbsp;
-      <span class="pagepv">PagePV:</span> <span id="twikoo_visitors">0</span>
-      &nbsp;&nbsp;&nbsp;
-    <span class="wordcount">WordCount:</span> 4424
-  </h4>
-</div>
+</div><div class="main page">
 
-<main>
-    <div style="position: fixed; right:5px;max-width:300px; overflow:auto; top: 100px; width: 10vw; bottom:50px">
-      
 
 <aside id="toc-container" class="toc-container wide">
     <div class="toc">
@@ -103,71 +119,110 @@
                 </li>
                 </ul>
             </div>
-            <a href="#" id="toc-toggle">Back to the top</a>
-        </details>
-    </div>
-</aside>
-<script>
-    let activeElement;
-    let elements;
-    window.addEventListener('DOMContentLoaded', function (event) {
-        checkTocPosition();
-
-        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
-         
-         activeElement = elements[0];
-         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
-         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-     }, false);
-
-    window.addEventListener('resize', function(event) {
-        checkTocPosition();
-    }, false);
-
-    window.addEventListener('scroll', () => {
-        
-        activeElement = Array.from(elements).find((element) => {
-            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
-                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
-                return element;
+            </details>
+        </div>
+    </aside>
+    <script>
+        let activeElement;
+        let elements;
+        window.addEventListener('DOMContentLoaded', function (event) {
+            checkTocPosition();
+    
+            elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+            
+            activeElement = elements[0];
+            const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+            document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+        }, false);
+    
+        window.addEventListener('resize', function(event) {
+            checkTocPosition();
+        }, false);
+    
+        window.addEventListener('scroll', () => {
+            
+            if (elements) {
+                activeElement = Array.from(elements).find((element) => {
+                    if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                        (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                        return element;
+                    }
+                }) || activeElement
+    
+                elements.forEach(element => {
+                    const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                    if (element === activeElement){
+                        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                    } else {
+                        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                    }
+                })
             }
-        }) || activeElement
-
-        elements.forEach(element => {
-             const id = encodeURI(element.getAttribute('id')).toLowerCase();
-             if (element === activeElement){
-                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-             } else {
-                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
-             }
-         })
-     }, false);
-
-    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
-    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 100);
-    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
-
-    function checkTocPosition() {
-        const width = document.body.scrollWidth;
-
-        if (width - main - (toc * 2) - (gap * 4) > 0) {
-            document.getElementById("toc-container").classList.add("wide");
-        } else {
-            document.getElementById("toc-container").classList.remove("wide");
+        }, false);
+    
+        const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+        const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+        const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+    
+        function checkTocPosition() {
+            const width = document.body.scrollWidth;
+            if (width - main - (toc * 2) - (gap * 4) > 0) {
+                document.getElementById("toc-container").classList.add("wide");
+            } else {
+                document.getElementById("toc-container").classList.remove("wide");
+            }
         }
-    }
-
-    function getOffsetTop(element) {
-        if (!element.getClientRects().length) {
-            return 0;
+    
+        function getOffsetTop(element) {
+            if (!element.getClientRects().length) {
+                return 0;
+            }
+            let rect = element.getBoundingClientRect();
+            let win = element.ownerDocument.defaultView;
+            return rect.top + win.pageYOffset;
         }
-        let rect = element.getBoundingClientRect();
-        let win = element.ownerDocument.defaultView;
-        return rect.top + win.pageYOffset;   
-    }
-</script>
-    </div>
-  <h2 id="质数">质数</h2>
+    </script>
+<article class="post-single">
+  <div id="single-content">
+    <header class="post-header">
+      <div class="breadcrumbs">
+        <div  class="breadcrumb">
+    
+    
+    
+    
+    
+    
+    <li>
+        <a href="http://coldcoding.top/">Cold&#39;s Blog</a>
+    </li>
+    
+    
+    <li>
+        <a href="http://coldcoding.top/post/">Posts</a>
+    </li>
+    
+    
+    <li class="active">
+        <a href="http://coldcoding.top/post/first-test/">first test</a>
+    </li>
+    
+    
+</div>
+      </div>
+      <h1 class="post-title">first test</h1>
+      
+      <div class="post-meta">
+        <span class="parent-post-meta">
+          <span id="post_meta_style_initpost" class="post_meta_style">Published at:</span>2023/01/01&nbsp;&nbsp;&nbsp;
+<span id="post_meta_style_lastmod" class="post_meta_style">Last updated:</span>2023/01/01&nbsp;&nbsp;&nbsp;
+<span id="post_meta_style_pagepv" class="post_meta_style">PagePV:</span><span id="twikoo_visitors">0</span>&nbsp;&nbsp;&nbsp;
+<span id="post_meta_style_author" class="post_meta_style">Author:</span>Cold&nbsp;&nbsp;&nbsp;
+        </span>
+      </div>
+    </header>
+    <div class="post-content">
+      <h2 id="质数">质数</h2>
 <ol>
 <li>
 <p>质数和合数是针对所有大于 $1$ 的「自然数」来定义的（所有小于等于 $1$ 的数都不是质数）。</p>
@@ -497,7 +552,9 @@ eg:
 </span></span><span class="line"><span class="ln">77</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">78</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div>
-</main>
+    </div>
+  </div>
+</article>
 
 
   
@@ -517,16 +574,38 @@ eg:
 
 
 
-</div><footer>
+
+    </div><footer class="footer">
   <hr />
-  <small>
-    <span>
-      Copyright 2022-2024 <a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2023006518号</a>
-    </span>
-    <span>
-      All articles on this site are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a >
-    </span>
-  </small>
+  <span>
+    Copyright 2022-2024 <a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2023006518号</a>
+  </span>
+  <span>
+    All articles on this site are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a >
+  </span>
 </footer>
-</body>
+
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <span class="topInner">
+      <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+          <path d="M12 6H0l6-6z"/>
+      </svg>
+      <span id="read_progress"></span>
+  </span>
+</a>
+
+<script>
+  let mybutton = document.getElementById("top-link");
+  window.onscroll = function () {
+      var currentScrollPosition = window.pageYOffset;
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+          mybutton.style.visibility = "visible";
+          mybutton.style.opacity = "1";
+          
+      } else {
+          mybutton.style.visibility = "hidden";
+          mybutton.style.opacity = "0";
+      }
+  };
+</script></body>
 </html>
