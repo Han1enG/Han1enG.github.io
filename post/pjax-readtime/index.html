@@ -89,48 +89,23 @@
     </nav>
   </nav>
 </div><div class="main page">
-
 <article class="post-single">
   <div id="single-content">
     <header class="post-header">
-      <div class="breadcrumbs">
-        <div  class="breadcrumb">
+      <div class="breadcrumbs"><div  class="breadcrumb">
     
     
-    
-    
-    
-    
-    <li>
-        <a href="http://coldcoding.top/">Cold&#39;s Blog</a>
-    </li>
-    
-    
-    <li>
-        <a href="http://coldcoding.top/post/">Posts</a>
-    </li>
-    
-    
-    <li class="active">
-        <a href="http://coldcoding.top/post/pjax-readtime/">开启PJAX后的坑</a>
-    </li>
-    
-    
-</div>
-      </div>
+    <a href="http://coldcoding.top/">🏠 Home</a>&nbsp;»&nbsp;<a href="http://coldcoding.top/post/">Posts</a></div></div>
       <h1 class="post-title">开启PJAX后的坑</h1>
-      
-      <div class="post-meta">
-        <span class="parent-post-meta">
-          <span id="post_meta_style_initpost" class="post_meta_style">Published at:</span>2023/03/11&nbsp;&nbsp;&nbsp;
-<span id="post_meta_style_lastmod" class="post_meta_style">Last updated:</span>2023/03/11&nbsp;&nbsp;&nbsp;
-<span id="post_meta_style_pagepv" class="post_meta_style">PagePV:</span><span id="twikoo_visitors">0</span>&nbsp;&nbsp;&nbsp;
-<span id="post_meta_style_author" class="post_meta_style">Author:</span>Cold&nbsp;&nbsp;&nbsp;
-        </span>
-      </div>
+      <div class="post-meta"><span class="parent-post-meta">
+    <span id="post_meta_style_initpost" class="post_meta_style">Published at:</span>2023/03/11&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_lastmod" class="post_meta_style">Last updated:</span>2023/03/11&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_pagepv" class="post_meta_style">PagePV:</span><span id="twikoo_visitors">0</span>&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_author" class="post_meta_style">Author:</span>Cold&nbsp;&nbsp;&nbsp;    
+</span></div>
     </header>
-    <div class="post-content">
-      <blockquote>
+      
+    <div class="post-content"><blockquote>
 <p>刚开启的<code>PJAX</code>就出问题了，有些<code>JS</code>虽然加了 <code>data-pjax</code> 属性，依然没有重载，出现在用户自己编写的用于计算阅读时间的<code>js</code>函数中。</p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 原函数写法
@@ -142,8 +117,7 @@
 </span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;pjax:complete&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">8</span><span class="cl">  <span class="nx">pjax_reload</span><span class="p">();</span> <span class="c1">// Pjax 完成后，重新加载上面的函数
 </span></span></span><span class="line"><span class="ln">9</span><span class="cl"><span class="c1"></span><span class="p">});</span>
-</span></span></code></pre></div>
-    </div>
+</span></span></code></pre></div></div>
   </div>
 </article>
 
@@ -186,17 +160,33 @@
 </a>
 
 <script>
-  let mybutton = document.getElementById("top-link");
+  var backButton = document.getElementById("top-link");
+  var lastScrollPosition = window.pageYOffset;
+
+  function showBackButton() {
+      backButton.style.visibility = "visible";
+      backButton.style.opacity = '1';
+  }
+  function halfHideBackButton() {
+      backButton.style.visibility = "visible";
+      backButton.style.opacity = '0.3';
+  }
+  function hideBackButton() {
+      backButton.style.visibility = "hidden";
+      backButton.style.opacity = '0';
+  }
+
   window.onscroll = function () {
       var currentScrollPosition = window.pageYOffset;
       if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-          mybutton.style.visibility = "visible";
-          mybutton.style.opacity = "1";
-          
+        showBackButton()
+        if (Math.abs(currentScrollPosition - lastScrollPosition) < 10) {
+          halfHideBackButton()
+        }
       } else {
-          mybutton.style.visibility = "hidden";
-          mybutton.style.opacity = "0";
+        hideBackButton()
       }
+      lastScrollPosition = currentScrollPosition;
   };
 </script></body>
 </html>

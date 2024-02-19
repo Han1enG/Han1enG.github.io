@@ -89,48 +89,23 @@
     </nav>
   </nav>
 </div><div class="main page">
-
 <article class="post-single">
   <div id="single-content">
     <header class="post-header">
-      <div class="breadcrumbs">
-        <div  class="breadcrumb">
+      <div class="breadcrumbs"><div  class="breadcrumb">
     
     
-    
-    
-    
-    
-    <li>
-        <a href="http://coldcoding.top/">Cold&#39;s Blog</a>
-    </li>
-    
-    
-    <li>
-        <a href="http://coldcoding.top/post/">Posts</a>
-    </li>
-    
-    
-    <li class="active">
-        <a href="http://coldcoding.top/post/work-0306/">第一天实习</a>
-    </li>
-    
-    
-</div>
-      </div>
+    <a href="http://coldcoding.top/">🏠 Home</a>&nbsp;»&nbsp;<a href="http://coldcoding.top/post/">Posts</a></div></div>
       <h1 class="post-title">第一天实习</h1>
-      
-      <div class="post-meta">
-        <span class="parent-post-meta">
-          <span id="post_meta_style_initpost" class="post_meta_style">Published at:</span>2023/03/06&nbsp;&nbsp;&nbsp;
-<span id="post_meta_style_lastmod" class="post_meta_style">Last updated:</span>2023/03/06&nbsp;&nbsp;&nbsp;
-<span id="post_meta_style_pagepv" class="post_meta_style">PagePV:</span><span id="twikoo_visitors">0</span>&nbsp;&nbsp;&nbsp;
-<span id="post_meta_style_author" class="post_meta_style">Author:</span>Cold&nbsp;&nbsp;&nbsp;
-        </span>
-      </div>
+      <div class="post-meta"><span class="parent-post-meta">
+    <span id="post_meta_style_initpost" class="post_meta_style">Published at:</span>2023/03/06&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_lastmod" class="post_meta_style">Last updated:</span>2023/03/06&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_pagepv" class="post_meta_style">PagePV:</span><span id="twikoo_visitors">0</span>&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_author" class="post_meta_style">Author:</span>Cold&nbsp;&nbsp;&nbsp;    
+</span></div>
     </header>
-    <div class="post-content">
-      <ol>
+      
+    <div class="post-content"><ol>
 <li>六点半的闹钟，三点多醒来上厕所，邦德估计是听到动静了，提前跑到门口守着，回来后翻来覆去睡不下，也许是有事。闹钟把两个人都喊醒了，抱了一会起来了，穿衣洗漱上厕所，完事已经六点五十多了，小配小配提前帮我沾了卫衣上的猫毛，又去了早餐店提前帮我点餐，我赶过去时候已经买好坐下了
 早饭桌油杀+豆腐脑，有点油腻，吃厅
 意外的堵至
@@ -171,8 +146,7 @@ FypeScrigt CSs C# 4MS等等，也有作业布置，完成
 糕
 組吉起来呼</li>
 </ol>
-
-    </div>
+</div>
   </div>
 </article>
 
@@ -215,17 +189,33 @@ FypeScrigt CSs C# 4MS等等，也有作业布置，完成
 </a>
 
 <script>
-  let mybutton = document.getElementById("top-link");
+  var backButton = document.getElementById("top-link");
+  var lastScrollPosition = window.pageYOffset;
+
+  function showBackButton() {
+      backButton.style.visibility = "visible";
+      backButton.style.opacity = '1';
+  }
+  function halfHideBackButton() {
+      backButton.style.visibility = "visible";
+      backButton.style.opacity = '0.3';
+  }
+  function hideBackButton() {
+      backButton.style.visibility = "hidden";
+      backButton.style.opacity = '0';
+  }
+
   window.onscroll = function () {
       var currentScrollPosition = window.pageYOffset;
       if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-          mybutton.style.visibility = "visible";
-          mybutton.style.opacity = "1";
-          
+        showBackButton()
+        if (Math.abs(currentScrollPosition - lastScrollPosition) < 10) {
+          halfHideBackButton()
+        }
       } else {
-          mybutton.style.visibility = "hidden";
-          mybutton.style.opacity = "0";
+        hideBackButton()
       }
+      lastScrollPosition = currentScrollPosition;
   };
 </script></body>
 </html>

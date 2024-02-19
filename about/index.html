@@ -89,45 +89,26 @@
     </nav>
   </nav>
 </div><div class="main page">
-
-
 <article class="post-single">
   <div id="single-content">
     <header class="post-header">
-      <div class="breadcrumbs">
-        <div  class="breadcrumb">
+      <div class="breadcrumbs"><div  class="breadcrumb">
     
     
-    
-    
-    <li>
-        <a href="http://coldcoding.top/">Cold&#39;s Blog</a>
-    </li>
-    
-    
-    <li class="active">
-        <a href="http://coldcoding.top/about/">About</a>
-    </li>
-    
-    
-</div>
-      </div>
+    <a href="http://coldcoding.top/">🏠 Home</a></div></div>
       <h1 class="post-title">About</h1>
-      
-      <div class="post-meta">
-        <span class="parent-post-meta">
-          <span id="post_meta_style_initpost" class="post_meta_style">Published at:</span>2022/07/30&nbsp;&nbsp;&nbsp;
-<span id="post_meta_style_lastmod" class="post_meta_style">Last updated:</span>2022/07/30&nbsp;&nbsp;&nbsp;
-<span id="post_meta_style_pagepv" class="post_meta_style">PagePV:</span><span id="twikoo_visitors">0</span>&nbsp;&nbsp;&nbsp;
-<span id="post_meta_style_author" class="post_meta_style">Author:</span>Cold&nbsp;&nbsp;&nbsp;
-        </span>
-      </div>
+      <div class="post-meta"><span class="parent-post-meta">
+    <span id="post_meta_style_initpost" class="post_meta_style">Published at:</span>2022/07/30&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_lastmod" class="post_meta_style">Last updated:</span>2022/07/30&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_pagepv" class="post_meta_style">PagePV:</span><span id="twikoo_visitors">0</span>&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_author" class="post_meta_style">Author:</span>Cold&nbsp;&nbsp;&nbsp;    
+</span></div>
     </header>
-    <div class="post-content">
-      <h2 id="heading">👏</h2>
-<p>我是 <em>Cold</em></p>
+      
 
-    </div>
+    <div class="post-content"><h2 id="heading">👏</h2>
+<p>我是 <em>Cold</em></p>
+</div>
   </div>
 </article>
 
@@ -170,17 +151,33 @@
 </a>
 
 <script>
-  let mybutton = document.getElementById("top-link");
+  var backButton = document.getElementById("top-link");
+  var lastScrollPosition = window.pageYOffset;
+
+  function showBackButton() {
+      backButton.style.visibility = "visible";
+      backButton.style.opacity = '1';
+  }
+  function halfHideBackButton() {
+      backButton.style.visibility = "visible";
+      backButton.style.opacity = '0.3';
+  }
+  function hideBackButton() {
+      backButton.style.visibility = "hidden";
+      backButton.style.opacity = '0';
+  }
+
   window.onscroll = function () {
       var currentScrollPosition = window.pageYOffset;
       if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-          mybutton.style.visibility = "visible";
-          mybutton.style.opacity = "1";
-          
+        showBackButton()
+        if (Math.abs(currentScrollPosition - lastScrollPosition) < 10) {
+          halfHideBackButton()
+        }
       } else {
-          mybutton.style.visibility = "hidden";
-          mybutton.style.opacity = "0";
+        hideBackButton()
       }
+      lastScrollPosition = currentScrollPosition;
   };
 </script></body>
 </html>

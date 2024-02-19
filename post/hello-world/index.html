@@ -89,49 +89,24 @@
     </nav>
   </nav>
 </div><div class="main page">
-
-
 <article class="post-single">
   <div id="single-content">
     <header class="post-header">
-      <div class="breadcrumbs">
-        <div  class="breadcrumb">
+      <div class="breadcrumbs"><div  class="breadcrumb">
     
     
-    
-    
-    
-    
-    <li>
-        <a href="http://coldcoding.top/">Cold&#39;s Blog</a>
-    </li>
-    
-    
-    <li>
-        <a href="http://coldcoding.top/post/">Posts</a>
-    </li>
-    
-    
-    <li class="active">
-        <a href="http://coldcoding.top/post/hello-world/">Hello World</a>
-    </li>
-    
-    
-</div>
-      </div>
+    <a href="http://coldcoding.top/">🏠 Home</a>&nbsp;»&nbsp;<a href="http://coldcoding.top/post/">Posts</a></div></div>
       <h1 class="post-title">Hello World</h1>
-      
-      <div class="post-meta">
-        <span class="parent-post-meta">
-          <span id="post_meta_style_initpost" class="post_meta_style">Published at:</span>2023/01/01&nbsp;&nbsp;&nbsp;
-<span id="post_meta_style_lastmod" class="post_meta_style">Last updated:</span>2023/01/01&nbsp;&nbsp;&nbsp;
-<span id="post_meta_style_pagepv" class="post_meta_style">PagePV:</span><span id="twikoo_visitors">0</span>&nbsp;&nbsp;&nbsp;
-<span id="post_meta_style_author" class="post_meta_style">Author:</span>Cold&nbsp;&nbsp;&nbsp;
-        </span>
-      </div>
+      <div class="post-meta"><span class="parent-post-meta">
+    <span id="post_meta_style_initpost" class="post_meta_style">Published at:</span>2023/01/01&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_lastmod" class="post_meta_style">Last updated:</span>2023/01/01&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_pagepv" class="post_meta_style">PagePV:</span><span id="twikoo_visitors">0</span>&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_author" class="post_meta_style">Author:</span>Cold&nbsp;&nbsp;&nbsp;    
+</span></div>
     </header>
-    <div class="post-content">
-      <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+      
+
+    <div class="post-content"><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="quick-start">Quick Start</h2>
 <h3 id="create-a-new-post">Create a new post</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ hexo new <span class="s2">&#34;My New Post&#34;</span>
@@ -145,8 +120,7 @@
 <h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ hexo deploy
 </span></span></code></pre></div><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-    </div>
+</div>
   </div>
 </article>
 
@@ -189,17 +163,33 @@
 </a>
 
 <script>
-  let mybutton = document.getElementById("top-link");
+  var backButton = document.getElementById("top-link");
+  var lastScrollPosition = window.pageYOffset;
+
+  function showBackButton() {
+      backButton.style.visibility = "visible";
+      backButton.style.opacity = '1';
+  }
+  function halfHideBackButton() {
+      backButton.style.visibility = "visible";
+      backButton.style.opacity = '0.3';
+  }
+  function hideBackButton() {
+      backButton.style.visibility = "hidden";
+      backButton.style.opacity = '0';
+  }
+
   window.onscroll = function () {
       var currentScrollPosition = window.pageYOffset;
       if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-          mybutton.style.visibility = "visible";
-          mybutton.style.opacity = "1";
-          
+        showBackButton()
+        if (Math.abs(currentScrollPosition - lastScrollPosition) < 10) {
+          halfHideBackButton()
+        }
       } else {
-          mybutton.style.visibility = "hidden";
-          mybutton.style.opacity = "0";
+        hideBackButton()
       }
+      lastScrollPosition = currentScrollPosition;
   };
 </script></body>
 </html>

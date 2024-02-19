@@ -95,7 +95,7 @@
 <ol class="page-list" reversed>
     
   <li>
-    <span class="date"> 2023/03/06 </span>
+    <span style="margin-top: -0.5em;color: #888;"> 2023/03/06 </span>
     <a class="no-tag" href="/post/work-0306/">第一天实习</a>
   </li>
   
@@ -121,17 +121,33 @@
 </a>
 
 <script>
-  let mybutton = document.getElementById("top-link");
+  var backButton = document.getElementById("top-link");
+  var lastScrollPosition = window.pageYOffset;
+
+  function showBackButton() {
+      backButton.style.visibility = "visible";
+      backButton.style.opacity = '1';
+  }
+  function halfHideBackButton() {
+      backButton.style.visibility = "visible";
+      backButton.style.opacity = '0.3';
+  }
+  function hideBackButton() {
+      backButton.style.visibility = "hidden";
+      backButton.style.opacity = '0';
+  }
+
   window.onscroll = function () {
       var currentScrollPosition = window.pageYOffset;
       if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-          mybutton.style.visibility = "visible";
-          mybutton.style.opacity = "1";
-          
+        showBackButton()
+        if (Math.abs(currentScrollPosition - lastScrollPosition) < 10) {
+          halfHideBackButton()
+        }
       } else {
-          mybutton.style.visibility = "hidden";
-          mybutton.style.opacity = "0";
+        hideBackButton()
       }
+      lastScrollPosition = currentScrollPosition;
   };
 </script></body>
 </html>
