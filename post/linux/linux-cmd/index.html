@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Linux 常用命令" />
+    <title>Linux 常用命令 | Cold World</title>
+    <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="/css/fonts.css" /> 
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+</head>
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+</noscript>
+  </head><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Linux 常用命令" />
+    <title>Linux 常用命令 | Cold World</title>
+    <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="/css/fonts.css" /> 
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+</head>
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+</noscript><body><div class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a href="http://www.coldcoding.top" accesskey="h" title="Cold World">
+        <img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20240219225844.jpg" alt="logo" aria-label="logo" height="35">
+        Cold World
+      </a>
+      
+    </div>
+    <nav>
+      <ul class="menu">
+        
+        <li>
+          <a class="no-tag" href="/post/">
+            Posts
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/tags/">
+            Tags
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/categories/">
+            Categories
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/about/">
+            About
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/index.xml">
+            RSS
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+  </nav>
+</div><div class="main page">
+<article class="post-single">
+  <div id="single-content">
+    <header class="post-header">
+      <div class="breadcrumbs"><div  class="breadcrumb">
+    
+    
+    <a href="http://coldcoding.top/">🏠 Home</a>&nbsp;»&nbsp;<a href="http://coldcoding.top/post/">Posts</a></div></div>
+      <h1 class="post-title">Linux 常用命令</h1>
+      <div class="post-meta"><span class="parent-post-meta">
+    <span id="post_meta_style_initpost" class="post_meta_style">Published at:</span>2023/08/16&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_lastmod" class="post_meta_style">Last updated:</span>2023/08/16&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_pagepv" class="post_meta_style">PagePV:</span><span id="twikoo_visitors">0</span>&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_author" class="post_meta_style">Author:</span>Cold&nbsp;&nbsp;&nbsp;    
+</span></div>
+    </header>
+      
+
+<aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open >
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">Linux 常用命令</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#kill" aria-label="kill">kill</a></li>
+                    <li>
+                        <a href="#ps" aria-label="ps">ps</a></li>
+                    <li>
+                        <a href="#cat-%e5%92%8c-tail-%e6%9f%a5%e7%9c%8b%e6%97%a5%e5%bf%97" aria-label="cat 和 tail 查看日志">cat 和 tail 查看日志</a></li>
+                    <li>
+                        <a href="#mv" aria-label="mv">mv</a></li>
+                    <li>
+                        <a href="#drwxr-xr-x-%e6%9d%83%e9%99%90" aria-label="drwxr-xr-x 权限">drwxr-xr-x 权限</a></li>
+                    <li>
+                        <a href="#scp-%e8%bf%9c%e7%a8%8b%e6%8b%b7%e8%b4%9d" aria-label="scp 远程拷贝">scp 远程拷贝</a></li>
+                    <li>
+                        <a href="#mkdir" aria-label="mkdir">mkdir</a></li>
+                    <li>
+                        <a href="#find" aria-label="find">find</a>
+                    </li>
+                </ul>
+            </div>
+            </details>
+        </div>
+    </aside>
+    <script>
+        let activeElement;
+        let elements;
+        window.addEventListener('DOMContentLoaded', function (event) {
+            checkTocPosition();
+    
+            elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+            
+            activeElement = elements[0];
+            const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+            document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+        }, false);
+    
+        window.addEventListener('resize', function(event) {
+            checkTocPosition();
+        }, false);
+    
+        window.addEventListener('scroll', () => {
+            
+            if (elements) {
+                activeElement = Array.from(elements).find((element) => {
+                    if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                        (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                        return element;
+                    }
+                }) || activeElement
+    
+                elements.forEach(element => {
+                    const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                    if (element === activeElement){
+                        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                    } else {
+                        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                    }
+                })
+            }
+        }, false);
+    
+        const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+        const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+        const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+    
+        function checkTocPosition() {
+            const width = document.body.scrollWidth;
+            if (width - main - (toc * 2) - (gap * 4) > 0) {
+                document.getElementById("toc-container").classList.add("wide");
+            } else {
+                document.getElementById("toc-container").classList.remove("wide");
+            }
+        }
+    
+        function getOffsetTop(element) {
+            if (!element.getClientRects().length) {
+                return 0;
+            }
+            let rect = element.getBoundingClientRect();
+            let win = element.ownerDocument.defaultView;
+            return rect.top + win.pageYOffset;
+        }
+    </script>
+    <div class="post-content"><h3 id="kill">kill</h3>
+<p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20240219234211.png" alt="image-20240219234209813"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ <span class="nb">kill</span> pid <span class="c1"># kill -15 pid 默认的 kill</span>
+</span></span></code></pre></div><p>系统会发送一个SIGTERM的信号给对应的程序，当程序接收到该signal后：</p>
+<ul>
+<li>程序立刻停止</li>
+<li>当程序释放相应资源后再停止</li>
+<li>程序可能仍然继续运行</li>
+</ul>
+<p>大部分程序接收到SIGTERM信号后，会先释放自己的资源，然后在停止。但是也有程序可以在接受到信号量后，做一些其他的事情，并且这些事情是可以配置的。如果程序正在等待IO，可能就不会立马做出相应。也就是说，SIGTERM多半是会被阻塞的、忽略。</p>
+<p>kill -15信号只是通知对应的进程要进行&quot;安全、干净的退出&quot;，程序接到信号之后，退出前一般会进行一些&quot;准备工作&quot;，如资源释放、临时文件清理等等，如果准备工作做完了，再进行程序的终止。如果在&quot;准备工作&quot;进行过程中，遇到阻塞或者其他问题导致无法成功，那么应用程序可以选择忽略该终止信号。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ <span class="nb">kill</span> -9 pid
+</span></span></code></pre></div><p>必杀，强制删除。在执行时，应用程序是没有时间进行&quot;准备工作&quot;的，所以这通常会带来一些副作用，数据丢失或者终端无法恢复到正常状态等。</p>
+<h3 id="ps">ps</h3>
+<p>Linux ps （英文全拼：process status）命令用于显示当前进程的状态，类似于 windows 的任务管理器。.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ ps -ef <span class="p">|</span> grep 进程关键字 <span class="c1"># 查找指定进程</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># ps -ef | grep php</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">root       <span class="m">794</span>     <span class="m">1</span>  <span class="m">0</span>  <span class="m">2020</span> ?        00:00:52 php-fpm: master process <span class="o">(</span>/etc/php/7.3/fpm/php-fpm.conf<span class="o">)</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">www-data   <span class="m">951</span>   <span class="m">794</span>  <span class="m">0</span>  <span class="m">2020</span> ?        00:24:15 php-fpm: pool www
+</span></span><span class="line"><span class="ln">4</span><span class="cl">www-data   <span class="m">953</span>   <span class="m">794</span>  <span class="m">0</span>  <span class="m">2020</span> ?        00:24:14 php-fpm: pool www
+</span></span></code></pre></div><p>有时候则显示如下信息</p>
+<p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20240219234332.png" alt="image-20240219234331091"></p>
+<p>上述查询，查询结果其实 <strong>都是没有</strong> cold 这个进程，但是都显示了 cold 进程的本身，当我们再次查询的时候</p>
+<p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20240219234409.png" alt="image-20240219234408277"></p>
+<p>可以看到进程号一直在变化，正常进程号是不会变的。</p>
+<p>解决方法：</p>
+<ol>
+<li>在进程名 任何一个字母上添加 [ ]</li>
+<li>在进程后面 + <code>grep -v grep</code> （-v 参数含义为不包括）</li>
+</ol>
+<h3 id="cat-和-tail-查看日志">cat 和 tail 查看日志</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ tail -f fileName	   <span class="c1"># 尾部的内容显示在屏幕上，并且不断实时刷新</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">$ tail fileName		   <span class="c1"># 默认显示最后 10 行</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">$ tail -n <span class="m">20</span> fileName  <span class="c1"># 显示最后 20 行</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">$ tail -n +20 fileName <span class="c1"># 从第 20 行至文件末尾</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ cat fileName		<span class="c1"># 打印全部日志</span>
+</span></span></code></pre></div><h3 id="mv">mv</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ mv source_file<span class="o">(</span>文件<span class="o">)</span> dest_file<span class="o">(</span>文件<span class="o">)</span> 			 <span class="c1"># 将源文件重命名</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">$ mv source_file<span class="o">(</span>文件<span class="o">)</span> dest_directory<span class="o">(</span>目录<span class="o">)</span> 	 <span class="c1"># 将源文件移动到目标目录中</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">$ mv source_directory<span class="o">(</span>目录<span class="o">)</span> dest_directory<span class="o">(</span>目录<span class="o">)</span> <span class="c1"># 若目标目录存在，移动源目录到其下面，否则对源目录重命名</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">$ mv source_directory<span class="o">(</span>目录<span class="o">)</span> dest_file<span class="o">(</span>文件<span class="o">)</span> 	 <span class="c1"># 出错</span>
+</span></span></code></pre></div><h3 id="drwxr-xr-x-权限">drwxr-xr-x 权限</h3>
+<p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20180328163937114" alt="img"></p>
+<p>第一个字符是表示文件类型：<code>- </code>表示普通文件  <code>d</code>表示目录 <code>l</code>表示符号链接 <code>b</code>表示块设备 (硬件存储设备)</p>
+<p>剩下的三个一组，分别表示用户、组用户、其他用户的读、写、执行权限</p>
+<p>如 -rwxr-xr-x 或 755 则表示 用户具有读、写和执行权限，而组用户和其他用户仅具有读和执行权限。</p>
+<h3 id="scp-远程拷贝">scp 远程拷贝</h3>
+<p>文件夹需要加 <code>-r</code></p>
+<ol>
+<li>从远处复制文件到本地目录，从 10.6.159.147 机器上的 /tmp/soft/ 的目录中下载 demo.tar 文件到本地 /tmp/soft/ 目录中</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ scp root@10.6.159.147:/tmp/soft/demo.tar /tmp/soft/
+</span></span></code></pre></div><ol start="2">
+<li>从远处复制到本地，从 10.6.159.147 机器上的 /tmp/soft/ 中下载 test 目录到本地的 /tmp/soft/ 目录来。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ scp -r root@10.6.159.147:/tmp/soft/test /tmp/soft/
+</span></span></code></pre></div><ol start="3">
+<li>上传本地文件到远程机器指定目录，复制本地 tmp/soft/ 目录下的文件 demo.tar 到远程机器 10.6.159.147 的 tmp/soft/scptest 目录</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ scp /tmp/soft/demo.tar root@10.6.159.147:/tmp/soft/scptest
+</span></span></code></pre></div><ol start="4">
+<li>上传本地目录到远程机器指定目录，上传本地目录 /tmp/soft/test 到远程机器 10.6.159.147上/tmp/soft/scptest 的目录中</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ scp -r /tmp/soft/test root@10.6.159.147:/tmp/soft/scptest
+</span></span></code></pre></div><h3 id="mkdir">mkdir</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ mkdir /home/cold				<span class="c1"># 创建单个文件夹</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">$ mkdir /home/cold /home/cold2 <span class="c1"># 批量创建文件夹</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">$ mkdir -p /home/cold/coldFile  <span class="c1"># 创建多层文件夹</span>
+</span></span></code></pre></div><h3 id="find">find</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ find /（查找范围） -name <span class="s1">&#39;查找关键字&#39;</span> -type d <span class="c1"># 查找目录</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">$ find /（查找范围） -name 查找关键字 -print 	 <span class="c1"># 查找文件</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ find / -name <span class="s1">&#39;tomcat7&#39;</span> -type d 	<span class="c1"># 查找tomcat7文件夹所在的位置</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">$ find / -name <span class="s1">&#39;server.xml&#39;</span> -print  <span class="c1"># 查找server.xml文件的位置</span>
+</span></span></code></pre></div></div>
+  </div>
+</article>
+
+
+  
+    <div class="pagination__title">
+    <span class="pagination__title-h" style="font-size: 20px;">💬Discussion</span>
+    <hr />
+</div>
+<script src="//cdn.jsdelivr.net/npm/twikoo@1.6.21/dist/twikoo.all.min.js"></script>
+<div id="tcomment"></div><script>
+    twikoo.init({
+        envId: "https:\/\/twikoo.coldcoding.top\/",  
+        el: "#tcomment", 
+        
+        
+    });
+</script>
+
+
+
+
+    </div><footer class="footer">
+  <hr />
+  <span>
+    Copyright 2022-2024 <a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2023006518号</a>
+  </span>
+  <span>
+    All articles on this site are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a >
+  </span>
+</footer>
+
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <span class="topInner">
+      <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+          <path d="M12 6H0l6-6z"/>
+      </svg>
+      <span id="read_progress"></span>
+  </span>
+</a>
+
+<script>
+  var backButton = document.getElementById("top-link");
+  var lastScrollPosition = window.pageYOffset;
+
+  function showBackButton() {
+      backButton.style.visibility = "visible";
+      backButton.style.opacity = '1';
+  }
+  function halfHideBackButton() {
+      backButton.style.visibility = "visible";
+      backButton.style.opacity = '0.3';
+  }
+  function hideBackButton() {
+      backButton.style.visibility = "hidden";
+      backButton.style.opacity = '0';
+  }
+
+  window.onscroll = function () {
+      var currentScrollPosition = window.pageYOffset;
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        showBackButton()
+        if (Math.abs(currentScrollPosition - lastScrollPosition) < 10) {
+          halfHideBackButton()
+        }
+      } else {
+        hideBackButton()
+      }
+      lastScrollPosition = currentScrollPosition;
+  };
+</script></body>
+</html>

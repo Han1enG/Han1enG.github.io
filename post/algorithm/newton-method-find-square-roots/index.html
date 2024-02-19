@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="牛顿法求解平方根" />
+    <title>牛顿法求解平方根 | Cold World</title>
+    <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="/css/fonts.css" /> 
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+</head>
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+</noscript>
+  </head><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="牛顿法求解平方根" />
+    <title>牛顿法求解平方根 | Cold World</title>
+    <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="/css/fonts.css" /> 
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+</head>
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+</noscript><body><div class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a href="http://www.coldcoding.top" accesskey="h" title="Cold World">
+        <img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20240219225844.jpg" alt="logo" aria-label="logo" height="35">
+        Cold World
+      </a>
+      
+    </div>
+    <nav>
+      <ul class="menu">
+        
+        <li>
+          <a class="no-tag" href="/post/">
+            Posts
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/tags/">
+            Tags
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/categories/">
+            Categories
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/about/">
+            About
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/index.xml">
+            RSS
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+  </nav>
+</div><div class="main page">
+<article class="post-single">
+  <div id="single-content">
+    <header class="post-header">
+      <div class="breadcrumbs"><div  class="breadcrumb">
+    
+    
+    <a href="http://coldcoding.top/">🏠 Home</a>&nbsp;»&nbsp;<a href="http://coldcoding.top/post/">Posts</a></div></div>
+      <h1 class="post-title">牛顿法求解平方根</h1>
+      <div class="post-meta"><span class="parent-post-meta">
+    <span id="post_meta_style_initpost" class="post_meta_style">Published at:</span>2023/05/16&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_lastmod" class="post_meta_style">Last updated:</span>2023/05/16&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_pagepv" class="post_meta_style">PagePV:</span><span id="twikoo_visitors">0</span>&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_author" class="post_meta_style">Author:</span>Cold&nbsp;&nbsp;&nbsp;    
+</span></div>
+    </header>
+      
+    <div class="post-content"><p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20240219231230.gif" alt="牛顿法"></p>
+<p>假设输入的数是 $m$，则其实是求一个 $ x $ 值，使其满足 $x^2 = m$，令 $f(x) = x^2 - m$ ，其实就是求方程 $f(x) = 0$ 的根。那么 $f(x)$ 的导函数是 $f&rsquo;(x) = 2x$。
+如果是二次函数的话，是很简单的导数运算，切线方程：$y=f′(x_n)(x−x_n)+f(x_n)$，求交点就是把 $y$ 置为零。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">	<span class="s">&#34;math&#34;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="kd">const</span> <span class="nx">err</span> <span class="kt">float64</span> <span class="p">=</span> <span class="mf">1e-8</span> <span class="c1">// err 是允许的误差
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="kd">func</span> <span class="nf">Sqrt</span><span class="p">(</span><span class="nx">x</span> <span class="kt">float64</span><span class="p">)</span> <span class="kt">float64</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">	<span class="k">if</span> <span class="nx">x</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">	<span class="nx">root</span> <span class="o">:=</span> <span class="mf">1.0</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">	<span class="k">for</span> <span class="nx">math</span><span class="p">.</span><span class="nf">Abs</span><span class="p">(</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">root</span> <span class="o">*</span> <span class="nx">root</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="nx">err</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">		<span class="nx">root</span> <span class="o">-=</span> <span class="p">(</span><span class="nx">root</span> <span class="o">*</span> <span class="nx">root</span> <span class="o">-</span> <span class="nx">x</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">root</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">	<span class="k">return</span> <span class="nx">root</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">
+</span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">Sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></div>
+  </div>
+</article>
+
+
+  
+    <div class="pagination__title">
+    <span class="pagination__title-h" style="font-size: 20px;">💬Discussion</span>
+    <hr />
+</div>
+<script src="//cdn.jsdelivr.net/npm/twikoo@1.6.21/dist/twikoo.all.min.js"></script>
+<div id="tcomment"></div><script>
+    twikoo.init({
+        envId: "https:\/\/twikoo.coldcoding.top\/",  
+        el: "#tcomment", 
+        
+        
+    });
+</script>
+
+
+
+
+    </div><footer class="footer">
+  <hr />
+  <span>
+    Copyright 2022-2024 <a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2023006518号</a>
+  </span>
+  <span>
+    All articles on this site are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a >
+  </span>
+</footer>
+
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <span class="topInner">
+      <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+          <path d="M12 6H0l6-6z"/>
+      </svg>
+      <span id="read_progress"></span>
+  </span>
+</a>
+
+<script>
+  var backButton = document.getElementById("top-link");
+  var lastScrollPosition = window.pageYOffset;
+
+  function showBackButton() {
+      backButton.style.visibility = "visible";
+      backButton.style.opacity = '1';
+  }
+  function halfHideBackButton() {
+      backButton.style.visibility = "visible";
+      backButton.style.opacity = '0.3';
+  }
+  function hideBackButton() {
+      backButton.style.visibility = "hidden";
+      backButton.style.opacity = '0';
+  }
+
+  window.onscroll = function () {
+      var currentScrollPosition = window.pageYOffset;
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        showBackButton()
+        if (Math.abs(currentScrollPosition - lastScrollPosition) < 10) {
+          halfHideBackButton()
+        }
+      } else {
+        hideBackButton()
+      }
+      lastScrollPosition = currentScrollPosition;
+  };
+</script></body>
+</html>

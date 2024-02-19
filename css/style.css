@@ -697,8 +697,8 @@ img:active {
 .toc-container.wide {
 	position: absolute;
 	top: calc(var(--gap)*1);
-  left: calc((var(--toc-width) + var(--gap)) * -.92);
-	width: var(300px);
+  	left: calc((var(--toc-width) + var(--gap)) * -.92);
+	width: 250px;
 	height: 100%
 }
 

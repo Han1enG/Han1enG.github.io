@@ -6,435 +6,286 @@
     <description>Recent content in Cold&#39;s Blog on Cold World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Mar 2023 11:29:44 +0000</lastBuildDate><atom:link href="http://coldcoding.top/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Aug 2023 15:02:32 +0000</lastBuildDate><atom:link href="http://coldcoding.top/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Hexo 部署到服务器</title>
-      <link>http://coldcoding.top/post/hexo-centos/</link>
-      <pubDate>Sun, 19 Mar 2023 11:29:44 +0000</pubDate>
+      <title>Linux 常用命令</title>
+      <link>http://coldcoding.top/post/linux/linux-cmd/</link>
+      <pubDate>Wed, 16 Aug 2023 15:02:32 +0000</pubDate>
       
-      <guid>http://coldcoding.top/post/hexo-centos/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;GitHub Pages&lt;/code&gt; 实在太慢了，科学上网有时候也卡住。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;搭建git服务器&#34;&gt;搭建Git服务器&lt;/h2&gt;
-&lt;p&gt;首先使用 &lt;code&gt;Xshell&lt;/code&gt;连接服务器，并切换 &lt;code&gt;root&lt;/code&gt;用户，回退到根路径&lt;/p&gt;
+      <guid>http://coldcoding.top/post/linux/linux-cmd/</guid>
+      <description>&lt;h3 id=&#34;kill&#34;&gt;kill&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20240219234211.png&#34; alt=&#34;image-20240219234209813&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; pid &lt;span class=&#34;c1&#34;&gt;# kill -15 pid 默认的 kill&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;系统会发送一个SIGTERM的信号给对应的程序，当程序接收到该signal后：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;程序立刻停止&lt;/li&gt;
+&lt;li&gt;当程序释放相应资源后再停止&lt;/li&gt;
+&lt;li&gt;程序可能仍然继续运行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;大部分程序接收到SIGTERM信号后，会先释放自己的资源，然后在停止。但是也有程序可以在接受到信号量后，做一些其他的事情，并且这些事情是可以配置的。如果程序正在等待IO，可能就不会立马做出相应。也就是说，SIGTERM多半是会被阻塞的、忽略。&lt;/p&gt;
+&lt;p&gt;kill -15信号只是通知对应的进程要进行&amp;quot;安全、干净的退出&amp;quot;，程序接到信号之后，退出前一般会进行一些&amp;quot;准备工作&amp;quot;，如资源释放、临时文件清理等等，如果准备工作做完了，再进行程序的终止。如果在&amp;quot;准备工作&amp;quot;进行过程中，遇到阻塞或者其他问题导致无法成功，那么应用程序可以选择忽略该终止信号。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; -9 pid
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;必杀，强制删除。在执行时，应用程序是没有时间进行&amp;quot;准备工作&amp;quot;的，所以这通常会带来一些副作用，数据丢失或者终端无法恢复到正常状态等。&lt;/p&gt;
+&lt;h3 id=&#34;ps&#34;&gt;ps&lt;/h3&gt;
+&lt;p&gt;Linux ps （英文全拼：process status）命令用于显示当前进程的状态，类似于 windows 的任务管理器。.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ ps -ef &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep 进程关键字 &lt;span class=&#34;c1&#34;&gt;# 查找指定进程&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# ps -ef | grep php&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;root       &lt;span class=&#34;m&#34;&gt;794&lt;/span&gt;     &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  &lt;span class=&#34;m&#34;&gt;2020&lt;/span&gt; ?        00:00:52 php-fpm: master process &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;/etc/php/7.3/fpm/php-fpm.conf&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;www-data   &lt;span class=&#34;m&#34;&gt;951&lt;/span&gt;   &lt;span class=&#34;m&#34;&gt;794&lt;/span&gt;  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  &lt;span class=&#34;m&#34;&gt;2020&lt;/span&gt; ?        00:24:15 php-fpm: pool www
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;www-data   &lt;span class=&#34;m&#34;&gt;953&lt;/span&gt;   &lt;span class=&#34;m&#34;&gt;794&lt;/span&gt;  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  &lt;span class=&#34;m&#34;&gt;2020&lt;/span&gt; ?        00:24:14 php-fpm: pool www
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;有时候则显示如下信息&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20240219234332.png&#34; alt=&#34;image-20240219234331091&#34;&gt;&lt;/p&gt;
+&lt;p&gt;上述查询，查询结果其实 &lt;strong&gt;都是没有&lt;/strong&gt; cold 这个进程，但是都显示了 cold 进程的本身，当我们再次查询的时候&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20240219234409.png&#34; alt=&#34;image-20240219234408277&#34;&gt;&lt;/p&gt;
+&lt;p&gt;可以看到进程号一直在变化，正常进程号是不会变的。&lt;/p&gt;
+&lt;p&gt;解决方法：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;安装 &lt;code&gt;openssh&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get install openssh-server &lt;span class=&#34;c1&#34;&gt;# Ubuntu&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo yum install openssh-server &lt;span class=&#34;c1&#34;&gt;# Centos&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;安装完成之后，查看 &lt;code&gt;ssh&lt;/code&gt;服务是否启动&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ps -e&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;grep ssh
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230319115148.png&#34; alt=&#34;image-20230319115141985&#34;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;创建一个名为 &lt;code&gt;git&lt;/code&gt;的用户，用于管理 &lt;code&gt;Hexo&lt;/code&gt;项目&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;adduser git
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230320203205.png&#34; alt=&#34;image-20230320203202602&#34;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;给 &lt;code&gt;git&lt;/code&gt;用户添加文件的写权限&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;chmod &lt;span class=&#34;m&#34;&gt;740&lt;/span&gt; /etc/sudoers
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;vim /etc/sudoers
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;找到 &lt;code&gt;User privilege specification&lt;/code&gt;部分，添加如下内容：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;git    &lt;span class=&#34;nv&#34;&gt;ALL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=(&lt;/span&gt;ALL:ALL&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; ALL
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230320203419.png&#34; alt=&#34;image-20230320203415465&#34;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;按 &lt;code&gt;ESC&lt;/code&gt; 退出编辑模式，输入 &lt;code&gt;:wq&lt;/code&gt;保存退出&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;将写权限收回&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;chmod &lt;span class=&#34;m&#34;&gt;400&lt;/span&gt; /etc/sudoers
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;切换至 &lt;code&gt;git&lt;/code&gt;用户，创建 &lt;code&gt;~/.ssh&lt;/code&gt;文件夹和 &lt;code&gt; ~/.ssh/authorized_keys&lt;/code&gt;文件，并赋予相应的权限&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;su git
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;mkdir ~/.ssh
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;vim ~/.ssh/authorized_keys
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;按 &lt;code&gt;i&lt;/code&gt;进入编辑模式，将我们先前生成的 &lt;code&gt;id_rsa.pub&lt;/code&gt;文件中的公钥复制到 &lt;code&gt;authorized_keys&lt;/code&gt;中，按 &lt;code&gt;ESC&lt;/code&gt; 退出编辑模式，输入 &lt;code&gt;:wq&lt;/code&gt;保存退出。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;赋予权限&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;chmod &lt;span class=&#34;m&#34;&gt;600&lt;/span&gt; /home/git/.ssh/authorized_keys
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;chmod &lt;span class=&#34;m&#34;&gt;700&lt;/span&gt; /home/git/.ssh
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;在电脑本地桌面，右键 &lt;code&gt;Git Bash Here&lt;/code&gt;，输入一下命令，其中 &lt;code&gt;SERVER&lt;/code&gt;填写自己的云主机 &lt;code&gt;ip&lt;/code&gt;，如果能够免密登录即代表成功。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ssh -v git@SERVER
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230326094753.png&#34; alt=&#34;image-20230326094751020&#34;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;安装 &lt;code&gt;git&lt;/code&gt;，有的话就不需要再安装&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 安装 Git&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo yum -y install git
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 查看版本&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;git version
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;在 &lt;code&gt;var&lt;/code&gt;目录下创建 &lt;code&gt;repo&lt;/code&gt;作为 &lt;code&gt;Git&lt;/code&gt;仓库目录，并赋予权限，先切换到 &lt;code&gt;root&lt;/code&gt;账户，然后输入：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;mkdir /var/repo
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;chown -R git:git /var/repo
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;chmod -R &lt;span class=&#34;m&#34;&gt;755&lt;/span&gt; /var/repo
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;创建 &lt;code&gt;hexo&lt;/code&gt;目录作为网站根目录，并赋予权限&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;mkdir /var/hexo
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;chown -R git:git /var/hexo
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;chmod -R &lt;span class=&#34;m&#34;&gt;755&lt;/span&gt; /var/hexo
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;创建一个空白的 &lt;code&gt;git&lt;/code&gt;仓库&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; /var/repo
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;git init --bare hexo.git
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在 &lt;code&gt;/var/repo/hexo.git&lt;/code&gt;下，有一个自动生成的 hooks 文件夹，我们需要在里面新建一个新的钩子文件 &lt;code&gt;post-receive&lt;/code&gt;，用于自动部署&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;vim /var/repo/hexo.git/hooks/post-receive
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;进入编辑模式，输入以下内容：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/bin/bash
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;git --work-tree&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/var/hexo --git-dir&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/var/repo/hexo.git checkout -f
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;写入后添加可执行权限&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;chown -R git:git /var/repo/hexo.git/hooks/post-receive
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;chmod +x /var/repo/hexo.git/hooks/post-receive
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;在进程名 任何一个字母上添加 [ ]&lt;/li&gt;
+&lt;li&gt;在进程后面 + &lt;code&gt;grep -v grep&lt;/code&gt; （-v 参数含义为不包括）&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;配置nginx托管文件目录&#34;&gt;配置Nginx托管文件目录&lt;/h2&gt;
+&lt;h3 id=&#34;cat-和-tail-查看日志&#34;&gt;cat 和 tail 查看日志&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ tail -f fileName	   &lt;span class=&#34;c1&#34;&gt;# 尾部的内容显示在屏幕上，并且不断实时刷新&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ tail fileName		   &lt;span class=&#34;c1&#34;&gt;# 默认显示最后 10 行&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ tail -n &lt;span class=&#34;m&#34;&gt;20&lt;/span&gt; fileName  &lt;span class=&#34;c1&#34;&gt;# 显示最后 20 行&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ tail -n +20 fileName &lt;span class=&#34;c1&#34;&gt;# 从第 20 行至文件末尾&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ cat fileName		&lt;span class=&#34;c1&#34;&gt;# 打印全部日志&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;mv&#34;&gt;mv&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ mv source_file&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;文件&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; dest_file&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;文件&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; 			 &lt;span class=&#34;c1&#34;&gt;# 将源文件重命名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ mv source_file&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;文件&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; dest_directory&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;目录&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; 	 &lt;span class=&#34;c1&#34;&gt;# 将源文件移动到目标目录中&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ mv source_directory&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;目录&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; dest_directory&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;目录&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# 若目标目录存在，移动源目录到其下面，否则对源目录重命名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ mv source_directory&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;目录&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; dest_file&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;文件&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; 	 &lt;span class=&#34;c1&#34;&gt;# 出错&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;drwxr-xr-x-权限&#34;&gt;drwxr-xr-x 权限&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20180328163937114&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;第一个字符是表示文件类型：&lt;code&gt;- &lt;/code&gt;表示普通文件  &lt;code&gt;d&lt;/code&gt;表示目录 &lt;code&gt;l&lt;/code&gt;表示符号链接 &lt;code&gt;b&lt;/code&gt;表示块设备 (硬件存储设备)&lt;/p&gt;
+&lt;p&gt;剩下的三个一组，分别表示用户、组用户、其他用户的读、写、执行权限&lt;/p&gt;
+&lt;p&gt;如 -rwxr-xr-x 或 755 则表示 用户具有读、写和执行权限，而组用户和其他用户仅具有读和执行权限。&lt;/p&gt;
+&lt;h3 id=&#34;scp-远程拷贝&#34;&gt;scp 远程拷贝&lt;/h3&gt;
+&lt;p&gt;文件夹需要加 &lt;code&gt;-r&lt;/code&gt;&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;安装Nginx&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo yum install nginx -y
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230319143059.png&#34; alt=&#34;image-20230319143057171&#34;&gt;&lt;/p&gt;
-&lt;p&gt;安装成功后，在浏览器中输入服务器的ip地址，即可访问到Nginx的默认站点
-&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230319144931.png&#34; alt=&#34;image-20230319144928430&#34;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;配置 &lt;code&gt;Nginx&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;nginx -t
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;编辑 &lt;code&gt;nginx.conf&lt;/code&gt;文件&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;vim /etc/nginx/nginx.conf
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;按 &lt;code&gt;i&lt;/code&gt;进入编辑模式，粘贴完按 &lt;code&gt;Esc&lt;/code&gt; 键退出编辑模式，输入 &lt;code&gt;:wq&lt;/code&gt; 保存退出。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230326101400.png&#34; alt=&#34;3&#34;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;启动 &lt;code&gt;nginx&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;systemctl start nginx.service
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;重启 &lt;code&gt;ngxin&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;systemctl restart nginx.service
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;从远处复制文件到本地目录，从 10.6.159.147 机器上的 /tmp/soft/ 的目录中下载 demo.tar 文件到本地 /tmp/soft/ 目录中&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;修改-hexo配置&#34;&gt;修改 &lt;code&gt;Hexo&lt;/code&gt;配置&lt;/h2&gt;
-&lt;p&gt;在配置文件 &lt;code&gt;_config.yml&lt;/code&gt;中找到 &lt;code&gt;deploy&lt;/code&gt;，修改为&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;deploy:
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;  type: git
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;  repo: git@hjxlog.com:/var/repo/hexo.git &lt;span class=&#34;c1&#34;&gt;#repo改为repo: git@你的域名:/var/repo/hexo.git&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;  branch: master
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;三连部署&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;hexo cl &lt;span class=&#34;p&#34;&gt;&amp;amp;&lt;/span&gt; hexo g &lt;span class=&#34;p&#34;&gt;&amp;amp;&lt;/span&gt; hexo d
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ scp root@10.6.159.147:/tmp/soft/demo.tar /tmp/soft/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;从远处复制到本地，从 10.6.159.147 机器上的 /tmp/soft/ 中下载 test 目录到本地的 /tmp/soft/ 目录来。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ scp -r root@10.6.159.147:/tmp/soft/test /tmp/soft/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;上传本地文件到远程机器指定目录，复制本地 tmp/soft/ 目录下的文件 demo.tar 到远程机器 10.6.159.147 的 tmp/soft/scptest 目录&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ scp /tmp/soft/demo.tar root@10.6.159.147:/tmp/soft/scptest
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;上传本地目录到远程机器指定目录，上传本地目录 /tmp/soft/test 到远程机器 10.6.159.147上/tmp/soft/scptest 的目录中&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ scp -r /tmp/soft/test root@10.6.159.147:/tmp/soft/scptest
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;mkdir&#34;&gt;mkdir&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ mkdir /home/cold				&lt;span class=&#34;c1&#34;&gt;# 创建单个文件夹&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ mkdir /home/cold /home/cold2 &lt;span class=&#34;c1&#34;&gt;# 批量创建文件夹&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ mkdir -p /home/cold/coldFile  &lt;span class=&#34;c1&#34;&gt;# 创建多层文件夹&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;find&#34;&gt;find&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ find /（查找范围） -name &lt;span class=&#34;s1&#34;&gt;&amp;#39;查找关键字&amp;#39;&lt;/span&gt; -type d &lt;span class=&#34;c1&#34;&gt;# 查找目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ find /（查找范围） -name 查找关键字 -print 	 &lt;span class=&#34;c1&#34;&gt;# 查找文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ find / -name &lt;span class=&#34;s1&#34;&gt;&amp;#39;tomcat7&amp;#39;&lt;/span&gt; -type d 	&lt;span class=&#34;c1&#34;&gt;# 查找tomcat7文件夹所在的位置&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ find / -name &lt;span class=&#34;s1&#34;&gt;&amp;#39;server.xml&amp;#39;&lt;/span&gt; -print  &lt;span class=&#34;c1&#34;&gt;# 查找server.xml文件的位置&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
-      <title>Hexo &#43; Butterfly 添加评论系统</title>
-      <link>http://coldcoding.top/post/hexo-comment/</link>
-      <pubDate>Wed, 15 Mar 2023 11:53:52 +0000</pubDate>
+      <title>控制面和转发面</title>
+      <link>http://coldcoding.top/post/net/control-plane-forward-plane/</link>
+      <pubDate>Sat, 24 Jun 2023 20:28:36 +0000</pubDate>
       
-      <guid>http://coldcoding.top/post/hexo-comment/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;参考作者给出的&lt;a href=&#34;https://butterfly.js.org/posts/ceeb73f/&#34;&gt;教程&lt;/a&gt;以及官方文档&lt;a href=&#34;https://twikoo.js.org/&#34;&gt;twikoo&lt;/a&gt;和&lt;a href=&#34;https://waline.js.org/&#34;&gt;waline&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;通用设置&#34;&gt;通用设置&lt;/h2&gt;
-&lt;h3 id=&#34;主题文件配置&#34;&gt;主题文件配置&lt;/h3&gt;
+      <guid>http://coldcoding.top/post/net/control-plane-forward-plane/</guid>
+      <description>&lt;h4 id=&#34;通俗理解&#34;&gt;通俗理解&lt;/h4&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;在主题配置文件&lt;code&gt;_config.butterfly.yml&lt;/code&gt;中找到&lt;code&gt;comments&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;comments&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# Up to two comments system, the first will be shown as default&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# Choose: Disqus/Disqusjs/Livere/Gitalk/Valine/Waline/Utterances/Facebook Comments/Twikoo/Giscus/Remark42/Artalk&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;use&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Twikoo,Waline&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# Display the comment name next to the button&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# lazyload: The comment system will be load when comment element enters the browser&amp;#39;s viewport.&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# If you set it to true, the comment count will be invalid&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;lazyload&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# Display comment count in post&amp;#39;s top_img&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;card_post_count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# Display comment count in Home Page&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;p&gt;&lt;strong&gt;控制面&lt;/strong&gt;是为了找好路径，&lt;strong&gt;转发面&lt;/strong&gt;是在有个好路径的基础上转发数据，两者协作来达到网络是通的这样一个目的。&lt;/p&gt;
+&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;在主题配置文件&lt;code&gt;_config.butterfly.yml&lt;/code&gt;中找到&lt;code&gt;waline&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;waline&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;serverURL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;waline.coldcoding.top &lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# 填入刚刚得到的后端 URL（必填,根据实际情况填写你自己的域名）&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;option&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;locale&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;{&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;nick&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;昵称&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;mail&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;邮箱&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;link&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;你的网站&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;placeholder&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;欢迎大家文明评论嗷～(填写邮箱可以收到回复通知)&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;requiredMeta&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[],&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;mailError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;请填写正确的邮件地址&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;sofa&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;快来抢占沙发~&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;level0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;列兵&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;level1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;上等兵&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;level2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;一期&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;level3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;二期&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;level4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;三期&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;level5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;四期&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;level6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;五期&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;level7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;六期&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;level8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;兵王&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;}&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;emoji&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-emoji&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;https://cdn.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;在主题配置文件&lt;code&gt;_config.butterfly.yml&lt;/code&gt;中找到&lt;code&gt;twikoo&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;twikoo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;envId&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;twikoo.coldcoding.top&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;region&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;visitor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;option&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;locale&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;{&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;nick&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;昵称&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;mail&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;邮箱&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;link&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;你的网站（选填）&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;placeholder&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;欢迎大家文明评论嗷～(填写邮箱可以收到回复通知)&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;requiredMeta&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[],&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;mailError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;请填写正确的邮件地址&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;sofa&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;快来抢占沙发~&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;level0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;列兵&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;level1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;上等兵&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;level2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;一期&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;level3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;二期&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;level4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;三期&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;level5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;四期&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;level6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;五期&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;level7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;六期&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;level8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;兵王&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;}&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;emoji&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-emoji&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;https://cdn.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;p&gt;数据包是以跳为单位进行路由的，转发的决定是由接收到该数据包的路由器决定的。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The Control Plane&lt;/strong&gt;: 决定怎么和从哪转发出去。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The Data Plane:&lt;/strong&gt; 在路由器端口上进行实际包转发到线路上（硬件层面）。&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;安装waline&#34;&gt;安装&lt;code&gt;Waline&lt;/code&gt;&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ npm install @waline/hexo-next --save
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;waline&#34;&gt;Waline&lt;/h2&gt;
-&lt;h3 id=&#34;leancloud&#34;&gt;LeanCloud&lt;/h3&gt;
-&lt;h4 id=&#34;注册leancloud国际版httpsconsoleleancloudapp&#34;&gt;注册&lt;a href=&#34;https://console.leancloud.app/&#34;&gt;LeanCloud国际版&lt;/a&gt;&lt;/h4&gt;
-&lt;h4 id=&#34;创建应用&#34;&gt;创建应用&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230315212506.png&#34; alt=&#34;image-20230315121854860&#34;&gt;&lt;/p&gt;
-&lt;p&gt;进入&lt;code&gt;设置-应用凭证&lt;/code&gt;，记下自己的&lt;code&gt;AppID、AppKey、MasterKey&lt;/code&gt;。&lt;/p&gt;
-&lt;h3 id=&#34;vercel&#34;&gt;Vercel&lt;/h3&gt;
-&lt;p&gt;点击&lt;a href=&#34;https://vercel.com/new/clone?repository-url=https://github.com/walinejs/waline/tree/main/example&#34;&gt;vercel&lt;/a&gt;进行 &lt;code&gt;Server&lt;/code&gt; 端部署。&lt;/p&gt;
+&lt;h4 id=&#34;官方定义&#34;&gt;官方定义&lt;/h4&gt;
+&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/image-20230721175913676.png&#34; alt=&#34;image-20230721175913676&#34; style=&#34;zoom: 80%;&#34; /&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;使用&lt;code&gt;GitHub&lt;/code&gt;登录。&lt;/p&gt;
-&lt;p&gt;吐槽一下需要用手机号登录，国内&lt;code&gt;github&lt;/code&gt;一般都是绑定的邮箱，虽然&lt;code&gt;github&lt;/code&gt;开了双重认证，但是没有中国地区的选项，之前看到有人发帖反映过问题，得到的答复是国内收到信息的成功率比较低，就直接去掉了。在绑定页面&lt;code&gt;F12&lt;/code&gt;进入开发者模式，直接把美国换成中国的&lt;code&gt;+86&lt;/code&gt;。
-&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230315212430.png&#34; alt=&#34;image-20230315212428121&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;控制层面&lt;/strong&gt; ：负责路由协议的更新和交互，路由的计算等。&lt;/p&gt;
+&lt;p&gt;通过控制和管理各协议的运行使得路由器或交换机能够对整个网络的设备、链路和运行的协议有一个准确的了解，并在网络发生变化时也能及时感知并调整。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;新建一个项目
-&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230316214314.png&#34; alt=&#34;image-20230316214304309&#34;&gt;
-&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230316214552.png&#34; alt=&#34;image-20230316214548547&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;转发层面&lt;/strong&gt; ：负责IP数据报文的转发。&lt;/p&gt;
+&lt;p&gt;转发平面是用来进行数据的接收、解封装、封装、查找路由表进行转发数据。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;点击仪表盘的&lt;code&gt;Settings/Environment Variables&lt;/code&gt;，进入环境变量配置页，并配置三个环境变量 &lt;code&gt;LEAN_ID&lt;/code&gt;, &lt;code&gt;LEAN_KEY&lt;/code&gt; 和 &lt;code&gt;LEAN_MASTER_KEY&lt;/code&gt; 。它们的值分别对应上一步在 &lt;code&gt;LeanCloud&lt;/code&gt; 中获得的 &lt;code&gt;APP ID&lt;/code&gt;, &lt;code&gt;APP KEY&lt;/code&gt;, &lt;code&gt;Master Key&lt;/code&gt;。
-&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230316215055.png&#34; alt=&#34;image-20230316215052293&#34;&gt;&lt;/p&gt;
+&lt;p&gt;控制层面和转发层面的分离&lt;/p&gt;
+&lt;p&gt;良好的系统设计应该是使控制平面与转发平面尽量分离,互不影响。
+当系统的控制平面暂时出现故障时,转发平面还可以继续工作,这样可以保证网络中原有的业务不受系统故障的影响从而提高整个网络的可靠性。&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;环境变量配置完成之后点击顶部的 &lt;code&gt;Deployments&lt;/code&gt; 点击顶部最新的一次部署右侧的 &lt;code&gt;Redeploy&lt;/code&gt; 按钮进行重新部署。该步骤是为了让刚才设置的环境变量生效。
-&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230316215315.png&#34; alt=&#34;image-20230316215311670&#34;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;等待片刻后 &lt;code&gt;STATUS&lt;/code&gt; 会变成 &lt;code&gt;Ready&lt;/code&gt;。此时请点击 &lt;code&gt;Visit&lt;/code&gt; ，即可跳转到部署好的网站地址，此地址即为你的服务端地址。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;点击顶部的 &lt;code&gt;Settings&lt;/code&gt; - &lt;code&gt;Domains&lt;/code&gt; 进入域名配置页，输入需要绑定的域名并点击 &lt;code&gt;Add&lt;/code&gt;
-&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230317222049.png&#34; alt=&#34;image-20230317222046504&#34;&gt;
-以上信息表明需要在你的域名商管理后台配置对应的&lt;code&gt;CNAME&lt;/code&gt;解析后才能生效，这里以腾讯云为例，按照&lt;code&gt;vervel&lt;/code&gt;推荐进行配置，同时可以参考这篇&lt;a href=&#34;https://tangly1024.com/article/vercel-domain&#34;&gt;教程&lt;/a&gt;。
-&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230317222104.png&#34; alt=&#34;image-20230317222100297&#34;&gt;
-&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230317222128.png&#34; alt=&#34;image-20230317222125363&#34;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;等待生效，就可以通过自己的域名来访问了🎉&lt;/p&gt;
+&lt;/ol&gt;
+&lt;p&gt;在计算机网络中，路由器的主要工作就是为经过路由器的每个数据包寻找一条最佳的传输路径，并将该数据有效地传送到目的站点。在每一个路由器设备中，通常都维护了两张比较相似的表，分别为：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;评论系统：waline.yourdomain.com&lt;/li&gt;
-&lt;li&gt;评论管理：waline.yourdomain.com/ui&lt;/li&gt;
+&lt;li&gt;路由信息表（Routing Information Base），简称为&lt;strong&gt;RIB&lt;/strong&gt;表、路由表&lt;/li&gt;
+&lt;li&gt;转发信息表（Forwarding Information Base）, 简称为&lt;strong&gt;FIB&lt;/strong&gt;表、转发表&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230317222226.png&#34; alt=&#34;image-20230317222223707&#34;&gt;
-&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230317222505.png&#34; alt=&#34;image-20230317222502134&#34;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;部署&#34;&gt;部署&lt;/h3&gt;
-&lt;p&gt;一键三连&lt;code&gt;hexo cl &amp;amp;&amp;amp; hexo g &amp;amp;&amp;amp; hexo d&lt;/code&gt;部署&lt;/p&gt;
-&lt;h2 id=&#34;twikoo&#34;&gt;Twikoo&lt;/h2&gt;
-&lt;h3 id=&#34;mongodb&#34;&gt;MongoDB&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;官方文档给出了多种部署方式，这里选择了 &lt;a href=&#34;https://www.mongodb.com/zh-cn/cloud/atlas/register&#34;&gt;MongoDB&lt;/a&gt;数据库来存储数据，首先进行账号注册，并创建免费数据库。区域推荐选择 &lt;code&gt;AWS / N. Virginia (us-east-1)&lt;/code&gt;，在 &lt;code&gt;Clusters&lt;/code&gt; 页面点击 &lt;code&gt;CONNECT&lt;/code&gt;，按步骤设置允许所有&lt;code&gt; IP&lt;/code&gt;地址的连接。
-&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230315222620.png&#34; alt=&#34;image-20230315222619248&#34;&gt;&lt;/li&gt;
-&lt;li&gt;连接数据库，选择&lt;code&gt;Connect your application&lt;/code&gt;
-&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230315222950.png&#34; alt=&#34;image-20230315222948746&#34;&gt;
-&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230318150136.png&#34; alt=&#34;image-20230318150133844&#34;&gt;&lt;/li&gt;
-&lt;li&gt;记录下&lt;code&gt;connection string&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;vercel-1&#34;&gt;Vercel&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;点击&lt;a href=&#34;https://vercel.com/import/project?template=https://github.com/imaegoo/twikoo/tree/main/src/server/vercel-min&#34;&gt;vercel&lt;/a&gt;进行&lt;code&gt;server&lt;/code&gt;端部署，新建一个仓库。
-&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230318150814.png&#34; alt=&#34;image-20230318150716668&#34;&gt;
-&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230318150946.png&#34; alt=&#34;image-20230318150944565&#34;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;进入 &lt;code&gt;Settings - Environment Variables&lt;/code&gt;，添加环境变量 &lt;code&gt;MONGODB_URI&lt;/code&gt;，值为上一步的数据库连接字符串，注意将&lt;code&gt;&amp;lt;password&amp;gt;&lt;/code&gt;替换为自己设置的用户密码。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230318151340.png&#34; alt=&#34;image-20230318151338849&#34;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;进入 &lt;code&gt;Deployments&lt;/code&gt; , 然后在任意一项后面点击更多（三个点） , 然后点击&lt;code&gt;Redeploy&lt;/code&gt; , 最后点击下面的&lt;code&gt;Redeploy&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;进入 &lt;code&gt;Overview&lt;/code&gt;，点击 &lt;code&gt;Domains&lt;/code&gt; 下方的链接，如果环境配置正确，可以看到 “Twikoo 云函数运行正常” 的提示。
-&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230318151727.png&#34; alt=&#34;image-20230318151725984&#34;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;点击顶部的 &lt;code&gt;Settings&lt;/code&gt; - &lt;code&gt;Domains&lt;/code&gt; 进入域名配置页，输入需要绑定的域名并点击 &lt;code&gt;Add&lt;/code&gt;
-&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230318152507.png&#34; alt=&#34;image-20230318152505606&#34;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;以上信息表明需要在你的域名商管理后台配置对应的&lt;code&gt;CNAME&lt;/code&gt;解析后才能生效，这里以腾讯云为例，按照&lt;code&gt;vervel&lt;/code&gt;推荐进行配置，同时可以参考这篇&lt;a href=&#34;https://tangly1024.com/article/vercel-domain&#34;&gt;教程&lt;/a&gt;。
-&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230318153008.png&#34; alt=&#34;image-20230318153006726&#34;&gt;
-&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230318153035.png&#34; alt=&#34;image-20230318153033540&#34;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;开启管理面板&#34;&gt;开启管理面板&lt;/h3&gt;
-&lt;p&gt;点击评论窗口的“小齿轮”图标，设置管理员密码&lt;/p&gt;
-&lt;h2 id=&#34;针对-vercel-部署的更新方式&#34;&gt;针对 Vercel 部署的更新方式&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;进入 &lt;a href=&#34;https://vercel.com/dashboard&#34;&gt;Vercel 仪表板&lt;/a&gt; - twikoo - Settings - Git&lt;/li&gt;
-&lt;li&gt;点击 &lt;code&gt;Connected Git Repository&lt;/code&gt; 下方的仓库地址&lt;/li&gt;
-&lt;li&gt;打开 &lt;code&gt;package.json&lt;/code&gt;，点击编辑&lt;/li&gt;
-&lt;li&gt;将 &lt;code&gt;&amp;quot;twikoo-vercel&amp;quot;: &amp;quot;x.x.x&amp;quot;&lt;/code&gt; 其中的版本号修改为最新版本号。点击 &lt;code&gt;Commit changes&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;部署会自动触发，可以回到 &lt;a href=&#34;https://vercel.com/dashboard&#34;&gt;Vercel 仪表板&lt;/a&gt;，查看部署状态&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;其中，路由表（RIB表）用来决策路由；转发表用来转发分组。&lt;/p&gt;
+&lt;p&gt;路由器的核心工作便是为经过路由器的每一个数据包找到最佳路径（最快、质量最好、路径最短等指标选择最优），并将到达不同网络的最优路径对应的路由组成一张新的表格，即FIB表。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/image-20230628140016109.png&#34; alt=&#34;image-20230628140016109&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Destination:目的网络地址、Gatewat:网关、Genmask:子网掩码、Metric:跳数、Ref:引用次数、Use：查询次数&lt;/p&gt;
+&lt;p&gt;在进行报文转发(发送)时：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;先查询路由表，确定目的地址是否可达，如果可达则确定出接口和下一跳信息&lt;/li&gt;
+&lt;li&gt;再查询ARP表，获取到目的地址对应的Mac地址信息，构建完整的以太网报文。&lt;/li&gt;
+&lt;li&gt;最后查询Mac表，是为了确定报文的发送接口，确定了出接口，内核会将报文发送到对应的网卡驱动上，网卡在合适的时间会将报文发送到下一跳设备上。&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
     <item>
-      <title>开启PJAX后的坑</title>
-      <link>http://coldcoding.top/post/pjax-readtime/</link>
-      <pubDate>Sat, 11 Mar 2023 16:20:04 +0000</pubDate>
+      <title>ARP协议</title>
+      <link>http://coldcoding.top/post/net/arp-protocol/</link>
+      <pubDate>Fri, 23 Jun 2023 19:05:14 +0000</pubDate>
       
-      <guid>http://coldcoding.top/post/pjax-readtime/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;刚开启的&lt;code&gt;PJAX&lt;/code&gt;就出问题了，有些&lt;code&gt;JS&lt;/code&gt;虽然加了 &lt;code&gt;data-pjax&lt;/code&gt; 属性，依然没有重载，出现在用户自己编写的用于计算阅读时间的&lt;code&gt;js&lt;/code&gt;函数中。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 原函数写法
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;aaaaaaaaaaaaaaa&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 现在的写法
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;pjax_reload&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;aaaaaaaaaaaaaaa&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;addEventListener&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;pjax:complete&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;pjax_reload&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// Pjax 完成后，重新加载上面的函数
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>网站开启PJAX</title>
-      <link>http://coldcoding.top/post/pjax/</link>
-      <pubDate>Sat, 11 Mar 2023 14:48:04 +0000</pubDate>
-      
-      <guid>http://coldcoding.top/post/pjax/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;参考文章： &lt;a href=&#34;https://paugram.com/coding/add-pjax-to-your-website.html&#34;&gt;保罗 &lt;/a&gt;   &lt;a href=&#34;https://liuyib.github.io/2019/09/24/use-pjax-to-your-site/#%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8&#34;&gt;云泥&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;ajax&#34;&gt;AJAX&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.runoob.com/ajax/ajax-intro.html&#34;&gt;&lt;code&gt;AJAX&lt;/code&gt;&lt;/a&gt; = 异步 &lt;code&gt;JavaScript&lt;/code&gt; 和 &lt;code&gt;XML&lt;/code&gt;，是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，&lt;code&gt;AJAX&lt;/code&gt; 可以使网页实现异步更新。这意味着可以&lt;strong&gt;在不重新加载整个网页的情况下，对网页的某部分进行更新&lt;/strong&gt;。传统的网页（不使用 &lt;code&gt;AJAX&lt;/code&gt;）如果需要更新内容，必需重载整个网页面。有很多使用 AJAX 的应用程序案例，最常见的就是页面拉到底时浏览器会自动加载下一页的内容。&lt;/p&gt;
-&lt;h2 id=&#34;pjax&#34;&gt;PJAX&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;PJAX = PushState + AJAX&lt;/code&gt;，当用户点击链接发起请求时，&lt;code&gt;PJAX&lt;/code&gt;  会拦截请求，然后触发 &lt;code&gt;Ajax&lt;/code&gt; 请求和 &lt;code&gt;PushState&lt;/code&gt;。其中，&lt;code&gt;Ajax&lt;/code&gt; 使你的页面&lt;strong&gt;局部刷新&lt;/strong&gt;，&lt;code&gt;pushState&lt;/code&gt; 用于修改 &lt;code&gt;URL&lt;/code&gt; 而不跳转页面，从而实现不跳转页面局部刷新的功能。可以提高用户体验，同时极大的减少服务器和宽带消耗。&lt;/p&gt;
-&lt;h2 id=&#34;butterfly--pjax&#34;&gt;Butterfly + PJAX&lt;/h2&gt;
-&lt;h3 id=&#34;开启pjax&#34;&gt;开启PJAX&lt;/h3&gt;
-&lt;p&gt;在&lt;code&gt;Butterfly&lt;/code&gt;主题中已经集成了&lt;code&gt;PJAX&lt;/code&gt;，在主题配置文件&lt;code&gt;_config.butterfly.yml&lt;/code&gt;中找到&lt;code&gt;Pjax&lt;/code&gt;将&lt;code&gt;enable&lt;/code&gt;设置为&lt;code&gt;true&lt;/code&gt;即可。&lt;/p&gt;
-&lt;h3 id=&#34;重载-js&#34;&gt;重载 JS&lt;/h3&gt;
-&lt;p&gt;由于通过 &lt;code&gt;PJAX&lt;/code&gt; 切换的页面并没有完全刷新，浏览器不会将网页从头执行一遍，因此有些 &lt;code&gt;JS&lt;/code&gt; 将不会生效。为了保证功能不失效，需要重新再执行一次，即&lt;strong&gt;重载&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;在&lt;code&gt;Butterfly&lt;/code&gt;主题中已经集成了解决方法在&lt;code&gt;pjax.pug&lt;/code&gt;中，每次使用时在引入这些文件的标签上添加 &lt;code&gt;data-pjax&lt;/code&gt; 属性&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;inject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;bottom&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;&amp;lt;script data-pjax src=&amp;#34;/js/ripples.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>Angular实践一搭建环境&#43;创建项目</title>
-      <link>http://coldcoding.top/post/angular-01/</link>
-      <pubDate>Tue, 07 Mar 2023 20:21:30 +0000</pubDate>
-      
-      <guid>http://coldcoding.top/post/angular-01/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;公司要求使用 &lt;code&gt;Angular&lt;/code&gt;，学过 &lt;code&gt;VUE&lt;/code&gt;，了解过 &lt;code&gt;React&lt;/code&gt;，偏偏是没用过的 &lt;code&gt;Angular&lt;/code&gt;，重头啃&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;安装-node&#34;&gt;安装 &lt;code&gt;node&lt;/code&gt;&lt;/h2&gt;
-&lt;p&gt;查看版本，之前都是在 &lt;code&gt;cmd&lt;/code&gt; 窗口，今天学了个 &lt;code&gt;powershell&lt;/code&gt; 窗口，感觉差不多，&lt;code&gt;shift+win+右键&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ node -v
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ npm -v
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;安装-angular&#34;&gt;安装 Angular&lt;/h2&gt;
-&lt;h3 id=&#34;脚手架&#34;&gt;脚手架&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ npm install -g @angular/cli@14.0.2
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;查看版本&#34;&gt;查看版本&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ ng v &lt;span class=&#34;c1&#34;&gt;# ng version&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;报错如下：&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307203249.png&#34; alt=&#34;image-20230307203245952&#34;&gt;&lt;/li&gt;
-&lt;li&gt;解决办法：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;管理员运行 &lt;code&gt;Aindows PowerShell&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;输入下面指令，并输入&lt;strong&gt;A&lt;/strong&gt;更改权限&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ set-ExecutionPolicy RemoteSigned
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;输入下面指令查看当前状态&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ get-ExecutionPolicy
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+      <guid>http://coldcoding.top/post/net/arp-protocol/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;ARP（Address Resolution Protocol）即地址解析协议， 用于实现从 IP 地址到 MAC 地址的映射，即询问目标 IP               对应的 MAC 地址。&lt;/li&gt;
+&lt;li&gt;在网络通信中，主机和主机通信的数据包需要依据OSI模型从上到下进行数据封装，当数据封装完整后，再向外发出。所以在局域网的通信中，不仅需要源目IP地址的封装，也需要源目MAC的封装。&lt;/li&gt;
+&lt;li&gt;一般情况下，上层应用程序更多关心IP地址而不关心MAC地址，所以需要通过ARP协议来获知目的主机的MAC地址，完成数据封装。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307204026.png&#34; alt=&#34;image-20230307204023044&#34;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;再次查看版本号，安装成功&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307204004.png&#34; alt=&#34;image-20230307204001531&#34;&gt;&lt;/p&gt;
-&lt;h3 id=&#34;卸载-angular&#34;&gt;卸载 &lt;code&gt;Angular&lt;/code&gt;&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ npm uninstall -g @angular/cli
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;创建项目&#34;&gt;创建项目&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;cd&lt;/code&gt;到存放项目的目录，输入命令&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ ng new &amp;lt;项目名&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ yes
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ css
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装依赖的时间略久，可以先跳过安装依赖的步骤，只是建项目，等项目建完后再安装依赖&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ ng new &amp;lt;项目名&amp;gt; --skip-install
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307210541.png&#34; alt=&#34;image-20230307210538230&#34;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;创建好之后的项目结构如下：
-&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307211739.png&#34; alt=&#34;image-20230307211545952&#34;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;cd&lt;/code&gt;到项目的目录地址，输入命令：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ ng serve --open &lt;span class=&#34;c1&#34;&gt;# ng serve --o 或 ng serve&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307210937.png&#34; alt=&#34;image-20230307210934205&#34;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h3 id=&#34;一问一答&#34;&gt;一问一答&lt;/h3&gt;
+&lt;p&gt;同一个局域网里面，当&lt;code&gt;PC1&lt;/code&gt;需要跟&lt;code&gt;PC2&lt;/code&gt;进行通信时，此时&lt;code&gt;PC1&lt;/code&gt;是如何处理的？&lt;/p&gt;
+&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/wKioL1mjyQzzPWA8AADqjhYvy2c681.png&#34; alt=&#34;wKioL1mjyQzzPWA8AADqjhYvy2c681.png&#34; style=&#34;zoom: 33%;&#34; /&gt;
+&lt;p&gt;根据&lt;code&gt;OSI&lt;/code&gt;数据封装顺序，发送方会自顶向下（从应用层到物理层）封装数据，然后发送出去，这里以&lt;code&gt;PC1 ping PC2&lt;/code&gt;的过程举例:&lt;/p&gt;
+&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/wKiom1mjyTaTFTPSAAGeGtry-OU503.png&#34; alt=&#34;wKiom1mjyTaTFTPSAAGeGtry-OU503.png&#34; style=&#34;zoom: 33%;&#34; /&gt;
+&lt;p&gt;&lt;code&gt;PC1&lt;/code&gt;封装数据并且对外发送数据时，上图中出现了&lt;code&gt;&amp;quot;failed&amp;quot;&lt;/code&gt;，即数据封装失败了，为什么？&lt;/p&gt;
+&lt;p&gt;当我们令&lt;code&gt;PC1&lt;/code&gt;去&lt;code&gt;ping ip2&lt;/code&gt;时，此时&lt;code&gt;PC1&lt;/code&gt;便有了通信需要的源、目的&lt;code&gt;IP&lt;/code&gt;地址，但是&lt;code&gt;PC1&lt;/code&gt;缺少通信需要的目的&lt;code&gt;MAC&lt;/code&gt;地址。&lt;strong&gt;这就好比我们要寄一个快递，如果在快递单上仅仅写了收件人的姓名（IP），却没有写收件人的地址（MAC），那么这个快递就没法寄出，因为信息不完整&lt;/strong&gt;，那么如何获取到&lt;code&gt;PC2&lt;/code&gt;的&lt;code&gt;MAC&lt;/code&gt;地址呢？&lt;/p&gt;
+&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/wKiom1mjyUfTP_VZAAH2B0OmqsU256.png&#34; alt=&#34;wKiom1mjyUfTP_VZAAH2B0OmqsU256.png&#34; style=&#34;zoom:33%;&#34; /&gt;
+&lt;p&gt;&lt;code&gt;PC1&lt;/code&gt;和&lt;code&gt;PC2&lt;/code&gt;进行了一次&lt;code&gt;ARP&lt;/code&gt;请求和回复过程，通过交互，&lt;code&gt;PC1&lt;/code&gt;便具备了&lt;code&gt;PC2&lt;/code&gt;的&lt;code&gt;MAC&lt;/code&gt;地址信息。在真正进行通信之前，&lt;code&gt;PC1&lt;/code&gt;还会将&lt;code&gt;PC2&lt;/code&gt;的&lt;code&gt;MAC&lt;/code&gt;信息放入本地的【ARP缓存表】，表里面放置了&lt;code&gt;IP&lt;/code&gt;和&lt;code&gt;MAC&lt;/code&gt;地址的映射信息，例如 &lt;code&gt;IP2&amp;lt;-&amp;gt;MAC2&lt;/code&gt;。接下来，&lt;code&gt;PC1&lt;/code&gt;再次进行数据封装，正式进入&lt;code&gt;PING&lt;/code&gt;通信，如下:&lt;/p&gt;
+&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/wKiom1mjyVWjQvbeAAHINNu-eZo561.png&#34; alt=&#34;wKiom1mjyVWjQvbeAAHINNu-eZo561.png&#34; style=&#34;zoom:33%;&#34; /&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;stackoverflow&lt;/code&gt;给出的解释是
-To Fix Error “This command is not available when running the Angular CLI outside a workspace Error”, Do &lt;strong&gt;Right-Click on yours project name in VS Code&lt;/strong&gt; and Click &lt;strong&gt;“Open in Integrated Terminal”&lt;/strong&gt; Option.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ARP&lt;/code&gt;缓存表同样具有&lt;strong&gt;时效性&lt;/strong&gt;，并且如果设备重启的话，这张表就会&lt;strong&gt;清空&lt;/strong&gt;；也就是说，如果下次需要通信，又需要进行&lt;code&gt;ARP&lt;/code&gt;请求。在我们的&lt;code&gt;windows/macos&lt;/code&gt;系统下，可以通过命令行&lt;code&gt;arp -a&lt;/code&gt;查看具体信息。s&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;code&gt;VScode&lt;/code&gt;中运行，打开默认浏览器，显示 &lt;code&gt;Angular&lt;/code&gt;的欢迎界面&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307211346.png&#34; alt=&#34;image-20230307211342981&#34;&gt;
-&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307211402.png&#34; alt=&#34;image-20230307211359547&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;广播请求单播回应&#34;&gt;广播请求单播回应&lt;/h3&gt;
+&lt;p&gt;实际网络中，一个LAN可能有几十上百的主机：&lt;/p&gt;
+&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/wKiom1mjyX-yuMXeAAHYtV_I9rA078.png&#34; alt=&#34;wKiom1mjyX-yuMXeAAHYtV_I9rA078.png&#34; style=&#34;zoom:33%;&#34; /&gt;
+&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/wKioL1mjyW-RqIfVAAH6rC7kWJM787.png&#34; alt=&#34;wKioL1mjyW-RqIfVAAH6rC7kWJM787.png&#34; style=&#34;zoom:33%;&#34; /&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;ARP&lt;/code&gt;协议就需要采用以太网的&amp;quot;广播&amp;quot;功能：将请求包&lt;strong&gt;以广播的形式&lt;/strong&gt;发送，交换机或&lt;code&gt;WiFi&lt;/code&gt;设备（无线路由器）收到广播包时，会将此数据发给同一局域网的其他所有主机。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;PC1&lt;/code&gt;发送的请求广播包同时被其他主机收到，然后&lt;code&gt;PC3&lt;/code&gt;和&lt;code&gt;PC4&lt;/code&gt;收到之后（发现不是问自己）则丢弃。&lt;strong&gt;而&lt;code&gt;PC2&lt;/code&gt;收到之后，根据请求包里面的信息（有自己的&lt;code&gt;IP&lt;/code&gt;地址），判断是给自己的，所以不会做丢弃动作，而是返回&lt;code&gt;ARP&lt;/code&gt;回应包。&lt;/strong&gt;&lt;/p&gt;
+ &lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/wKioL1mjyYXgyhcYAAL1Uhn9Yzc214.png&#34; alt=&#34;wKioL1mjyYXgyhcYAAL1Uhn9Yzc214.png&#34; style=&#34;zoom:33%;&#34; /&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;ARP&lt;/code&gt;请求是通过广播方式来实现的，那么，&lt;code&gt;PC2&lt;/code&gt;返回&lt;code&gt;ARP&lt;/code&gt;回应包，是否也需要通过广播来实现呢？答案是否定的。&lt;strong&gt;大部分网络协议在设计的时候，都需要保持极度克制，不需要的交互就砍掉，能合并的信息就合并，能不用广播就用单播，以此让带宽变得更多让网络变得更快。&lt;/strong&gt;
+&lt;code&gt;ARP&lt;/code&gt;请求包的完整信息是：我的&lt;code&gt;IP&lt;/code&gt;地址是&lt;code&gt;IP1&lt;/code&gt;，&lt;code&gt;MAC&lt;/code&gt;地址是&lt;code&gt;MAC1&lt;/code&gt;，请问谁是&lt;code&gt;PC2&lt;/code&gt;，你的&lt;code&gt;IP2&lt;/code&gt;对应的&lt;code&gt;MAC&lt;/code&gt;地址是多少？即**&lt;code&gt;ARP&lt;/code&gt;请求首先有&amp;quot;自我介绍&amp;quot;，然后才是询问**，因此&lt;code&gt;PC2&lt;/code&gt;在收到请求之后，就可以将&lt;code&gt;PC1&lt;/code&gt;的&lt;code&gt;IP&lt;/code&gt;和&lt;code&gt;MAC&lt;/code&gt;映射信息存储在本地的【ARP缓存表】，既然知道&lt;code&gt;PC1&lt;/code&gt;在哪里，就可以返回&lt;code&gt;ARP&lt;/code&gt;单播回应包。&lt;/p&gt;
+ &lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/wKioL1mjyZzxyHuUAAL8B6-X0vY648.png&#34; alt=&#34;wKioL1mjyZzxyHuUAAL8B6-X0vY648.png&#34; style=&#34;zoom:33%;&#34; /&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;arp-数据包&#34;&gt;ARP 数据包&lt;/h3&gt;
+&lt;h4 id=&#34;arp-请求包&#34;&gt;ARP 请求包&lt;/h4&gt;
+&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/wKioL1mjybXBzN7XAASAgIFsB_0048.png&#34; alt=&#34;wKioL1mjybXBzN7XAASAgIFsB_0048.png&#34; style=&#34;zoom:33%;&#34; /&gt;
+&lt;h4 id=&#34;arp-响应包&#34;&gt;ARP 响应包&lt;/h4&gt;
+&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/wKioL1mjycTRmvOEAAQLf48DXPo677.png&#34; alt=&#34;wKioL1mjycTRmvOEAAQLf48DXPo677.png&#34; style=&#34;zoom:33%;&#34; /&gt;
+&lt;h4 id=&#34;arp-协议字段解读&#34;&gt;ARP 协议字段解读&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/image-20230721153654604.png&#34; alt=&#34;image-20230721153654604&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;从功能来看，&lt;code&gt;ARP&lt;/code&gt;协议的功能最终是获取到&lt;code&gt;MAC&lt;/code&gt;信息，服务于链路层，&lt;code&gt;ARP&lt;/code&gt;是链路层协议；&lt;/p&gt;
+&lt;p&gt;从层次来看，&lt;code&gt;ARP&lt;/code&gt;协议和&lt;code&gt;IP&lt;/code&gt;协议都基于&lt;code&gt;Ethernet&lt;/code&gt;协议，它们在&lt;code&gt;Ethernet&lt;/code&gt;协议里面有独立的&lt;code&gt;Type&lt;/code&gt;类型，前者是&lt;code&gt;0x0806&lt;/code&gt;，后者是&lt;code&gt;0x0800&lt;/code&gt;，&lt;code&gt;ARP&lt;/code&gt;是网络层。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;ARP是解决&lt;strong&gt;同一个局域网&lt;/strong&gt;上的主机或路由器的IP地址和硬件地址的映射问题，如果所要找的目标设备和源主机不在同一个局域网上。&lt;/p&gt;
+&lt;p&gt;&amp;lt;1&amp;gt; 此时主机 A 就无法解析出主机 B 的硬件地址（实际上主机 A 也不需要知道远程主机 B 的硬件地址）;&lt;/p&gt;
+&lt;p&gt;&amp;lt;2&amp;gt; 此时主机A需要的是将路由器R1的IP地址解析出来，然后将该IP数据报发送给路由器R1.&lt;/p&gt;
+&lt;p&gt;&amp;lt;3&amp;gt; R1从路由表中找出下一跳路由器R2，同时使用ARP解析出R2的硬件地址。于是IP数据报按照路由器R2的硬件地址转发到路由器R2。&lt;/p&gt;
+&lt;p&gt;&amp;lt;4&amp;gt; 路由器R2在转发这个IP数据报时用类似方法解析出目的主机B的硬件地址，使IP数据报最终交付给主机B.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liushy.com/imgs/topo.png&#34; alt=&#34;topo&#34;&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;最初h2会通过将自己和h3的ip地址同子网掩码与运算得知：自己和h3在同一网段，可直接通信；
+2.h2对数据包二层封装时，发现自己并不知道h3的mac地址，于是发送ARP广播包；
+3.switch收到arp广播包后，由于没有流表，于是它向控制器发送packet_in消息；
+4.控制器收到packet_in后，向switch发送packet_out,并下发流表给switch让它将数据包从除2端口以外的其他所有端口发送；
+5.h3收到arp数据包后，在数据包里添加上自己的mac地址；
+6.switch收到h3的arp包，由于没有流表项，于是向控制器发送packet_in消息；
+7.控制器学习到h3的mac和ip地址，向switch发送packet_out消息并下发h3到h2的流表项；
+8.h2知道了h3的mac地址，完成icmp包的封装，就向h3发包了；
+9.由于switch没有h2-&amp;gt;h3的流表项，所以它还是会向控制器发送packet_in；
+10.控制器发送packet_out给switch并下发h2-&amp;gt;h3的流表；至此h2和h3就能不通过控制器只通过switch直接通信啦！&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;合法性检查&#34;&gt;合法性检查&lt;/h3&gt;
+&lt;p&gt;无效情况: 源 &lt;code&gt;ip&lt;/code&gt; 地址为全 0 或为广播、组播；源 &lt;code&gt;Mac&lt;/code&gt; 地址为全 0 或为组播地址。&lt;/p&gt;
+&lt;h3 id=&#34;组播mac地址判断&#34;&gt;组播Mac地址判断&lt;/h3&gt;
+&lt;p&gt;以太网定义的48位&lt;code&gt;MAC&lt;/code&gt;地址中，第一个字节的最低位为&lt;code&gt;&#39;1&#39;&lt;/code&gt;代表组播&lt;code&gt;MAC&lt;/code&gt;地址。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;mac&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;0x01&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;0x1&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>IP数据包传输方式</title>
+      <link>http://coldcoding.top/post/net/ip-packet-transmission-method/</link>
+      <pubDate>Fri, 23 Jun 2023 19:05:12 +0000</pubDate>
+      
+      <guid>http://coldcoding.top/post/net/ip-packet-transmission-method/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;单播&lt;/strong&gt; &lt;strong&gt;:&lt;/strong&gt; 发送数据到单个目的主机，每个单播报文都有一个单播 IP 地址作为目的地址
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;传输方式 :&lt;/strong&gt; 是点对点传输方式 ;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;弊端 :&lt;/strong&gt; 发送者与每个接收者之间都要建立单独的数据信道 ;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;广播 :&lt;/strong&gt; 发送数据到 同一广播域或子网内所有主机
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;传输方式 :&lt;/strong&gt; 是点对多点传输方式 ;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;弊端 :&lt;/strong&gt; 最后在子网中，会给无关主机发送不需要的数据 ;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;组播 :&lt;/strong&gt; 网络中某些用户需要特定数据，发送者只需要发送一次组播数据，通过组播协议，为组播数据包建立组播分发树，被传递的数据到达距离用户最近的路由器后，开始复制分发；
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;传输方式 :&lt;/strong&gt; 是 点对多点 传输方式 ；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优势 :&lt;/strong&gt; 提高了数据传送效率 ；减少了主干网拥塞的可能性 ；组播相比于单播的优势在于相同的报文在每条链路上最多有一份；组播相比于广播的优势在于组播的报文是按需发送且组播可以跨网段传输。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/image-20230724114036217.png&#34; alt=&#34;image-20230724114036217&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/image-20230724114040854.png&#34; alt=&#34;image-20230724114040854&#34;&gt;&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>牛顿法求解平方根</title>
+      <link>http://coldcoding.top/post/algorithm/newton-method-find-square-roots/</link>
+      <pubDate>Tue, 16 May 2023 12:50:15 +0000</pubDate>
+      
+      <guid>http://coldcoding.top/post/algorithm/newton-method-find-square-roots/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20240219231230.gif&#34; alt=&#34;牛顿法&#34;&gt;&lt;/p&gt;
+&lt;p&gt;假设输入的数是 $m$，则其实是求一个 $ x $ 值，使其满足 $x^2 = m$，令 $f(x) = x^2 - m$ ，其实就是求方程 $f(x) = 0$ 的根。那么 $f(x)$ 的导函数是 $f&amp;rsquo;(x) = 2x$。
+如果是二次函数的话，是很简单的导数运算，切线方程：$y=f′(x_n)(x−x_n)+f(x_n)$，求交点就是把 $y$ 置为零。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;package&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;s&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;s&#34;&gt;&amp;#34;math&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;err&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;float64&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;1e-8&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// err 是允许的误差
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Sqrt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;float64&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;float64&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nx&#34;&gt;root&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;1.0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;math&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Abs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;root&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;root&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;err&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;nx&#34;&gt;root&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;root&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;root&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;root&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;root&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nx&#34;&gt;fmt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Sqrt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
   </channel>
