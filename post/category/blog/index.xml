@@ -8,6 +8,7 @@
     <language>en-us</language>
     <managingEditor>hanlengcold@gmail.com (Cold)</managingEditor>
     <webMaster>hanlengcold@gmail.com (Cold)</webMaster>
+    <lastBuildDate>Sun, 19 Mar 2023 11:29:44 +0000</lastBuildDate>
     <atom:link href="http://coldcoding.top/post/category/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hexo 部署到服务器</title>

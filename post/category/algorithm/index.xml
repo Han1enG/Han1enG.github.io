@@ -8,6 +8,7 @@
     <language>en-us</language>
     <managingEditor>hanlengcold@gmail.com (Cold)</managingEditor>
     <webMaster>hanlengcold@gmail.com (Cold)</webMaster>
+    <lastBuildDate>Tue, 16 May 2023 12:50:15 +0000</lastBuildDate>
     <atom:link href="http://coldcoding.top/post/category/algorithm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>牛顿法求解平方根</title>
