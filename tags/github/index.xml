@@ -12,9 +12,9 @@
     <atom:link href="http://coldcoding.top/tags/github/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>利用Github分支备份Hexo博客源文件</title>
-      <link>http://coldcoding.top/post/hexo_backup/</link>
+      <link>http://coldcoding.top/post/category/blog/hexo/hexo_backup/</link>
       <pubDate>Fri, 03 Mar 2023 21:41:58 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
-      <guid>http://coldcoding.top/post/hexo_backup/</guid>
+      <guid>http://coldcoding.top/post/category/blog/hexo/hexo_backup/</guid>
       <description>前言 虽然Hexo部署博客很方便，但是当我们更换电脑时呢，在github中的其实只是在我们本地目录里的.deploy_git里面的内容，显然我</description>
     </item>
   </channel>

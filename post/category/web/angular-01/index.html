@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Angular 实践一搭建环境&#43;创建项目" />
+    <title>Angular 实践一搭建环境&#43;创建项目 | Cold World</title>
+    <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="/css/fonts.css" /> 
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+</head>
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+</noscript>
+  </head><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Angular 实践一搭建环境&#43;创建项目" />
+    <title>Angular 实践一搭建环境&#43;创建项目 | Cold World</title>
+    <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="/css/fonts.css" /> 
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+</head>
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+</noscript><body><div class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a href="http://www.coldcoding.top" accesskey="h" title="Cold World">
+        <img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20240219225844.jpg" alt="logo" aria-label="logo" height="35">
+        Cold World
+      </a>
+      
+    </div>
+    <nav>
+      <ul class="menu wide">
+        
+        <li>
+          <a class="no-tag" href="/post/">
+            Posts
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/tags/">
+            Tags
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/categories/">
+            Categories
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/about/">
+            About
+          </a>
+        </li>
+        
+        <li>
+          <a class="no-tag" href="/index.xml">
+            RSS
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    <nav class="menubutton">
+      <button>
+        <svg t="1708437959568" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4235" width="20" height="20"><path d="M382.3 165.6h-165c-47.5 0-86 38.4-86 86v165c0 47.5 38.4 86 86 86h165c47.5 0 86.5-38.4 86-86v-165c0-47.6-38.5-86-86-86z m43.3 251c0 11.2-4.3 21.9-12.3 29.9-8 8.5-19.2 12.8-31 12.8h-165c-24 0-43.2-19.2-43.2-43.2V251c0-24 19.2-43.2 43.2-43.2h165v0.5c24 0 43.2 19.2 43.2 43.2v165.1zM382.3 557.5h-165c-47.5 0-86 38.4-86 86v165c0 47.5 38.4 86 86 86h165c47.5 0 86.5-38.4 86-86v-165c0-47.6-38.5-86-86-86z m43.3 251c0 11.2-4.3 21.9-12.3 29.9-8 8.5-19.2 12.8-31 12.8h-165c-24 0-43.2-19.2-43.2-43.2V643.5c0-24 19.2-43.2 43.2-43.2h165c24 0 43.2 19.2 43.2 43.2v165zM871.4 273.5L755 157.1c-16-16-37.9-25.1-60.9-25.1s-44.8 9.1-60.9 25.1L516.9 273.5c-33.6 33.6-33.6 88.1 0 121.7l116.4 116.4c16 16 37.9 25.1 60.9 25.1s44.8-8.5 60.9-25.1l116.4-116.4c33.5-33.6 33.5-88.1-0.1-121.7zM841 364.8L724.6 481.2c-7.5 8-18.2 12.3-30.4 12.3-11.7 0-22.4-4.8-30.4-12.8L547.3 364.2c-8-8-12.8-19.2-12.8-30.4 0-11.7 4.3-22.4 12.8-30.4L663.7 187c8-7.5 19.2-12.3 30.4-12.3 11.7 0 22.4 4.8 30.4 12.8L841 303.9c8 8 12.8 19.2 12.8 30.4 0 11.8-4.3 22.5-12.8 30.5zM776.4 557.5h-165c-47.5 0-86 38.4-86 86v165c0 47.5 38.4 86 86 86h165c47.5 0 86.5-38.4 86-86v-165c-0.1-47.6-38.5-86-86-86z m43.2 251c0 11.2-4.3 21.9-12.3 29.9-8 8.5-19.2 12.8-31 12.8h-165c-24 0-43.2-19.2-43.2-43.2V643.5c0-24 19.2-43.2 43.2-43.2h165c24 0 43.2 19.2 43.2 43.2v165z" p-id="4236" fill="#1030ea"></path></svg>
+      </button>
+    </nav>
+  </nav>
+</div><div class="main page">
+<article class="post-single">
+  <div id="single-content">
+    <header class="post-header">
+      <div class="breadcrumbs"><div  class="breadcrumb">
+    
+    
+
+
+    <a href="http://coldcoding.top/">🏠 Home</a>&nbsp;»&nbsp;<a href="http://coldcoding.top/post/">Category</a>&nbsp;»&nbsp;<a href="http://coldcoding.top/post/category/web/">Web</a></div></div>
+      <h1 class="post-title">Angular 实践一搭建环境+创建项目</h1>
+      <div class="post-meta"><span class="parent-post-meta">
+    <span id="post_meta_style_initpost" class="post_meta_style">Published at:</span>2023/03/07&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_lastmod" class="post_meta_style">Last updated:</span>2023/03/07&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_pagepv" class="post_meta_style">PagePV:</span><span id="twikoo_visitors">0</span>&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_author" class="post_meta_style">Author:</span>Cold&nbsp;&nbsp;&nbsp;    
+</span></div>
+    </header>
+      
+
+<aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details >
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">Angular 实践一搭建环境&#43;创建项目</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e5%ae%89%e8%a3%85-node" aria-label="安装 node">安装 <code>node</code></a></li>
+                    <li>
+                        <a href="#%e5%ae%89%e8%a3%85-angular" aria-label="安装 Angular">安装 Angular</a><ul>
+                            
+                    <li>
+                        <a href="#%e8%84%9a%e6%89%8b%e6%9e%b6" aria-label="脚手架">脚手架</a></li>
+                    <li>
+                        <a href="#%e6%9f%a5%e7%9c%8b%e7%89%88%e6%9c%ac" aria-label="查看版本">查看版本</a></li>
+                    <li>
+                        <a href="#%e5%8d%b8%e8%bd%bd-angular" aria-label="卸载 Angular">卸载 <code>Angular</code></a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e5%88%9b%e5%bb%ba%e9%a1%b9%e7%9b%ae" aria-label="创建项目">创建项目</a>
+                    </li>
+                </ul>
+            </div>
+            </details>
+        </div>
+    </aside>
+    <script>
+        let activeElement;
+        let elements;
+        window.addEventListener('DOMContentLoaded', function (event) {
+            checkTocPosition();
+    
+            elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+            
+            activeElement = elements[0];
+            const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+            document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+        }, false);
+    
+        window.addEventListener('resize', function(event) {
+            checkTocPosition();
+        }, false);
+    
+        window.addEventListener('scroll', () => {
+            
+            if (elements) {
+                activeElement = Array.from(elements).find((element) => {
+                    if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                        (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                        return element;
+                    }
+                }) || activeElement
+    
+                elements.forEach(element => {
+                    const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                    if (element === activeElement){
+                        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                    } else {
+                        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                    }
+                })
+            }
+        }, false);
+    
+        const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+        const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+        const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+    
+        function checkTocPosition() {
+            const width = document.body.scrollWidth;
+            if (width - main - (toc * 2) - (gap * 4) > 0) {
+                document.getElementById("toc-container").classList.add("wide");
+            } else {
+                document.getElementById("toc-container").classList.remove("wide");
+            }
+        }
+    
+        function getOffsetTop(element) {
+            if (!element.getClientRects().length) {
+                return 0;
+            }
+            let rect = element.getBoundingClientRect();
+            let win = element.ownerDocument.defaultView;
+            return rect.top + win.pageYOffset;
+        }
+    </script>
+    <div class="post-content"><blockquote>
+<p>实习公司要求使用 <code>Angular</code>，学过 <code>VUE</code>，了解过 <code>React</code>，偏偏是没用过的 <code>Angular</code>，重头啃</p>
+</blockquote>
+<h2 id="安装-node">安装 <code>node</code></h2>
+<p>查看版本，之前都是在 <code>cmd</code> 窗口，今天学了个 <code>powershell</code> 窗口，感觉差不多，<code>shift+win+右键</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ node -v
+</span></span><span class="line"><span class="ln">2</span><span class="cl">$ npm -v
+</span></span></code></pre></div><h2 id="安装-angular">安装 Angular</h2>
+<h3 id="脚手架">脚手架</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ npm install -g @angular/cli@14.0.2
+</span></span></code></pre></div><h3 id="查看版本">查看版本</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ ng v <span class="c1"># ng version</span>
+</span></span></code></pre></div><ul>
+<li>报错如下：<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307203249.png" alt="image-20230307203245952"></li>
+<li>解决办法：</li>
+</ul>
+<ol>
+<li>
+<p>管理员运行 <code>Aindows PowerShell</code></p>
+</li>
+<li>
+<p>输入下面指令，并输入<strong>A</strong>更改权限</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ set-ExecutionPolicy RemoteSigned
+</span></span></code></pre></div></li>
+<li>
+<p>输入下面指令查看当前状态</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ get-ExecutionPolicy
+</span></span></code></pre></div></li>
+</ol>
+<p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307204026.png" alt="image-20230307204023044"></p>
+<ul>
+<li>再次查看版本号，安装成功</li>
+</ul>
+<p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307204004.png" alt="image-20230307204001531"></p>
+<h3 id="卸载-angular">卸载 <code>Angular</code></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ npm uninstall -g @angular/cli
+</span></span></code></pre></div><h2 id="创建项目">创建项目</h2>
+<ol>
+<li>
+<p><code>cd</code>到存放项目的目录，输入命令</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ ng new &lt;项目名&gt;
+</span></span><span class="line"><span class="ln">2</span><span class="cl">$ yes
+</span></span><span class="line"><span class="ln">3</span><span class="cl">$ css
+</span></span></code></pre></div><p>安装依赖的时间略久，可以先跳过安装依赖的步骤，只是建项目，等项目建完后再安装依赖</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ ng new &lt;项目名&gt; --skip-install
+</span></span></code></pre></div><p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307210541.png" alt="image-20230307210538230"></p>
+</li>
+<li>
+<p>创建好之后的项目结构如下：
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307211739.png" alt="image-20230307211545952"></p>
+</li>
+<li>
+<p><code>cd</code>到项目的目录地址，输入命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ ng serve --open <span class="c1"># ng serve --o 或 ng serve</span>
+</span></span></code></pre></div><p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307210937.png" alt="image-20230307210934205"></p>
+</li>
+</ol>
+<blockquote>
+<p><code>stackoverflow</code>给出的解释是
+To Fix Error “This command is not available when running the Angular CLI outside a workspace Error”, Do <strong>Right-Click on yours project name in VS Code</strong> and Click <strong>“Open in Integrated Terminal”</strong> Option.</p>
+</blockquote>
+<p><code>VScode</code>中运行，打开默认浏览器，显示 <code>Angular</code>的欢迎界面</p>
+<p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307211346.png" alt="image-20230307211342981">
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307211402.png" alt="image-20230307211359547"></p>
+</div>
+  </div>
+</article>
+
+
+  
+    <div class="pagination__title">
+    <span class="pagination__title-h" style="font-size: 20px;">💬Discussion</span>
+    <hr />
+</div>
+<script src="//cdn.jsdelivr.net/npm/twikoo@1.6.21/dist/twikoo.all.min.js"></script>
+<div id="tcomment"></div><script>
+    twikoo.init({
+        envId: "https:\/\/twikoo.coldcoding.top\/",  
+        el: "#tcomment", 
+        
+        
+    });
+</script>
+
+
+
+
+    </div><footer class="footer">
+  <hr />
+  <span>
+    Copyright 2022-2024 <a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2023006518号</a>
+  </span>
+  <span>
+    All articles on this site are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a >
+  </span>
+</footer>
+
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <span class="topInner">
+      <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+          <path d="M12 6H0l6-6z"/>
+      </svg>
+      <span id="read_progress"></span>
+  </span>
+</a>
+
+<script>
+  var backButton = document.getElementById("top-link");
+  var lastScrollPosition = window.pageYOffset;
+
+  function showBackButton() {
+      backButton.style.visibility = "visible";
+      backButton.style.opacity = '1';
+  }
+  function halfHideBackButton() {
+      backButton.style.visibility = "visible";
+      backButton.style.opacity = '0.3';
+  }
+  function hideBackButton() {
+      backButton.style.visibility = "hidden";
+      backButton.style.opacity = '0';
+  }
+
+  window.onscroll = function () {
+      var currentScrollPosition = window.pageYOffset;
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        showBackButton()
+        if (Math.abs(currentScrollPosition - lastScrollPosition) < 10) {
+          halfHideBackButton()
+        }
+      } else {
+        hideBackButton()
+      }
+      lastScrollPosition = currentScrollPosition;
+  };
+</script></body>
+</html>

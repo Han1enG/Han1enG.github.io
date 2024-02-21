@@ -9,21 +9,21 @@
     <lastBuildDate>Wed, 16 Aug 2023 15:02:32 +0000</lastBuildDate><atom:link href="http://coldcoding.top/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux 常用命令</title>
-      <link>http://coldcoding.top/post/linux/linux-cmd/</link>
+      <link>http://coldcoding.top/linux-cmd/</link>
       <pubDate>Wed, 16 Aug 2023 15:02:32 +0000</pubDate>
       
-      <guid>http://coldcoding.top/post/linux/linux-cmd/</guid>
+      <guid>http://coldcoding.top/linux-cmd/</guid>
       <description>&lt;h3 id=&#34;kill&#34;&gt;kill&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20240219234211.png&#34; alt=&#34;image-20240219234209813&#34;&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; pid &lt;span class=&#34;c1&#34;&gt;# kill -15 pid 默认的 kill&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;系统会发送一个SIGTERM的信号给对应的程序，当程序接收到该signal后：&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;系统会发送一个 SIGTERM 的信号给对应的程序，当程序接收到该 signal 后：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;程序立刻停止&lt;/li&gt;
 &lt;li&gt;当程序释放相应资源后再停止&lt;/li&gt;
 &lt;li&gt;程序可能仍然继续运行&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;大部分程序接收到SIGTERM信号后，会先释放自己的资源，然后在停止。但是也有程序可以在接受到信号量后，做一些其他的事情，并且这些事情是可以配置的。如果程序正在等待IO，可能就不会立马做出相应。也就是说，SIGTERM多半是会被阻塞的、忽略。&lt;/p&gt;
-&lt;p&gt;kill -15信号只是通知对应的进程要进行&amp;quot;安全、干净的退出&amp;quot;，程序接到信号之后，退出前一般会进行一些&amp;quot;准备工作&amp;quot;，如资源释放、临时文件清理等等，如果准备工作做完了，再进行程序的终止。如果在&amp;quot;准备工作&amp;quot;进行过程中，遇到阻塞或者其他问题导致无法成功，那么应用程序可以选择忽略该终止信号。&lt;/p&gt;
+&lt;p&gt;大部分程序接收到 SIGTERM 信号后，会先释放自己的资源，然后在停止。但是也有程序可以在接受到信号量后，做一些其他的事情，并且这些事情是可以配置的。如果程序正在等待 IO，可能就不会立马做出相应。也就是说，SIGTERM 多半是会被阻塞的、忽略。&lt;/p&gt;
+&lt;p&gt;kill -15 信号只是通知对应的进程要进行&amp;quot;安全、干净的退出&amp;quot;，程序接到信号之后，退出前一般会进行一些&amp;quot;准备工作&amp;quot;，如资源释放、临时文件清理等等，如果准备工作做完了，再进行程序的终止。如果在&amp;quot;准备工作&amp;quot;进行过程中，遇到阻塞或者其他问题导致无法成功，那么应用程序可以选择忽略该终止信号。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; -9 pid
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;必杀，强制删除。在执行时，应用程序是没有时间进行&amp;quot;准备工作&amp;quot;的，所以这通常会带来一些副作用，数据丢失或者终端无法恢复到正常状态等。&lt;/p&gt;
 &lt;h3 id=&#34;ps&#34;&gt;ps&lt;/h3&gt;
@@ -56,7 +56,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ mv source_directory&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;目录&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; dest_file&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;文件&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; 	 &lt;span class=&#34;c1&#34;&gt;# 出错&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;drwxr-xr-x-权限&#34;&gt;drwxr-xr-x 权限&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20180328163937114&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;第一个字符是表示文件类型：&lt;code&gt;- &lt;/code&gt;表示普通文件  &lt;code&gt;d&lt;/code&gt;表示目录 &lt;code&gt;l&lt;/code&gt;表示符号链接 &lt;code&gt;b&lt;/code&gt;表示块设备 (硬件存储设备)&lt;/p&gt;
+&lt;p&gt;第一个字符是表示文件类型：&lt;code&gt;- &lt;/code&gt;表示普通文件 &lt;code&gt;d&lt;/code&gt;表示目录 &lt;code&gt;l&lt;/code&gt;表示符号链接 &lt;code&gt;b&lt;/code&gt;表示块设备 (硬件存储设备)&lt;/p&gt;
 &lt;p&gt;剩下的三个一组，分别表示用户、组用户、其他用户的读、写、执行权限&lt;/p&gt;
 &lt;p&gt;如 -rwxr-xr-x 或 755 则表示 用户具有读、写和执行权限，而组用户和其他用户仅具有读和执行权限。&lt;/p&gt;
 &lt;h3 id=&#34;scp-远程拷贝&#34;&gt;scp 远程拷贝&lt;/h3&gt;
@@ -74,7 +74,7 @@
 &lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ scp /tmp/soft/demo.tar root@10.6.159.147:/tmp/soft/scptest
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;上传本地目录到远程机器指定目录，上传本地目录 /tmp/soft/test 到远程机器 10.6.159.147上/tmp/soft/scptest 的目录中&lt;/li&gt;
+&lt;li&gt;上传本地目录到远程机器指定目录，上传本地目录 /tmp/soft/test 到远程机器 10.6.159.147 上/tmp/soft/scptest 的目录中&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;$ scp -r /tmp/soft/test root@10.6.159.147:/tmp/soft/scptest
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;mkdir&#34;&gt;mkdir&lt;/h3&gt;
@@ -91,10 +91,10 @@
     
     <item>
       <title>控制面和转发面</title>
-      <link>http://coldcoding.top/post/net/control-plane-forward-plane/</link>
+      <link>http://coldcoding.top/post/category/net/control-plane-forward-plane/</link>
       <pubDate>Sat, 24 Jun 2023 20:28:36 +0000</pubDate>
       
-      <guid>http://coldcoding.top/post/net/control-plane-forward-plane/</guid>
+      <guid>http://coldcoding.top/post/category/net/control-plane-forward-plane/</guid>
       <description>&lt;h4 id=&#34;通俗理解&#34;&gt;通俗理解&lt;/h4&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -143,10 +143,10 @@
     
     <item>
       <title>ARP协议</title>
-      <link>http://coldcoding.top/post/net/arp-protocol/</link>
+      <link>http://coldcoding.top/post/category/net/arp-protocol/</link>
       <pubDate>Fri, 23 Jun 2023 19:05:14 +0000</pubDate>
       
-      <guid>http://coldcoding.top/post/net/arp-protocol/</guid>
+      <guid>http://coldcoding.top/post/category/net/arp-protocol/</guid>
       <description>&lt;ol&gt;
 &lt;li&gt;ARP（Address Resolution Protocol）即地址解析协议， 用于实现从 IP 地址到 MAC 地址的映射，即询问目标 IP               对应的 MAC 地址。&lt;/li&gt;
 &lt;li&gt;在网络通信中，主机和主机通信的数据包需要依据OSI模型从上到下进行数据封装，当数据封装完整后，再向外发出。所以在局域网的通信中，不仅需要源目IP地址的封装，也需要源目MAC的封装。&lt;/li&gt;
@@ -224,10 +224,10 @@
     
     <item>
       <title>IP数据包传输方式</title>
-      <link>http://coldcoding.top/post/net/ip-packet-transmission-method/</link>
+      <link>http://coldcoding.top/post/category/net/ip-packet-transmission-method/</link>
       <pubDate>Fri, 23 Jun 2023 19:05:12 +0000</pubDate>
       
-      <guid>http://coldcoding.top/post/net/ip-packet-transmission-method/</guid>
+      <guid>http://coldcoding.top/post/category/net/ip-packet-transmission-method/</guid>
       <description>&lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;单播&lt;/strong&gt; &lt;strong&gt;:&lt;/strong&gt; 发送数据到单个目的主机，每个单播报文都有一个单播 IP 地址作为目的地址
 &lt;ul&gt;
@@ -255,10 +255,10 @@
     
     <item>
       <title>牛顿法求解平方根</title>
-      <link>http://coldcoding.top/post/algorithm/newton-method-find-square-roots/</link>
+      <link>http://coldcoding.top/post/category/algorithm/newton-method-find-square-roots/</link>
       <pubDate>Tue, 16 May 2023 12:50:15 +0000</pubDate>
       
-      <guid>http://coldcoding.top/post/algorithm/newton-method-find-square-roots/</guid>
+      <guid>http://coldcoding.top/post/category/algorithm/newton-method-find-square-roots/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20240219231230.gif&#34; alt=&#34;牛顿法&#34;&gt;&lt;/p&gt;
 &lt;p&gt;假设输入的数是 $m$，则其实是求一个 $ x $ 值，使其满足 $x^2 = m$，令 $f(x) = x^2 - m$ ，其实就是求方程 $f(x) = 0$ 的根。那么 $f(x)$ 的导函数是 $f&amp;rsquo;(x) = 2x$。
 如果是二次函数的话，是很简单的导数运算，切线方程：$y=f′(x_n)(x−x_n)+f(x_n)$，求交点就是把 $y$ 置为零。&lt;/p&gt;

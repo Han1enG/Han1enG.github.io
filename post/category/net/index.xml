@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Net on Cold World</title>
+    <link>http://coldcoding.top/post/category/net/</link>
+    <description>Recent content in Net on Cold World</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>hanlengcold@gmail.com (Cold)</managingEditor>
+    <webMaster>hanlengcold@gmail.com (Cold)</webMaster>
+    <atom:link href="http://coldcoding.top/post/category/net/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>控制面和转发面</title>
+      <link>http://coldcoding.top/post/category/net/control-plane-forward-plane/</link>
+      <pubDate>Sat, 24 Jun 2023 20:28:36 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
+      <guid>http://coldcoding.top/post/category/net/control-plane-forward-plane/</guid>
+      <description>通俗理解 控制面是为了找好路径，转发面是在有个好路径的基础上转发数据，两者协作来达到网络是通的这样一个目的。 数据包是以跳为单位进行路由的，转发</description>
+    </item>
+    <item>
+      <title>ARP协议</title>
+      <link>http://coldcoding.top/post/category/net/arp-protocol/</link>
+      <pubDate>Fri, 23 Jun 2023 19:05:14 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
+      <guid>http://coldcoding.top/post/category/net/arp-protocol/</guid>
+      <description>ARP（Address Resolution Protocol）即地址解析协议， 用于实现从 IP 地址到 MAC 地址的映射，即询问目标 IP 对应的 MAC 地址。 在网络通信中，主机和主机</description>
+    </item>
+    <item>
+      <title>IP数据包传输方式</title>
+      <link>http://coldcoding.top/post/category/net/ip-packet-transmission-method/</link>
+      <pubDate>Fri, 23 Jun 2023 19:05:12 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
+      <guid>http://coldcoding.top/post/category/net/ip-packet-transmission-method/</guid>
+      <description>单播 : 发送数据到单个目的主机，每个单播报文都有一个单播 IP 地址作为目的地址 传输方式 : 是点对点传输方式 ; 弊端 : 发送者与每个接收者之间都要建立单独</description>
+    </item>
+  </channel>
+</rss>

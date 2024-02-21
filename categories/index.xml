@@ -32,17 +32,10 @@
       <description></description>
     </item>
     <item>
-      <title>Life</title>
-      <link>http://coldcoding.top/categories/life/</link>
-      <pubDate>Mon, 06 Mar 2023 20:22:39 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
-      <guid>http://coldcoding.top/categories/life/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>C&#43;&#43;</title>
-      <link>http://coldcoding.top/categories/c&#43;&#43;/</link>
+      <title>Algorithm</title>
+      <link>http://coldcoding.top/categories/algorithm/</link>
       <pubDate>Sun, 01 Jan 2023 09:48:07 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
-      <guid>http://coldcoding.top/categories/c&#43;&#43;/</guid>
+      <guid>http://coldcoding.top/categories/algorithm/</guid>
       <description></description>
     </item>
   </channel>

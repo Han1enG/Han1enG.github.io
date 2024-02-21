@@ -12,16 +12,16 @@
     <atom:link href="http://coldcoding.top/tags/pjax/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>开启PJAX后的坑</title>
-      <link>http://coldcoding.top/post/pjax-readtime/</link>
+      <link>http://coldcoding.top/post/category/blog/hexo/pjax-readtime/</link>
       <pubDate>Sat, 11 Mar 2023 16:20:04 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
-      <guid>http://coldcoding.top/post/pjax-readtime/</guid>
+      <guid>http://coldcoding.top/post/category/blog/hexo/pjax-readtime/</guid>
       <description>刚开启的PJAX就出问题了，有些JS虽然加了 data-pjax 属性，依然没有重载，出现在用户自己编写的用于计算阅读时间的js函数中。 1// 原函数写法 2aaaaaaaaaaaaaaa; 3// 现在的写</description>
     </item>
     <item>
       <title>网站开启PJAX</title>
-      <link>http://coldcoding.top/post/pjax/</link>
+      <link>http://coldcoding.top/post/category/blog/hexo/pjax/</link>
       <pubDate>Sat, 11 Mar 2023 14:48:04 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
-      <guid>http://coldcoding.top/post/pjax/</guid>
+      <guid>http://coldcoding.top/post/category/blog/hexo/pjax/</guid>
       <description>参考文章： 保罗 云泥 AJAX AJAX = 异步 JavaScript 和 XML，是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新</description>
     </item>
   </channel>

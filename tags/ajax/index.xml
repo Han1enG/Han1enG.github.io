@@ -12,9 +12,9 @@
     <atom:link href="http://coldcoding.top/tags/ajax/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>网站开启PJAX</title>
-      <link>http://coldcoding.top/post/pjax/</link>
+      <link>http://coldcoding.top/post/category/blog/hexo/pjax/</link>
       <pubDate>Sat, 11 Mar 2023 14:48:04 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
-      <guid>http://coldcoding.top/post/pjax/</guid>
+      <guid>http://coldcoding.top/post/category/blog/hexo/pjax/</guid>
       <description>参考文章： 保罗 云泥 AJAX AJAX = 异步 JavaScript 和 XML，是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新</description>
     </item>
   </channel>
