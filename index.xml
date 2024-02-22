@@ -91,10 +91,10 @@
     
     <item>
       <title>控制面和转发面</title>
-      <link>http://coldcoding.top/post/category/net/control-plane-forward-plane/</link>
+      <link>http://coldcoding.top/tech/net/control-plane-forward-plane/</link>
       <pubDate>Sat, 24 Jun 2023 20:28:36 +0000</pubDate>
       
-      <guid>http://coldcoding.top/post/category/net/control-plane-forward-plane/</guid>
+      <guid>http://coldcoding.top/tech/net/control-plane-forward-plane/</guid>
       <description>&lt;h4 id=&#34;通俗理解&#34;&gt;通俗理解&lt;/h4&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -143,10 +143,10 @@
     
     <item>
       <title>ARP协议</title>
-      <link>http://coldcoding.top/post/category/net/arp-protocol/</link>
+      <link>http://coldcoding.top/tech/net/arp-protocol/</link>
       <pubDate>Fri, 23 Jun 2023 19:05:14 +0000</pubDate>
       
-      <guid>http://coldcoding.top/post/category/net/arp-protocol/</guid>
+      <guid>http://coldcoding.top/tech/net/arp-protocol/</guid>
       <description>&lt;ol&gt;
 &lt;li&gt;ARP（Address Resolution Protocol）即地址解析协议， 用于实现从 IP 地址到 MAC 地址的映射，即询问目标 IP               对应的 MAC 地址。&lt;/li&gt;
 &lt;li&gt;在网络通信中，主机和主机通信的数据包需要依据OSI模型从上到下进行数据封装，当数据封装完整后，再向外发出。所以在局域网的通信中，不仅需要源目IP地址的封装，也需要源目MAC的封装。&lt;/li&gt;
@@ -224,10 +224,10 @@
     
     <item>
       <title>IP数据包传输方式</title>
-      <link>http://coldcoding.top/post/category/net/ip-packet-transmission-method/</link>
+      <link>http://coldcoding.top/tech/net/ip-packet-transmission-method/</link>
       <pubDate>Fri, 23 Jun 2023 19:05:12 +0000</pubDate>
       
-      <guid>http://coldcoding.top/post/category/net/ip-packet-transmission-method/</guid>
+      <guid>http://coldcoding.top/tech/net/ip-packet-transmission-method/</guid>
       <description>&lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;单播&lt;/strong&gt; &lt;strong&gt;:&lt;/strong&gt; 发送数据到单个目的主机，每个单播报文都有一个单播 IP 地址作为目的地址
 &lt;ul&gt;
@@ -255,10 +255,10 @@
     
     <item>
       <title>牛顿法求解平方根</title>
-      <link>http://coldcoding.top/post/category/algorithm/newton-method-find-square-roots/</link>
+      <link>http://coldcoding.top/tech/algorithm/newton-method-find-square-roots/</link>
       <pubDate>Tue, 16 May 2023 12:50:15 +0000</pubDate>
       
-      <guid>http://coldcoding.top/post/category/algorithm/newton-method-find-square-roots/</guid>
+      <guid>http://coldcoding.top/tech/algorithm/newton-method-find-square-roots/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20240219231230.gif&#34; alt=&#34;牛顿法&#34;&gt;&lt;/p&gt;
 &lt;p&gt;假设输入的数是 $m$，则其实是求一个 $ x $ 值，使其满足 $x^2 = m$，令 $f(x) = x^2 - m$ ，其实就是求方程 $f(x) = 0$ 的根。那么 $f(x)$ 的导函数是 $f&amp;rsquo;(x) = 2x$。
 如果是二次函数的话，是很简单的导数运算，切线方程：$y=f′(x_n)(x−x_n)+f(x_n)$，求交点就是把 $y$ 置为零。&lt;/p&gt;

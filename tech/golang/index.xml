@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>🐹Golang on Cold World</title>
+    <link>http://coldcoding.top/tech/golang/</link>
+    <description>Recent content in 🐹Golang on Cold World</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>hanlengcold@gmail.com (Cold)</managingEditor>
+    <webMaster>hanlengcold@gmail.com (Cold)</webMaster>
+    <lastBuildDate>Fri, 12 May 2023 22:03:55 +0000</lastBuildDate>
+    <atom:link href="http://coldcoding.top/tech/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Golang 基础语法</title>
+      <link>http://coldcoding.top/tech/golang/golang-basic-syntax/</link>
+      <pubDate>Fri, 12 May 2023 22:03:55 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
+      <guid>http://coldcoding.top/tech/golang/golang-basic-syntax/</guid>
+      <description>环境搭建 VSCode 下载地址: https://code.visualstudio.com/ 下载慢解决方法： 官网找到需要的版本后，点击下载，然后复制下载链接 将红框内地址更改为国内镜像地址 vscode.cdn.azure.cn 浏览器复制链接后重新下</description>
+    </item>
+  </channel>
+</rss>

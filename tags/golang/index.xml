@@ -12,9 +12,9 @@
     <atom:link href="http://coldcoding.top/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Golang 基础语法</title>
-      <link>http://coldcoding.top/post/category/golang/golang-basic-syntax/</link>
+      <link>http://coldcoding.top/tech/golang/golang-basic-syntax/</link>
       <pubDate>Fri, 12 May 2023 22:03:55 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
-      <guid>http://coldcoding.top/post/category/golang/golang-basic-syntax/</guid>
+      <guid>http://coldcoding.top/tech/golang/golang-basic-syntax/</guid>
       <description>环境搭建 VSCode 下载地址: https://code.visualstudio.com/ 下载慢解决方法： 官网找到需要的版本后，点击下载，然后复制下载链接 将红框内地址更改为国内镜像地址 vscode.cdn.azure.cn 浏览器复制链接后重新下</description>
     </item>
   </channel>

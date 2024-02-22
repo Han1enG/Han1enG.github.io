@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>🌐Web on Cold World</title>
+    <link>http://coldcoding.top/tech/web/</link>
+    <description>Recent content in 🌐Web on Cold World</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>hanlengcold@gmail.com (Cold)</managingEditor>
+    <webMaster>hanlengcold@gmail.com (Cold)</webMaster>
+    <lastBuildDate>Tue, 07 Mar 2023 20:21:30 +0000</lastBuildDate>
+    <atom:link href="http://coldcoding.top/tech/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Angular 实践一搭建环境&#43;创建项目</title>
+      <link>http://coldcoding.top/tech/web/angular-01/</link>
+      <pubDate>Tue, 07 Mar 2023 20:21:30 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
+      <guid>http://coldcoding.top/tech/web/angular-01/</guid>
+      <description>实习公司要求使用 Angular，学过 VUE，了解过 React，偏偏是没用过的 Angular，重头啃 安装 node 查看版本，之前都是在 cmd 窗口，今天学了</description>
+    </item>
+  </channel>
+</rss>

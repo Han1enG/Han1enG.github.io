@@ -19,9 +19,9 @@
     </item>
     <item>
       <title>Hexo 部署到服务器</title>
-      <link>http://coldcoding.top/post/category/blog/hexo/hexo-centos/</link>
+      <link>http://coldcoding.top/tech/blog/hexo/hexo-centos/</link>
       <pubDate>Sun, 19 Mar 2023 11:29:44 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
-      <guid>http://coldcoding.top/post/category/blog/hexo/hexo-centos/</guid>
+      <guid>http://coldcoding.top/tech/blog/hexo/hexo-centos/</guid>
       <description>GitHub Pages 实在太慢了，科学上网有时候也卡住。 搭建Git服务器 首先使用 Xshell连接服务器，并切换 root用户，回退到根路径 安装 openssh 1sudo apt-get install openssh-server # Ubuntu 2sudo yum</description>
     </item>
   </channel>

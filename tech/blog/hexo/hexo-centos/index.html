@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Hexo 部署到服务器" />
+    <title>Hexo 部署到服务器 | Cold World</title>
+    <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="/css/fonts.css" /> 
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+</head>
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+</noscript>
+  </head><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Hexo 部署到服务器" />
+    <title>Hexo 部署到服务器 | Cold World</title>
+    <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="/css/fonts.css" /> 
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+</head>
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+</noscript><body><div class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a href="http://www.coldcoding.top" accesskey="h" title="Cold World">
+        <img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20240219225844.jpg" alt="logo" aria-label="logo" height="35">
+        Cold World
+      </a>
+      
+    </div>
+    <nav>
+      <ul class="menu wide">
+        <a class="menu-item"
+                href="/tech/" > Tech 
+            </a><a class="menu-item"
+                href="/life/" > Life 
+            </a>
+            <div class="dropdown">
+                <a href="javascript:void(0);" 
+                    class="menu-item menu-more dropbtn" title="" > Archive 
+                </a>
+                <div class="menu-more-content dropdown-content"><a href="/archive/categories/" title="" > Categories 
+                    </a><a href="/tags/" title="" > Tags 
+                    </a></div>
+            </div>
+          <a class="menu-item"
+                href="/weekly/" > Weekly 
+            </a><a class="menu-item"
+                href="/about/" > About 
+            </a><a class="menu-item"
+                href="/index.xml" > RSS 
+            </a></ul>
+    </nav>
+    <nav class="menubutton">
+      <button>
+        <svg t="1708437959568" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4235" width="20" height="20"><path d="M382.3 165.6h-165c-47.5 0-86 38.4-86 86v165c0 47.5 38.4 86 86 86h165c47.5 0 86.5-38.4 86-86v-165c0-47.6-38.5-86-86-86z m43.3 251c0 11.2-4.3 21.9-12.3 29.9-8 8.5-19.2 12.8-31 12.8h-165c-24 0-43.2-19.2-43.2-43.2V251c0-24 19.2-43.2 43.2-43.2h165v0.5c24 0 43.2 19.2 43.2 43.2v165.1zM382.3 557.5h-165c-47.5 0-86 38.4-86 86v165c0 47.5 38.4 86 86 86h165c47.5 0 86.5-38.4 86-86v-165c0-47.6-38.5-86-86-86z m43.3 251c0 11.2-4.3 21.9-12.3 29.9-8 8.5-19.2 12.8-31 12.8h-165c-24 0-43.2-19.2-43.2-43.2V643.5c0-24 19.2-43.2 43.2-43.2h165c24 0 43.2 19.2 43.2 43.2v165zM871.4 273.5L755 157.1c-16-16-37.9-25.1-60.9-25.1s-44.8 9.1-60.9 25.1L516.9 273.5c-33.6 33.6-33.6 88.1 0 121.7l116.4 116.4c16 16 37.9 25.1 60.9 25.1s44.8-8.5 60.9-25.1l116.4-116.4c33.5-33.6 33.5-88.1-0.1-121.7zM841 364.8L724.6 481.2c-7.5 8-18.2 12.3-30.4 12.3-11.7 0-22.4-4.8-30.4-12.8L547.3 364.2c-8-8-12.8-19.2-12.8-30.4 0-11.7 4.3-22.4 12.8-30.4L663.7 187c8-7.5 19.2-12.3 30.4-12.3 11.7 0 22.4 4.8 30.4 12.8L841 303.9c8 8 12.8 19.2 12.8 30.4 0 11.8-4.3 22.5-12.8 30.5zM776.4 557.5h-165c-47.5 0-86 38.4-86 86v165c0 47.5 38.4 86 86 86h165c47.5 0 86.5-38.4 86-86v-165c-0.1-47.6-38.5-86-86-86z m43.2 251c0 11.2-4.3 21.9-12.3 29.9-8 8.5-19.2 12.8-31 12.8h-165c-24 0-43.2-19.2-43.2-43.2V643.5c0-24 19.2-43.2 43.2-43.2h165c24 0 43.2 19.2 43.2 43.2v165z" p-id="4236" fill="#1030ea"></path></svg>
+      </button>
+    </nav>
+  </nav>
+</div><div class="main page">
+<article class="post-single">
+  <div id="single-content">
+    <header class="post-header">
+      <div class="breadcrumbs"><div  class="breadcrumb">
+    
+    
+
+
+    <a href="http://coldcoding.top/">🏠 Home</a>&nbsp;»&nbsp;<a href="http://coldcoding.top/tech/">📑Tech</a>&nbsp;»&nbsp;<a href="http://coldcoding.top/tech/blog/">📝Blog</a></div></div>
+      <h1 class="post-title">Hexo 部署到服务器</h1>
+      <div class="post-meta"><span class="parent-post-meta">
+    <span id="post_meta_style_initpost" class="post_meta_style">Published at:</span>2023/03/19&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_lastmod" class="post_meta_style">Last updated:</span>2023/03/19&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_pagepv" class="post_meta_style">PagePV:</span><span id="twikoo_visitors">0</span>&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_author" class="post_meta_style">Author:</span>Cold&nbsp;&nbsp;&nbsp;    
+</span></div>
+    </header>
+      
+
+<aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details >
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">Hexo 部署到服务器</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e6%90%ad%e5%bb%bagit%e6%9c%8d%e5%8a%a1%e5%99%a8" aria-label="搭建Git服务器">搭建Git服务器</a></li>
+                    <li>
+                        <a href="#%e9%85%8d%e7%bd%aenginx%e6%89%98%e7%ae%a1%e6%96%87%e4%bb%b6%e7%9b%ae%e5%bd%95" aria-label="配置Nginx托管文件目录">配置Nginx托管文件目录</a></li>
+                    <li>
+                        <a href="#%e4%bf%ae%e6%94%b9-hexo%e9%85%8d%e7%bd%ae" aria-label="修改 Hexo配置">修改 <code>Hexo</code>配置</a>
+                    </li>
+                </ul>
+            </div>
+            </details>
+        </div>
+    </aside>
+    <script>
+        let activeElement;
+        let elements;
+        window.addEventListener('DOMContentLoaded', function (event) {
+            checkTocPosition();
+    
+            elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+            
+            activeElement = elements[0];
+            const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+            document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+        }, false);
+    
+        window.addEventListener('resize', function(event) {
+            checkTocPosition();
+        }, false);
+    
+        window.addEventListener('scroll', () => {
+            
+            if (elements) {
+                activeElement = Array.from(elements).find((element) => {
+                    if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                        (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                        return element;
+                    }
+                }) || activeElement
+    
+                elements.forEach(element => {
+                    const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                    if (element === activeElement){
+                        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                    } else {
+                        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                    }
+                })
+            }
+        }, false);
+    
+        const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+        const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+        const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+    
+        function checkTocPosition() {
+            const width = document.body.scrollWidth;
+            if (width - main - (toc * 2) - (gap * 4) > 0) {
+                document.getElementById("toc-container").classList.add("wide");
+            } else {
+                document.getElementById("toc-container").classList.remove("wide");
+            }
+        }
+    
+        function getOffsetTop(element) {
+            if (!element.getClientRects().length) {
+                return 0;
+            }
+            let rect = element.getBoundingClientRect();
+            let win = element.ownerDocument.defaultView;
+            return rect.top + win.pageYOffset;
+        }
+    </script>
+    <div class="post-content"><blockquote>
+<p><code>GitHub Pages</code> 实在太慢了，科学上网有时候也卡住。</p>
+</blockquote>
+<h2 id="搭建git服务器">搭建Git服务器</h2>
+<p>首先使用 <code>Xshell</code>连接服务器，并切换 <code>root</code>用户，回退到根路径</p>
+<ol>
+<li>
+<p>安装 <code>openssh</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">sudo apt-get install openssh-server <span class="c1"># Ubuntu</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo yum install openssh-server <span class="c1"># Centos</span>
+</span></span></code></pre></div></li>
+<li>
+<p>安装完成之后，查看 <code>ssh</code>服务是否启动</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">ps -e<span class="p">|</span>grep ssh
+</span></span></code></pre></div><p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230319115148.png" alt="image-20230319115141985"></p>
+</li>
+<li>
+<p>创建一个名为 <code>git</code>的用户，用于管理 <code>Hexo</code>项目</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">adduser git
+</span></span></code></pre></div><p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230320203205.png" alt="image-20230320203202602"></p>
+</li>
+<li>
+<p>给 <code>git</code>用户添加文件的写权限</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">chmod <span class="m">740</span> /etc/sudoers
+</span></span><span class="line"><span class="ln">2</span><span class="cl">vim /etc/sudoers
+</span></span></code></pre></div><p>找到 <code>User privilege specification</code>部分，添加如下内容：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">git    <span class="nv">ALL</span><span class="o">=(</span>ALL:ALL<span class="o">)</span> ALL
+</span></span></code></pre></div><p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230320203419.png" alt="image-20230320203415465"></p>
+</li>
+<li>
+<p>按 <code>ESC</code> 退出编辑模式，输入 <code>:wq</code>保存退出</p>
+</li>
+<li>
+<p>将写权限收回</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">chmod <span class="m">400</span> /etc/sudoers
+</span></span></code></pre></div></li>
+<li>
+<p>切换至 <code>git</code>用户，创建 <code>~/.ssh</code>文件夹和 <code> ~/.ssh/authorized_keys</code>文件，并赋予相应的权限</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">su git
+</span></span><span class="line"><span class="ln">2</span><span class="cl">mkdir ~/.ssh
+</span></span><span class="line"><span class="ln">3</span><span class="cl">vim ~/.ssh/authorized_keys
+</span></span></code></pre></div><p>按 <code>i</code>进入编辑模式，将我们先前生成的 <code>id_rsa.pub</code>文件中的公钥复制到 <code>authorized_keys</code>中，按 <code>ESC</code> 退出编辑模式，输入 <code>:wq</code>保存退出。</p>
+</li>
+<li>
+<p>赋予权限</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">chmod <span class="m">600</span> /home/git/.ssh/authorized_keys
+</span></span><span class="line"><span class="ln">2</span><span class="cl">chmod <span class="m">700</span> /home/git/.ssh
+</span></span></code></pre></div></li>
+<li>
+<p>在电脑本地桌面，右键 <code>Git Bash Here</code>，输入一下命令，其中 <code>SERVER</code>填写自己的云主机 <code>ip</code>，如果能够免密登录即代表成功。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">ssh -v git@SERVER
+</span></span></code></pre></div><p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230326094753.png" alt="image-20230326094751020"></p>
+</li>
+<li>
+<p>安装 <code>git</code>，有的话就不需要再安装</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># 安装 Git</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo yum -y install git
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># 查看版本</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">git version
+</span></span></code></pre></div></li>
+<li>
+<p>在 <code>var</code>目录下创建 <code>repo</code>作为 <code>Git</code>仓库目录，并赋予权限，先切换到 <code>root</code>账户，然后输入：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">mkdir /var/repo
+</span></span><span class="line"><span class="ln">2</span><span class="cl">chown -R git:git /var/repo
+</span></span><span class="line"><span class="ln">3</span><span class="cl">chmod -R <span class="m">755</span> /var/repo
+</span></span></code></pre></div><p>创建 <code>hexo</code>目录作为网站根目录，并赋予权限</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">mkdir /var/hexo
+</span></span><span class="line"><span class="ln">2</span><span class="cl">chown -R git:git /var/hexo
+</span></span><span class="line"><span class="ln">3</span><span class="cl">chmod -R <span class="m">755</span> /var/hexo
+</span></span></code></pre></div><p>创建一个空白的 <code>git</code>仓库</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">cd</span> /var/repo
+</span></span><span class="line"><span class="ln">2</span><span class="cl">git init --bare hexo.git
+</span></span></code></pre></div><p>在 <code>/var/repo/hexo.git</code>下，有一个自动生成的 hooks 文件夹，我们需要在里面新建一个新的钩子文件 <code>post-receive</code>，用于自动部署</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">vim /var/repo/hexo.git/hooks/post-receive
+</span></span></code></pre></div><p>进入编辑模式，输入以下内容：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="cp"></span>git --work-tree<span class="o">=</span>/var/hexo --git-dir<span class="o">=</span>/var/repo/hexo.git checkout -f
+</span></span></code></pre></div><p>写入后添加可执行权限</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">chown -R git:git /var/repo/hexo.git/hooks/post-receive
+</span></span><span class="line"><span class="ln">2</span><span class="cl">chmod +x /var/repo/hexo.git/hooks/post-receive
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="配置nginx托管文件目录">配置Nginx托管文件目录</h2>
+<ol>
+<li>
+<p>安装Nginx</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">sudo yum install nginx -y
+</span></span></code></pre></div><p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230319143059.png" alt="image-20230319143057171"></p>
+<p>安装成功后，在浏览器中输入服务器的ip地址，即可访问到Nginx的默认站点
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230319144931.png" alt="image-20230319144928430"></p>
+</li>
+<li>
+<p>配置 <code>Nginx</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">nginx -t
+</span></span></code></pre></div><p>编辑 <code>nginx.conf</code>文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">vim /etc/nginx/nginx.conf
+</span></span></code></pre></div><p>按 <code>i</code>进入编辑模式，粘贴完按 <code>Esc</code> 键退出编辑模式，输入 <code>:wq</code> 保存退出。</p>
+<p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230326101400.png" alt="3"></p>
+</li>
+<li>
+<p>启动 <code>nginx</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">systemctl start nginx.service
+</span></span></code></pre></div><p>重启 <code>ngxin</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">systemctl restart nginx.service
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="修改-hexo配置">修改 <code>Hexo</code>配置</h2>
+<p>在配置文件 <code>_config.yml</code>中找到 <code>deploy</code>，修改为</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">deploy:
+</span></span><span class="line"><span class="ln">2</span><span class="cl">  type: git
+</span></span><span class="line"><span class="ln">3</span><span class="cl">  repo: git@hjxlog.com:/var/repo/hexo.git <span class="c1">#repo改为repo: git@你的域名:/var/repo/hexo.git</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">  branch: master
+</span></span></code></pre></div><p>三连部署</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">hexo cl <span class="p">&amp;</span> hexo g <span class="p">&amp;</span> hexo d
+</span></span></code></pre></div></div>
+  </div>
+</article>
+
+
+  
+    <div class="pagination__title">
+    <span class="pagination__title-h" style="font-size: 20px;">💬Discussion</span>
+    <hr />
+</div>
+<script src="//cdn.jsdelivr.net/npm/twikoo@1.6.21/dist/twikoo.all.min.js"></script>
+<div id="tcomment"></div><script>
+    twikoo.init({
+        envId: "https:\/\/twikoo.coldcoding.top\/",  
+        el: "#tcomment", 
+        
+        
+    });
+</script>
+
+
+
+
+    </div><footer class="footer">
+  <hr />
+  <span>
+    Copyright 2022-2024 <a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2023006518号</a> &nbsp;&nbsp;<a href="https://icp.gov.moe/?keyword=20241230" target="_blank">萌ICP备20241230号</a>
+  </span>
+  <span>
+    All articles on this site are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a >
+  </span>
+</footer>
+
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <span class="topInner">
+      <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+          <path d="M12 6H0l6-6z"/>
+      </svg>
+      <span id="read_progress"></span>
+  </span>
+</a>
+
+<script>
+  var backButton = document.getElementById("top-link");
+  var lastScrollPosition = window.pageYOffset;
+
+  function showBackButton() {
+      backButton.style.visibility = "visible";
+      backButton.style.opacity = '1';
+  }
+  function halfHideBackButton() {
+      backButton.style.visibility = "visible";
+      backButton.style.opacity = '0.3';
+  }
+  function hideBackButton() {
+      backButton.style.visibility = "hidden";
+      backButton.style.opacity = '0';
+  }
+
+  window.onscroll = function () {
+      var currentScrollPosition = window.pageYOffset;
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        showBackButton()
+        if (Math.abs(currentScrollPosition - lastScrollPosition) < 10) {
+          halfHideBackButton()
+        }
+      } else {
+        hideBackButton()
+      }
+      lastScrollPosition = currentScrollPosition;
+  };
+</script></body>
+</html>

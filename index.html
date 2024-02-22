@@ -57,32 +57,26 @@
     </div>
     <nav>
       <ul class="menu wide">
-        
-        <li>
-          <a class="no-tag" href="/tags/">
-            Tags
-          </a>
-        </li>
-        
-        <li>
-          <a class="no-tag" href="/categories/">
-            Categories
-          </a>
-        </li>
-        
-        <li>
-          <a class="no-tag" href="/about/">
-            About
-          </a>
-        </li>
-        
-        <li>
-          <a class="no-tag" href="/index.xml">
-            RSS
-          </a>
-        </li>
-        
-      </ul>
+        <a class="menu-item"
+                href="/tech/" > Tech 
+            </a><a class="menu-item"
+                href="/life/" > Life 
+            </a>
+            <div class="dropdown">
+                <a href="javascript:void(0);" 
+                    class="menu-item menu-more dropbtn" title="" > Archive 
+                </a>
+                <div class="menu-more-content dropdown-content"><a href="/archive/categories/" title="" > Categories 
+                    </a><a href="/tags/" title="" > Tags 
+                    </a></div>
+            </div>
+          <a class="menu-item"
+                href="/weekly/" > Weekly 
+            </a><a class="menu-item"
+                href="/about/" > About 
+            </a><a class="menu-item"
+                href="/index.xml" > RSS 
+            </a></ul>
     </nav>
     <nav class="menubutton">
       <button>
@@ -175,7 +169,7 @@
 			<article class="post-entry">
 	<div class="post-info">
 		<pagetitle class="entry-header">
-			<h2><a href="http://coldcoding.top/post/category/net/control-plane-forward-plane/">控制面和转发面</a></h2>
+			<h2><a href="http://coldcoding.top/tech/net/control-plane-forward-plane/">控制面和转发面</a></h2>
 		</pagetitle>
 		<section class="entry-content">
 			通俗理解 控制面是为了找好路径，转发面是在有个好路径的基础上转发数据，两者协作来达到网络是通的这样一个目的。 数据包是以跳为单位进行路由的，转发
@@ -252,7 +246,7 @@
 			<article class="post-entry">
 	<div class="post-info">
 		<pagetitle class="entry-header">
-			<h2><a href="http://coldcoding.top/post/category/net/arp-protocol/">ARP协议</a></h2>
+			<h2><a href="http://coldcoding.top/tech/net/arp-protocol/">ARP协议</a></h2>
 		</pagetitle>
 		<section class="entry-content">
 			ARP（Address Resolution Protocol）即地址解析协议， 用于实现从 IP 地址到 MAC 地址的映射，即询问目标 IP 对应的 MAC 地址。 在网络通信中，主机和主机
@@ -329,7 +323,7 @@
 			<article class="post-entry">
 	<div class="post-info">
 		<pagetitle class="entry-header">
-			<h2><a href="http://coldcoding.top/post/category/net/ip-packet-transmission-method/">IP数据包传输方式</a></h2>
+			<h2><a href="http://coldcoding.top/tech/net/ip-packet-transmission-method/">IP数据包传输方式</a></h2>
 		</pagetitle>
 		<section class="entry-content">
 			单播 : 发送数据到单个目的主机，每个单播报文都有一个单播 IP 地址作为目的地址 传输方式 : 是点对点传输方式 ; 弊端 : 发送者与每个接收者之间都要建立单独
@@ -406,7 +400,7 @@
 			<article class="post-entry">
 	<div class="post-info">
 		<pagetitle class="entry-header">
-			<h2><a href="http://coldcoding.top/post/category/algorithm/newton-method-find-square-roots/">牛顿法求解平方根</a></h2>
+			<h2><a href="http://coldcoding.top/tech/algorithm/newton-method-find-square-roots/">牛顿法求解平方根</a></h2>
 		</pagetitle>
 		<section class="entry-content">
 			假设输入的数是 $m$，则其实是求一个 $ x $ 值，使其满足 $x^2 = m$，令 $f(x) = x^2 - m$ ，其实就是求方程 $f(x) = 0$ 的根。那么 $f(x)$ 的导函数是 $f&rsquo;(x) = 2x$。 如果是二
@@ -485,7 +479,7 @@
 			<article class="post-entry">
 	<div class="post-info">
 		<pagetitle class="entry-header">
-			<h2><a href="http://coldcoding.top/post/category/golang/golang-basic-syntax/">Golang 基础语法</a></h2>
+			<h2><a href="http://coldcoding.top/tech/golang/golang-basic-syntax/">Golang 基础语法</a></h2>
 		</pagetitle>
 		<section class="entry-content">
 			环境搭建 VSCode 下载地址: https://code.visualstudio.com/ 下载慢解决方法： 官网找到需要的版本后，点击下载，然后复制下载链接 将红框内地址更改为国内镜像地址 vscode.cdn.azure.cn 浏览器复制链接后重新下
@@ -562,7 +556,7 @@
 			<article class="post-entry">
 	<div class="post-info">
 		<pagetitle class="entry-header">
-			<h2><a href="http://coldcoding.top/post/category/blog/hexo/hexo-centos/">Hexo 部署到服务器</a></h2>
+			<h2><a href="http://coldcoding.top/tech/blog/hexo/hexo-centos/">Hexo 部署到服务器</a></h2>
 		</pagetitle>
 		<section class="entry-content">
 			GitHub Pages 实在太慢了，科学上网有时候也卡住。 搭建Git服务器 首先使用 Xshell连接服务器，并切换 root用户，回退到根路径 安装 openssh 1sudo apt-get install openssh-server # Ubuntu 2sudo yum
@@ -641,7 +635,7 @@
 			<article class="post-entry">
 	<div class="post-info">
 		<pagetitle class="entry-header">
-			<h2><a href="http://coldcoding.top/post/category/blog/hexo/hexo-comment/">Hexo &#43; Butterfly 添加评论系统</a></h2>
+			<h2><a href="http://coldcoding.top/tech/blog/hexo/hexo-comment/">Hexo &#43; Butterfly 添加评论系统</a></h2>
 		</pagetitle>
 		<section class="entry-content">
 			参考作者给出的教程以及官方文档twikoo和waline 通用设置 主题文件配置 在主题配置文件_config.butterfly.yml中找到c
@@ -718,7 +712,7 @@
 			<article class="post-entry">
 	<div class="post-info">
 		<pagetitle class="entry-header">
-			<h2><a href="http://coldcoding.top/post/category/blog/hexo/hexo-comment-pro/">twikoo评论的气泡美化</a></h2>
+			<h2><a href="http://coldcoding.top/tech/blog/hexo/hexo-comment-pro/">twikoo评论的气泡美化</a></h2>
 		</pagetitle>
 		<section class="entry-content">
 			参考教程 新建source\css\twikoo.css文件，添加代码 1/* 设置文字内容 :nth-child(1)的作用是选择第几个 */ 2.el-input.el-input--small.el-input-group.el-input-group--prepend:nth-child(1):before { 3 content: &#
@@ -795,7 +789,7 @@
 			<article class="post-entry">
 	<div class="post-info">
 		<pagetitle class="entry-header">
-			<h2><a href="http://coldcoding.top/post/category/blog/hexo/hexo-domainname/">GitHub Pages绑定个人域名失效</a></h2>
+			<h2><a href="http://coldcoding.top/tech/blog/hexo/hexo-domainname/">GitHub Pages绑定个人域名失效</a></h2>
 		</pagetitle>
 		<section class="entry-content">
 			暂时将博客托管在了 GitHub Pages上，并将个人域名解析指向了博客，但是每次配置好 Custom domain，访问成功后，不知不觉又 404 了，查询后发现是每次 hexo d
@@ -890,13 +884,13 @@
 				
 				<li><a href="/linux-cmd/">Linux 常用命令</a></li>
 				
-				<li><a href="/post/category/net/control-plane-forward-plane/">控制面和转发面</a></li>
+				<li><a href="/tech/net/control-plane-forward-plane/">控制面和转发面</a></li>
 				
-				<li><a href="/post/category/net/arp-protocol/">ARP协议</a></li>
+				<li><a href="/tech/net/arp-protocol/">ARP协议</a></li>
 				
-				<li><a href="/post/category/net/ip-packet-transmission-method/">IP数据包传输方式</a></li>
+				<li><a href="/tech/net/ip-packet-transmission-method/">IP数据包传输方式</a></li>
 				
-				<li><a href="/post/category/algorithm/newton-method-find-square-roots/">牛顿法求解平方根</a></li>
+				<li><a href="/tech/algorithm/newton-method-find-square-roots/">牛顿法求解平方根</a></li>
 				
 			</ul>
 		</div>
@@ -907,7 +901,7 @@
     </div><footer class="footer">
   <hr />
   <span>
-    Copyright 2022-2024 <a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2023006518号</a>
+    Copyright 2022-2024 <a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2023006518号</a> &nbsp;&nbsp;<a href="https://icp.gov.moe/?keyword=20241230" target="_blank">萌ICP备20241230号</a>
   </span>
   <span>
     All articles on this site are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a >

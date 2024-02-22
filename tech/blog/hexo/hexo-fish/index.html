@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="hexo_fish" />
+    <title>hexo_fish | Cold World</title>
+    <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="/css/fonts.css" /> 
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+</head>
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+</noscript>
+  </head><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="hexo_fish" />
+    <title>hexo_fish | Cold World</title>
+    <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="/css/fonts.css" /> 
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+</head>
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+</noscript><body><div class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a href="http://www.coldcoding.top" accesskey="h" title="Cold World">
+        <img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20240219225844.jpg" alt="logo" aria-label="logo" height="35">
+        Cold World
+      </a>
+      
+    </div>
+    <nav>
+      <ul class="menu wide">
+        <a class="menu-item"
+                href="/tech/" > Tech 
+            </a><a class="menu-item"
+                href="/life/" > Life 
+            </a>
+            <div class="dropdown">
+                <a href="javascript:void(0);" 
+                    class="menu-item menu-more dropbtn" title="" > Archive 
+                </a>
+                <div class="menu-more-content dropdown-content"><a href="/archive/categories/" title="" > Categories 
+                    </a><a href="/tags/" title="" > Tags 
+                    </a></div>
+            </div>
+          <a class="menu-item"
+                href="/weekly/" > Weekly 
+            </a><a class="menu-item"
+                href="/about/" > About 
+            </a><a class="menu-item"
+                href="/index.xml" > RSS 
+            </a></ul>
+    </nav>
+    <nav class="menubutton">
+      <button>
+        <svg t="1708437959568" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4235" width="20" height="20"><path d="M382.3 165.6h-165c-47.5 0-86 38.4-86 86v165c0 47.5 38.4 86 86 86h165c47.5 0 86.5-38.4 86-86v-165c0-47.6-38.5-86-86-86z m43.3 251c0 11.2-4.3 21.9-12.3 29.9-8 8.5-19.2 12.8-31 12.8h-165c-24 0-43.2-19.2-43.2-43.2V251c0-24 19.2-43.2 43.2-43.2h165v0.5c24 0 43.2 19.2 43.2 43.2v165.1zM382.3 557.5h-165c-47.5 0-86 38.4-86 86v165c0 47.5 38.4 86 86 86h165c47.5 0 86.5-38.4 86-86v-165c0-47.6-38.5-86-86-86z m43.3 251c0 11.2-4.3 21.9-12.3 29.9-8 8.5-19.2 12.8-31 12.8h-165c-24 0-43.2-19.2-43.2-43.2V643.5c0-24 19.2-43.2 43.2-43.2h165c24 0 43.2 19.2 43.2 43.2v165zM871.4 273.5L755 157.1c-16-16-37.9-25.1-60.9-25.1s-44.8 9.1-60.9 25.1L516.9 273.5c-33.6 33.6-33.6 88.1 0 121.7l116.4 116.4c16 16 37.9 25.1 60.9 25.1s44.8-8.5 60.9-25.1l116.4-116.4c33.5-33.6 33.5-88.1-0.1-121.7zM841 364.8L724.6 481.2c-7.5 8-18.2 12.3-30.4 12.3-11.7 0-22.4-4.8-30.4-12.8L547.3 364.2c-8-8-12.8-19.2-12.8-30.4 0-11.7 4.3-22.4 12.8-30.4L663.7 187c8-7.5 19.2-12.3 30.4-12.3 11.7 0 22.4 4.8 30.4 12.8L841 303.9c8 8 12.8 19.2 12.8 30.4 0 11.8-4.3 22.5-12.8 30.5zM776.4 557.5h-165c-47.5 0-86 38.4-86 86v165c0 47.5 38.4 86 86 86h165c47.5 0 86.5-38.4 86-86v-165c-0.1-47.6-38.5-86-86-86z m43.2 251c0 11.2-4.3 21.9-12.3 29.9-8 8.5-19.2 12.8-31 12.8h-165c-24 0-43.2-19.2-43.2-43.2V643.5c0-24 19.2-43.2 43.2-43.2h165c24 0 43.2 19.2 43.2 43.2v165z" p-id="4236" fill="#1030ea"></path></svg>
+      </button>
+    </nav>
+  </nav>
+</div><div class="main page">
+<article class="post-single">
+  <div id="single-content">
+    <header class="post-header">
+      <div class="breadcrumbs"><div  class="breadcrumb">
+    
+    
+
+
+    <a href="http://coldcoding.top/">🏠 Home</a>&nbsp;»&nbsp;<a href="http://coldcoding.top/tech/">📑Tech</a>&nbsp;»&nbsp;<a href="http://coldcoding.top/tech/blog/">📝Blog</a></div></div>
+      <h1 class="post-title">hexo_fish</h1>
+      <div class="post-meta"><span class="parent-post-meta">
+    <span id="post_meta_style_initpost" class="post_meta_style">Published at:</span>2023/03/02&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_lastmod" class="post_meta_style">Last updated:</span>2023/03/02&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_pagepv" class="post_meta_style">PagePV:</span><span id="twikoo_visitors">0</span>&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_author" class="post_meta_style">Author:</span>Cold&nbsp;&nbsp;&nbsp;    
+</span></div>
+    </header>
+      
+    <div class="post-content"><blockquote>
+<p>参考文章：<a href="https://cnhuazhu.top/butterfly/2021/02/19/Hexo%E9%AD%94%E6%94%B9/Hexo%E9%A1%B5%E8%84%9A%E5%85%BB%E9%B1%BC%E6%95%88%E6%9E%9C/">Hexo页脚养鱼效果</a></p>
+</blockquote>
+<ol>
+<li>
+<p>引入必须的<code>jquery</code>文件</p>
+<ul>
+<li><a href="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js">https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js</a></li>
+</ul>
+</li>
+<li>
+<p>把上述文件保存在<code>\themes\butterfly\source\js</code>并命名为<code>jquery.min.js</code>和<code>fish.js</code></p>
+</li>
+<li>
+<p>在<code>\themes\butterfly\source\js</code>路径下新建<code>fish.js</code>文件，代码内容如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="ln">  1</span><span class="cl"><span class="nx">fish</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">  2</span><span class="cl"><span class="kd">function</span> <span class="nx">fish</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">  3</span><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="ln">  4</span><span class="cl">    <span class="nx">$</span><span class="p">(</span><span class="s2">&#34;footer&#34;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span>
+</span></span><span class="line"><span class="ln">  5</span><span class="cl">      <span class="s1">&#39;&lt;div class=&#34;fish_container&#34; id=&#34;jsi-flying-fish-container&#34;&gt;&lt;/div&gt;&#39;</span>
+</span></span><span class="line"><span class="ln">  6</span><span class="cl">    <span class="p">),</span>
+</span></span><span class="line"><span class="ln">  7</span><span class="cl">    <span class="nx">$</span><span class="p">(</span><span class="s2">&#34;.fish_container&#34;</span><span class="p">).</span><span class="nx">css</span><span class="p">({</span>
+</span></span><span class="line"><span class="ln">  8</span><span class="cl">      <span class="s2">&#34;z-index&#34;</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">  9</span><span class="cl">      <span class="nx">width</span><span class="o">:</span> <span class="s2">&#34;100%&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 10</span><span class="cl">      <span class="nx">height</span><span class="o">:</span> <span class="s2">&#34;160px&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 11</span><span class="cl">      <span class="nx">margin</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 12</span><span class="cl">      <span class="nx">padding</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 13</span><span class="cl">    <span class="p">}),</span>
+</span></span><span class="line"><span class="ln"> 14</span><span class="cl">    <span class="nx">$</span><span class="p">(</span><span class="s2">&#34;#footer-wrap&#34;</span><span class="p">).</span><span class="nx">css</span><span class="p">({</span>
+</span></span><span class="line"><span class="ln"> 15</span><span class="cl">      <span class="nx">position</span><span class="o">:</span> <span class="s2">&#34;absolute&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 16</span><span class="cl">      <span class="s2">&#34;text-align&#34;</span><span class="o">:</span> <span class="s2">&#34;center&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 17</span><span class="cl">      <span class="nx">top</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 18</span><span class="cl">      <span class="nx">right</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 19</span><span class="cl">      <span class="nx">left</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 20</span><span class="cl">      <span class="nx">bottom</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 21</span><span class="cl">    <span class="p">}),</span>
+</span></span><span class="line"><span class="ln"> 22</span><span class="cl">    <span class="k">this</span>
+</span></span><span class="line"><span class="ln"> 23</span><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 24</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 25</span><span class="cl"><span class="kd">var</span> <span class="nx">RENDERER</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 26</span><span class="cl">	<span class="nx">POINT_INTERVAL</span> <span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 27</span><span class="cl">	<span class="nx">FISH_COUNT</span> <span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 28</span><span class="cl">	<span class="nx">MAX_INTERVAL_COUNT</span> <span class="o">:</span> <span class="mi">50</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 29</span><span class="cl">	<span class="nx">INIT_HEIGHT_RATE</span> <span class="o">:</span> <span class="mf">0.5</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 30</span><span class="cl">	<span class="nx">THRESHOLD</span> <span class="o">:</span> <span class="mi">50</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 31</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 32</span><span class="cl">	<span class="nx">init</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span></span><span class="line"><span class="ln"> 33</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">setParameters</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln"> 34</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">reconstructMethods</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln"> 35</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">setup</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln"> 36</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">bindEvent</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln"> 37</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln"> 38</span><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="ln"> 39</span><span class="cl">	<span class="nx">setParameters</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span></span><span class="line"><span class="ln"> 40</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">$window</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 41</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">$container</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#jsi-flying-fish-container&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 42</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">$canvas</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;canvas /&gt;&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 43</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">context</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$canvas</span><span class="p">.</span><span class="nx">appendTo</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$container</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 44</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">points</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="ln"> 45</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">fishes</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="ln"> 46</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">watchIds</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="ln"> 47</span><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="ln"> 48</span><span class="cl">	<span class="nx">createSurfacePoints</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span></span><span class="line"><span class="ln"> 49</span><span class="cl">		<span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="k">this</span><span class="p">.</span><span class="nx">POINT_INTERVAL</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 50</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">pointInterval</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="p">(</span><span class="nx">count</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 51</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">points</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">new</span> <span class="nx">SURFACE_POINT</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+</span></span><span class="line"><span class="ln"> 52</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 53</span><span class="cl">		<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">count</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln"> 54</span><span class="cl">			<span class="kd">var</span> <span class="nx">point</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SURFACE_POINT</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">i</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">pointInterval</span><span class="p">),</span>
+</span></span><span class="line"><span class="ln"> 55</span><span class="cl">				<span class="nx">previous</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">points</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 56</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 57</span><span class="cl">			<span class="nx">point</span><span class="p">.</span><span class="nx">setPreviousPoint</span><span class="p">(</span><span class="nx">previous</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 58</span><span class="cl">			<span class="nx">previous</span><span class="p">.</span><span class="nx">setNextPoint</span><span class="p">(</span><span class="nx">point</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 59</span><span class="cl">			<span class="k">this</span><span class="p">.</span><span class="nx">points</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">point</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 60</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 61</span><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="ln"> 62</span><span class="cl">	<span class="nx">reconstructMethods</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span></span><span class="line"><span class="ln"> 63</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">watchWindowSize</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">watchWindowSize</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 64</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">jdugeToStopResize</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">jdugeToStopResize</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 65</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">startEpicenter</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">startEpicenter</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 66</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">moveEpicenter</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">moveEpicenter</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 67</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">reverseVertical</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">reverseVertical</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 68</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">render</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">render</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 69</span><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="ln"> 70</span><span class="cl">	<span class="nx">setup</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span></span><span class="line"><span class="ln"> 71</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">points</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 72</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">fishes</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 73</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">watchIds</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 74</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">intervalCount</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">MAX_INTERVAL_COUNT</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 75</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$container</span><span class="p">.</span><span class="nx">width</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln"> 76</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$container</span><span class="p">.</span><span class="nx">height</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln"> 77</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">fishCount</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">FISH_COUNT</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="mi">500</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">/</span> <span class="mi">500</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 78</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">$canvas</span><span class="p">.</span><span class="nx">attr</span><span class="p">({</span><span class="nx">width</span> <span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">height</span> <span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="p">});</span>
+</span></span><span class="line"><span class="ln"> 79</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">reverse</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 80</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 81</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">fishes</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">new</span> <span class="nx">FISH</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+</span></span><span class="line"><span class="ln"> 82</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">createSurfacePoints</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln"> 83</span><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="ln"> 84</span><span class="cl">	<span class="nx">watchWindowSize</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span></span><span class="line"><span class="ln"> 85</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">clearTimer</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln"> 86</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">tmpWidth</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$window</span><span class="p">.</span><span class="nx">width</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln"> 87</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">tmpHeight</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$window</span><span class="p">.</span><span class="nx">height</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln"> 88</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">watchIds</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">setTimeout</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">jdugeToStopResize</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">WATCH_INTERVAL</span><span class="p">));</span>
+</span></span><span class="line"><span class="ln"> 89</span><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="ln"> 90</span><span class="cl">	<span class="nx">clearTimer</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span></span><span class="line"><span class="ln"> 91</span><span class="cl">		<span class="k">while</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">watchIds</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln"> 92</span><span class="cl">			<span class="nx">clearTimeout</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">watchIds</span><span class="p">.</span><span class="nx">pop</span><span class="p">());</span>
+</span></span><span class="line"><span class="ln"> 93</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 94</span><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="ln"> 95</span><span class="cl">	<span class="nx">jdugeToStopResize</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span></span><span class="line"><span class="ln"> 96</span><span class="cl">		<span class="kd">var</span> <span class="nx">width</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$window</span><span class="p">.</span><span class="nx">width</span><span class="p">(),</span>
+</span></span><span class="line"><span class="ln"> 97</span><span class="cl">			<span class="nx">height</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$window</span><span class="p">.</span><span class="nx">height</span><span class="p">(),</span>
+</span></span><span class="line"><span class="ln"> 98</span><span class="cl">			<span class="nx">stopped</span> <span class="o">=</span> <span class="p">(</span><span class="nx">width</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="nx">tmpWidth</span> <span class="o">&amp;&amp;</span> <span class="nx">height</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="nx">tmpHeight</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 99</span><span class="cl">
+</span></span><span class="line"><span class="ln">100</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">tmpWidth</span> <span class="o">=</span> <span class="nx">width</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">101</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">tmpHeight</span> <span class="o">=</span> <span class="nx">height</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">102</span><span class="cl">
+</span></span><span class="line"><span class="ln">103</span><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="nx">stopped</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">104</span><span class="cl">			<span class="k">this</span><span class="p">.</span><span class="nx">setup</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">105</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">106</span><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="ln">107</span><span class="cl">	<span class="nx">bindEvent</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span></span><span class="line"><span class="ln">108</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">$window</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;resize&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">watchWindowSize</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">109</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">$container</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;mouseenter&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">startEpicenter</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">110</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">$container</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;mousemove&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">moveEpicenter</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">111</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">$container</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">reverseVertical</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">112</span><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="ln">113</span><span class="cl">	<span class="nx">getAxis</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">114</span><span class="cl">		<span class="kd">var</span> <span class="nx">offset</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$container</span><span class="p">.</span><span class="nx">offset</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">115</span><span class="cl">
+</span></span><span class="line"><span class="ln">116</span><span class="cl">		<span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">117</span><span class="cl">			<span class="nx">x</span> <span class="o">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span> <span class="o">-</span> <span class="nx">offset</span><span class="p">.</span><span class="nx">left</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">$window</span><span class="p">.</span><span class="nx">scrollLeft</span><span class="p">(),</span>
+</span></span><span class="line"><span class="ln">118</span><span class="cl">			<span class="nx">y</span> <span class="o">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span> <span class="o">-</span> <span class="nx">offset</span><span class="p">.</span><span class="nx">top</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">$window</span><span class="p">.</span><span class="nx">scrollTop</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">119</span><span class="cl">		<span class="p">};</span>
+</span></span><span class="line"><span class="ln">120</span><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="ln">121</span><span class="cl">	<span class="nx">startEpicenter</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">122</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">axis</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getAxis</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">123</span><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="ln">124</span><span class="cl">	<span class="nx">moveEpicenter</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">125</span><span class="cl">		<span class="kd">var</span> <span class="nx">axis</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getAxis</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">126</span><span class="cl">
+</span></span><span class="line"><span class="ln">127</span><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">axis</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">128</span><span class="cl">			<span class="k">this</span><span class="p">.</span><span class="nx">axis</span> <span class="o">=</span> <span class="nx">axis</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">129</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">130</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">generateEpicenter</span><span class="p">(</span><span class="nx">axis</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">axis</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="nx">axis</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">axis</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">131</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">axis</span> <span class="o">=</span> <span class="nx">axis</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">132</span><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="ln">133</span><span class="cl">	<span class="nx">generateEpicenter</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">velocity</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">134</span><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="nx">y</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">THRESHOLD</span> <span class="o">||</span> <span class="nx">y</span> <span class="o">&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">THRESHOLD</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">135</span><span class="cl">			<span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">136</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">137</span><span class="cl">		<span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">x</span> <span class="o">/</span> <span class="k">this</span><span class="p">.</span><span class="nx">pointInterval</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">138</span><span class="cl">
+</span></span><span class="line"><span class="ln">139</span><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="nx">index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">index</span> <span class="o">&gt;=</span> <span class="k">this</span><span class="p">.</span><span class="nx">points</span><span class="p">.</span><span class="nx">length</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">140</span><span class="cl">			<span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">141</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">142</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">points</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">interfere</span><span class="p">(</span><span class="nx">y</span><span class="p">,</span> <span class="nx">velocity</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">143</span><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="ln">144</span><span class="cl">	<span class="nx">reverseVertical</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span></span><span class="line"><span class="ln">145</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">reverse</span> <span class="o">=</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">reverse</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">146</span><span class="cl">
+</span></span><span class="line"><span class="ln">147</span><span class="cl">		<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">count</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">fishes</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">count</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">148</span><span class="cl">			<span class="k">this</span><span class="p">.</span><span class="nx">fishes</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">reverseVertical</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">149</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">150</span><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="ln">151</span><span class="cl">	<span class="nx">controlStatus</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span></span><span class="line"><span class="ln">152</span><span class="cl">		<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">count</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">points</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">count</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">153</span><span class="cl">			<span class="k">this</span><span class="p">.</span><span class="nx">points</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">updateSelf</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">154</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">155</span><span class="cl">		<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">count</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">points</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">count</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">156</span><span class="cl">			<span class="k">this</span><span class="p">.</span><span class="nx">points</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">updateNeighbors</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">157</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">158</span><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">fishes</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">fishCount</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">159</span><span class="cl">			<span class="k">if</span><span class="p">(</span><span class="o">--</span><span class="k">this</span><span class="p">.</span><span class="nx">intervalCount</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">160</span><span class="cl">				<span class="k">this</span><span class="p">.</span><span class="nx">intervalCount</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">MAX_INTERVAL_COUNT</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">161</span><span class="cl">				<span class="k">this</span><span class="p">.</span><span class="nx">fishes</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">new</span> <span class="nx">FISH</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+</span></span><span class="line"><span class="ln">162</span><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="ln">163</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">164</span><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="ln">165</span><span class="cl">	<span class="nx">render</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span></span><span class="line"><span class="ln">166</span><span class="cl">		<span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">render</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">167</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">controlStatus</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">168</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">169</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s1">&#39;hsl(0, 0%, 95%)&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">170</span><span class="cl">
+</span></span><span class="line"><span class="ln">171</span><span class="cl">		<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">count</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">fishes</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">count</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">172</span><span class="cl">			<span class="k">this</span><span class="p">.</span><span class="nx">fishes</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">render</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">173</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">174</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">175</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">globalCompositeOperation</span> <span class="o">=</span> <span class="s1">&#39;xor&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">176</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">177</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">reverse</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">178</span><span class="cl">
+</span></span><span class="line"><span class="ln">179</span><span class="cl">		<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">count</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">points</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">count</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">180</span><span class="cl">			<span class="k">this</span><span class="p">.</span><span class="nx">points</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">render</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">181</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">182</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">reverse</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">183</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">184</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">185</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">restore</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">186</span><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="ln">187</span><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="ln">188</span><span class="cl"><span class="kd">var</span> <span class="nx">SURFACE_POINT</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">renderer</span><span class="p">,</span> <span class="nx">x</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">189</span><span class="cl">	<span class="k">this</span><span class="p">.</span><span class="nx">renderer</span> <span class="o">=</span> <span class="nx">renderer</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">190</span><span class="cl">	<span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">191</span><span class="cl">	<span class="k">this</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">192</span><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="ln">193</span><span class="cl"><span class="nx">SURFACE_POINT</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">194</span><span class="cl">	<span class="nx">SPRING_CONSTANT</span> <span class="o">:</span> <span class="mf">0.03</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">195</span><span class="cl">	<span class="nx">SPRING_FRICTION</span> <span class="o">:</span> <span class="mf">0.9</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">196</span><span class="cl">	<span class="nx">WAVE_SPREAD</span> <span class="o">:</span> <span class="mf">0.3</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">197</span><span class="cl">	<span class="nx">ACCELARATION_RATE</span> <span class="o">:</span> <span class="mf">0.01</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">198</span><span class="cl">
+</span></span><span class="line"><span class="ln">199</span><span class="cl">	<span class="nx">init</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span></span><span class="line"><span class="ln">200</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">initHeight</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">height</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">INIT_HEIGHT_RATE</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">201</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">initHeight</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">202</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">fy</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">203</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">force</span> <span class="o">=</span> <span class="p">{</span><span class="nx">previous</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">next</span> <span class="o">:</span> <span class="mi">0</span><span class="p">};</span>
+</span></span><span class="line"><span class="ln">204</span><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="ln">205</span><span class="cl">	<span class="nx">setPreviousPoint</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">previous</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">206</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">previous</span> <span class="o">=</span> <span class="nx">previous</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">207</span><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="ln">208</span><span class="cl">	<span class="nx">setNextPoint</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">next</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">209</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">210</span><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="ln">211</span><span class="cl">	<span class="nx">interfere</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">y</span><span class="p">,</span> <span class="nx">velocity</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">212</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">fy</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">height</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">ACCELARATION_RATE</span> <span class="o">*</span> <span class="p">((</span><span class="k">this</span><span class="p">.</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">height</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">-</span> <span class="nx">y</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">velocity</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">213</span><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="ln">214</span><span class="cl">	<span class="nx">updateSelf</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span></span><span class="line"><span class="ln">215</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">fy</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">SPRING_CONSTANT</span> <span class="o">*</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">initHeight</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">216</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">fy</span> <span class="o">*=</span> <span class="k">this</span><span class="p">.</span><span class="nx">SPRING_FRICTION</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">217</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">fy</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">218</span><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="ln">219</span><span class="cl">	<span class="nx">updateNeighbors</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span></span><span class="line"><span class="ln">220</span><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">previous</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">221</span><span class="cl">			<span class="k">this</span><span class="p">.</span><span class="nx">force</span><span class="p">.</span><span class="nx">previous</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">WAVE_SPREAD</span> <span class="o">*</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">previous</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">222</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">223</span><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">next</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">224</span><span class="cl">			<span class="k">this</span><span class="p">.</span><span class="nx">force</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">WAVE_SPREAD</span> <span class="o">*</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">225</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">226</span><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="ln">227</span><span class="cl">	<span class="nx">render</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">context</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">228</span><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">previous</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">229</span><span class="cl">			<span class="k">this</span><span class="p">.</span><span class="nx">previous</span><span class="p">.</span><span class="nx">height</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">force</span><span class="p">.</span><span class="nx">previous</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">230</span><span class="cl">			<span class="k">this</span><span class="p">.</span><span class="nx">previous</span><span class="p">.</span><span class="nx">fy</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">force</span><span class="p">.</span><span class="nx">previous</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">231</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">232</span><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">next</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">233</span><span class="cl">			<span class="k">this</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nx">height</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">force</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">234</span><span class="cl">			<span class="k">this</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nx">fy</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">force</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">235</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">236</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">height</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">237</span><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="ln">238</span><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="ln">239</span><span class="cl"><span class="kd">var</span> <span class="nx">FISH</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">renderer</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">240</span><span class="cl">	<span class="k">this</span><span class="p">.</span><span class="nx">renderer</span> <span class="o">=</span> <span class="nx">renderer</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">241</span><span class="cl">	<span class="k">this</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">242</span><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="ln">243</span><span class="cl"><span class="nx">FISH</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">244</span><span class="cl">	<span class="nx">GRAVITY</span> <span class="o">:</span> <span class="mf">0.4</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">245</span><span class="cl">
+</span></span><span class="line"><span class="ln">246</span><span class="cl">	<span class="nx">init</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span></span><span class="line"><span class="ln">247</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">direction</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">248</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">direction</span> <span class="o">?</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">width</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">THRESHOLD</span><span class="p">)</span> <span class="o">:</span> <span class="o">-</span><span class="k">this</span><span class="p">.</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">THRESHOLD</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">249</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">previousY</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">250</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">vx</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getRandomValue</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">direction</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">251</span><span class="cl">
+</span></span><span class="line"><span class="ln">252</span><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">reverse</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">253</span><span class="cl">			<span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getRandomValue</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">height</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">10</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">height</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">/</span> <span class="mi">10</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">254</span><span class="cl">			<span class="k">this</span><span class="p">.</span><span class="nx">vy</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getRandomValue</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">255</span><span class="cl">			<span class="k">this</span><span class="p">.</span><span class="nx">ay</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getRandomValue</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">256</span><span class="cl">		<span class="p">}</span><span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="ln">257</span><span class="cl">			<span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getRandomValue</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">height</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">/</span> <span class="mi">10</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">height</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">/</span> <span class="mi">10</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">258</span><span class="cl">			<span class="k">this</span><span class="p">.</span><span class="nx">vy</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getRandomValue</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">259</span><span class="cl">			<span class="k">this</span><span class="p">.</span><span class="nx">ay</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getRandomValue</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">260</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">261</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">isOut</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">262</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">theta</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">263</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">phi</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">264</span><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="ln">265</span><span class="cl">	<span class="nx">getRandomValue</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">min</span><span class="p">,</span> <span class="nx">max</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">266</span><span class="cl">		<span class="k">return</span> <span class="nx">min</span> <span class="o">+</span> <span class="p">(</span><span class="nx">max</span> <span class="o">-</span> <span class="nx">min</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">267</span><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="ln">268</span><span class="cl">	<span class="nx">reverseVertical</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span></span><span class="line"><span class="ln">269</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">isOut</span> <span class="o">=</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">isOut</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">270</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">ay</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">271</span><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="ln">272</span><span class="cl">	<span class="nx">controlStatus</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">context</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">273</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">previousY</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">274</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">vx</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">275</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">vy</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">276</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">vy</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">ay</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">277</span><span class="cl">
+</span></span><span class="line"><span class="ln">278</span><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">reverse</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">279</span><span class="cl">			<span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">height</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">INIT_HEIGHT_RATE</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">280</span><span class="cl">				<span class="k">this</span><span class="p">.</span><span class="nx">vy</span> <span class="o">-=</span> <span class="k">this</span><span class="p">.</span><span class="nx">GRAVITY</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">281</span><span class="cl">				<span class="k">this</span><span class="p">.</span><span class="nx">isOut</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">282</span><span class="cl">			<span class="p">}</span><span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="ln">283</span><span class="cl">				<span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">isOut</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">284</span><span class="cl">					<span class="k">this</span><span class="p">.</span><span class="nx">ay</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getRandomValue</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">285</span><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="ln">286</span><span class="cl">				<span class="k">this</span><span class="p">.</span><span class="nx">isOut</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">287</span><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="ln">288</span><span class="cl">		<span class="p">}</span><span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="ln">289</span><span class="cl">			<span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">height</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">INIT_HEIGHT_RATE</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">290</span><span class="cl">				<span class="k">this</span><span class="p">.</span><span class="nx">vy</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">GRAVITY</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">291</span><span class="cl">				<span class="k">this</span><span class="p">.</span><span class="nx">isOut</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">292</span><span class="cl">			<span class="p">}</span><span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="ln">293</span><span class="cl">				<span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">isOut</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">294</span><span class="cl">					<span class="k">this</span><span class="p">.</span><span class="nx">ay</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getRandomValue</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">295</span><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="ln">296</span><span class="cl">				<span class="k">this</span><span class="p">.</span><span class="nx">isOut</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">297</span><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="ln">298</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">299</span><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">isOut</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">300</span><span class="cl">			<span class="k">this</span><span class="p">.</span><span class="nx">theta</span> <span class="o">+=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="mi">20</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">301</span><span class="cl">			<span class="k">this</span><span class="p">.</span><span class="nx">theta</span> <span class="o">%=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">302</span><span class="cl">			<span class="k">this</span><span class="p">.</span><span class="nx">phi</span> <span class="o">+=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="mi">30</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">303</span><span class="cl">			<span class="k">this</span><span class="p">.</span><span class="nx">phi</span> <span class="o">%=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">304</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">305</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">generateEpicenter</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">direction</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">THRESHOLD</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">previousY</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">306</span><span class="cl">
+</span></span><span class="line"><span class="ln">307</span><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">vx</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">width</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">THRESHOLD</span> <span class="o">||</span> <span class="k">this</span><span class="p">.</span><span class="nx">vx</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">&lt;</span> <span class="o">-</span><span class="k">this</span><span class="p">.</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">THRESHOLD</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">308</span><span class="cl">			<span class="k">this</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">309</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">310</span><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="ln">311</span><span class="cl">	<span class="nx">render</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">context</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">312</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">313</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">314</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">rotate</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">atan2</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">vy</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">vx</span><span class="p">));</span>
+</span></span><span class="line"><span class="ln">315</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">scale</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">direction</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">316</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">317</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">318</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">bezierCurveTo</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">319</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">bezierCurveTo</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">320</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">321</span><span class="cl">
+</span></span><span class="line"><span class="ln">322</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">323</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">324</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">scale</span><span class="p">(</span><span class="mf">0.9</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">theta</span><span class="p">),</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">325</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">326</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">327</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">quadraticCurveTo</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">328</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">quadraticCurveTo</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">329</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">quadraticCurveTo</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">330</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">quadraticCurveTo</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">331</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">332</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">restore</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">333</span><span class="cl">
+</span></span><span class="line"><span class="ln">334</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">335</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">336</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">rotate</span><span class="p">((</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="mi">10</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">phi</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">reverse</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="mi">1</span><span class="p">));</span>
+</span></span><span class="line"><span class="ln">337</span><span class="cl">
+</span></span><span class="line"><span class="ln">338</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">339</span><span class="cl">
+</span></span><span class="line"><span class="ln">340</span><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">reverse</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">341</span><span class="cl">			<span class="nx">context</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">342</span><span class="cl">			<span class="nx">context</span><span class="p">.</span><span class="nx">bezierCurveTo</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">343</span><span class="cl">			<span class="nx">context</span><span class="p">.</span><span class="nx">bezierCurveTo</span><span class="p">(</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">344</span><span class="cl">		<span class="p">}</span><span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="ln">345</span><span class="cl">			<span class="nx">context</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">346</span><span class="cl">			<span class="nx">context</span><span class="p">.</span><span class="nx">bezierCurveTo</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">40</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">347</span><span class="cl">			<span class="nx">context</span><span class="p">.</span><span class="nx">bezierCurveTo</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">348</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">349</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">350</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">351</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">restore</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">352</span><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nx">restore</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">353</span><span class="cl">		<span class="k">this</span><span class="p">.</span><span class="nx">controlStatus</span><span class="p">(</span><span class="nx">context</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">354</span><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="ln">355</span><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="ln">356</span><span class="cl"><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span></span><span class="line"><span class="ln">357</span><span class="cl">	<span class="nx">RENDERER</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">358</span><span class="cl"><span class="p">});</span>
+</span></span></code></pre></div></li>
+<li>
+<p>在主题配置文件<code>_config.butterfly.yml</code>的<code>inject</code>，在<code>bottom</code>直接引入两个<code>js</code>文件
+<img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230304111544.png" alt="image-20230304111542538"></p>
+</li>
+<li>
+<p>在<code>\themes\butterfly\source\css</code>路径下创建一个<code>footer.css</code>文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="p">.</span><span class="nc">fish_container</span><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">  <span class="k">z-index</span><span class="p">:</span> <span class="mi">-1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">  <span class="k">width</span><span class="p">:</span> <span class="s2">&#34;100%&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">  <span class="k">height</span><span class="p">:</span> <span class="s2">&#34;160px&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">  <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">  <span class="k">padding</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="p">#</span><span class="nn">footer-wrap</span><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">  <span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">  <span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">  <span class="k">padding</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">  <span class="k">top</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">  <span class="k">right</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">  <span class="k">left</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">  <span class="k">bottom</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>设置透明度，在<code>\themes\butterfly\source\css</code>路径下创建一个<code>fish_transparent.css</code>文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c">/* 页脚半透明 */</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">#</span><span class="nn">footer</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="k">background</span><span class="p">:</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="mh">#000</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="k">border-top-right-radius</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="k">border-top-left-radius</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="n">backdrop-filter</span><span class="p">:</span> <span class="nb">saturate</span><span class="p">(</span><span class="mi">100</span><span class="kt">%</span><span class="p">)</span> <span class="nb">blur</span><span class="p">(</span><span class="mi">5</span><span class="kt">px</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="p">#</span><span class="nn">footer</span><span class="p">::</span><span class="nd">before</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="k">background</span><span class="p">:</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">#</span><span class="nn">footer</span> <span class="p">#</span><span class="nn">footer-wrap</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="kc">color</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">
+</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="p">#</span><span class="nn">footer</span> <span class="p">#</span><span class="nn">footer-wrap</span> <span class="nt">a</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="kc">color</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="ln">1</span><span class="cl"><span class="c">/* 页脚透明 */</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="p">#</span><span class="nn">footer</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="k">background</span><span class="p">:</span> <span class="kc">transparent</span> <span class="cp">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>在主题配置文件<code>_config.butterfly.yml</code>的<code>inject</code>，在<code>head</code>直接引入<code>css</code>文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl">- <span class="l">&lt;link rel=&#34;stylesheet&#34; href=&#34;/css/footer.css&#34;&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span>- <span class="l">&lt;link rel=&#34;stylesheet&#34; href=&#34;/css/fish_transparent.css&#34;&gt;</span><span class="w">
+</span></span></span></code></pre></div></li>
+<li>
+<p>注意 <code>HTML</code> 中 <code>&lt;script&gt;</code> 引入 <code>jQuery</code> 文件的顺序，要把 <code>JQuery</code> 库的引用放到第一个 <code>&lt;script&gt;</code> 引用前面，这样顺序执行后面的 <code>js</code> 文件才能识别。</p>
+</li>
+<li>
+<p>修改小鱼的颜色，颜色值可以参考 <a href="http://xahlee.info/js/css_hsl_color.html">HSL</a></p>
+<p><img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230305111451.png" alt="image-20230305111449907"></p>
+</li>
+</ol>
+</div>
+  </div>
+</article>
+
+
+  
+    <div class="pagination__title">
+    <span class="pagination__title-h" style="font-size: 20px;">💬Discussion</span>
+    <hr />
+</div>
+<script src="//cdn.jsdelivr.net/npm/twikoo@1.6.21/dist/twikoo.all.min.js"></script>
+<div id="tcomment"></div><script>
+    twikoo.init({
+        envId: "https:\/\/twikoo.coldcoding.top\/",  
+        el: "#tcomment", 
+        
+        
+    });
+</script>
+
+
+
+
+    </div><footer class="footer">
+  <hr />
+  <span>
+    Copyright 2022-2024 <a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2023006518号</a> &nbsp;&nbsp;<a href="https://icp.gov.moe/?keyword=20241230" target="_blank">萌ICP备20241230号</a>
+  </span>
+  <span>
+    All articles on this site are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a >
+  </span>
+</footer>
+
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <span class="topInner">
+      <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+          <path d="M12 6H0l6-6z"/>
+      </svg>
+      <span id="read_progress"></span>
+  </span>
+</a>
+
+<script>
+  var backButton = document.getElementById("top-link");
+  var lastScrollPosition = window.pageYOffset;
+
+  function showBackButton() {
+      backButton.style.visibility = "visible";
+      backButton.style.opacity = '1';
+  }
+  function halfHideBackButton() {
+      backButton.style.visibility = "visible";
+      backButton.style.opacity = '0.3';
+  }
+  function hideBackButton() {
+      backButton.style.visibility = "hidden";
+      backButton.style.opacity = '0';
+  }
+
+  window.onscroll = function () {
+      var currentScrollPosition = window.pageYOffset;
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        showBackButton()
+        if (Math.abs(currentScrollPosition - lastScrollPosition) < 10) {
+          halfHideBackButton()
+        }
+      } else {
+        hideBackButton()
+      }
+      lastScrollPosition = currentScrollPosition;
+  };
+</script></body>
+</html>

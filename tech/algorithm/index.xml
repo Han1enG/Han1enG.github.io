@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>🧮Algorithm on Cold World</title>
+    <link>http://coldcoding.top/tech/algorithm/</link>
+    <description>Recent content in 🧮Algorithm on Cold World</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>hanlengcold@gmail.com (Cold)</managingEditor>
+    <webMaster>hanlengcold@gmail.com (Cold)</webMaster>
+    <lastBuildDate>Tue, 16 May 2023 12:50:15 +0000</lastBuildDate>
+    <atom:link href="http://coldcoding.top/tech/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>牛顿法求解平方根</title>
+      <link>http://coldcoding.top/tech/algorithm/newton-method-find-square-roots/</link>
+      <pubDate>Tue, 16 May 2023 12:50:15 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
+      <guid>http://coldcoding.top/tech/algorithm/newton-method-find-square-roots/</guid>
+      <description>假设输入的数是 $m$，则其实是求一个 $ x $ 值，使其满足 $x^2 = m$，令 $f(x) = x^2 - m$ ，其实就是求方程 $f(x) = 0$ 的根。那么 $f(x)$ 的导函数是 $f&amp;rsquo;(x) = 2x$。 如果是二</description>
+    </item>
+    <item>
+      <title>筛质数</title>
+      <link>http://coldcoding.top/tech/algorithm/filter-prime-number/</link>
+      <pubDate>Sun, 01 Jan 2023 09:48:07 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
+      <guid>http://coldcoding.top/tech/algorithm/filter-prime-number/</guid>
+      <description>质数 质数和合数是针对所有大于 $1$ 的「自然数」来定义的（所有小于等于 $1$ 的数都不是质数）。 所有小于等于 $1$ 的整数既不是质数也不是合数。 质数的判定——</description>
+    </item>
+  </channel>
+</rss>

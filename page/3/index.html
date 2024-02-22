@@ -57,32 +57,26 @@
     </div>
     <nav>
       <ul class="menu wide">
-        
-        <li>
-          <a class="no-tag" href="/tags/">
-            Tags
-          </a>
-        </li>
-        
-        <li>
-          <a class="no-tag" href="/categories/">
-            Categories
-          </a>
-        </li>
-        
-        <li>
-          <a class="no-tag" href="/about/">
-            About
-          </a>
-        </li>
-        
-        <li>
-          <a class="no-tag" href="/index.xml">
-            RSS
-          </a>
-        </li>
-        
-      </ul>
+        <a class="menu-item"
+                href="/tech/" > Tech 
+            </a><a class="menu-item"
+                href="/life/" > Life 
+            </a>
+            <div class="dropdown">
+                <a href="javascript:void(0);" 
+                    class="menu-item menu-more dropbtn" title="" > Archive 
+                </a>
+                <div class="menu-more-content dropdown-content"><a href="/archive/categories/" title="" > Categories 
+                    </a><a href="/tags/" title="" > Tags 
+                    </a></div>
+            </div>
+          <a class="menu-item"
+                href="/weekly/" > Weekly 
+            </a><a class="menu-item"
+                href="/about/" > About 
+            </a><a class="menu-item"
+                href="/index.xml" > RSS 
+            </a></ul>
     </nav>
     <nav class="menubutton">
       <button>
@@ -98,7 +92,7 @@
 			<article class="post-entry">
 	<div class="post-info">
 		<pagetitle class="entry-header">
-			<h2><a href="http://coldcoding.top/post/category/blog/hexo/hexo-mouse-move/">Hexo &#43; Butterfly 添加鼠标移动特效</a></h2>
+			<h2><a href="http://coldcoding.top/tech/blog/hexo/hexo-mouse-move/">Hexo &#43; Butterfly 添加鼠标移动特效</a></h2>
 		</pagetitle>
 		<section class="entry-content">
 			在/themes/butterfly/source/js文件夹中新建mouse_move.js文件 1(function () { 2 function t() { 3 i(), a(); 4 } 5 function i() { 6 document.addEventListener(&#34;mousemove&#34;, o), 7 document.addEventListener(&#34;touchmove&#34;,
@@ -175,7 +169,7 @@
 			<article class="post-entry">
 	<div class="post-info">
 		<pagetitle class="entry-header">
-			<h2><a href="http://coldcoding.top/post/category/blog/hexo/hexo-fish/">hexo_fish</a></h2>
+			<h2><a href="http://coldcoding.top/tech/blog/hexo/hexo-fish/">hexo_fish</a></h2>
 		</pagetitle>
 		<section class="entry-content">
 			参考文章：Hexo页脚养鱼效果 引入必须的jquery文件 https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js 把上述文件保存在\themes\butterfly\source\js并命名为jq
@@ -252,7 +246,7 @@
 			<article class="post-entry">
 	<div class="post-info">
 		<pagetitle class="entry-header">
-			<h2><a href="http://coldcoding.top/post/category/blog/beian/">Hexo &#43; Butterfly 添加备案信息</a></h2>
+			<h2><a href="http://coldcoding.top/tech/blog/beian/">Hexo &#43; Butterfly 添加备案信息</a></h2>
 		</pagetitle>
 		<section class="entry-content">
 			在/themes/butterfly/layout/includes/footer.pug文件中添加以下代码 1.framework-info 2 img(src = &#39;https://static.dy208.cn/o_1dfilp8ruo521thr1hvf18ji17soa.png&#39;) 3 span= &#39; &#39; 4 a(href=&#39;https://beian.miit.gov.cn/&#39;)= &#39;
@@ -329,7 +323,7 @@
 			<article class="post-entry">
 	<div class="post-info">
 		<pagetitle class="entry-header">
-			<h2><a href="http://coldcoding.top/post/category/blog/hexo/hexo-math/">Hexo 数学公式渲染(KaTeX)</a></h2>
+			<h2><a href="http://coldcoding.top/tech/blog/hexo/hexo-math/">Hexo 数学公式渲染(KaTeX)</a></h2>
 		</pagetitle>
 		<section class="entry-content">
 			The fastest math typesetting library for the web. Katex 在网页中如何插入公式？如 $x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$ 一个办法是图片，但是极不方便，最好的办法还是用文字来描述数学公式，把渲染的工作交给引擎。LaTe
@@ -408,7 +402,7 @@
 			<article class="post-entry">
 	<div class="post-info">
 		<pagetitle class="entry-header">
-			<h2><a href="http://coldcoding.top/post/category/blog/hexo/widget-weather/">Hexo 添加天气插件</a></h2>
+			<h2><a href="http://coldcoding.top/tech/blog/hexo/widget-weather/">Hexo 添加天气插件</a></h2>
 		</pagetitle>
 		<section class="entry-content">
 			注册 和风天气 生成代码 根据个人需求自定义创建天气插件，最后点击生成代码。 1&lt;div id=&#34;he-plugin-simple&#34;&gt;&lt;/div&gt; 2&lt;script&gt; 3WIDGET = { 4 &#34;CONFIG&#34;: { 5 &#34;modules&#34;: &#34;01234&#34;, 6 &#34;background&#34;: &#34;5&#34;, 7 &#34;tmpColor&#34;: &#34;FF9900&#34;, 8 &#34;tmpSize&#34;: &#34;16&#34;, 9 &#34;cityColor&#34;: &#34;CCCCCC&#34;, 10 &#34;citySize&#34;: &#34;16&#34;, 11 &#34;aqiColor&#34;: &#34;D9D9D9&#34;, 12 &#34;aqiSize&#34;: &#34;16&#34;, 13 &#34;weatherIconSize&#34;:
@@ -485,7 +479,7 @@
 			<article class="post-entry">
 	<div class="post-info">
 		<pagetitle class="entry-header">
-			<h2><a href="http://coldcoding.top/post/category/algorithm/filter-prime-number/">筛质数</a></h2>
+			<h2><a href="http://coldcoding.top/tech/algorithm/filter-prime-number/">筛质数</a></h2>
 		</pagetitle>
 		<section class="entry-content">
 			质数 质数和合数是针对所有大于 $1$ 的「自然数」来定义的（所有小于等于 $1$ 的数都不是质数）。 所有小于等于 $1$ 的整数既不是质数也不是合数。 质数的判定——
@@ -564,7 +558,7 @@
 			<article class="post-entry">
 	<div class="post-info">
 		<pagetitle class="entry-header">
-			<h2><a href="http://coldcoding.top/post/category/blog/hexo/hello-world/">Hello World</a></h2>
+			<h2><a href="http://coldcoding.top/tech/blog/hexo/hello-world/">Hello World</a></h2>
 		</pagetitle>
 		<section class="entry-content">
 			Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
@@ -659,13 +653,13 @@ Deploy to remote sites 1$ hexo deploy More info: Deployment
 				
 				<li><a href="/linux-cmd/">Linux 常用命令</a></li>
 				
-				<li><a href="/post/category/net/control-plane-forward-plane/">控制面和转发面</a></li>
+				<li><a href="/tech/net/control-plane-forward-plane/">控制面和转发面</a></li>
 				
-				<li><a href="/post/category/net/arp-protocol/">ARP协议</a></li>
+				<li><a href="/tech/net/arp-protocol/">ARP协议</a></li>
 				
-				<li><a href="/post/category/net/ip-packet-transmission-method/">IP数据包传输方式</a></li>
+				<li><a href="/tech/net/ip-packet-transmission-method/">IP数据包传输方式</a></li>
 				
-				<li><a href="/post/category/algorithm/newton-method-find-square-roots/">牛顿法求解平方根</a></li>
+				<li><a href="/tech/algorithm/newton-method-find-square-roots/">牛顿法求解平方根</a></li>
 				
 			</ul>
 		</div>
@@ -676,7 +670,7 @@ Deploy to remote sites 1$ hexo deploy More info: Deployment
     </div><footer class="footer">
   <hr />
   <span>
-    Copyright 2022-2024 <a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2023006518号</a>
+    Copyright 2022-2024 <a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2023006518号</a> &nbsp;&nbsp;<a href="https://icp.gov.moe/?keyword=20241230" target="_blank">萌ICP备20241230号</a>
   </span>
   <span>
     All articles on this site are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a >

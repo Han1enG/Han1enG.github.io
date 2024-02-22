@@ -2,11 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://coldcoding.top/categories/</loc>
+    <loc>http://coldcoding.top/tech/linux/</loc>
     <lastmod>2023-08-16T15:02:32+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/</loc>
+    <loc>http://coldcoding.top/tech/</loc>
+    <lastmod>2023-08-16T15:02:32+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/categories/</loc>
     <lastmod>2023-08-16T15:02:32+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
@@ -18,15 +22,7 @@
     <lastmod>2023-08-16T15:02:32+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/linux/</loc>
-    <lastmod>2023-08-16T15:02:32+00:00</lastmod>
-    <priority>0.5</priority>
-  </url><url>
     <loc>http://coldcoding.top/linux-cmd/</loc>
-    <lastmod>2023-08-16T15:02:32+00:00</lastmod>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://coldcoding.top/post/</loc>
     <lastmod>2023-08-16T15:02:32+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
@@ -42,24 +38,20 @@
     <lastmod>2023-06-24T20:28:36+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/net/</loc>
+    <loc>http://coldcoding.top/tech/net/</loc>
     <lastmod>2023-06-24T20:28:36+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/net/control-plane-forward-plane/</loc>
+    <loc>http://coldcoding.top/tech/net/control-plane-forward-plane/</loc>
     <lastmod>2023-06-24T20:28:36+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/net/arp-protocol/</loc>
+    <loc>http://coldcoding.top/tech/net/arp-protocol/</loc>
     <lastmod>2023-06-23T19:05:14+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/net/ip-packet-transmission-method/</loc>
+    <loc>http://coldcoding.top/tech/net/ip-packet-transmission-method/</loc>
     <lastmod>2023-06-23T19:05:12+00:00</lastmod>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://coldcoding.top/post/category/algorithm/</loc>
-    <lastmod>2023-05-16T12:50:15+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
     <loc>http://coldcoding.top/tags/algrithm/</loc>
@@ -70,27 +62,31 @@
     <lastmod>2023-05-16T12:50:15+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/algorithm/newton-method-find-square-roots/</loc>
+    <loc>http://coldcoding.top/tech/algorithm/</loc>
     <lastmod>2023-05-16T12:50:15+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/tech/algorithm/newton-method-find-square-roots/</loc>
+    <lastmod>2023-05-16T12:50:15+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/tech/golang/</loc>
+    <lastmod>2023-05-12T22:03:55+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
     <loc>http://coldcoding.top/tags/golang/</loc>
     <lastmod>2023-05-12T22:03:55+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/golang/</loc>
+    <loc>http://coldcoding.top/tech/golang/golang-basic-syntax/</loc>
     <lastmod>2023-05-12T22:03:55+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/golang/golang-basic-syntax/</loc>
-    <lastmod>2023-05-12T22:03:55+00:00</lastmod>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://coldcoding.top/categories/blog/</loc>
+    <loc>http://coldcoding.top/tech/blog/</loc>
     <lastmod>2023-03-19T11:29:44+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/blog/</loc>
+    <loc>http://coldcoding.top/categories/blog/</loc>
     <lastmod>2023-03-19T11:29:44+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
@@ -98,19 +94,19 @@
     <lastmod>2023-03-19T11:29:44+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/blog/hexo/hexo-centos/</loc>
+    <loc>http://coldcoding.top/tech/blog/hexo/hexo-centos/</loc>
     <lastmod>2023-03-19T11:29:44+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/blog/hexo/hexo-comment/</loc>
+    <loc>http://coldcoding.top/tech/blog/hexo/hexo-comment/</loc>
     <lastmod>2023-03-15T11:53:52+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/blog/hexo/hexo-comment-pro/</loc>
+    <loc>http://coldcoding.top/tech/blog/hexo/hexo-comment-pro/</loc>
     <lastmod>2023-03-15T11:10:14+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/blog/hexo/hexo-domainname/</loc>
+    <loc>http://coldcoding.top/tech/blog/hexo/hexo-domainname/</loc>
     <lastmod>2023-03-15T11:10:00+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
@@ -122,7 +118,7 @@
     <lastmod>2023-03-11T16:20:04+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/blog/hexo/pjax-readtime/</loc>
+    <loc>http://coldcoding.top/tech/blog/hexo/pjax-readtime/</loc>
     <lastmod>2023-03-11T16:20:04+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
@@ -130,23 +126,23 @@
     <lastmod>2023-03-11T14:48:04+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/blog/hexo/pjax/</loc>
+    <loc>http://coldcoding.top/tech/blog/hexo/pjax/</loc>
     <lastmod>2023-03-11T14:48:04+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/blog/hexo/hexo-readtime/</loc>
+    <loc>http://coldcoding.top/tech/blog/hexo/hexo-readtime/</loc>
     <lastmod>2023-03-09T20:33:02+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/tech/web/</loc>
+    <lastmod>2023-03-07T20:21:30+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
     <loc>http://coldcoding.top/tags/angular/</loc>
     <lastmod>2023-03-07T20:21:30+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/web/angular-01/</loc>
-    <lastmod>2023-03-07T20:21:30+00:00</lastmod>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://coldcoding.top/post/category/web/</loc>
+    <loc>http://coldcoding.top/tech/web/angular-01/</loc>
     <lastmod>2023-03-07T20:21:30+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
@@ -154,19 +150,19 @@
     <lastmod>2023-03-07T20:21:30+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/blog/hexo/hexo-title-icon/</loc>
+    <loc>http://coldcoding.top/tech/blog/hexo/hexo-title-icon/</loc>
     <lastmod>2023-03-05T20:10:58+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/blog/hexo/hexo-transparent/</loc>
+    <loc>http://coldcoding.top/tech/blog/hexo/hexo-transparent/</loc>
     <lastmod>2023-03-05T12:16:58+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/blog/hexo/hexo-funnytitle/</loc>
+    <loc>http://coldcoding.top/tech/blog/hexo/hexo-funnytitle/</loc>
     <lastmod>2023-03-05T12:10:58+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/blog/hexo/hexo-snow/</loc>
+    <loc>http://coldcoding.top/tech/blog/hexo/hexo-snow/</loc>
     <lastmod>2023-03-05T11:35:58+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
@@ -174,27 +170,27 @@
     <lastmod>2023-03-03T21:41:58+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/blog/hexo/hexo_backup/</loc>
+    <loc>http://coldcoding.top/tech/blog/hexo/hexo_backup/</loc>
     <lastmod>2023-03-03T21:41:58+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/blog/hexo/hexo-loading-car/</loc>
+    <loc>http://coldcoding.top/tech/blog/hexo/hexo-loading-car/</loc>
     <lastmod>2023-03-03T17:00:00+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/blog/hexo/hexo-mouse-move/</loc>
+    <loc>http://coldcoding.top/tech/blog/hexo/hexo-mouse-move/</loc>
     <lastmod>2023-03-03T16:37:22+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/blog/hexo/hexo-fish/</loc>
+    <loc>http://coldcoding.top/tech/blog/hexo/hexo-fish/</loc>
     <lastmod>2023-03-02T22:42:41+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/blog/beian/</loc>
+    <loc>http://coldcoding.top/tech/blog/beian/</loc>
     <lastmod>2023-03-02T22:12:32+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/blog/hexo/hexo-math/</loc>
+    <loc>http://coldcoding.top/tech/blog/hexo/hexo-math/</loc>
     <lastmod>2023-03-02T17:03:10+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
@@ -202,7 +198,7 @@
     <lastmod>2023-03-02T17:03:10+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/blog/hexo/widget-weather/</loc>
+    <loc>http://coldcoding.top/tech/blog/hexo/widget-weather/</loc>
     <lastmod>2023-03-02T11:46:21+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
@@ -214,16 +210,31 @@
     <lastmod>2023-01-01T09:48:07+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/algorithm/filter-prime-number/</loc>
+    <loc>http://coldcoding.top/tech/algorithm/filter-prime-number/</loc>
     <lastmod>2023-01-01T09:48:07+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/post/category/blog/hexo/hello-world/</loc>
+    <loc>http://coldcoding.top/tech/blog/hexo/hello-world/</loc>
     <lastmod>2023-01-01T00:00:00+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
     <loc>http://coldcoding.top/about/</loc>
     <lastmod>2022-07-30T06:30:08+08:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/life/sports/</loc>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/life/pets/</loc>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/tech/tex/</loc>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/weekly/</loc>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/life/</loc>
     <priority>0.5</priority>
   </url>
 </urlset>

@@ -12,9 +12,9 @@
     <atom:link href="http://coldcoding.top/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>筛质数</title>
-      <link>http://coldcoding.top/post/category/algorithm/filter-prime-number/</link>
+      <link>http://coldcoding.top/tech/algorithm/filter-prime-number/</link>
       <pubDate>Sun, 01 Jan 2023 09:48:07 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
-      <guid>http://coldcoding.top/post/category/algorithm/filter-prime-number/</guid>
+      <guid>http://coldcoding.top/tech/algorithm/filter-prime-number/</guid>
       <description>质数 质数和合数是针对所有大于 $1$ 的「自然数」来定义的（所有小于等于 $1$ 的数都不是质数）。 所有小于等于 $1$ 的整数既不是质数也不是合数。 质数的判定——</description>
     </item>
   </channel>
