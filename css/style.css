@@ -67,7 +67,7 @@ h1,h2,h3,h4,h5,h6 {
 	line-height: 1.2
 }
 
-#post_meta_style_author,#post_meta_style_initpost,#post_meta_style_lastmod,#post_meta_style_pagepv,#post_meta_style_tags {
+#post_meta_style_author,#post_meta_style_initpost,#post_meta_style_lastmod,#post_meta_style_pagepv,#post_meta_style_tags,#post_meta_style_categories {
 	color: #1e28ea
 }
 
@@ -754,9 +754,6 @@ img:active {
 }
 
 @media screen and (max-width: 768px) {
-	nav.mobile {
-		display: none;
-	}
 	::-webkit-scrollbar {
 		width: 19px;
 		height: 11px
