@@ -382,6 +382,11 @@ img:active {
 	flex-wrap: wrap
 }
 
+.post_meta_left, .post_meta_right {
+	display: flex;
+	/* flex-wrap: wrap */
+}
+
 .post_meta_style {
 	display: flex
 }
@@ -447,9 +452,9 @@ body:not(.dark) #sun {
 	display: none
 }
 
-.page-header,.post-header {
+/* .page-header,.post-header {
 	margin: 24px auto var(--content-gap)
-}
+} */
 
 .breadcrumbs {
 	display: flex;
