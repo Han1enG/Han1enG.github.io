@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="解析 Yaml 文件失败使用默认值替换失败字段" />
+    <title>解析 Yaml 文件失败使用默认值替换失败字段 | Cold World</title>
+    <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="/css/fonts.css" /> 
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+</head>
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+</noscript>
+  </head><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="解析 Yaml 文件失败使用默认值替换失败字段" />
+    <title>解析 Yaml 文件失败使用默认值替换失败字段 | Cold World</title>
+    <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="/css/fonts.css" /> 
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+</head>
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+</noscript><body><div class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a href="http://www.coldcoding.top" accesskey="h" title="Cold World">
+        <img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20240219225844.jpg" alt="logo" aria-label="logo" height="35">
+        Cold World
+      </a>
+      
+    </div>
+    <nav>
+      <ul class="menu wide">
+        <a class="menu-item"
+                href="/tech/" > Tech 
+            </a><a class="menu-item"
+                href="/life/" > Life 
+            </a>
+            <div class="dropdown pc">
+                <a href="javascript:void(0);" 
+                    class="menu-item menu-more dropbtn" title="" > Archive 
+                </a>
+                <div class="menu-more-content dropdown-content"><a href="/categories/" title="" > Categories 
+                    </a><a href="/tags/" title="" > Tags 
+                    </a></div>
+            </div>
+            <div class="dropdown mobile">
+              <a href="javascript:void(0);" class="menu-item menu-more dropbtn" title="" > Archive 
+              </a>
+              <div class="menu-more-content dropdown-content"><a href="/categories/" title="" > Categories </a><a href="/tags/" title="" > Tags </a></div>
+            </div>
+          <a class="menu-item"
+                href="/weekly/" > Weekly 
+            </a><a class="menu-item"
+                href="/about/" > About 
+            </a><a class="menu-item"
+                href="/index.xml" > RSS 
+            </a></ul>
+    </nav>
+  </nav>
+</div><div class="main page">
+<article class="post-single">
+  <div id="single-content">
+    <header class="post-header">
+      <div class="breadcrumbs"><div  class="breadcrumb">
+    
+    
+
+
+    <a href="http://coldcoding.top/">🏠 Home</a>&nbsp;»&nbsp;<a href="http://coldcoding.top/tech/">📑Tech</a>&nbsp;»&nbsp;<a href="http://coldcoding.top/tech/golang/">🐹Golang</a></div></div>
+      <h1 class="post-title">解析 Yaml 文件失败使用默认值替换失败字段</h1>
+      <div class="post-meta"><span class="parent-post-meta">
+    <span id="post_meta_style_initpost" class="post_meta_style">Published at:</span>2024/02/28&nbsp;&nbsp;&nbsp;
+    
+    <span id="post_meta_style_pagepv" class="post_meta_style">PagePV:</span><span id="twikoo_visitors">0</span>&nbsp;&nbsp;&nbsp;
+    
+    
+</span></div>
+    </header>
+      
+
+<aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details >
+            <summary accesskey="c" title="(Alt + C)">
+                
+                <span class="details">Table of Contents</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e5%9c%ba%e6%99%af" aria-label="场景">场景</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        if (elements) {
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement){
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+    <div class="post-content"><h3 id="场景">场景</h3>
+<p>当 Yaml 作为配置文件时候，往往在启动服务的时候就需要解析配置，如果修改了某个字段的数据结构，开局就 panic，有时候我们并不希望此时就停止业务，希望能用默认的配置文件替代。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="c"># cfg.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l">Golang</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w"></span><span class="nt">animal</span><span class="p">:</span><span class="w"> </span><span class="l">Dog</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="ln">1</span><span class="cl"><span class="kd">type</span> <span class="nx">Cfg</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">	<span class="nx">Language</span>    <span class="kt">string</span> <span class="s">`json:&#34;language,omitempty&#34;`</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">	<span class="nx">Animal</span> 		<span class="kt">string</span> <span class="s">`json:&#34;animal,omitempty&#34;`</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>正常情况下，Yaml 文件会被解析成功，如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">	<span class="s">&#34;os&#34;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">	<span class="s">&#34;github.com/goccy/go-yaml&#34;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="kd">type</span> <span class="nx">Cfg</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">	<span class="nx">Language</span> <span class="kt">string</span> <span class="s">`json:&#34;language,omitempty&#34;`</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">	<span class="nx">Animal</span>   <span class="kt">string</span> <span class="s">`json:&#34;animal,omitempty&#34;`</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">	<span class="nx">CfgPath</span> <span class="o">:=</span> <span class="s">&#34;C:\\Users\\han1en9\\Desktop\\Project\\Demo\\cfg.yaml&#34;</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">
+</span></span><span class="line"><span class="ln">18</span><span class="cl">	<span class="kd">var</span> <span class="nx">cfg</span> <span class="nx">Cfg</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">	<span class="nx">b</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">ReadFile</span><span class="p">(</span><span class="nx">CfgPath</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">
+</span></span><span class="line"><span class="ln">21</span><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">yaml</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">cfg</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;解析配置失败, err : %v&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">cfg</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="c1">// {Golang Dog}
+</span></span></span></code></pre></div><p>当我们修改 Yaml 文件时，如修改 language 字段为数组：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="c"># cfg.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span><span class="nt">language</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w">  </span>- <span class="l">Golang</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w"></span><span class="nt">animal</span><span class="p">:</span><span class="w"> </span><span class="l">Dog</span><span class="w">
+</span></span></span></code></pre></div><p>报错信息如下：</p>
+<blockquote>
+<p>解析配置失败, err : [4:3] cannot unmarshal []interface {} into Go struct field Cfg.Language of type string
+1 | # cfg.yaml
+2 | language:
+3 | - Golang
+^
+{ Dog} 5 | animal: Dog</p>
+</blockquote>
+<p>此时我们希望解析错误的字段用默认值代替，很多 unmarshal 函数在解析出错的第一个字段后就返回错误，剩余字段不再去解析，想了一个曲线救国的方法，希望大家有更好的建议。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">	<span class="nx">CfgPath</span> <span class="o">:=</span> <span class="s">&#34;C:\\Users\\han1en9\\Desktop\\Project\\Demo\\cfg.yaml&#34;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">	<span class="kd">var</span> <span class="nx">cfg</span> <span class="nx">Cfg</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">	<span class="nx">b</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">ReadFile</span><span class="p">(</span><span class="nx">CfgPath</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">yaml</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">cfg</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">		<span class="nx">defaultSettings</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}{</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">			<span class="s">&#34;language&#34;</span><span class="p">:</span> <span class="s">&#34;Golang&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">			<span class="s">&#34;animal&#34;</span><span class="p">:</span>   <span class="s">&#34;Dog&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">		<span class="nx">tmpCfg</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{})</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">		<span class="k">if</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">yaml</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">tmpCfg</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;解析配置失败, err : %v&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">			<span class="k">return</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">		<span class="c1">// 应用默认设置到解析失败的字段
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="c1"></span>		<span class="k">for</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">value</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">defaultSettings</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">			<span class="c1">// 添加缺失的字段并使用默认值并检查解析字段的类型和默认设置的类型是否一致
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="c1"></span>			<span class="k">if</span> <span class="nx">fieldValue</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">tmpCfg</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span> <span class="p">!</span><span class="nx">ok</span> <span class="o">||</span> <span class="nx">reflect</span><span class="p">.</span><span class="nf">TypeOf</span><span class="p">(</span><span class="nx">fieldValue</span><span class="p">)</span> <span class="o">!=</span> <span class="nx">reflect</span><span class="p">.</span><span class="nf">TypeOf</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">				<span class="nx">tmpCfg</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="p">=</span> <span class="nx">value</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">		<span class="c1">// 将解析结果转换为 Cfg 结构
+</span></span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="c1"></span>		<span class="nx">cfg</span> <span class="p">=</span> <span class="nx">Cfg</span><span class="p">{</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">			<span class="nx">Language</span><span class="p">:</span> <span class="nx">tmpCfg</span><span class="p">[</span><span class="s">&#34;language&#34;</span><span class="p">].(</span><span class="kt">string</span><span class="p">),</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">			<span class="nx">Animal</span><span class="p">:</span>   <span class="nx">tmpCfg</span><span class="p">[</span><span class="s">&#34;animal&#34;</span><span class="p">].(</span><span class="kt">string</span><span class="p">),</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">cfg</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl"><span class="c1">// {Golang Dog}
+</span></span></span></code></pre></div></div>
+  </div>
+</article>
+
+
+  
+    <div class="pagination__title">
+    <span class="pagination__title-h" style="font-size: 20px;">💬Discussion</span>
+    <hr />
+</div>
+<script src="//cdn.jsdelivr.net/npm/twikoo@1.6.21/dist/twikoo.all.min.js"></script>
+<div id="tcomment"></div><script>
+    twikoo.init({
+        envId: "https:\/\/twikoo.coldcoding.top\/",  
+        el: "#tcomment", 
+        
+        
+    });
+</script>
+
+
+
+
+    </div><footer class="footer">
+  <hr />
+  <span>
+    Copyright 2022-2024<a href="https://icp.gov.moe/?keyword=20241230" target="_blank">萌ICP备20241230号</a>&nbsp;Powered by <a>愛</a> 
+  </span>
+  <span>
+    All articles on this site are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a >
+  </span>
+</footer>
+
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <span class="topInner">
+      <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+          <path d="M12 6H0l6-6z"/>
+      </svg>
+      <span id="read_progress"></span>
+  </span>
+</a>
+
+<script>
+  var backButton = document.getElementById("top-link");
+  var lastScrollPosition = window.pageYOffset;
+
+  function showBackButton() {
+      backButton.style.visibility = "visible";
+      backButton.style.opacity = '1';
+  }
+  function halfHideBackButton() {
+      backButton.style.visibility = "visible";
+      backButton.style.opacity = '0.3';
+  }
+  function hideBackButton() {
+      backButton.style.visibility = "hidden";
+      backButton.style.opacity = '0';
+  }
+
+  window.onscroll = function () {
+      var currentScrollPosition = window.pageYOffset;
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        showBackButton()
+        if (Math.abs(currentScrollPosition - lastScrollPosition) < 10) {
+          halfHideBackButton()
+        }
+      } else {
+        hideBackButton()
+      }
+      lastScrollPosition = currentScrollPosition;
+  };
+</script></body>
+</html>

@@ -8,8 +8,15 @@
     <language>en-us</language>
     <managingEditor>hanlengcold@gmail.com (Cold)</managingEditor>
     <webMaster>hanlengcold@gmail.com (Cold)</webMaster>
-    <lastBuildDate>Fri, 12 May 2023 22:03:55 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 28 Feb 2024 22:52:10 +0800</lastBuildDate>
     <atom:link href="http://coldcoding.top/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>解析 Yaml 文件失败使用默认值替换失败字段</title>
+      <link>http://coldcoding.top/tech/golang/unmarshal-yaml-with-default-value/</link>
+      <pubDate>Wed, 28 Feb 2024 22:52:10 +0800</pubDate><author>hanlengcold@gmail.com (Cold)</author>
+      <guid>http://coldcoding.top/tech/golang/unmarshal-yaml-with-default-value/</guid>
+      <description>场景 当 Yaml 作为配置文件时候，往往在启动服务的时候就需要解析配置，如果修改了某个字段的数据结构，开局就 panic，有时候我们并不希望此时就停止业</description>
+    </item>
     <item>
       <title>Golang 基础语法</title>
       <link>http://coldcoding.top/tech/golang/golang-basic-syntax/</link>
