@@ -13,7 +13,6 @@
 	--tertiary: #d6d6d6;
 	--content: #1f1f1f;
 	--hljs-bg: #1c1d21;
-	--code-bg: #f5f5f5;
 	--border: #eee
 }
 
@@ -25,12 +24,11 @@
 	--tertiary: #414244;
 	--content: #c4c4c5;
 	--hljs-bg: #2e2e33;
-	--code-bg: #37383e;
 	--border: #333
 }
 
 .list {
-	background: var(--code-bg)
+	background: #f5f5f5
 }
 
 .dark.list {
@@ -218,8 +216,12 @@ hr {
 }
 
 .chroma {
-	overflow-x: scroll;
-	border-radius: 10px
+	/* overflow-x: scroll; */
+	/* border-radius: 10px */
+	border-top-left-radius: unset;
+    border-top-right-radius: unset;
+    border-bottom-left-radius: var(--radius);
+    border-bottom-right-radius: var(--radius);
 }
 
 blockquote {
@@ -259,38 +261,6 @@ em {
 strong {
 	color: #333;
 	font-weight: 700
-}
-
-code {
-	border-radius: .2em;
-	background-color: hsla(0,0%,93.3%,.6);
-	color: #333;
-	font-size: 80%;
-	font-family: Monaco,Consolas,monospace
-}
-
-code[class*=language-],pre[class*=language-] {
-	font-size: .75em;
-	line-height: 1.6
-}
-
-pre[class*=language-]>code {
-	border-left: none!important;
-	font-size: .6em
-}
-
-.copy-code {
-	position: absolute;
-	top: -22px;
-	right: 8px;
-	z-index: 1;
-	display: block;
-	padding: 0 5px;
-	border-radius: var(--radius);
-	background: unset;
-	color: hsla(0,0%,100%,.8);
-	font-size: .875rem;
-	user-select: none
 }
 
 img:active {
@@ -570,8 +540,6 @@ body:not(.dark) #sun {
 :root {
 	--footer-height: 40px;
 	--hljs-bg: #2c2c2c;
-	--code-bg: #f0f0f0;
-	--code-bg-border: #c8c8c8;
 	--black: #000;
 	--white: #fff;
 	--tag: #ebebeb;
@@ -612,24 +580,6 @@ img:active {
 	border: 2px solid var(--theme);
 	border-radius: var(--radius);
 	background: var(--tertiary)
-}
-
-.post-content code,.post-content pre code {
-	font-family: consolas,Menlo,pingfang sc,microsoft yahei,sans-serif
-}
-
-.post-content pre code {
-	margin-bottom: 2%;
-	max-height: 40em;
-	border-top-right-radius: unset;
-	border-bottom-right-radius: var(--radius);
-	border-bottom-left-radius: var(--radius);
-	border-top-left-radius: unset;
-	font-size: .75em
-}
-
-.highlight pre {
-	tab-size: 4!important
 }
 
 ::-webkit-scrollbar-corner {
