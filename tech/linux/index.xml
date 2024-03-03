@@ -12,9 +12,9 @@
     <atom:link href="http://coldcoding.top/tech/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux 常用命令</title>
-      <link>http://coldcoding.top/linux-cmd/</link>
+      <link>http://coldcoding.top/tech/linux/linux-cmd/</link>
       <pubDate>Wed, 16 Aug 2023 15:02:32 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
-      <guid>http://coldcoding.top/linux-cmd/</guid>
+      <guid>http://coldcoding.top/tech/linux/linux-cmd/</guid>
       <description>kill 1$ kill pid # kill -15 pid 默认的 kill 系统会发送一个 SIGTERM 的信号给对应的程序，当程序接收到该 signal 后： 程序立刻停止 当程序释放相应资源后再停止 程序可能仍然继续运行 大</description>
     </item>
   </channel>

@@ -19,9 +19,9 @@
     </item>
     <item>
       <title>Linux 常用命令</title>
-      <link>http://coldcoding.top/linux-cmd/</link>
+      <link>http://coldcoding.top/tech/linux/linux-cmd/</link>
       <pubDate>Wed, 16 Aug 2023 15:02:32 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
-      <guid>http://coldcoding.top/linux-cmd/</guid>
+      <guid>http://coldcoding.top/tech/linux/linux-cmd/</guid>
       <description>kill 1$ kill pid # kill -15 pid 默认的 kill 系统会发送一个 SIGTERM 的信号给对应的程序，当程序接收到该 signal 后： 程序立刻停止 当程序释放相应资源后再停止 程序可能仍然继续运行 大</description>
     </item>
     <item>
@@ -44,6 +44,13 @@
       <pubDate>Fri, 23 Jun 2023 19:05:12 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/net/ip-packet-transmission-method/</guid>
       <description>单播 : 发送数据到单个目的主机，每个单播报文都有一个单播 IP 地址作为目的地址 传输方式 : 是点对点传输方式 ; 弊端 : 发送者与每个接收者之间都要建立单独</description>
+    </item>
+    <item>
+      <title>Git 基础命令</title>
+      <link>http://coldcoding.top/tech/git/git-base/</link>
+      <pubDate>Tue, 30 May 2023 18:55:31 +0800</pubDate><author>hanlengcold@gmail.com (Cold)</author>
+      <guid>http://coldcoding.top/tech/git/git-base/</guid>
+      <description>Git 环境搭建 安装 Git 添加 SSH key 创建 ssh key 1$ ssh-keygen -t rsa -C &amp;#34;cold@google.com&amp;#34; 克隆代码库报错，查看调试信息 1$ ssh -vv -p 29418 [git服务器IP地址] 验证 publickey 时，本地提供了私钥/home</description>
     </item>
     <item>
       <title>牛顿法求解平方根</title>
