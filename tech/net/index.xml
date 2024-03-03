@@ -8,8 +8,15 @@
     <language>en-us</language>
     <managingEditor>hanlengcold@gmail.com (Cold)</managingEditor>
     <webMaster>hanlengcold@gmail.com (Cold)</webMaster>
-    <lastBuildDate>Sat, 24 Jun 2023 20:28:36 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 17 Jul 2023 21:53:08 +0800</lastBuildDate>
     <atom:link href="http://coldcoding.top/tech/net/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenVSwitch</title>
+      <link>http://coldcoding.top/tech/net/openvswitch/</link>
+      <pubDate>Mon, 17 Jul 2023 21:53:08 +0800</pubDate><author>hanlengcold@gmail.com (Cold)</author>
+      <guid>http://coldcoding.top/tech/net/openvswitch/</guid>
+      <description>OVS 网络架构 Open vswitch 是一个开放的虚拟交换机，支持 openflow 协议，被远端的控制器通过 openflow 协议统一管理，从而实现对接入的虚拟机或设备进行组网和互通，主要作用就是</description>
+    </item>
     <item>
       <title>控制面和转发面</title>
       <link>http://coldcoding.top/tech/net/control-plane-forward-plane/</link>

@@ -34,7 +34,7 @@
     <item>
       <title>Net</title>
       <link>http://coldcoding.top/tags/net/</link>
-      <pubDate>Sat, 24 Jun 2023 20:28:36 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
+      <pubDate>Mon, 17 Jul 2023 21:53:08 +0800</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tags/net/</guid>
       <description></description>
     </item>
@@ -46,10 +46,10 @@
       <description></description>
     </item>
     <item>
-      <title>Algrithm</title>
-      <link>http://coldcoding.top/tags/algrithm/</link>
+      <title>Algorithm</title>
+      <link>http://coldcoding.top/tags/algorithm/</link>
       <pubDate>Tue, 16 May 2023 12:50:15 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
-      <guid>http://coldcoding.top/tags/algrithm/</guid>
+      <guid>http://coldcoding.top/tags/algorithm/</guid>
       <description></description>
     </item>
     <item>
@@ -95,24 +95,10 @@
       <description></description>
     </item>
     <item>
-      <title>Github</title>
-      <link>http://coldcoding.top/tags/github/</link>
-      <pubDate>Fri, 03 Mar 2023 21:41:58 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
-      <guid>http://coldcoding.top/tags/github/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Latex</title>
       <link>http://coldcoding.top/tags/latex/</link>
       <pubDate>Thu, 02 Mar 2023 17:03:10 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tags/latex/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Algorithm</title>
-      <link>http://coldcoding.top/tags/algorithm/</link>
-      <pubDate>Sun, 01 Jan 2023 09:48:07 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
-      <guid>http://coldcoding.top/tags/algorithm/</guid>
       <description></description>
     </item>
   </channel>

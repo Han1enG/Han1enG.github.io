@@ -277,16 +277,21 @@ img:active {
 	font-size: 2.4em
 }
 
+/* #head_bkg{
+	background-image:  url(https://f-1252019270.file.myqcloud.com//blog/assets/images/index/index22.jpg);
+} */
 
 .header {
 	position: relative;
-	max-width: 86rem;
+	max-width: 50rem;
+	/* width: 100%; */
+	/* height: 100vh; */
 	margin-left: auto;
 	margin-right: auto;
 }
 
 .header .nav {
-	padding-left: 0;
+	padding-left: 5px;
 	padding-right: 0;
 	padding-top: 2px;
 	padding-bottom: 3px;

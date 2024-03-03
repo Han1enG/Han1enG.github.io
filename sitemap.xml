@@ -51,11 +51,15 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://coldcoding.top/tags/net/</loc>
-    <lastmod>2023-06-24T20:28:36+00:00</lastmod>
+    <lastmod>2023-07-17T21:53:08+08:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/tech/net/openvswitch/</loc>
+    <lastmod>2023-07-17T21:53:08+08:00</lastmod>
     <priority>0.5</priority>
   </url><url>
     <loc>http://coldcoding.top/tech/net/</loc>
-    <lastmod>2023-06-24T20:28:36+00:00</lastmod>
+    <lastmod>2023-07-17T21:53:08+08:00</lastmod>
     <priority>0.5</priority>
   </url><url>
     <loc>http://coldcoding.top/tech/net/control-plane-forward-plane/</loc>
@@ -82,7 +86,7 @@
     <lastmod>2023-05-30T18:55:31+08:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/tags/algrithm/</loc>
+    <loc>http://coldcoding.top/tags/algorithm/</loc>
     <lastmod>2023-05-16T12:50:15+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
@@ -166,7 +170,7 @@
     <lastmod>2023-03-07T20:21:30+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/categories/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>http://coldcoding.top/categories/front-end/</loc>
     <lastmod>2023-03-07T20:21:30+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
@@ -184,10 +188,6 @@
   </url><url>
     <loc>http://coldcoding.top/tech/blog/hexo/hexo-snow/</loc>
     <lastmod>2023-03-05T11:35:58+00:00</lastmod>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://coldcoding.top/tags/github/</loc>
-    <lastmod>2023-03-03T21:41:58+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
     <loc>http://coldcoding.top/tech/blog/hexo/hexo_backup/</loc>
@@ -220,10 +220,6 @@
   </url><url>
     <loc>http://coldcoding.top/tech/blog/hexo/widget-weather/</loc>
     <lastmod>2023-03-02T11:46:21+00:00</lastmod>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://coldcoding.top/tags/algorithm/</loc>
-    <lastmod>2023-01-01T09:48:07+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
     <loc>http://coldcoding.top/categories/algorithm/</loc>
