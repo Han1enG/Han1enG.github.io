@@ -125,15 +125,42 @@ td,th {
 	border-bottom: 2px solid #ddd
 }
 
-.menu.wide {
-	padding: 0
+.menuPc {
+	display: flex;
 }
 
-.menu.wide li {
+.menuMobile {
+	display: none;
+}
+
+.menuMobile #menu-button {
+	margin-right: 0.75em;
+	margin-left: 0.75em;
+}
+
+.menu-overlay {
+    display: none;
+}
+
+.menu-items {
+    list-style: none;
+    text-align: right; /* 靠右对齐 */
+	padding: 0;
+	margin: 0;
+	max-height: 50vh; /* 设置最大高度为屏幕高度的80% */
+	overflow-y: auto;
+}
+
+.menu-items li {
+    margin: 5px 10px; /* 菜单项间隔为 10px，靠右对齐 */
+	line-height: 1.75em;
+}
+
+.menuPc a {
 	display: inline-block
 }
 
-.article-meta, .menu.wide a {
+.article-meta, .menuPc a {
 	padding: 5px;
 	text-decoration: none
 }
@@ -268,13 +295,14 @@ img:active {
 }
 
 .logo a img {
-	border-radius: 25px
+	border-radius: 25px;
+	height: 35px;
 }
 
 .logo a {
 	color: var(--primary);
 	font-weight: 700;
-	font-size: 2.4em
+	font-size: 2.4em;
 }
 
 /* #head_bkg{
@@ -564,7 +592,7 @@ body:not(.dark) #sun {
 img {
 	border: 1px solid var(--border);
 	border-radius: 10px;
-	opacity: 1
+	opacity: 1;
 }
 
 .dark img {
@@ -711,6 +739,38 @@ img:active {
 	.list .top-link {
 		transform: translateY(-5rem)
 	}
+	.menuPc {
+		display: none
+	}
+	.logo a {
+		font-size: 1.8em;
+	}
+	.logo a img {
+		height: 25px;
+	}
+	.menuMobile {
+		display: flex;
+		align-items: center;
+		font-size: 1.125rem;
+	}
+
+	.menu-items {
+        text-align: center; /* 菜单项居中 */
+    }
+
+	.menu-overlay.show {
+        display: flex; /* 点击按钮后显示菜单项 */
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		backdrop-filter: blur(4px);
+		z-index: 1;
+		overflow: auto; /* 禁止底层滚动 */
+		flex-direction: column;
+		align-items: flex-end;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -764,14 +824,7 @@ img:active {
 	}
 }
 
-.dropdown.mobile {
-	display: none;
-}
-
 @media screen and (max-width: 768px) {
-	.dropdown.pc {
-		display: none;
-	}
 	.dropdown.mobile {
 		display: inline-block;
 	}
@@ -779,4 +832,30 @@ img:active {
 	.dropdown-content a:hover {
 		background-color: transparent;
 	}
+
+	.menu-more-content {
+		display: none;
+		position: absolute;
+
+		/* 调整二级菜单显示位置到一级菜单左侧 */
+		top: 13vh;
+		left: 36vw;
+		min-width: 150px;
+		/* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); */
+		z-index: 1;
+	}
+
+	.menu-more-content a:hover {
+    	background-color: #f1f1f1;
+	}
+
+	.menu-more-content a {
+		color: black;
+		text-decoration: none;
+		display: block;
+	}
+
+	.dropdown-content a {
+		padding: 5px 5px 5px 5px;
+	  }
 }
