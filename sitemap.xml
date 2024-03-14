@@ -250,6 +250,9 @@
     <loc>http://coldcoding.top/weekly/</loc>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://coldcoding.top/search/</loc>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://coldcoding.top/life/</loc>
     <priority>0.5</priority>
   </url>
