@@ -739,7 +739,7 @@ img:active {
     top: calc(5vw + 40px);
     transform: translateX(-50%);
     z-index: 4;
-    width: 650px;
+    width: 50vw;
     background-color: #fff;
     box-shadow: 0 1px 2px #3c40434d, 0 2px 6px 2px #3c404326;
     border-radius: 4px;
@@ -845,7 +845,7 @@ img:active {
 		overflow: auto; /* 禁止底层滚动 */
 		flex-direction: column;
 		align-items: flex-end;
-		background-color: rgba(241, 245, 249, .5);
+		background-color: rgb(241 245 249 / 69%);;
     }
 }
 
@@ -934,5 +934,8 @@ img:active {
 	#search-btn {
 		margin-left: 7rem;
 		margin-right: 0;
+	}
+	#fastSearch {
+		width: 80vw;
 	}
 }
