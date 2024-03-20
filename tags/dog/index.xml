@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dog on Cold World</title>
+    <link>http://coldcoding.top/tags/dog/</link>
+    <description>Recent content in dog on Cold World</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>hanlengcold@gmail.com (Cold)</managingEditor>
+    <webMaster>hanlengcold@gmail.com (Cold)</webMaster>
+    <lastBuildDate>Thu, 30 Nov 2023 22:17:36 +0800</lastBuildDate>
+    <atom:link href="http://coldcoding.top/tags/dog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Potter 的加入</title>
+      <link>http://coldcoding.top/life/pets/welcomepotter/</link>
+      <pubDate>Thu, 30 Nov 2023 22:17:36 +0800</pubDate><author>hanlengcold@gmail.com (Cold)</author>
+      <guid>http://coldcoding.top/life/pets/welcomepotter/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
