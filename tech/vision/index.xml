@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>👀 Vision on Cold World</title>
+    <link>http://coldcoding.top/tech/vision/</link>
+    <description>Recent content in 👀 Vision on Cold World</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>hanlengcold@gmail.com (Cold)</managingEditor>
+    <webMaster>hanlengcold@gmail.com (Cold)</webMaster>
+    <lastBuildDate>Tue, 25 Jun 2024 09:18:07 +0000</lastBuildDate>
+    <atom:link href="http://coldcoding.top/tech/vision/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>畸变矫正</title>
+      <link>http://coldcoding.top/tech/vision/calibration/undistortimage/</link>
+      <pubDate>Tue, 25 Jun 2024 09:18:07 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
+      <guid>http://coldcoding.top/tech/vision/calibration/undistortimage/</guid>
+      <description>1// UndistortImage 畸变校正 2func UndistortImage(imgData []byte, imgSize image.Point, cameraMatrix gocv.Mat, distCoeffs gocv.Mat, newCameraMatrix gocv.Mat) ([]byte, error) { 3 mapx := gocv.NewMatWithSize(imgSize.X, imgSize.Y, gocv.MatTypeCV32F) 4 defer mapx.Close() 5 mapy := gocv.NewMatWithSize(imgSize.X, imgSize.Y, gocv.MatTypeCV32F) 6 defer mapy.Close() 7 r := gocv.Eye(3, 3, gocv.MatTypeCV32F) 8 defer r.Close() 9 10 // 初始化校正映射 11 gocv.InitUndistortRectifyMap(cameraMatrix, distCoeffs, r, newCameraMatrix, imgSize, int(gocv.MatTypeCV32F), mapx, mapy) 12 // 保存</description>
+    </item>
+    <item>
+      <title>相机标定</title>
+      <link>http://coldcoding.top/tech/vision/calibration/cameracalib/</link>
+      <pubDate>Fri, 14 Jun 2024 09:53:07 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
+      <guid>http://coldcoding.top/tech/vision/calibration/cameracalib/</guid>
+      <description>1// CalibCamera 标定相机 2func CalibCamera(imgDatas [][]byte, chessboardRowCornerCount int, chessboardColCornerCount int, curImageIndex int) error { 3 // 保存各图像中的角点的二维坐标, 即像素坐标 4 imgPoints := gocv.NewPoints2fVector() 5 defer imgPoints.Close() 6 // 保存各图像中的角点的三维坐标，即世界坐标 7 objPoints</description>
+    </item>
+  </channel>
+</rss>

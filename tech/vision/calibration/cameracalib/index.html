@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="相机标定" />
+    <title>相机标定 | Cold World</title>
+    <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="/css/fonts.css" /> 
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="stylesheet" href="/css/code.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<script defer>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+    
+</head>
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+</noscript>
+  </head><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="相机标定" />
+    <title>相机标定 | Cold World</title>
+    <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="/css/fonts.css" /> 
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="stylesheet" href="/css/code.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<script defer>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+    
+</head>
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+</noscript><body><div class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a href="http://www.coldcoding.top" accesskey="h" title="Cold World">
+        <img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20240219225844.jpg" alt="logo" aria-label="logo">
+        Cold World
+      </a>
+    </div>
+    <nav class="menuPc">
+      <ul class="menu wide">
+        <a class="menu-item"
+                href="/tech/" > Tech 
+            </a><a class="menu-item"
+                href="/life/" > Life 
+            </a>
+            <div class="dropdown pc">
+                <a href="javascript:void(0);" 
+                    class="menu-item menu-more dropbtn" title="" > Archive 
+                </a>
+                <div class="menu-more-content dropdown-content"><a href="/categories/" title="" > Categories 
+                    </a><a href="/tags/" title="" > Tags 
+                    </a></div>
+            </div>
+          <a class="menu-item"
+                href="/weekly/" > Weekly 
+            </a><a class="menu-item"
+                href="/about/" > About 
+            </a><a class="menu-item"
+                href="/index.xml" > RSS 
+            </a></ul>
+    </nav>
+    <a id="search-btn" href="javascript:void(0);">
+      <span class="relative block icon">
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>
+      </span>
+    </a>
+    <div id="fastSearch">
+      <input id="searchInput" tabindex="0">
+      <ul id="searchResults"></ul>
+    </div>
+    <div class="menuMobile">
+      <button id="menu-button" onclick="toggleMenu()">
+        <span class="relative block icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"></path></svg>
+        </span>
+      </button>
+      <div class="menu-overlay" id="menuOverlay">
+        <ul class="menu-items" id="menuItems">
+          <li>
+            <button onclick="closeMenu()">
+              <span class="relative block icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"></path></svg>
+              </span>
+            </button>
+          </li><li>
+              <a class="menu-item"
+                href="/tech/" > Tech 
+            </a>
+            </li><li>
+              <a class="menu-item"
+                href="/life/" > Life 
+            </a>
+            </li>
+            <li>
+              <div class="dropdown mobile">
+                <a href="javascript:void(0);" class="menu-item menu-more dropbtn" title="" > Archive 
+                </a>
+                <div class="menu-more-content dropdown-content"><a href="/categories/" title="" > Categories </a><a href="/tags/" title="" > Tags </a></div>
+              </div>
+            </li>
+          <li>
+              <a class="menu-item"
+                href="/weekly/" > Weekly 
+            </a>
+            </li><li>
+              <a class="menu-item"
+                href="/about/" > About 
+            </a>
+            </li><li>
+              <a class="menu-item"
+                href="/index.xml" > RSS 
+            </a>
+            </li></ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<script>
+  let documentTop = 0; 
+  const body = document.body;
+
+  function toggleMenu() {
+    var menuOverlay = document.getElementById("menuOverlay");
+    menuOverlay.classList.toggle("show");
+    if (menuOverlay.classList.contains("show")) {
+      
+      var menuButton = document.getElementById("menu-button");
+      menuButton.style.display = "none";
+      
+      documentTop = document.scrollingElement.scrollTop;
+      body.style.position = "fixed"
+      body.style.top = -documentTop + "px";
+    }
+  }
+
+  document.addEventListener("click", function(event) {
+    if (menuOverlay.classList.contains("show")) {
+      console.log(event.target)
+      if (event.target.classList.contains("show")) {
+        closeMenu(); 
+      }
+    }
+  });
+  
+  function closeMenu() {
+    var menuOverlay = document.getElementById("menuOverlay");
+    menuOverlay.classList.remove("show");
+    var menuButton = document.getElementById("menu-button");
+    menuButton.style.display = "inline-block";
+    
+    body.style.position = "static";
+    body.style.top = "auto";
+    document.scrollingElement.scrollTop = documentTop;
+  }
+</script>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script><div class="main page">
+<article class="post-single">
+  <div id="single-content">
+    <header class="post-header">
+      <div class="breadcrumbs"><div  class="breadcrumb">
+    
+    
+
+
+    <a href="http://coldcoding.top/">🏠 Home</a>&nbsp;»&nbsp;<a href="http://coldcoding.top/tech/">📑Tech</a>&nbsp;»&nbsp;<a href="http://coldcoding.top/tech/vision/">👀 Vision</a></div></div>
+      <h1 class="post-title">相机标定</h1>
+      <div class="post-meta"><span class="parent-post-meta">
+    <span id="post_meta_style_initpost" class="post_meta_style">Published at:</span>2024/06/14&nbsp;&nbsp;&nbsp;
+    
+    <span id="post_meta_style_pagepv" class="post_meta_style">PagePV:</span><span id="twikoo_visitors">0</span>&nbsp;&nbsp;&nbsp;
+    
+    
+</span></div>
+    </header>
+      
+
+<aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details >
+            <summary accesskey="c" title="(Alt + C)">
+                
+                <span class="details">Table of Contents</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#inspired-by" aria-label="Inspired by">Inspired by</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        if (elements) {
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement){
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+    <div class="post-content"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// CalibCamera 标定相机
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">CalibCamera</span><span class="p">(</span><span class="nx">imgDatas</span> <span class="p">[][]</span><span class="kt">byte</span><span class="p">,</span> <span class="nx">chessboardRowCornerCount</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">chessboardColCornerCount</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">curImageIndex</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">	<span class="c1">// 保存各图像中的角点的二维坐标, 即像素坐标
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"></span>	<span class="nx">imgPoints</span> <span class="o">:=</span> <span class="nx">gocv</span><span class="p">.</span><span class="nf">NewPoints2fVector</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">	<span class="k">defer</span> <span class="nx">imgPoints</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">	<span class="c1">// 保存各图像中的角点的三维坐标，即世界坐标
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>	<span class="nx">objPoints</span> <span class="o">:=</span> <span class="nx">gocv</span><span class="p">.</span><span class="nf">NewPoints3fVector</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">	<span class="k">defer</span> <span class="nx">objPoints</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">	<span class="c1">// 保存图片尺寸
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span>	<span class="nx">imgSize</span> <span class="o">:=</span> <span class="nx">image</span><span class="p">.</span><span class="nx">Point</span><span class="p">{</span><span class="nx">X</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">Y</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">
+</span></span><span class="line"><span class="ln">12</span><span class="cl">	<span class="c1">// 为三维点定义世界坐标系
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"></span>	<span class="nx">objectPoints</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="nx">gocv</span><span class="p">.</span><span class="nx">Point3f</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">chessboardColCornerCount</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">		<span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="nx">chessboardRowCornerCount</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">			<span class="nx">objectPoints</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">objectPoints</span><span class="p">,</span> <span class="nx">gocv</span><span class="p">.</span><span class="nx">Point3f</span><span class="p">{</span><span class="nx">X</span><span class="p">:</span> <span class="nb">float32</span><span class="p">(</span><span class="nx">j</span><span class="p">),</span> <span class="nx">Y</span><span class="p">:</span> <span class="nb">float32</span><span class="p">(</span><span class="nx">i</span><span class="p">),</span> <span class="nx">Z</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">	<span class="nx">objPointsVector</span> <span class="o">:=</span> <span class="nx">gocv</span><span class="p">.</span><span class="nf">NewPoint3fVectorFromPoints</span><span class="p">(</span><span class="nx">objectPoints</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">	<span class="k">defer</span> <span class="nx">objPointsVector</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">
+</span></span><span class="line"><span class="ln">22</span><span class="cl">	<span class="c1">// 1. 检测角点
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="c1"></span>	<span class="k">for</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">imgData</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">imgDatas</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">		<span class="nx">err</span> <span class="o">:=</span> <span class="kd">func</span><span class="p">()</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">			<span class="c1">// 读取为灰度图
+</span></span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="c1"></span>			<span class="nx">grayImg</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">gocv</span><span class="p">.</span><span class="nf">IMDecode</span><span class="p">(</span><span class="nx">imgData</span><span class="p">,</span> <span class="nx">gocv</span><span class="p">.</span><span class="nx">IMReadGrayScale</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">			<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">				<span class="k">return</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">			<span class="k">if</span> <span class="nx">grayImg</span><span class="p">.</span><span class="nf">Empty</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">				<span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">			<span class="k">defer</span> <span class="nx">grayImg</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl">			<span class="k">if</span> <span class="nx">index</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl">				<span class="nx">imgSize</span> <span class="p">=</span> <span class="nx">image</span><span class="p">.</span><span class="nx">Point</span><span class="p">{</span><span class="nx">X</span><span class="p">:</span> <span class="nx">grayImg</span><span class="p">.</span><span class="nf">Cols</span><span class="p">(),</span> <span class="nx">Y</span><span class="p">:</span> <span class="nx">grayImg</span><span class="p">.</span><span class="nf">Rows</span><span class="p">()}</span>
+</span></span><span class="line"><span class="ln">36</span><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="ln">37</span><span class="cl">			<span class="c1">// 保存图像二维角点信息
+</span></span></span><span class="line"><span class="ln">38</span><span class="cl"><span class="c1"></span>			<span class="nx">corners</span> <span class="o">:=</span> <span class="nx">gocv</span><span class="p">.</span><span class="nf">NewMat</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">39</span><span class="cl">			<span class="k">defer</span> <span class="nx">corners</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">40</span><span class="cl">			<span class="c1">// 如果在图像中找到所需数量的角点，返回true
+</span></span></span><span class="line"><span class="ln">41</span><span class="cl"><span class="c1"></span>			<span class="k">if</span> <span class="nx">found</span> <span class="o">:=</span> <span class="nx">gocv</span><span class="p">.</span><span class="nf">FindChessboardCorners</span><span class="p">(</span><span class="nx">grayImg</span><span class="p">,</span> <span class="nx">image</span><span class="p">.</span><span class="nf">Pt</span><span class="p">(</span><span class="nx">chessboardRowCornerCount</span><span class="p">,</span> <span class="nx">chessboardColCornerCount</span><span class="p">),</span> <span class="o">&amp;</span><span class="nx">corners</span><span class="p">,</span> <span class="nx">gocv</span><span class="p">.</span><span class="nx">CalibCBAdaptiveThresh</span><span class="p">|</span><span class="nx">gocv</span><span class="p">.</span><span class="nx">CalibCBFastCheck</span><span class="p">|</span><span class="nx">gocv</span><span class="p">.</span><span class="nx">CalibCBNormalizeImage</span><span class="p">);</span> <span class="p">!</span><span class="nx">found</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">42</span><span class="cl">				<span class="k">return</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;Not Found Corner Points&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">43</span><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="ln">44</span><span class="cl">			<span class="c1">// 迭代算法中的终止条件(终止条件的类型、最大迭代次数、期望精度)
+</span></span></span><span class="line"><span class="ln">45</span><span class="cl"><span class="c1"></span>			<span class="nx">criteria</span> <span class="o">:=</span> <span class="nx">gocv</span><span class="p">.</span><span class="nf">NewTermCriteria</span><span class="p">(</span><span class="nx">gocv</span><span class="p">.</span><span class="nx">EPS</span><span class="p">|</span><span class="nx">gocv</span><span class="p">.</span><span class="nx">MaxIter</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">46</span><span class="cl">			<span class="c1">// 进一步提取亚像素角点，提高精度
+</span></span></span><span class="line"><span class="ln">47</span><span class="cl"><span class="c1"></span>			<span class="nx">gocv</span><span class="p">.</span><span class="nf">CornerSubPix</span><span class="p">(</span><span class="nx">grayImg</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">corners</span><span class="p">,</span> <span class="nx">image</span><span class="p">.</span><span class="nf">Pt</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="nx">image</span><span class="p">.</span><span class="nf">Pt</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="nx">criteria</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">48</span><span class="cl">			<span class="k">if</span> <span class="nx">corners</span><span class="p">.</span><span class="nf">Cols</span><span class="p">()</span><span class="o">*</span><span class="nx">corners</span><span class="p">.</span><span class="nf">Rows</span><span class="p">()</span> <span class="o">!=</span> <span class="nx">chessboardColCornerCount</span><span class="o">*</span><span class="nx">chessboardRowCornerCount</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">49</span><span class="cl">				<span class="k">return</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">Newr</span><span class="p">(</span><span class="s">&#34;Not Matched Number Of Corner Points&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">50</span><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="ln">51</span><span class="cl">			<span class="nx">imagePoints</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="nx">gocv</span><span class="p">.</span><span class="nx">Point2f</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">52</span><span class="cl">			<span class="c1">// 注意corners矩阵只有一列，例如9*6的角点实际上是一个54*1的矩阵，因此不能在这里一起添加世界坐标
+</span></span></span><span class="line"><span class="ln">53</span><span class="cl"><span class="c1"></span>			<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">corners</span><span class="p">.</span><span class="nf">Rows</span><span class="p">();</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">54</span><span class="cl">				<span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="nx">corners</span><span class="p">.</span><span class="nf">Cols</span><span class="p">();</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">55</span><span class="cl">					<span class="nx">pixelX</span><span class="p">,</span> <span class="nx">pixelY</span> <span class="o">:=</span> <span class="nx">corners</span><span class="p">.</span><span class="nf">GetFloatAt</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span><span class="o">*</span><span class="mi">2</span><span class="p">),</span> <span class="nx">corners</span><span class="p">.</span><span class="nf">GetFloatAt</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">56</span><span class="cl">					<span class="nx">imagePoints</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">imagePoints</span><span class="p">,</span> <span class="nx">gocv</span><span class="p">.</span><span class="nx">Point2f</span><span class="p">{</span><span class="nx">X</span><span class="p">:</span> <span class="nx">pixelX</span><span class="p">,</span> <span class="nx">Y</span><span class="p">:</span> <span class="nx">pixelY</span><span class="p">})</span>
+</span></span><span class="line"><span class="ln">57</span><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="ln">58</span><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="ln">59</span><span class="cl">			<span class="c1">// 添加像素坐标
+</span></span></span><span class="line"><span class="ln">60</span><span class="cl"><span class="c1"></span>			<span class="nx">imgPointsVector</span> <span class="o">:=</span> <span class="nx">gocv</span><span class="p">.</span><span class="nf">NewPoint2fVectorFromPoints</span><span class="p">(</span><span class="nx">imagePoints</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">61</span><span class="cl">			<span class="nx">imgPoints</span><span class="p">.</span><span class="nf">Append</span><span class="p">(</span><span class="nx">imgPointsVector</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">62</span><span class="cl">			<span class="nx">imgPointsVector</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">63</span><span class="cl">			<span class="c1">// 添加世界坐标
+</span></span></span><span class="line"><span class="ln">64</span><span class="cl"><span class="c1"></span>			<span class="nx">objPoints</span><span class="p">.</span><span class="nf">Append</span><span class="p">(</span><span class="nx">objPointsVector</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">65</span><span class="cl">			<span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="ln">66</span><span class="cl">		<span class="p">}()</span>
+</span></span><span class="line"><span class="ln">67</span><span class="cl">		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">68</span><span class="cl">			<span class="k">return</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="ln">69</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">70</span><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="ln">71</span><span class="cl">
+</span></span><span class="line"><span class="ln">72</span><span class="cl">	<span class="c1">// 2. 标定
+</span></span></span><span class="line"><span class="ln">73</span><span class="cl"><span class="c1"></span>	<span class="c1">// 每幅图像的平移向量
+</span></span></span><span class="line"><span class="ln">74</span><span class="cl"><span class="c1"></span>	<span class="nx">transMat</span> <span class="o">:=</span> <span class="nx">gocv</span><span class="p">.</span><span class="nf">NewMat</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">75</span><span class="cl">	<span class="k">defer</span> <span class="nx">transMat</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">76</span><span class="cl">	<span class="c1">// 每幅图像的旋转向量
+</span></span></span><span class="line"><span class="ln">77</span><span class="cl"><span class="c1"></span>	<span class="nx">rotMat</span> <span class="o">:=</span> <span class="nx">gocv</span><span class="p">.</span><span class="nf">NewMat</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">78</span><span class="cl">	<span class="k">defer</span> <span class="nx">rotMat</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">79</span><span class="cl">	<span class="c1">// 相机内参矩阵 3*3
+</span></span></span><span class="line"><span class="ln">80</span><span class="cl"><span class="c1"></span>	<span class="nx">cameraMatrix</span> <span class="o">:=</span> <span class="nx">gocv</span><span class="p">.</span><span class="nf">NewMatWithSize</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">gocv</span><span class="p">.</span><span class="nx">MatTypeCV32F</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">81</span><span class="cl">	<span class="k">defer</span> <span class="nx">cameraMatrix</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">82</span><span class="cl">	<span class="c1">// 相机的5个畸变系数：k1,k2,p1,p2,k3 1*5
+</span></span></span><span class="line"><span class="ln">83</span><span class="cl"><span class="c1"></span>	<span class="nx">distCoeffs</span> <span class="o">:=</span> <span class="nx">gocv</span><span class="p">.</span><span class="nf">NewMat</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">84</span><span class="cl">	<span class="k">defer</span> <span class="nx">distCoeffs</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">85</span><span class="cl">	<span class="nx">res</span> <span class="o">:=</span> <span class="nx">gocv</span><span class="p">.</span><span class="nf">CalibrateCamera</span><span class="p">(</span><span class="nx">objPoints</span><span class="p">,</span> <span class="nx">imgPoints</span><span class="p">,</span> <span class="nx">imgSize</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">cameraMatrix</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">distCoeffs</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">rotMat</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">transMat</span><span class="p">,</span> <span class="nx">gocv</span><span class="p">.</span><span class="nf">CalibFlag</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</span></span><span class="line"><span class="ln">86</span><span class="cl">
+</span></span><span class="line"><span class="ln">87</span><span class="cl">	<span class="c1">// 3. 保存标定结果
+</span></span></span><span class="line"><span class="ln">88</span><span class="cl"><span class="c1"></span>	<span class="c1">// 获取校正后的新相机矩阵
+</span></span></span><span class="line"><span class="ln">89</span><span class="cl"><span class="c1"></span>	<span class="nx">newCameramtx</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">gocv</span><span class="p">.</span><span class="nf">GetOptimalNewCameraMatrixWithParams</span><span class="p">(</span><span class="nx">cameraMatrix</span><span class="p">,</span> <span class="nx">distCoeffs</span><span class="p">,</span> <span class="nx">imgSize</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">imgSize</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">90</span><span class="cl">	<span class="k">defer</span> <span class="nx">newCameramtx</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">91</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="inspired-by">Inspired by</h3>
+<p>[1] <a href="https://zhaoxuhui.top/blog/2018/04/17/CameraCalibration.html">相机畸变与标定</a></p>
+</div>
+  </div>
+</article>
+
+
+  
+    <div class="pagination__title">
+    <span class="pagination__title-h" style="font-size: 20px;">💬Discussion</span>
+    <hr />
+</div>
+<script src="//cdn.jsdelivr.net/npm/twikoo@1.6.21/dist/twikoo.all.min.js"></script>
+<div id="tcomment"></div><script>
+    twikoo.init({
+        envId: "https:\/\/twikoo.coldcoding.top\/",  
+        el: "#tcomment", 
+        
+        
+    });
+</script>
+
+
+
+
+    </div>
+    <footer class="footer">
+  <hr />
+  <span>
+    Copyright 2022-2024<a href="https://icp.gov.moe/?keyword=20241230" target="_blank">萌ICP备20241230号</a>&nbsp;Powered by <a>愛</a> 
+  </span>
+  <span>
+    All articles on this site are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a >
+  </span>
+</footer>
+
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <span class="topInner">
+      <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+          <path d="M12 6H0l6-6z"/>
+      </svg>
+      <span id="read_progress"></span>
+  </span>
+</a>
+
+<script>
+  var backButton = document.getElementById("top-link");
+  var lastScrollPosition = window.pageYOffset;
+
+  function showBackButton() {
+      backButton.style.visibility = "visible";
+      backButton.style.opacity = '1';
+  }
+  function halfHideBackButton() {
+      backButton.style.visibility = "visible";
+      backButton.style.opacity = '0.3';
+  }
+  function hideBackButton() {
+      backButton.style.visibility = "hidden";
+      backButton.style.opacity = '0';
+  }
+
+  window.onscroll = function () {
+      var currentScrollPosition = window.pageYOffset;
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        showBackButton()
+        if (Math.abs(currentScrollPosition - lastScrollPosition) < 10) {
+          halfHideBackButton()
+        }
+      } else {
+        hideBackButton()
+      }
+      lastScrollPosition = currentScrollPosition;
+  };
+</script>
+<script>
+  document.querySelectorAll('pre > code').forEach((codeblock) => {
+      const container = codeblock.parentNode.parentNode;
+      const copybutton = document.createElement('button');
+      copybutton.classList.add('copy-code');
+      copybutton.innerText = 'copy';
+      console.log(copybutton)
+
+      function copyingDone() {
+          copybutton.innerText = 'copied!';
+          setTimeout(() => {
+              copybutton.innerText = 'copy';
+          }, 2000);
+      }
+
+      copybutton.addEventListener('click', (cb) => {
+          if ('clipboard' in navigator) {
+              let text = codeblock.textContent;
+              navigator.clipboard.writeText(text);
+              copyingDone();
+              return;
+          }
+
+          const range = document.createRange();
+          range.selectNodeContents(codeblock);
+          const selection = window.getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          try {
+              document.execCommand('copy');
+              copyingDone();
+          } catch (e) {}
+          selection.removeRange(range);
+      });
+
+      let language = codeblock.className.replaceAll("language-", "")
+      let macTool = document.createElement("div")
+      let macTool1 = document.createElement("div")
+      let macTool2 = document.createElement("div")
+      let macTool3 = document.createElement("div")
+      let languageType = document.createElement("div")
+      languageType.innerText = language
+      macTool.setAttribute('class', 'mac-tool')
+      macTool1.setAttribute('class', 'mac bb1')
+      macTool2.setAttribute('class', 'mac bb2')
+      macTool3.setAttribute('class', 'mac bb3')
+      languageType.setAttribute('class', 'language-type')
+      macTool.appendChild(macTool1)
+      macTool.appendChild(macTool2)
+      macTool.appendChild(macTool3)
+      macTool.appendChild(languageType)
+
+      if (container.classList.contains("highlight")) {
+          container.appendChild(copybutton);
+          container.appendChild(macTool)
+      } else if (container.parentNode.firstChild == container) {
+          
+      } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+          
+          codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+          container.appendChild(macTool)
+      } else {
+          
+          codeblock.parentNode.appendChild(copybutton);
+          container.appendChild(macTool)
+      }
+  });
+</script></body>
+</html>

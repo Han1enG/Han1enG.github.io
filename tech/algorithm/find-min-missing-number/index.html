@@ -3,8 +3,8 @@
   <head><head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:title" content="Bond 的加入" />
-    <title>Bond 的加入 | Cold World</title>
+    <meta property="og:title" content="查找数组中缺失的最小正整数 O(n)" />
+    <title>查找数组中缺失的最小正整数 O(n) | Cold World</title>
     <link rel="stylesheet" href="/css/style.css" /> 
     <link rel="stylesheet" href="/css/fonts.css" /> 
     <link rel="stylesheet" href="/css/syntax.css" />
@@ -13,6 +13,23 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<script defer>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
     
 </head>
 
@@ -27,8 +44,8 @@
   </head><head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:title" content="Bond 的加入" />
-    <title>Bond 的加入 | Cold World</title>
+    <meta property="og:title" content="查找数组中缺失的最小正整数 O(n)" />
+    <title>查找数组中缺失的最小正整数 O(n) | Cold World</title>
     <link rel="stylesheet" href="/css/style.css" /> 
     <link rel="stylesheet" href="/css/fonts.css" /> 
     <link rel="stylesheet" href="/css/syntax.css" />
@@ -37,6 +54,23 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<script defer>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
     
 </head>
 
@@ -184,10 +218,10 @@
     
 
 
-    <a href="http://coldcoding.top/">🏠 Home</a>&nbsp;»&nbsp;<a href="http://coldcoding.top/life/">🛌Life</a>&nbsp;»&nbsp;<a href="http://coldcoding.top/life/pets/">🐕🐈Pets</a></div></div>
-      <h1 class="post-title">Bond 的加入</h1>
+    <a href="http://coldcoding.top/">🏠 Home</a>&nbsp;»&nbsp;<a href="http://coldcoding.top/tech/">📑Tech</a>&nbsp;»&nbsp;<a href="http://coldcoding.top/tech/algorithm/">🧮Algorithm</a></div></div>
+      <h1 class="post-title">查找数组中缺失的最小正整数 O(n)</h1>
       <div class="post-meta"><span class="parent-post-meta">
-    <span id="post_meta_style_initpost" class="post_meta_style">Published at:</span>2022/12/31&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_initpost" class="post_meta_style">Published at:</span>2024/07/10&nbsp;&nbsp;&nbsp;
     
     <span id="post_meta_style_pagepv" class="post_meta_style">PagePV:</span><span id="twikoo_visitors">0</span>&nbsp;&nbsp;&nbsp;
     
@@ -195,12 +229,28 @@
 </span></div>
     </header>
       
-    <div class="post-content"><p>        就在送走 <strong>Dollar</strong> 后，几乎是第二天我和小配就打车到了甘井子区接猫儿了，是只三岁的公布偶，听说是前主人要换工作，去了新地方不得已找人领养，这样的说辞也很难让人信服，去哪里会连只小猫也带不走？我们到的时候前主人还没回来，我和小配在楼下一边冷得发抖，一边碎碎念。上楼后，是个很小的单间，房间里也是乱糟糟的，就算是在搬家也说不过去的程度。突然猫儿不知道从哪里就跳出来了，黏在我们脚下，我倒是有点惊讶，比我想象的要大很多，摸起来很实在，长得像“小公主”，寒暄几句我们就带着猫儿离开了，猫儿也并没有不舍，不知道如果离开我们是什么样子，当然不会想也不会知道了。</p>
-<div style="text-align:center;">
-    <img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20240320221524.jpg" alt="bond01" style="zoom:30%;" />
-</div>
-<p>        最近的番剧 <a href="https://spy-family.net/">SPY×FAMILY</a> 我和小配都很喜欢，不过我喜欢的角色是 <strong>约尔 😄</strong>，小配喜欢的是 <strong>阿尼亚</strong>🥜，最终我们给猫儿起名 <strong>Bond</strong>，是主人公一家的宠物，是一只拥有预知能力的大白熊犬。</p>
-</div>
+    <div class="post-content"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// findSmallestMissingNumber 查找数组中缺失的最小正整数
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">findSmallestMissingNumber</span><span class="p">(</span><span class="nx">nums</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">	<span class="nx">n</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">	<span class="c1">// 遍历数组，将每个数字放到它应该在的位置上
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1"></span>	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">		<span class="k">for</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="nx">n</span> <span class="o">&amp;&amp;</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">			<span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">
+</span></span><span class="line"><span class="ln">12</span><span class="cl">	<span class="c1">// 再次遍历数组，找到第一个不在正确位置上的数字
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"></span>	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">		<span class="k">if</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">!=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">			<span class="k">return</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">
+</span></span><span class="line"><span class="ln">19</span><span class="cl">	<span class="c1">// 如果数组中的数字是从 1 到 n 的连续数字，则最小的缺失数字是 n+1
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="c1"></span>	<span class="k">return</span> <span class="nx">n</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></div>
   </div>
 </article>
 

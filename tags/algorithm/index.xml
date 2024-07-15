@@ -8,8 +8,36 @@
     <language>en-us</language>
     <managingEditor>hanlengcold@gmail.com (Cold)</managingEditor>
     <webMaster>hanlengcold@gmail.com (Cold)</webMaster>
-    <lastBuildDate>Tue, 16 May 2023 12:50:15 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jul 2024 13:59:07 +0000</lastBuildDate>
     <atom:link href="http://coldcoding.top/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>查找数组中缺失的最小正整数 O(n)</title>
+      <link>http://coldcoding.top/tech/algorithm/find-min-missing-number/</link>
+      <pubDate>Wed, 10 Jul 2024 13:59:07 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
+      <guid>http://coldcoding.top/tech/algorithm/find-min-missing-number/</guid>
+      <description>1// findSmallestMissingNumber 查找数组中缺失的最小正整数 2func findSmallestMissingNumber(nums []int) int { 3 n := len(nums) 4 5 // 遍历数组，将每个数字放到它应该在的位置上 6 for i := 0; i &amp;lt; n; i++ { 7 for nums[i] &amp;gt; 0 &amp;amp;&amp;amp; nums[i] &amp;lt;= n &amp;amp;&amp;amp; nums[nums[i]-1] != nums[i]</description>
+    </item>
+    <item>
+      <title>畸变矫正</title>
+      <link>http://coldcoding.top/tech/vision/calibration/undistortimage/</link>
+      <pubDate>Tue, 25 Jun 2024 09:18:07 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
+      <guid>http://coldcoding.top/tech/vision/calibration/undistortimage/</guid>
+      <description>1// UndistortImage 畸变校正 2func UndistortImage(imgData []byte, imgSize image.Point, cameraMatrix gocv.Mat, distCoeffs gocv.Mat, newCameraMatrix gocv.Mat) ([]byte, error) { 3 mapx := gocv.NewMatWithSize(imgSize.X, imgSize.Y, gocv.MatTypeCV32F) 4 defer mapx.Close() 5 mapy := gocv.NewMatWithSize(imgSize.X, imgSize.Y, gocv.MatTypeCV32F) 6 defer mapy.Close() 7 r := gocv.Eye(3, 3, gocv.MatTypeCV32F) 8 defer r.Close() 9 10 // 初始化校正映射 11 gocv.InitUndistortRectifyMap(cameraMatrix, distCoeffs, r, newCameraMatrix, imgSize, int(gocv.MatTypeCV32F), mapx, mapy) 12 // 保存</description>
+    </item>
+    <item>
+      <title>相机标定</title>
+      <link>http://coldcoding.top/tech/vision/calibration/cameracalib/</link>
+      <pubDate>Fri, 14 Jun 2024 09:53:07 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
+      <guid>http://coldcoding.top/tech/vision/calibration/cameracalib/</guid>
+      <description>1// CalibCamera 标定相机 2func CalibCamera(imgDatas [][]byte, chessboardRowCornerCount int, chessboardColCornerCount int, curImageIndex int) error { 3 // 保存各图像中的角点的二维坐标, 即像素坐标 4 imgPoints := gocv.NewPoints2fVector() 5 defer imgPoints.Close() 6 // 保存各图像中的角点的三维坐标，即世界坐标 7 objPoints</description>
+    </item>
+    <item>
+      <title>圆拟合</title>
+      <link>http://coldcoding.top/tech/algorithm/least-squares-circle-fitting/</link>
+      <pubDate>Wed, 05 Jun 2024 09:59:07 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
+      <guid>http://coldcoding.top/tech/algorithm/least-squares-circle-fitting/</guid>
+      <description>1. 最小二乘法 推导过程可参考 Kåsa Fit 算法： 1// fitCenterByLeastSquare 最小二乘法拟合圆 2func fitCenterByLeastSquare(points []gocv.Point2f) (gocv.Point2f, float32) { 3 var sumX, sumY, sumX2, sumY2, sumXY, sumX3, sumY3, sumX2Y, sumY2X float32 4 for _, p := range points { 5 sumX += p.X 6 sumY += p.Y 7 sumX2 += p.X *</description>
+    </item>
     <item>
       <title>牛顿法求解平方根</title>
       <link>http://coldcoding.top/tech/algorithm/newton-method-find-square-roots/</link>

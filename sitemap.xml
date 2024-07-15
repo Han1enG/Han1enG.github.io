@@ -2,27 +2,71 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://coldcoding.top/tech/</loc>
+    <lastmod>2024-07-10T13:59:07+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/tags/algorithm/</loc>
+    <lastmod>2024-07-10T13:59:07+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/categories/algorithm/</loc>
+    <lastmod>2024-07-10T13:59:07+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/categories/</loc>
+    <lastmod>2024-07-10T13:59:07+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/</loc>
+    <lastmod>2024-07-10T13:59:07+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/tags/math/</loc>
+    <lastmod>2024-07-10T13:59:07+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/tags/</loc>
+    <lastmod>2024-07-10T13:59:07+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/tech/algorithm/</loc>
+    <lastmod>2024-07-10T13:59:07+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/tech/algorithm/find-min-missing-number/</loc>
+    <lastmod>2024-07-10T13:59:07+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/tech/vision/</loc>
+    <lastmod>2024-06-25T09:18:07+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/tags/vision/</loc>
+    <lastmod>2024-06-25T09:18:07+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/categories/vision/</loc>
+    <lastmod>2024-06-25T09:18:07+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/tech/vision/calibration/undistortimage/</loc>
+    <lastmod>2024-06-25T09:18:07+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/tech/vision/calibration/cameracalib/</loc>
+    <lastmod>2024-06-14T09:53:07+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/tech/algorithm/least-squares-circle-fitting/</loc>
+    <lastmod>2024-06-05T09:59:07+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://coldcoding.top/tech/golang/</loc>
     <lastmod>2024-02-28T22:52:10+08:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/tech/</loc>
-    <lastmod>2024-02-28T22:52:10+08:00</lastmod>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://coldcoding.top/categories/</loc>
-    <lastmod>2024-02-28T22:52:10+08:00</lastmod>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://coldcoding.top/</loc>
-    <lastmod>2024-02-28T22:52:10+08:00</lastmod>
-    <priority>0.5</priority>
-  </url><url>
     <loc>http://coldcoding.top/tags/golang/</loc>
-    <lastmod>2024-02-28T22:52:10+08:00</lastmod>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://coldcoding.top/tags/</loc>
     <lastmod>2024-02-28T22:52:10+08:00</lastmod>
     <priority>0.5</priority>
   </url><url>
@@ -104,18 +148,6 @@
   </url><url>
     <loc>http://coldcoding.top/tech/git/</loc>
     <lastmod>2023-05-30T18:55:31+08:00</lastmod>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://coldcoding.top/tags/algorithm/</loc>
-    <lastmod>2023-05-16T12:50:15+00:00</lastmod>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://coldcoding.top/tags/math/</loc>
-    <lastmod>2023-05-16T12:50:15+00:00</lastmod>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://coldcoding.top/tech/algorithm/</loc>
-    <lastmod>2023-05-16T12:50:15+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
     <loc>http://coldcoding.top/tech/algorithm/newton-method-find-square-roots/</loc>
@@ -240,10 +272,6 @@
   </url><url>
     <loc>http://coldcoding.top/tech/blog/hexo/widget-weather/</loc>
     <lastmod>2023-03-02T11:46:21+00:00</lastmod>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://coldcoding.top/categories/algorithm/</loc>
-    <lastmod>2023-01-01T09:48:07+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
     <loc>http://coldcoding.top/tech/algorithm/filter-prime-number/</loc>
