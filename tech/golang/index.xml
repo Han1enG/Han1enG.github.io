@@ -15,14 +15,14 @@
       <link>http://coldcoding.top/tech/golang/unmarshal-yaml-with-default-value/</link>
       <pubDate>Wed, 28 Feb 2024 22:52:10 +0800</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/golang/unmarshal-yaml-with-default-value/</guid>
-      <description>场景 当 Yaml 作为配置文件时候，往往在启动服务的时候就需要解析配置，如果修改了某个字段的数据结构，开局就 panic，有时候我们并不希望此时就停止业</description>
+      <description>场景 当 Yaml 作为配置文件时候，往往在启动服务的时候就需要解析配置，如果修改了某个字段的数据结构，开局就 panic，有时候我们并不希望此时就停止业务，希望能用默认的配置文件替代。&#xA;1# cfg.yaml 2language: Golang 3animal: Dog 1type Cfg struct { 2&#x9;Language string `json:&amp;#34;language,omitempty&amp;#34;` 3&#x9;Animal string `json:&amp;#34;animal,omitempty&amp;#34;` 4} 正常情况下，Yaml 文件会被解析成功，如下：&#xA;1package main 2 3import ( 4&#x9;&amp;#34;fmt&amp;#34; 5&#x9;&amp;#34;os&amp;#34; 6 7&#x9;&amp;#34;github.com/goccy/go-yaml&amp;#34; 8) 9 10type Cfg struct { 11&#x9;Language string `json:&amp;#34;language,omitempty&amp;#34;` 12&#x9;Animal string `json:&amp;#34;animal,omitempty&amp;#34;` 13} 14 15func main() { 16&#x9;CfgPath := &amp;#34;C:\\Users\\han1en9\\Desktop\\Project\\Demo\\cfg.yaml&amp;#34; 17 18&#x9;var cfg Cfg 19&#x9;b, _ := os.</description>
     </item>
     <item>
       <title>Golang 基础语法</title>
       <link>http://coldcoding.top/tech/golang/golang-basic-syntax/</link>
       <pubDate>Fri, 12 May 2023 22:03:55 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/golang/golang-basic-syntax/</guid>
-      <description>环境搭建 VSCode 下载地址: https://code.visualstudio.com/ 下载慢解决方法： 官网找到需要的版本后，点击下载，然后复制下载链接 将红框内地址更改为国内镜像地址 vscode.cdn.azure.cn 浏览器复制链接后重新下</description>
+      <description>环境搭建 VSCode 下载地址: https://code.visualstudio.com/&#xA;下载慢解决方法：&#xA;官网找到需要的版本后，点击下载，然后复制下载链接 将红框内地址更改为国内镜像地址 vscode.cdn.azure.cn 浏览器复制链接后重新下载 Golang 下载地址: https://golang.google.cn/dl/&#xA;VSCode 安装 Go 插件&#xA;更新 Go 工具&#xA;在更新之前需要说明的是，由于国内政策，没办法直接更新，需要代理&#xA;1# 旧版，已废弃 2go env -w GO111MODULE=on 3go env -w GOPROXY=https://goproxy.io,direct 1# 新版改成如下链接 2go env -w GO111MODULE=on 3go env -w GOPROXY=https://proxy.golang.com.cn,direct 我这里报错warning: go env -w GOPROXY=... does not override conflicting OS environment variable原因是已经有一个了，查看了环境变量是PC前主人的，手动更改了环境变量，而后关掉并重新打开 VSCode，继续下面的步骤。&#xA;在Visual Studio Code中，打开命令面板的**“帮助**&amp;gt;显示所有命令”。 或者使用键盘快捷方式 (Ctrl+Shift+P) Go: Install/Update tools搜索 ，然后从托盘运行命令 出现提示时，选择所有可用的 Go 工具，然后单击“确定”。 等待 Go 工具完成更新。 time time.sleep golang 的睡眠函数time.</description>
     </item>
   </channel>
 </rss>

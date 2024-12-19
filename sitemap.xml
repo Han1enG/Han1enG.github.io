@@ -2,6 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://coldcoding.top/life/sports/</loc>
+    <lastmod>2024-10-31T12:36:08+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/categories/baseball/</loc>
+    <lastmod>2024-10-31T12:36:08+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/categories/</loc>
+    <lastmod>2024-10-31T12:36:08+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/</loc>
+    <lastmod>2024-10-31T12:36:08+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/tags/dodgers/</loc>
+    <lastmod>2024-10-31T12:36:08+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/tags/</loc>
+    <lastmod>2024-10-31T12:36:08+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/tags/worldseries/</loc>
+    <lastmod>2024-10-31T12:36:08+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/life/sports/world-series/</loc>
+    <lastmod>2024-10-31T12:36:08+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://coldcoding.top/life/</loc>
+    <lastmod>2024-10-31T12:36:08+00:00</lastmod>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://coldcoding.top/tech/</loc>
     <lastmod>2024-07-10T13:59:07+00:00</lastmod>
     <priority>0.5</priority>
@@ -14,27 +50,15 @@
     <lastmod>2024-07-10T13:59:07+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/categories/</loc>
-    <lastmod>2024-07-10T13:59:07+00:00</lastmod>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://coldcoding.top/</loc>
-    <lastmod>2024-07-10T13:59:07+00:00</lastmod>
-    <priority>0.5</priority>
-  </url><url>
     <loc>http://coldcoding.top/tags/math/</loc>
     <lastmod>2024-07-10T13:59:07+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://coldcoding.top/tags/</loc>
+    <loc>http://coldcoding.top/tech/algorithm/find-min-missing-number/</loc>
     <lastmod>2024-07-10T13:59:07+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
     <loc>http://coldcoding.top/tech/algorithm/</loc>
-    <lastmod>2024-07-10T13:59:07+00:00</lastmod>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://coldcoding.top/tech/algorithm/find-min-missing-number/</loc>
     <lastmod>2024-07-10T13:59:07+00:00</lastmod>
     <priority>0.5</priority>
   </url><url>
@@ -95,10 +119,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://coldcoding.top/life/pets/welcomepotter/</loc>
-    <lastmod>2023-11-30T22:17:36+08:00</lastmod>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://coldcoding.top/life/</loc>
     <lastmod>2023-11-30T22:17:36+08:00</lastmod>
     <priority>0.5</priority>
   </url><url>
@@ -292,9 +312,6 @@
   </url><url>
     <loc>http://coldcoding.top/about/</loc>
     <lastmod>2022-07-30T06:30:08+08:00</lastmod>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://coldcoding.top/life/sports/</loc>
     <priority>0.5</priority>
   </url><url>
     <loc>http://coldcoding.top/tech/tex/</loc>

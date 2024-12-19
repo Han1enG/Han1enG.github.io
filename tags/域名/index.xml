@@ -15,7 +15,7 @@
       <link>http://coldcoding.top/tech/blog/hexo/hexo-domainname/</link>
       <pubDate>Wed, 15 Mar 2023 11:10:00 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/blog/hexo/hexo-domainname/</guid>
-      <description>暂时将博客托管在了 GitHub Pages上，并将个人域名解析指向了博客，但是每次配置好 Custom domain，访问成功后，不知不觉又 404 了，查询后发现是每次 hexo d</description>
+      <description> 暂时将博客托管在了 GitHub Pages上，并将个人域名解析指向了博客，但是每次配置好 Custom domain，访问成功后，不知不觉又 404 了，查询后发现是每次 hexo deploy后，Custom domain会被重置而失效。&#xA;在项目的 source文件夹下添加一个 CNAME文件，在文件中填写自己的域名地址，注意是存放有资源的 source文件夹，而不是主题下的 source文件夹，另外 CNAME文件无后缀。 重新部署后，无需再次手动修改配置。 </description>
     </item>
   </channel>
 </rss>

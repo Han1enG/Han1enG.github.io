@@ -187,7 +187,8 @@
 			<h2><a href="http://coldcoding.top/tech/git/git-base/">Git 基础命令</a></h2>
 		</pagetitle>
 		<section class="entry-content">
-			Git 环境搭建 安装 Git 添加 SSH key 创建 ssh key 1$ ssh-keygen -t rsa -C &#34;cold@google.com&#34; 克隆代码库报错，查看调试信息 1$ ssh -vv -p 29418 [git服务器IP地址] 验证 publickey 时，本地提供了私钥/home
+			Git 环境搭建 安装 Git 添加 SSH key 创建 ssh key 1$ ssh-keygen -t rsa -C &#34;cold@google.com&#34; 克隆代码库报错，查看调试信息 1$ ssh -vv -p 29418 [git服务器IP地址] 验证 publickey 时，本地提供了私钥/home/user/.ssh/id_rsa，但是 no mutual signature algorithm 无互签名算法，尝试 ed25529 等算法但是没有匹配的认证方式。 解决办法是提供 ecdsa,ed25519,dsa 等算法的公钥和私钥对。 查看当前 OpenSSH 版本： 1$ ssh -V [git服务器IP地址] OpenSSH 8.8 考虑到cryptographically broken，开始禁用了使用SHA-1哈希算法的RSA签名算法。 这是一个客户端限制，我们必须提供能被OpenSSH 8.8认可的密钥类型，比如 OpenSSH 推荐的Ed25519。
+使用 Ed25519 算法 1# 生成ed25519密钥 2$ ssh-keygen -t ed25519 -C &#34;your_email@example.com&#34; 3# 将私钥添加到身份验证代理 4$ ssh-add Git 拉取远程指定分支到本地 1 将远程指定分支拉取到本地指定分支上： 1$ git pull origin 远程分支名:本地分支名 将远程指定分支拉取到本地当前分支上： 1$ git pull origin 远程分支名 将与本地当前分支同名的远程分支拉取到本地当前分支上(需先关联远程分支): 1$ git pull 将本地分支与远程同名分支相关联 1$ git push -u origin 远程分支名 Git 本地推送到远程指定分支 将本地当前分支推送到远程指定分支上（注意：pull 是远程在前本地在后，push 相反）： 1$ git push origin 本地分支名:远程分支名 将本地当前分支推送到与本地当前分支同名的远程分支上 1$ git push origin 本地分支名 3.
 			
 				...
 			
@@ -212,7 +213,7 @@
 							</div>
 						</span>
 						<span>
-							1628
+							383
 							&nbsp;&nbsp;
 						</span>
 					</span>
@@ -266,7 +267,8 @@
 			<h2><a href="http://coldcoding.top/tech/algorithm/newton-method-find-square-roots/">牛顿法求解平方根</a></h2>
 		</pagetitle>
 		<section class="entry-content">
-			假设输入的数是 $m$，则其实是求一个 $ x $ 值，使其满足 $x^2 = m$，令 $f(x) = x^2 - m$ ，其实就是求方程 $f(x) = 0$ 的根。那么 $f(x)$ 的导函数是 $f&rsquo;(x) = 2x$。 如果是二
+			假设输入的数是 $m$，则其实是求一个 $ x $ 值，使其满足 $x^2 = m$，令 $f(x) = x^2 - m$ ，其实就是求方程 $f(x) = 0$ 的根。那么 $f(x)$ 的导函数是 $f&rsquo;(x) = 2x$。 如果是二次函数的话，是很简单的导数运算，切线方程：$y=f′(x_n)(x−x_n)+f(x_n)$，求交点就是把 $y$ 置为零。
+1package main 2 3import ( 4	&#34;fmt&#34; 5	&#34;math&#34; 6) 7 8const err float64 = 1e-8 // err 是允许的误差 9 10func Sqrt(x float64) float64 { 11	if x &lt; 0 { 12	return -1 13	} 14	root := 1.0 15	for math.
 			
 				...
 			
@@ -291,7 +293,7 @@
 							</div>
 						</span>
 						<span>
-							208
+							102
 							&nbsp;&nbsp;
 						</span>
 					</span>
@@ -347,7 +349,14 @@
 			<h2><a href="http://coldcoding.top/tech/golang/golang-basic-syntax/">Golang 基础语法</a></h2>
 		</pagetitle>
 		<section class="entry-content">
-			环境搭建 VSCode 下载地址: https://code.visualstudio.com/ 下载慢解决方法： 官网找到需要的版本后，点击下载，然后复制下载链接 将红框内地址更改为国内镜像地址 vscode.cdn.azure.cn 浏览器复制链接后重新下
+			环境搭建 VSCode 下载地址: https://code.visualstudio.com/
+下载慢解决方法：
+官网找到需要的版本后，点击下载，然后复制下载链接 将红框内地址更改为国内镜像地址 vscode.cdn.azure.cn 浏览器复制链接后重新下载 Golang 下载地址: https://golang.google.cn/dl/
+VSCode 安装 Go 插件
+更新 Go 工具
+在更新之前需要说明的是，由于国内政策，没办法直接更新，需要代理
+1# 旧版，已废弃 2go env -w GO111MODULE=on 3go env -w GOPROXY=https://goproxy.io,direct 1# 新版改成如下链接 2go env -w GO111MODULE=on 3go env -w GOPROXY=https://proxy.golang.com.cn,direct 我这里报错warning: go env -w GOPROXY=... does not override conflicting OS environment variable原因是已经有一个了，查看了环境变量是PC前主人的，手动更改了环境变量，而后关掉并重新打开 VSCode，继续下面的步骤。
+在Visual Studio Code中，打开命令面板的**“帮助**&gt;显示所有命令”。 或者使用键盘快捷方式 (Ctrl+Shift+P) Go: Install/Update tools搜索 ，然后从托盘运行命令 出现提示时，选择所有可用的 Go 工具，然后单击“确定”。 等待 Go 工具完成更新。 time time.sleep golang 的睡眠函数time.
 			
 				...
 			
@@ -372,7 +381,7 @@
 							</div>
 						</span>
 						<span>
-							3145
+							858
 							&nbsp;&nbsp;
 						</span>
 					</span>
@@ -426,7 +435,17 @@
 			<h2><a href="http://coldcoding.top/tech/blog/hexo/hexo-centos/">Hexo 部署到服务器</a></h2>
 		</pagetitle>
 		<section class="entry-content">
-			GitHub Pages 实在太慢了，科学上网有时候也卡住。 搭建Git服务器 首先使用 Xshell连接服务器，并切换 root用户，回退到根路径 安装 openssh 1sudo apt-get install openssh-server # Ubuntu 2sudo yum
+			GitHub Pages 实在太慢了，科学上网有时候也卡住。
+搭建Git服务器 首先使用 Xshell连接服务器，并切换 root用户，回退到根路径
+安装 openssh
+1sudo apt-get install openssh-server # Ubuntu 2sudo yum install openssh-server # Centos 安装完成之后，查看 ssh服务是否启动
+1ps -e|grep ssh 创建一个名为 git的用户，用于管理 Hexo项目
+1adduser git 给 git用户添加文件的写权限
+1chmod 740 /etc/sudoers 2vim /etc/sudoers 找到 User privilege specification部分，添加如下内容：
+1git ALL=(ALL:ALL) ALL 按 ESC 退出编辑模式，输入 :wq保存退出
+将写权限收回
+1chmod 400 /etc/sudoers 切换至 git用户，创建 ~/.ssh文件夹和 ~/.ssh/authorized_keys文件，并赋予相应的权限
+1su git 2mkdir ~/.ssh 3vim ~/.ssh/authorized_keys 按 i进入编辑模式，将我们先前生成的 id_rsa.pub文件中的公钥复制到 authorized_keys中，按 ESC 退出编辑模式，输入 :wq保存退出。
 			
 				...
 			
@@ -451,7 +470,7 @@
 							</div>
 						</span>
 						<span>
-							866
+							215
 							&nbsp;&nbsp;
 						</span>
 					</span>
@@ -507,7 +526,9 @@
 			<h2><a href="http://coldcoding.top/tech/blog/hexo/hexo-comment/">Hexo &#43; Butterfly 添加评论系统</a></h2>
 		</pagetitle>
 		<section class="entry-content">
-			参考作者给出的教程以及官方文档twikoo和waline 通用设置 主题文件配置 在主题配置文件_config.butterfly.yml中找到c
+			参考作者给出的教程以及官方文档twikoo和waline
+通用设置 主题文件配置 在主题配置文件_config.butterfly.yml中找到comments
+1comments: 2 # Up to two comments system, the first will be shown as default 3 # Choose: Disqus/Disqusjs/Livere/Gitalk/Valine/Waline/Utterances/Facebook Comments/Twikoo/Giscus/Remark42/Artalk 4 use: Twikoo,Waline 5 text: true # Display the comment name next to the button 6 # lazyload: The comment system will be load when comment element enters the browser&#39;s viewport. 7 # If you set it to true, the comment count will be invalid 8 lazyload: true 9 count: true # Display comment count in post&#39;s top_img 10 card_post_count: false # Display comment count in Home Page 在主题配置文件_config.
 			
 				...
 			
@@ -532,7 +553,7 @@
 							</div>
 						</span>
 						<span>
-							2053
+							383
 							&nbsp;&nbsp;
 						</span>
 					</span>
@@ -586,7 +607,9 @@
 			<h2><a href="http://coldcoding.top/tech/blog/hexo/hexo-comment-pro/">twikoo评论的气泡美化</a></h2>
 		</pagetitle>
 		<section class="entry-content">
-			参考教程 新建source\css\twikoo.css文件，添加代码 1/* 设置文字内容 :nth-child(1)的作用是选择第几个 */ 2.el-input.el-input--small.el-input-group.el-input-group--prepend:nth-child(1):before { 3 content: &#
+			参考教程
+新建source\css\twikoo.css文件，添加代码
+1/* 设置文字内容 :nth-child(1)的作用是选择第几个 */ 2.el-input.el-input--small.el-input-group.el-input-group--prepend:nth-child(1):before { 3 content: &#34;输入QQ号会自动获取昵称和头像🐧&#34;; 4} 5 6.el-input.el-input--small.el-input-group.el-input-group--prepend:nth-child(2):before { 7 content: &#34;收到回复将会发送到您的邮箱📧&#34;; 8} 9 10.el-input.el-input--small.el-input-group.el-input-group--prepend:nth-child(3):before { 11 content: &#34;可以通过昵称访问您的网站🔗&#34;; 12} 13 14/* 当用户点击输入框时显示 */ 15.el-input.el-input--small.el-input-group.el-input-group--prepend:focus-within::before, 16.el-input.el-input--small.el-input-group.el-input-group--prepend:focus-within::after { 17 display: block; 18} 19 20/* 主内容区 */ 21.el-input.el-input--small.el-input-group.el-input-group--prepend::before { 22 /* 先隐藏起来 */ 23 display: none; 24 /* 绝对定位 */ 25 position: absolute; 26 /* 向上移动60像素 */ 27 top: -60px; 28 /* 文字强制不换行，防止left:50%导致的文字换行 */ 29 white-space: nowrap; 30 /* 圆角 */ 31 border-radius: 10px; 32 /* 距离左边50% */ 33 left: 50%; 34 /* 然后再向左边挪动自身的一半，即可实现居中 */ 35 transform: translate(-50%); 36 /* 填充 */ 37 padding: 14px 18px; 38 background: #444; 39 color: #fff; 40} 41 42/* 小角标 */ 43.
 			
 				...
 			
@@ -611,7 +634,7 @@
 							</div>
 						</span>
 						<span>
-							597
+							226
 							&nbsp;&nbsp;
 						</span>
 					</span>
@@ -665,9 +688,8 @@
 			<h2><a href="http://coldcoding.top/tech/blog/hexo/hexo-domainname/">GitHub Pages绑定个人域名失效</a></h2>
 		</pagetitle>
 		<section class="entry-content">
-			暂时将博客托管在了 GitHub Pages上，并将个人域名解析指向了博客，但是每次配置好 Custom domain，访问成功后，不知不觉又 404 了，查询后发现是每次 hexo d
-			
-				...
+			 暂时将博客托管在了 GitHub Pages上，并将个人域名解析指向了博客，但是每次配置好 Custom domain，访问成功后，不知不觉又 404 了，查询后发现是每次 hexo deploy后，Custom domain会被重置而失效。
+在项目的 source文件夹下添加一个 CNAME文件，在文件中填写自己的域名地址，注意是存放有资源的 source文件夹，而不是主题下的 source文件夹，另外 CNAME文件无后缀。 重新部署后，无需再次手动修改配置。 
 			
 		</section>
 		<footer class="entry-footer">
@@ -690,7 +712,7 @@
 							</div>
 						</span>
 						<span>
-							203
+							17
 							&nbsp;&nbsp;
 						</span>
 					</span>
@@ -746,9 +768,8 @@
 			<h2><a href="http://coldcoding.top/tech/blog/hexo/pjax-readtime/">开启PJAX后的坑</a></h2>
 		</pagetitle>
 		<section class="entry-content">
-			刚开启的PJAX就出问题了，有些JS虽然加了 data-pjax 属性，依然没有重载，出现在用户自己编写的用于计算阅读时间的js函数中。 1// 原函数写法 2aaaaaaaaaaaaaaa; 3// 现在的写
-			
-				...
+			 刚开启的PJAX就出问题了，有些JS虽然加了 data-pjax 属性，依然没有重载，出现在用户自己编写的用于计算阅读时间的js函数中。
+1// 原函数写法 2aaaaaaaaaaaaaaa; 3// 现在的写法 4function pjax_reload() { 5 aaaaaaaaaaaaaaa; 6} 7document.addEventListener(&#34;pjax:complete&#34;, function () { 8 pjax_reload(); // Pjax 完成后，重新加载上面的函数 9}); 
 			
 		</section>
 		<footer class="entry-footer">
@@ -771,7 +792,7 @@
 							</div>
 						</span>
 						<span>
-							99
+							24
 							&nbsp;&nbsp;
 						</span>
 					</span>
@@ -827,9 +848,13 @@
 			<h2><a href="http://coldcoding.top/tech/blog/hexo/pjax/">网站开启PJAX</a></h2>
 		</pagetitle>
 		<section class="entry-content">
-			参考文章： 保罗 云泥 AJAX AJAX = 异步 JavaScript 和 XML，是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新
-			
-				...
+			 参考文章： 保罗 云泥
+AJAX AJAX = 异步 JavaScript 和 XML，是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。传统的网页（不使用 AJAX）如果需要更新内容，必需重载整个网页面。有很多使用 AJAX 的应用程序案例，最常见的就是页面拉到底时浏览器会自动加载下一页的内容。
+PJAX PJAX = PushState + AJAX，当用户点击链接发起请求时，PJAX 会拦截请求，然后触发 Ajax 请求和 PushState。其中，Ajax 使你的页面局部刷新，pushState 用于修改 URL 而不跳转页面，从而实现不跳转页面局部刷新的功能。可以提高用户体验，同时极大的减少服务器和宽带消耗。
+Butterfly + PJAX 开启PJAX 在Butterfly主题中已经集成了PJAX，在主题配置文件_config.butterfly.yml中找到Pjax将enable设置为true即可。
+重载 JS 由于通过 PJAX 切换的页面并没有完全刷新，浏览器不会将网页从头执行一遍，因此有些 JS 将不会生效。为了保证功能不失效，需要重新再执行一次，即重载。
+在Butterfly主题中已经集成了解决方法在pjax.pug中，每次使用时在引入这些文件的标签上添加 data-pjax 属性
+1inject: 2 bottom: 3 - &lt;script data-pjax src=&#34;/js/ripples.js&#34;&gt;&lt;/script&gt; 
 			
 		</section>
 		<footer class="entry-footer">
@@ -852,7 +877,7 @@
 							</div>
 						</span>
 						<span>
-							526
+							51
 							&nbsp;&nbsp;
 						</span>
 					</span>
@@ -910,7 +935,9 @@
 			<h2><a href="http://coldcoding.top/tech/blog/hexo/hexo-readtime/">Hexo &#43; Butterfly 添加阅读时间</a></h2>
 		</pagetitle>
 		<section class="entry-content">
-			参考博客：花猪 在\themes\butterfly\source\js目录下创建一个readtime.js文件 1let oSpan = document.getElementsByTagName(&#34;readtime&#34;)[0]; 2let localhostTime = new Date(); //获取页面
+			参考博客：花猪
+在\themes\butterfly\source\js目录下创建一个readtime.js文件
+1let oSpan = document.getElementsByTagName(&#34;readtime&#34;)[0]; 2let localhostTime = new Date(); //获取页面打开的时间 3function tow(n) { 4 return n &gt;= 0 &amp;&amp; n &lt; 10 ? &#34;0&#34; + n : &#34;&#34; + n; 5} 6setInterval(function () { 7 let goTime = new Date(); //获取动态时间 8 let diffTime = goTime.getTime() - localhostTime.getTime(); 9 var second = Math.floor(diffTime / 1000); //未来时间距离现在的秒数 10 second = second % 86400; //余数代表剩下的秒数； 11 var hour = Math.
 			
 				...
 			
@@ -935,7 +962,7 @@
 							</div>
 						</span>
 						<span>
-							554
+							136
 							&nbsp;&nbsp;
 						</span>
 					</span>

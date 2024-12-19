@@ -15,14 +15,14 @@
       <link>http://coldcoding.top/tech/vision/calibration/undistortimage/</link>
       <pubDate>Tue, 25 Jun 2024 09:18:07 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/vision/calibration/undistortimage/</guid>
-      <description>1// UndistortImage 畸变校正 2func UndistortImage(imgData []byte, imgSize image.Point, cameraMatrix gocv.Mat, distCoeffs gocv.Mat, newCameraMatrix gocv.Mat) ([]byte, error) { 3 mapx := gocv.NewMatWithSize(imgSize.X, imgSize.Y, gocv.MatTypeCV32F) 4 defer mapx.Close() 5 mapy := gocv.NewMatWithSize(imgSize.X, imgSize.Y, gocv.MatTypeCV32F) 6 defer mapy.Close() 7 r := gocv.Eye(3, 3, gocv.MatTypeCV32F) 8 defer r.Close() 9 10 // 初始化校正映射 11 gocv.InitUndistortRectifyMap(cameraMatrix, distCoeffs, r, newCameraMatrix, imgSize, int(gocv.MatTypeCV32F), mapx, mapy) 12 // 保存</description>
+      <description>1// UndistortImage 畸变校正 2func UndistortImage(imgData []byte, imgSize image.Point, cameraMatrix gocv.Mat, distCoeffs gocv.Mat, newCameraMatrix gocv.Mat) ([]byte, error) { 3&#x9;mapx := gocv.NewMatWithSize(imgSize.X, imgSize.Y, gocv.MatTypeCV32F) 4&#x9;defer mapx.Close() 5&#x9;mapy := gocv.NewMatWithSize(imgSize.X, imgSize.Y, gocv.MatTypeCV32F) 6&#x9;defer mapy.Close() 7&#x9;r := gocv.Eye(3, 3, gocv.MatTypeCV32F) 8&#x9;defer r.Close() 9 10&#x9;// 初始化校正映射 11&#x9;gocv.InitUndistortRectifyMap(cameraMatrix, distCoeffs, r, newCameraMatrix, imgSize, int(gocv.MatTypeCV32F), mapx, mapy) 12&#x9;// 保存校正后图像 13&#x9;src, err := gocv.IMDecode(imgData, gocv.IMReadGrayScale) 14&#x9;if err !</description>
     </item>
     <item>
       <title>相机标定</title>
       <link>http://coldcoding.top/tech/vision/calibration/cameracalib/</link>
       <pubDate>Fri, 14 Jun 2024 09:53:07 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/vision/calibration/cameracalib/</guid>
-      <description>1// CalibCamera 标定相机 2func CalibCamera(imgDatas [][]byte, chessboardRowCornerCount int, chessboardColCornerCount int, curImageIndex int) error { 3 // 保存各图像中的角点的二维坐标, 即像素坐标 4 imgPoints := gocv.NewPoints2fVector() 5 defer imgPoints.Close() 6 // 保存各图像中的角点的三维坐标，即世界坐标 7 objPoints</description>
+      <description>1// CalibCamera 标定相机 2func CalibCamera(imgDatas [][]byte, chessboardRowCornerCount int, chessboardColCornerCount int, curImageIndex int) error { 3&#x9;// 保存各图像中的角点的二维坐标, 即像素坐标 4&#x9;imgPoints := gocv.NewPoints2fVector() 5&#x9;defer imgPoints.Close() 6&#x9;// 保存各图像中的角点的三维坐标，即世界坐标 7&#x9;objPoints := gocv.NewPoints3fVector() 8&#x9;defer objPoints.Close() 9&#x9;// 保存图片尺寸 10&#x9;imgSize := image.Point{X: 0, Y: 0} 11 12&#x9;// 为三维点定义世界坐标系 13&#x9;objectPoints := make([]gocv.Point3f, 0) 14&#x9;for i := 0; i &amp;lt; chessboardColCornerCount; i++ { 15&#x9;for j := 0; j &amp;lt; chessboardRowCornerCount; j++ { 16&#x9;objectPoints = append(objectPoints, gocv.</description>
     </item>
   </channel>
 </rss>

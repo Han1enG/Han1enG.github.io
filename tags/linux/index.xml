@@ -15,14 +15,14 @@
       <link>http://coldcoding.top/tech/linux/linux-cmd/</link>
       <pubDate>Wed, 16 Aug 2023 15:02:32 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/linux/linux-cmd/</guid>
-      <description>kill 1$ kill pid # kill -15 pid 默认的 kill 系统会发送一个 SIGTERM 的信号给对应的程序，当程序接收到该 signal 后： 程序立刻停止 当程序释放相应资源后再停止 程序可能仍然继续运行 大</description>
+      <description>kill 1$ kill pid # kill -15 pid 默认的 kill 系统会发送一个 SIGTERM 的信号给对应的程序，当程序接收到该 signal 后：&#xA;程序立刻停止 当程序释放相应资源后再停止 程序可能仍然继续运行 大部分程序接收到 SIGTERM 信号后，会先释放自己的资源，然后在停止。但是也有程序可以在接受到信号量后，做一些其他的事情，并且这些事情是可以配置的。如果程序正在等待 IO，可能就不会立马做出相应。也就是说，SIGTERM 多半是会被阻塞的、忽略。&#xA;kill -15 信号只是通知对应的进程要进行&amp;quot;安全、干净的退出&amp;quot;，程序接到信号之后，退出前一般会进行一些&amp;quot;准备工作&amp;quot;，如资源释放、临时文件清理等等，如果准备工作做完了，再进行程序的终止。如果在&amp;quot;准备工作&amp;quot;进行过程中，遇到阻塞或者其他问题导致无法成功，那么应用程序可以选择忽略该终止信号。&#xA;1$ kill -9 pid 必杀，强制删除。在执行时，应用程序是没有时间进行&amp;quot;准备工作&amp;quot;的，所以这通常会带来一些副作用，数据丢失或者终端无法恢复到正常状态等。&#xA;ps Linux ps （英文全拼：process status）命令用于显示当前进程的状态，类似于 windows 的任务管理器。.&#xA;1$ ps -ef | grep 进程关键字 # 查找指定进程 1# ps -ef | grep php 2root 794 1 0 2020 ? 00:00:52 php-fpm: master process (/etc/php/7.3/fpm/php-fpm.conf) 3www-data 951 794 0 2020 ? 00:24:15 php-fpm: pool www 4www-data 953 794 0 2020 ?</description>
     </item>
     <item>
       <title>Hexo 部署到服务器</title>
       <link>http://coldcoding.top/tech/blog/hexo/hexo-centos/</link>
       <pubDate>Sun, 19 Mar 2023 11:29:44 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/blog/hexo/hexo-centos/</guid>
-      <description>GitHub Pages 实在太慢了，科学上网有时候也卡住。 搭建Git服务器 首先使用 Xshell连接服务器，并切换 root用户，回退到根路径 安装 openssh 1sudo apt-get install openssh-server # Ubuntu 2sudo yum</description>
+      <description>GitHub Pages 实在太慢了，科学上网有时候也卡住。&#xA;搭建Git服务器 首先使用 Xshell连接服务器，并切换 root用户，回退到根路径&#xA;安装 openssh&#xA;1sudo apt-get install openssh-server # Ubuntu 2sudo yum install openssh-server # Centos 安装完成之后，查看 ssh服务是否启动&#xA;1ps -e|grep ssh 创建一个名为 git的用户，用于管理 Hexo项目&#xA;1adduser git 给 git用户添加文件的写权限&#xA;1chmod 740 /etc/sudoers 2vim /etc/sudoers 找到 User privilege specification部分，添加如下内容：&#xA;1git ALL=(ALL:ALL) ALL 按 ESC 退出编辑模式，输入 :wq保存退出&#xA;将写权限收回&#xA;1chmod 400 /etc/sudoers 切换至 git用户，创建 ~/.ssh文件夹和 ~/.ssh/authorized_keys文件，并赋予相应的权限&#xA;1su git 2mkdir ~/.ssh 3vim ~/.ssh/authorized_keys 按 i进入编辑模式，将我们先前生成的 id_rsa.pub文件中的公钥复制到 authorized_keys中，按 ESC 退出编辑模式，输入 :wq保存退出。</description>
     </item>
   </channel>
 </rss>

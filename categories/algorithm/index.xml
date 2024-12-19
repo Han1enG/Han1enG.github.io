@@ -15,21 +15,21 @@
       <link>http://coldcoding.top/tech/algorithm/find-min-missing-number/</link>
       <pubDate>Wed, 10 Jul 2024 13:59:07 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/algorithm/find-min-missing-number/</guid>
-      <description>1// findSmallestMissingNumber 查找数组中缺失的最小正整数 2func findSmallestMissingNumber(nums []int) int { 3 n := len(nums) 4 5 // 遍历数组，将每个数字放到它应该在的位置上 6 for i := 0; i &amp;lt; n; i++ { 7 for nums[i] &amp;gt; 0 &amp;amp;&amp;amp; nums[i] &amp;lt;= n &amp;amp;&amp;amp; nums[nums[i]-1] != nums[i]</description>
+      <description> 1// findSmallestMissingNumber 查找数组中缺失的最小正整数 2func findSmallestMissingNumber(nums []int) int { 3&#x9;n := len(nums) 4 5&#x9;// 遍历数组，将每个数字放到它应该在的位置上 6&#x9;for i := 0; i &amp;lt; n; i++ { 7&#x9;for nums[i] &amp;gt; 0 &amp;amp;&amp;amp; nums[i] &amp;lt;= n &amp;amp;&amp;amp; nums[nums[i]-1] != nums[i] { 8&#x9;nums[i], nums[nums[i]-1] = nums[nums[i]-1], nums[i] 9&#x9;} 10&#x9;} 11 12&#x9;// 再次遍历数组，找到第一个不在正确位置上的数字 13&#x9;for i := 0; i &amp;lt; n; i++ { 14&#x9;if nums[i] != i + 1 { 15&#x9;return i + 1 16&#x9;} 17&#x9;} 18 19&#x9;// 如果数组中的数字是从 1 到 n 的连续数字，则最小的缺失数字是 n+1 20&#x9;return n + 1 21} </description>
     </item>
     <item>
       <title>圆拟合</title>
       <link>http://coldcoding.top/tech/algorithm/least-squares-circle-fitting/</link>
       <pubDate>Wed, 05 Jun 2024 09:59:07 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/algorithm/least-squares-circle-fitting/</guid>
-      <description>1. 最小二乘法 推导过程可参考 Kåsa Fit 算法： 1// fitCenterByLeastSquare 最小二乘法拟合圆 2func fitCenterByLeastSquare(points []gocv.Point2f) (gocv.Point2f, float32) { 3 var sumX, sumY, sumX2, sumY2, sumXY, sumX3, sumY3, sumX2Y, sumY2X float32 4 for _, p := range points { 5 sumX += p.X 6 sumY += p.Y 7 sumX2 += p.X *</description>
+      <description>1. 最小二乘法 推导过程可参考 Kåsa Fit 算法：&#xA;1// fitCenterByLeastSquare 最小二乘法拟合圆 2func fitCenterByLeastSquare(points []gocv.Point2f) (gocv.Point2f, float32) { 3&#x9;var sumX, sumY, sumX2, sumY2, sumXY, sumX3, sumY3, sumX2Y, sumY2X float32 4&#x9;for _, p := range points { 5&#x9;sumX += p.X 6&#x9;sumY += p.Y 7&#x9;sumX2 += p.X * p.X 8&#x9;sumY2 += p.Y * p.Y 9&#x9;sumXY += p.X * p.Y 10&#x9;sumX3 += p.X * p.X * p.X 11&#x9;sumY3 += p.</description>
     </item>
     <item>
       <title>筛质数</title>
       <link>http://coldcoding.top/tech/algorithm/filter-prime-number/</link>
       <pubDate>Sun, 01 Jan 2023 09:48:07 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/algorithm/filter-prime-number/</guid>
-      <description>质数 质数和合数是针对所有大于 $1$ 的「自然数」来定义的（所有小于等于 $1$ 的数都不是质数）。 所有小于等于 $1$ 的整数既不是质数也不是合数。 质数的判定——</description>
+      <description>质数 质数和合数是针对所有大于 $1$ 的「自然数」来定义的（所有小于等于 $1$ 的数都不是质数）。&#xA;所有小于等于 $1$ 的整数既不是质数也不是合数。&#xA;质数的判定——试除法：&#xA;$d | n$ 代表的含义是 $d$ 能整除 $n$。（这里的 | 代表整除）&#xA;一个合数的约数总是成对出现的，如果 $d|n$，那么 $(n/d)|n$，因此我们判断一个数是否为质数的时候，只需要判断较小的那一个数能否整除 $n$ 就行了，即只需枚举 $d\le(n\div d)$，即 $d\times d\le n$，$d\le \sqrt{n}$ 就行了。&#xA;sqrt(n) 这个函数执行的时候比较慢。&#xA;$i * i &amp;lt;= n$ 又容易溢出。&#xA;1bool is_prime(int x) 2{ 3 if(x &amp;lt; 2) return false; 4 for(int i = 2; i &amp;lt;= x / i; i ++) // x / i 是最快且最不容易爆炸的写法 5 { 6 if(x % i == 0) return false; 7 } 8 return true; 9} 分解质因数——试除法（算数基本定理）</description>
     </item>
   </channel>
 </rss>

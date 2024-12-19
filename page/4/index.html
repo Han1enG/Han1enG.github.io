@@ -187,7 +187,12 @@
 			<h2><a href="http://coldcoding.top/tech/blog/hexo/hexo-math/">Hexo 数学公式渲染(KaTeX)</a></h2>
 		</pagetitle>
 		<section class="entry-content">
-			The fastest math typesetting library for the web. Katex 在网页中如何插入公式？如 $x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$ 一个办法是图片，但是极不方便，最好的办法还是用文字来描述数学公式，把渲染的工作交给引擎。LaTe
+			The fastest math typesetting library for the web.
+Katex 在网页中如何插入公式？如 $x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$
+一个办法是图片，但是极不方便，最好的办法还是用文字来描述数学公式，把渲染的工作交给引擎。LaTeX就是一个常用的排版工具，包括但不限于数学公式、表格、化学公式，而我们更多的需求是展示数学公式，所以只需要一个LaTeX的子集，能渲染数学公式即可，KaTeX就是这样一个支持HTML的轻量级的数学公式引擎。
+文件配置 打开主题配置文件_config.butterfly.yml，禁用MathJax，并修改 KaTeX
+1# MathJax 2mathjax: 3 enable: false 4 per_page: false 5 6# KaTeX 7katex: 8 enable: true # false 需要時加載，須在使用的Markdown Front-matter 加上 katex: true 9 per_page: false 10 hide_scrollbar: true 卸載掉marked或者kramed插件，安裝hexo-renderer-markdown-it，可以在package.json文件中查看。
+1npm un hexo-renderer-marked --save # 卸载 marked 插件 2npm un hexo-renderer-kramed --save # 卸载 kramed 插件 3npm i hexo-renderer-markdown-it --save # 安装渲染插件 4npm install katex @renbaoshuo/markdown-it-katex # 安装渲染插件 在hexo的根目录的_config.
 			
 				...
 			
@@ -212,7 +217,7 @@
 							</div>
 						</span>
 						<span>
-							466
+							99
 							&nbsp;&nbsp;
 						</span>
 					</span>
@@ -268,7 +273,8 @@
 			<h2><a href="http://coldcoding.top/tech/blog/hexo/widget-weather/">Hexo 添加天气插件</a></h2>
 		</pagetitle>
 		<section class="entry-content">
-			注册 和风天气 生成代码 根据个人需求自定义创建天气插件，最后点击生成代码。 1&lt;div id=&#34;he-plugin-simple&#34;&gt;&lt;/div&gt; 2&lt;script&gt; 3WIDGET = { 4 &#34;CONFIG&#34;: { 5 &#34;modules&#34;: &#34;01234&#34;, 6 &#34;background&#34;: &#34;5&#34;, 7 &#34;tmpColor&#34;: &#34;FF9900&#34;, 8 &#34;tmpSize&#34;: &#34;16&#34;, 9 &#34;cityColor&#34;: &#34;CCCCCC&#34;, 10 &#34;citySize&#34;: &#34;16&#34;, 11 &#34;aqiColor&#34;: &#34;D9D9D9&#34;, 12 &#34;aqiSize&#34;: &#34;16&#34;, 13 &#34;weatherIconSize&#34;:
+			注册 和风天气 生成代码 根据个人需求自定义创建天气插件，最后点击生成代码。
+1&lt;div id=&#34;he-plugin-simple&#34;&gt;&lt;/div&gt; 2&lt;script&gt; 3WIDGET = { 4 &#34;CONFIG&#34;: { 5 &#34;modules&#34;: &#34;01234&#34;, 6 &#34;background&#34;: &#34;5&#34;, 7 &#34;tmpColor&#34;: &#34;FF9900&#34;, 8 &#34;tmpSize&#34;: &#34;16&#34;, 9 &#34;cityColor&#34;: &#34;CCCCCC&#34;, 10 &#34;citySize&#34;: &#34;16&#34;, 11 &#34;aqiColor&#34;: &#34;D9D9D9&#34;, 12 &#34;aqiSize&#34;: &#34;16&#34;, 13 &#34;weatherIconSize&#34;: &#34;24&#34;, 14 &#34;alertIconSize&#34;: &#34;18&#34;, 15 &#34;padding&#34;: &#34;15px 10px 10px 20px&#34;, 16 &#34;shadow&#34;: &#34;0&#34;, 17 &#34;language&#34;: &#34;auto&#34;, 18 &#34;borderRadius&#34;: &#34;5&#34;, 19 &#34;fixed&#34;: &#34;true&#34;, 20 &#34;vertical&#34;: &#34;top&#34;, 21 &#34;horizontal&#34;: &#34;left&#34;, 22 &#34;left&#34;: &#34;170&#34;, 23 &#34;top&#34;: &#34;5&#34;, 24 &#34;key&#34;: &#34;4b948664cade49598ad&#34; 25 } 26} 27&lt;/script&gt; 28&lt;script src=&#34;https://widget.
 			
 				...
 			
@@ -293,7 +299,7 @@
 							</div>
 						</span>
 						<span>
-							409
+							183
 							&nbsp;&nbsp;
 						</span>
 					</span>
@@ -347,7 +353,14 @@
 			<h2><a href="http://coldcoding.top/tech/algorithm/filter-prime-number/">筛质数</a></h2>
 		</pagetitle>
 		<section class="entry-content">
-			质数 质数和合数是针对所有大于 $1$ 的「自然数」来定义的（所有小于等于 $1$ 的数都不是质数）。 所有小于等于 $1$ 的整数既不是质数也不是合数。 质数的判定——
+			质数 质数和合数是针对所有大于 $1$ 的「自然数」来定义的（所有小于等于 $1$ 的数都不是质数）。
+所有小于等于 $1$ 的整数既不是质数也不是合数。
+质数的判定——试除法：
+$d | n$ 代表的含义是 $d$ 能整除 $n$。（这里的 | 代表整除）
+一个合数的约数总是成对出现的，如果 $d|n$，那么 $(n/d)|n$，因此我们判断一个数是否为质数的时候，只需要判断较小的那一个数能否整除 $n$ 就行了，即只需枚举 $d\le(n\div d)$，即 $d\times d\le n$，$d\le \sqrt{n}$ 就行了。
+sqrt(n) 这个函数执行的时候比较慢。
+$i * i &lt;= n$ 又容易溢出。
+1bool is_prime(int x) 2{ 3 if(x &lt; 2) return false; 4 for(int i = 2; i &lt;= x / i; i ++) // x / i 是最快且最不容易爆炸的写法 5 { 6 if(x % i == 0) return false; 7 } 8 return true; 9} 分解质因数——试除法（算数基本定理）
 			
 				...
 			
@@ -372,7 +385,7 @@
 							</div>
 						</span>
 						<span>
-							4424
+							1500
 							&nbsp;&nbsp;
 						</span>
 					</span>

@@ -15,7 +15,7 @@
       <link>http://coldcoding.top/tech/blog/hexo/hexo-math/</link>
       <pubDate>Thu, 02 Mar 2023 17:03:10 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/blog/hexo/hexo-math/</guid>
-      <description>The fastest math typesetting library for the web. Katex 在网页中如何插入公式？如 $x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$ 一个办法是图片，但是极不方便，最好的办法还是用文字来描述数学公式，把渲染的工作交给引擎。LaTe</description>
+      <description>The fastest math typesetting library for the web.&#xA;Katex 在网页中如何插入公式？如 $x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$&#xA;一个办法是图片，但是极不方便，最好的办法还是用文字来描述数学公式，把渲染的工作交给引擎。LaTeX就是一个常用的排版工具，包括但不限于数学公式、表格、化学公式，而我们更多的需求是展示数学公式，所以只需要一个LaTeX的子集，能渲染数学公式即可，KaTeX就是这样一个支持HTML的轻量级的数学公式引擎。&#xA;文件配置 打开主题配置文件_config.butterfly.yml，禁用MathJax，并修改 KaTeX&#xA;1# MathJax 2mathjax: 3 enable: false 4 per_page: false 5 6# KaTeX 7katex: 8 enable: true # false 需要時加載，須在使用的Markdown Front-matter 加上 katex: true 9 per_page: false 10 hide_scrollbar: true 卸載掉marked或者kramed插件，安裝hexo-renderer-markdown-it，可以在package.json文件中查看。&#xA;1npm un hexo-renderer-marked --save # 卸载 marked 插件 2npm un hexo-renderer-kramed --save # 卸载 kramed 插件 3npm i hexo-renderer-markdown-it --save # 安装渲染插件 4npm install katex @renbaoshuo/markdown-it-katex # 安装渲染插件 在hexo的根目录的_config.</description>
     </item>
   </channel>
 </rss>

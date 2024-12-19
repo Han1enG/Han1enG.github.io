@@ -15,7 +15,7 @@
       <link>http://coldcoding.top/tech/linux/linux-cmd/</link>
       <pubDate>Wed, 16 Aug 2023 15:02:32 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/linux/linux-cmd/</guid>
-      <description>kill 1$ kill pid # kill -15 pid 默认的 kill 系统会发送一个 SIGTERM 的信号给对应的程序，当程序接收到该 signal 后： 程序立刻停止 当程序释放相应资源后再停止 程序可能仍然继续运行 大</description>
+      <description>kill 1$ kill pid # kill -15 pid 默认的 kill 系统会发送一个 SIGTERM 的信号给对应的程序，当程序接收到该 signal 后：&#xA;程序立刻停止 当程序释放相应资源后再停止 程序可能仍然继续运行 大部分程序接收到 SIGTERM 信号后，会先释放自己的资源，然后在停止。但是也有程序可以在接受到信号量后，做一些其他的事情，并且这些事情是可以配置的。如果程序正在等待 IO，可能就不会立马做出相应。也就是说，SIGTERM 多半是会被阻塞的、忽略。&#xA;kill -15 信号只是通知对应的进程要进行&amp;quot;安全、干净的退出&amp;quot;，程序接到信号之后，退出前一般会进行一些&amp;quot;准备工作&amp;quot;，如资源释放、临时文件清理等等，如果准备工作做完了，再进行程序的终止。如果在&amp;quot;准备工作&amp;quot;进行过程中，遇到阻塞或者其他问题导致无法成功，那么应用程序可以选择忽略该终止信号。&#xA;1$ kill -9 pid 必杀，强制删除。在执行时，应用程序是没有时间进行&amp;quot;准备工作&amp;quot;的，所以这通常会带来一些副作用，数据丢失或者终端无法恢复到正常状态等。&#xA;ps Linux ps （英文全拼：process status）命令用于显示当前进程的状态，类似于 windows 的任务管理器。.&#xA;1$ ps -ef | grep 进程关键字 # 查找指定进程 1# ps -ef | grep php 2root 794 1 0 2020 ? 00:00:52 php-fpm: master process (/etc/php/7.3/fpm/php-fpm.conf) 3www-data 951 794 0 2020 ? 00:24:15 php-fpm: pool www 4www-data 953 794 0 2020 ?</description>
     </item>
   </channel>
 </rss>

@@ -187,7 +187,14 @@
 			<h2><a href="http://coldcoding.top/tech/web/angular-01/">Angular 实践一搭建环境&#43;创建项目</a></h2>
 		</pagetitle>
 		<section class="entry-content">
-			实习公司要求使用 Angular，学过 VUE，了解过 React，偏偏是没用过的 Angular，重头啃 安装 node 查看版本，之前都是在 cmd 窗口，今天学了
+			实习公司要求使用 Angular，学过 VUE，了解过 React，偏偏是没用过的 Angular，重头啃
+安装 node 查看版本，之前都是在 cmd 窗口，今天学了个 powershell 窗口，感觉差不多，shift+win+右键
+1$ node -v 2$ npm -v 安装 Angular 脚手架 1$ npm install -g @angular/cli@14.0.2 查看版本 1$ ng v # ng version 报错如下： 解决办法： 管理员运行 Aindows PowerShell
+输入下面指令，并输入A更改权限
+1$ set-ExecutionPolicy RemoteSigned 输入下面指令查看当前状态
+1$ get-ExecutionPolicy 再次查看版本号，安装成功 卸载 Angular 1$ npm uninstall -g @angular/cli 创建项目 cd到存放项目的目录，输入命令
+1$ ng new &lt;项目名&gt; 2$ yes 3$ css 安装依赖的时间略久，可以先跳过安装依赖的步骤，只是建项目，等项目建完后再安装依赖
+1$ ng new &lt;项目名&gt; --skip-install 创建好之后的项目结构如下： cd到项目的目录地址，输入命令：
 			
 				...
 			
@@ -212,7 +219,7 @@
 							</div>
 						</span>
 						<span>
-							427
+							118
 							&nbsp;&nbsp;
 						</span>
 					</span>
@@ -266,7 +273,10 @@
 			<h2><a href="http://coldcoding.top/tech/blog/hexo/hexo-title-icon/">Hexo &#43; Butterfly 修改H1~H6标题图标</a></h2>
 		</pagetitle>
 		<section class="entry-content">
-			获取图标Unicide值 在 fontawesome上找到需要的图标，记录下Unicode值 配置文件 在主题配置文件_config.butterf
+			获取图标Unicide值 在 fontawesome上找到需要的图标，记录下Unicode值
+配置文件 在主题配置文件_config.butterfly.yml的beautify处，修改标题图标
+1beautify: 2 enable: true 3 field: post # site/post 4 # title-prefix-icon: &#39;\f0c1&#39; 原锁链标题 5 title-prefix-icon: &#39;\f14e&#39; 6 title-prefix-icon-color: &#39;#F47466&#39; 在\themes\butterfly\source\css目录下新建title_icon.css文件，添加：
+1/* 文章页H1-H6图标样式效果 */ 2h1::before, h2::before, h3::before, h4::before, h5::before, h6::before { 3 -webkit-animation: ccc 1.6s linear infinite ; 4 animation: ccc 1.6s linear infinite ; 5} 6@-webkit-keyframes ccc { 7 0% { 8 -webkit-transform: rotate(0deg); 9 transform: rotate(0deg) 10 } 11 to { 12 -webkit-transform: rotate(-1turn); 13 transform: rotate(-1turn) 14 } 15} 16@keyframes ccc { 17 0% { 18 -webkit-transform: rotate(0deg); 19 transform: rotate(0deg) 20 } 21 to { 22 -webkit-transform: rotate(-1turn); 23 transform: rotate(-1turn) 24 } 25} 给 H1~H6 标题设置不同颜色，在title_icon.
 			
 				...
 			
@@ -291,7 +301,7 @@
 							</div>
 						</span>
 						<span>
-							394
+							208
 							&nbsp;&nbsp;
 						</span>
 					</span>
@@ -345,9 +355,9 @@
 			<h2><a href="http://coldcoding.top/tech/blog/hexo/hexo-transparent/">Hexo &#43; Butterfly 文章页透明</a></h2>
 		</pagetitle>
 		<section class="entry-content">
-			在 \themes\butterfly\source\css目录下新建 article_transparent.css文件，添加： 1/* 首页文章栏背
-			
-				...
+			 在 \themes\butterfly\source\css目录下新建 article_transparent.css文件，添加：
+1/* 首页文章栏背景透明 */ 2#recent-posts&gt;.recent-post-item,.layout_page&gt;div:first-child:not(.recent-posts),.layout_post&gt;#page,.layout_post&gt;#post,.read-mode .layout_post&gt;#post { 3 background: var(--light_bg_color) 4} 5 6/* 侧边栏透明 */ 7#aside-content .card-widget { 8 background: var(--light_bg_color) 9} 在主题配置文件 _config.butterfly.yml的 inject，在 head直接引入 css文件
+1- &lt;script src=&#34;/css/article_transparent.js&#34;&gt;&lt;/script&gt; 
 			
 		</section>
 		<footer class="entry-footer">
@@ -370,7 +380,7 @@
 							</div>
 						</span>
 						<span>
-							149
+							32
 							&nbsp;&nbsp;
 						</span>
 					</span>
@@ -424,9 +434,9 @@
 			<h2><a href="http://coldcoding.top/tech/blog/hexo/hexo-funnytitle/">Hexo &#43; Butterfly 修改浏览器标题</a></h2>
 		</pagetitle>
 		<section class="entry-content">
-			在\themes\butterfly\source\js目录下新建funny_title.js文件，添加： 1var OriginTitle = document.title; 2var titleTime; 3document.addEventListener(&#39;visibilitychange&#39;, function () { 4 if (document.hidden) { 5 $(&#39;[rel=&#34;icon&#34;]&#39;).attr(&#39;href&#39;, &#34;/funny.ico&#34;);
-			
-				...
+			 在\themes\butterfly\source\js目录下新建funny_title.js文件，添加：
+1var OriginTitle = document.title; 2var titleTime; 3document.addEventListener(&#39;visibilitychange&#39;, function () { 4 if (document.hidden) { 5 $(&#39;[rel=&#34;icon&#34;]&#39;).attr(&#39;href&#39;, &#34;/funny.ico&#34;); 6 document.title = &#39;╭(°A°`)╮ 怎么走了 ~&#39;; 7 clearTimeout(titleTime); 8 } 9 else { 10 $(&#39;[rel=&#34;icon&#34;]&#39;).attr(&#39;href&#39;, &#34;/favicon.ico&#34;); 11 document.title = &#39;(ฅ&gt;ω&lt;*ฅ) 欢迎回来 ~&#39; + OriginTitle; 12 titleTime = setTimeout(function () { 13 document.title = OriginTitle; 14 }, 2000); 15 } 16}); 在主题配置文件_config.butterfly.yml的inject，在bottom直接引入js文件
+1- &lt;script src=&#34;/js/funny_title.js&#34;&gt;&lt;/script&gt; 
 			
 		</section>
 		<footer class="entry-footer">
@@ -449,7 +459,7 @@
 							</div>
 						</span>
 						<span>
-							200
+							62
 							&nbsp;&nbsp;
 						</span>
 					</span>
@@ -503,7 +513,8 @@
 			<h2><a href="http://coldcoding.top/tech/blog/hexo/hexo-snow/">Hexo &#43; Butterfly 背景添加雪花、樱花、动线特效</a></h2>
 		</pagetitle>
 		<section class="entry-content">
-			雪花 在\themes\butterfly\source\js目录下新建snow.js文件，添加： 1if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) { 2 // 移动端不显示 3 } 4else { 5 (function($){ 6 $.fn.snow = function(options){ 7
+			雪花 在\themes\butterfly\source\js目录下新建snow.js文件，添加：
+1if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) { 2	// 移动端不显示 3 } 4else { 5	(function($){ 6	$.fn.snow = function(options){ 7	var $flake = $(&#39;&lt;div id=&#34;snowbox&#34; /&gt;&#39;).css({&#39;position&#39;: &#39;absolute&#39;,&#39;z-index&#39;:&#39;9999&#39;, &#39;top&#39;: &#39;-50px&#39;}).html(&#39;&amp;#10052;&#39;), 8	documentHeight = $(document).height(), 9	documentWidth	= $(document).width(), 10	defaults = { 11	minSize	: 10, 12	maxSize	: 20, 13	newOn	: 1000, 14	flakeColor	: &#34;#AFDAEF&#34; /* 此处可以定义雪花颜色，若要白色可以改为#FFFFFF */ 15	}, 16	options	= $.extend({}, defaults, options); 17	var interval= setInterval( function(){ 18	var startPositionLeft = Math.
 			
 				...
 			
@@ -528,7 +539,7 @@
 							</div>
 						</span>
 						<span>
-							1741
+							1298
 							&nbsp;&nbsp;
 						</span>
 					</span>
@@ -582,7 +593,13 @@
 			<h2><a href="http://coldcoding.top/tech/blog/hexo/hexo_backup/">利用Github分支备份Hexo博客源文件</a></h2>
 		</pagetitle>
 		<section class="entry-content">
-			前言 虽然Hexo部署博客很方便，但是当我们更换电脑时呢，在github中的其实只是在我们本地目录里的.deploy_git里面的内容，显然我
+			前言 虽然Hexo部署博客很方便，但是当我们更换电脑时呢，在github中的其实只是在我们本地目录里的.deploy_git里面的内容，显然我们需要把源文件备份push到github上，这样只需要克隆到本地，简单配置后就可以了。
+备份 新建分支 在Github上的博客仓库下创建一个新的分支hexo，并且将这个分支设置为默认分支
+克隆hexo分支 1$ git clone git@...git #(github page 的仓库地址) 把克隆下来的文件夹中的.git文件复制到博客根目录下，如果没有找到.git文件，其实是被隐藏了 开始备份 进入到博客的根目录下Git Bash
+1$ git add . 2$ git commit -m &#34;Backup&#34; 3$ git push origin hexo 此时可以在Github上发现完成备份。 之后每次在更改后，可以执行以下命令：
+1$ hexo clean 2$ git add . 3$ git commit -m &#34;backup&#34; 4$ git push 5$ hexo g -d 本地恢复 换一台电脑，配置好 Hexo 的环境，配置 Git SSH key，把博客源文件代码克隆下来:
+1$ git clone git@...git # (github page 的仓库地址) 克隆后，默认分支是 master，需要切换到hexo分支（省略）
+1$ git branch -a # 查看所有分支 2$ git checkout origin/hexo # 切换到xxx分支 执行如下命令
 			
 				...
 			
@@ -607,7 +624,7 @@
 							</div>
 						</span>
 						<span>
-							438
+							92
 							&nbsp;&nbsp;
 						</span>
 					</span>
@@ -663,7 +680,11 @@
 			<h2><a href="http://coldcoding.top/tech/blog/hexo/hexo-loading-car/">Hexo &#43; Butterfly 更换加载动画</a></h2>
 		</pagetitle>
 		<section class="entry-content">
-			参考文章：https://blog.zhheo.com/p/32776e99.html 资源文件 CodePen 配置 在主题配置文件_config.butte
+			参考文章：https://blog.zhheo.com/p/32776e99.html
+资源文件 CodePen
+配置 在主题配置文件_config.butterfly.yml中，找到preloader并设置enable为true
+在 \themes\butterfly\source\css目录下新建 loading_car.css文件，添加：
+1/* loading背景 */ 2.loading-bg, #loading-box .loading-left-bg, #loading-box .loading-right-bg{ 3 background-color: #3f3f3f; 4} 5 6.carplay{ 7 box-sizing: border-box; 8 9 --black :#1a1c20 ; 10 --white : #fff ; 11 --green : #3f3f3f ; 12 --d-green : #1e1e1e ; 13 --gray : #c1c1c1 ; 14 --l-gray: #c4c4c4 ; 15 --m-gray : #373838 ; 16 --d-gray : #282724 ; 17 --d-blue: #202428 ; 18 --orange : #ef6206 ; 19 --yellow : #dfa500 ; 20 --l-yellow: #deb953; 21 --light: #fbfbfb ; 22 --n-road : -4em; 23 --p-road : 7em; 24 25 /* background-color: var(--green) ; */ 26 27 28} 29 30.
 			
 				...
 			
@@ -688,7 +709,7 @@
 							</div>
 						</span>
 						<span>
-							3076
+							2801
 							&nbsp;&nbsp;
 						</span>
 					</span>
@@ -742,7 +763,8 @@
 			<h2><a href="http://coldcoding.top/tech/blog/hexo/hexo-mouse-move/">Hexo &#43; Butterfly 添加鼠标移动特效</a></h2>
 		</pagetitle>
 		<section class="entry-content">
-			在/themes/butterfly/source/js文件夹中新建mouse_move.js文件 1(function () { 2 function t() { 3 i(), a(); 4 } 5 function i() { 6 document.addEventListener(&#34;mousemove&#34;, o), 7 document.addEventListener(&#34;touchmove&#34;,
+			在/themes/butterfly/source/js文件夹中新建mouse_move.js文件
+1(function () { 2 function t() { 3 i(), a(); 4 } 5 function i() { 6 document.addEventListener(&#34;mousemove&#34;, o), 7 document.addEventListener(&#34;touchmove&#34;, e), 8 document.addEventListener(&#34;touchstart&#34;, e), 9 window.addEventListener(&#34;resize&#34;, n); 10 } 11 function n(t) { 12 (d = window.innerWidth), window.innerHeight; 13 } 14 function e(t) { 15 if (t.touches.length &gt; 0) 16 for (var i = 0; i &lt; t.touches.length; i++) 17 s( 18 t.touches[i].clientX, 19 t.touches[i].clientY, 20 r[Math.floor(Math.random() * r.
 			
 				...
 			
@@ -767,7 +789,7 @@
 							</div>
 						</span>
 						<span>
-							481
+							373
 							&nbsp;&nbsp;
 						</span>
 					</span>
@@ -821,7 +843,11 @@
 			<h2><a href="http://coldcoding.top/tech/blog/hexo/hexo-fish/">hexo_fish</a></h2>
 		</pagetitle>
 		<section class="entry-content">
-			参考文章：Hexo页脚养鱼效果 引入必须的jquery文件 https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js 把上述文件保存在\themes\butterfly\source\js并命名为jq
+			参考文章：Hexo页脚养鱼效果
+引入必须的jquery文件
+https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js 把上述文件保存在\themes\butterfly\source\js并命名为jquery.min.js和fish.js
+在\themes\butterfly\source\js路径下新建fish.js文件，代码内容如下：
+1fish(); 2function fish() { 3 return ( 4 $(&#34;footer&#34;).append( 5 &#39;&lt;div class=&#34;fish_container&#34; id=&#34;jsi-flying-fish-container&#34;&gt;&lt;/div&gt;&#39; 6 ), 7 $(&#34;.fish_container&#34;).css({ 8 &#34;z-index&#34;: -1, 9 width: &#34;100%&#34;, 10 height: &#34;160px&#34;, 11 margin: 0, 12 padding: 0, 13 }), 14 $(&#34;#footer-wrap&#34;).css({ 15 position: &#34;absolute&#34;, 16 &#34;text-align&#34;: &#34;center&#34;, 17 top: 0, 18 right: 0, 19 left: 0, 20 bottom: 0, 21 }), 22 this 23 ); 24} 25var RENDERER = { 26	POINT_INTERVAL : 5, 27	FISH_COUNT : 3, 28	MAX_INTERVAL_COUNT : 50, 29	INIT_HEIGHT_RATE : 0.
 			
 				...
 			
@@ -846,7 +872,7 @@
 							</div>
 						</span>
 						<span>
-							1877
+							1475
 							&nbsp;&nbsp;
 						</span>
 					</span>
@@ -900,9 +926,8 @@
 			<h2><a href="http://coldcoding.top/tech/blog/beian/">Hexo &#43; Butterfly 添加备案信息</a></h2>
 		</pagetitle>
 		<section class="entry-content">
-			在/themes/butterfly/layout/includes/footer.pug文件中添加以下代码 1.framework-info 2 img(src = &#39;https://static.dy208.cn/o_1dfilp8ruo521thr1hvf18ji17soa.png&#39;) 3 span= &#39; &#39; 4 a(href=&#39;https://beian.miit.gov.cn/&#39;)= &#39;
-			
-				...
+			在/themes/butterfly/layout/includes/footer.pug文件中添加以下代码
+1.framework-info 2 img(src = &#39;https://static.dy208.cn/o_1dfilp8ruo521thr1hvf18ji17soa.png&#39;) 3 span= &#39; &#39; 4 a(href=&#39;https://beian.miit.gov.cn/&#39;)= &#39;黔ICP备2022002429号-1&#39; 
 			
 		</section>
 		<footer class="entry-footer">
@@ -925,7 +950,7 @@
 							</div>
 						</span>
 						<span>
-							93
+							13
 							&nbsp;&nbsp;
 						</span>
 					</span>

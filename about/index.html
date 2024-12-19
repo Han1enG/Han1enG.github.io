@@ -196,101 +196,20 @@
     </header>
       
 
-<aside id="toc-container" class="toc-container wide">
-    <div class="toc">
-        <details >
-            <summary accesskey="c" title="(Alt + C)">
-                
-                <span class="details">Table of Contents</span>
-            </summary>
-
-            <div class="inner"><ul>
-                    <li>
-                        <a href="#heading" aria-label="👏">👏</a></li>
-                    <li>
-                        <a href="#about-site" aria-label="About Site">About Site</a></li>
-                    <li>
-                        <a href="#dont-be-shy-lets-connect" aria-label="Don&amp;rsquo;t be shy, let&amp;rsquo;s connect!">Don&rsquo;t be shy, let&rsquo;s connect!</a>
-                    </li>
-                </ul>
-            </div>
-        </details>
-    </div>
-</aside>
-<script>
-    let activeElement;
-    let elements;
-    window.addEventListener('DOMContentLoaded', function (event) {
-        checkTocPosition();
-
-        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
-        
-        activeElement = elements[0];
-        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
-        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-    }, false);
-
-    window.addEventListener('resize', function(event) {
-        checkTocPosition();
-    }, false);
-
-    window.addEventListener('scroll', () => {
-        
-        if (elements) {
-            activeElement = Array.from(elements).find((element) => {
-                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
-                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
-                    return element;
-                }
-            }) || activeElement
-
-            elements.forEach(element => {
-                const id = encodeURI(element.getAttribute('id')).toLowerCase();
-                if (element === activeElement){
-                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-                } else {
-                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
-                }
-            })
-        }
-    }, false);
-
-    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
-    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
-    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
-
-    function checkTocPosition() {
-        const width = document.body.scrollWidth;
-        if (width - main - (toc * 2) - (gap * 4) > 0) {
-            document.getElementById("toc-container").classList.add("wide");
-        } else {
-            document.getElementById("toc-container").classList.remove("wide");
-        }
-    }
-
-    function getOffsetTop(element) {
-        if (!element.getClientRects().length) {
-            return 0;
-        }
-        let rect = element.getBoundingClientRect();
-        let win = element.ownerDocument.defaultView;
-        return rect.top + win.pageYOffset;
-    }
-</script>
     <div class="post-content"><h2 id="heading">👏</h2>
 <p>我是 <em>Cold</em></p>
 <p>很高兴可以在这里遇见你。</p>
 <ul>
 <li>在职社畜，目前的工作内容是全栈，但是本身还是喜欢写后端，Gopher ， 前端苦于没有基础，工作效率很低，但无奈也会 assigned 前端任务 🥹。</li>
 <li>在朋友的影响下成为棒球爱好者，自从 <strong>Shohei Ohtani</strong> 加入 <strong>Los Angeles Dodger</strong>s 后，就变身道奇十年老粉 🤣，同时喜欢长跑运动，很喜欢 <a href="https://www.hakone-ekiden.jp/">箱根駅伝</a> 的氛围。</li>
-<li><strong>Duolingo</strong> 日语学习者 &amp; <strong>Eudic</strong> 英语学习者。</li>
+<li><a href="https://www.duolingo.com/profile/1L9q7">Duolingo</a> 日语学习者 &amp; <strong>Eudic</strong> 英语学习者。</li>
 <li>想多认识一些云端畅聊的朋友。</li>
 </ul>
 <h2 id="about-site">About Site</h2>
 <ul>
 <li>在这里会不定期地分享技术、闲言碎语、心得体会。欢迎评论，并推荐使用 <a href="http://coldcoding.top/index.xml">RSS</a> 订阅。</li>
 <li>使用 Hugo 搭建，部署在 GitHub Pages 上，后续准备迁移到 Cloudflare Pages。</li>
-<li>页面是在 <a href="https://github.com/vimux/blank">Blank</a> 主题的基础上改造而来，同时参考了 <a href="https://www.sulvblog.cn/">sulvblog</a> 和 <a href="https://cuttontail.blog/">cuttontail</a> 的布局。</li>
+<li>页面是在 <a href="https://github.com/vimux/blank">Blank</a> 主题的基础上改造而来，同时参考了 <a href="https://www.sulvblog.cn/">sulvblog</a> 和 <a href="https://cuttontail.blog/">cuttontail</a> 的布局，<del>很遗憾目前已经都无法访问了</del>。</li>
 <li>博客目前使用的评论工具是 <a href="https://twikoo.js.org/">twikoo</a>，在评论中添加你的邮箱后，可以收到我的回复邮件，当然也可以直接使用下面的联系方式联系我。</li>
 </ul>
 <h2 id="dont-be-shy-lets-connect">Don&rsquo;t be shy, let&rsquo;s connect!</h2>
@@ -301,7 +220,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M433 179.11c0-97.2-63.71-125.7-63.71-125.7-62.52-28.7-228.56-28.4-290.48 0 0 0-63.72 28.5-63.72 125.7 0 115.7-6.6 259.4 105.63 289.1 40.51 10.7 75.32 13 103.33 11.4 50.81-2.8 79.32-18.1 79.32-18.1l-1.7-36.9s-36.31 11.4-77.12 10.1c-40.41-1.4-83-4.4-89.63-54a102.54 102.54 0 0 1-.9-13.9c85.63 20.9 158.65 9.1 178.75 6.7 56.12-6.7 105-41.3 111.23-72.9 9.8-49.8 9-121.5 9-121.5zm-75.12 125.2h-46.63v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.33V197c0-58.5-64-56.6-64-6.9v114.2H90.19c0-122.1-5.2-147.9 18.41-175 25.9-28.9 79.82-30.8 103.83 6.1l11.6 19.5 11.6-19.5c24.11-37.1 78.12-34.8 103.83-6.1 23.71 27.3 18.4 53 18.4 175z"/></svg>
 
   </span>
- <a href="https://mastodon.world/@hanleng">Mastodon</a> - 我在这里 jibber jabber</li>
+ <a href="https://mastodon.world/@hanleng">Mastodon</a> - 我在这里 jibber jabber，分享 Bond 和 Potter 的日常。</li>
 <li>
 
   <span class="relative inline-block align-text-bottom icon">

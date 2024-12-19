@@ -15,126 +15,126 @@
       <link>http://coldcoding.top/tech/blog/hexo/hexo-centos/</link>
       <pubDate>Sun, 19 Mar 2023 11:29:44 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/blog/hexo/hexo-centos/</guid>
-      <description>GitHub Pages 实在太慢了，科学上网有时候也卡住。 搭建Git服务器 首先使用 Xshell连接服务器，并切换 root用户，回退到根路径 安装 openssh 1sudo apt-get install openssh-server # Ubuntu 2sudo yum</description>
+      <description>GitHub Pages 实在太慢了，科学上网有时候也卡住。&#xA;搭建Git服务器 首先使用 Xshell连接服务器，并切换 root用户，回退到根路径&#xA;安装 openssh&#xA;1sudo apt-get install openssh-server # Ubuntu 2sudo yum install openssh-server # Centos 安装完成之后，查看 ssh服务是否启动&#xA;1ps -e|grep ssh 创建一个名为 git的用户，用于管理 Hexo项目&#xA;1adduser git 给 git用户添加文件的写权限&#xA;1chmod 740 /etc/sudoers 2vim /etc/sudoers 找到 User privilege specification部分，添加如下内容：&#xA;1git ALL=(ALL:ALL) ALL 按 ESC 退出编辑模式，输入 :wq保存退出&#xA;将写权限收回&#xA;1chmod 400 /etc/sudoers 切换至 git用户，创建 ~/.ssh文件夹和 ~/.ssh/authorized_keys文件，并赋予相应的权限&#xA;1su git 2mkdir ~/.ssh 3vim ~/.ssh/authorized_keys 按 i进入编辑模式，将我们先前生成的 id_rsa.pub文件中的公钥复制到 authorized_keys中，按 ESC 退出编辑模式，输入 :wq保存退出。</description>
     </item>
     <item>
       <title>Hexo &#43; Butterfly 添加评论系统</title>
       <link>http://coldcoding.top/tech/blog/hexo/hexo-comment/</link>
       <pubDate>Wed, 15 Mar 2023 11:53:52 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/blog/hexo/hexo-comment/</guid>
-      <description>参考作者给出的教程以及官方文档twikoo和waline 通用设置 主题文件配置 在主题配置文件_config.butterfly.yml中找到c</description>
+      <description>参考作者给出的教程以及官方文档twikoo和waline&#xA;通用设置 主题文件配置 在主题配置文件_config.butterfly.yml中找到comments&#xA;1comments: 2 # Up to two comments system, the first will be shown as default 3 # Choose: Disqus/Disqusjs/Livere/Gitalk/Valine/Waline/Utterances/Facebook Comments/Twikoo/Giscus/Remark42/Artalk 4 use: Twikoo,Waline 5 text: true # Display the comment name next to the button 6 # lazyload: The comment system will be load when comment element enters the browser&amp;#39;s viewport. 7 # If you set it to true, the comment count will be invalid 8 lazyload: true 9 count: true # Display comment count in post&amp;#39;s top_img 10 card_post_count: false # Display comment count in Home Page 在主题配置文件_config.</description>
     </item>
     <item>
       <title>twikoo评论的气泡美化</title>
       <link>http://coldcoding.top/tech/blog/hexo/hexo-comment-pro/</link>
       <pubDate>Wed, 15 Mar 2023 11:10:14 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/blog/hexo/hexo-comment-pro/</guid>
-      <description>参考教程 新建source\css\twikoo.css文件，添加代码 1/* 设置文字内容 :nth-child(1)的作用是选择第几个 */ 2.el-input.el-input--small.el-input-group.el-input-group--prepend:nth-child(1):before { 3 content: &amp;#</description>
+      <description>参考教程&#xA;新建source\css\twikoo.css文件，添加代码&#xA;1/* 设置文字内容 :nth-child(1)的作用是选择第几个 */ 2.el-input.el-input--small.el-input-group.el-input-group--prepend:nth-child(1):before { 3 content: &amp;#34;输入QQ号会自动获取昵称和头像🐧&amp;#34;; 4} 5 6.el-input.el-input--small.el-input-group.el-input-group--prepend:nth-child(2):before { 7 content: &amp;#34;收到回复将会发送到您的邮箱📧&amp;#34;; 8} 9 10.el-input.el-input--small.el-input-group.el-input-group--prepend:nth-child(3):before { 11 content: &amp;#34;可以通过昵称访问您的网站🔗&amp;#34;; 12} 13 14/* 当用户点击输入框时显示 */ 15.el-input.el-input--small.el-input-group.el-input-group--prepend:focus-within::before, 16.el-input.el-input--small.el-input-group.el-input-group--prepend:focus-within::after { 17 display: block; 18} 19 20/* 主内容区 */ 21.el-input.el-input--small.el-input-group.el-input-group--prepend::before { 22 /* 先隐藏起来 */ 23 display: none; 24 /* 绝对定位 */ 25 position: absolute; 26 /* 向上移动60像素 */ 27 top: -60px; 28 /* 文字强制不换行，防止left:50%导致的文字换行 */ 29 white-space: nowrap; 30 /* 圆角 */ 31 border-radius: 10px; 32 /* 距离左边50% */ 33 left: 50%; 34 /* 然后再向左边挪动自身的一半，即可实现居中 */ 35 transform: translate(-50%); 36 /* 填充 */ 37 padding: 14px 18px; 38 background: #444; 39 color: #fff; 40} 41 42/* 小角标 */ 43.</description>
     </item>
     <item>
       <title>GitHub Pages绑定个人域名失效</title>
       <link>http://coldcoding.top/tech/blog/hexo/hexo-domainname/</link>
       <pubDate>Wed, 15 Mar 2023 11:10:00 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/blog/hexo/hexo-domainname/</guid>
-      <description>暂时将博客托管在了 GitHub Pages上，并将个人域名解析指向了博客，但是每次配置好 Custom domain，访问成功后，不知不觉又 404 了，查询后发现是每次 hexo d</description>
+      <description> 暂时将博客托管在了 GitHub Pages上，并将个人域名解析指向了博客，但是每次配置好 Custom domain，访问成功后，不知不觉又 404 了，查询后发现是每次 hexo deploy后，Custom domain会被重置而失效。&#xA;在项目的 source文件夹下添加一个 CNAME文件，在文件中填写自己的域名地址，注意是存放有资源的 source文件夹，而不是主题下的 source文件夹，另外 CNAME文件无后缀。 重新部署后，无需再次手动修改配置。 </description>
     </item>
     <item>
       <title>开启PJAX后的坑</title>
       <link>http://coldcoding.top/tech/blog/hexo/pjax-readtime/</link>
       <pubDate>Sat, 11 Mar 2023 16:20:04 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/blog/hexo/pjax-readtime/</guid>
-      <description>刚开启的PJAX就出问题了，有些JS虽然加了 data-pjax 属性，依然没有重载，出现在用户自己编写的用于计算阅读时间的js函数中。 1// 原函数写法 2aaaaaaaaaaaaaaa; 3// 现在的写</description>
+      <description> 刚开启的PJAX就出问题了，有些JS虽然加了 data-pjax 属性，依然没有重载，出现在用户自己编写的用于计算阅读时间的js函数中。&#xA;1// 原函数写法 2aaaaaaaaaaaaaaa; 3// 现在的写法 4function pjax_reload() { 5 aaaaaaaaaaaaaaa; 6} 7document.addEventListener(&amp;#34;pjax:complete&amp;#34;, function () { 8 pjax_reload(); // Pjax 完成后，重新加载上面的函数 9}); </description>
     </item>
     <item>
       <title>网站开启PJAX</title>
       <link>http://coldcoding.top/tech/blog/hexo/pjax/</link>
       <pubDate>Sat, 11 Mar 2023 14:48:04 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/blog/hexo/pjax/</guid>
-      <description>参考文章： 保罗 云泥 AJAX AJAX = 异步 JavaScript 和 XML，是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新</description>
+      <description> 参考文章： 保罗 云泥&#xA;AJAX AJAX = 异步 JavaScript 和 XML，是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。传统的网页（不使用 AJAX）如果需要更新内容，必需重载整个网页面。有很多使用 AJAX 的应用程序案例，最常见的就是页面拉到底时浏览器会自动加载下一页的内容。&#xA;PJAX PJAX = PushState + AJAX，当用户点击链接发起请求时，PJAX 会拦截请求，然后触发 Ajax 请求和 PushState。其中，Ajax 使你的页面局部刷新，pushState 用于修改 URL 而不跳转页面，从而实现不跳转页面局部刷新的功能。可以提高用户体验，同时极大的减少服务器和宽带消耗。&#xA;Butterfly + PJAX 开启PJAX 在Butterfly主题中已经集成了PJAX，在主题配置文件_config.butterfly.yml中找到Pjax将enable设置为true即可。&#xA;重载 JS 由于通过 PJAX 切换的页面并没有完全刷新，浏览器不会将网页从头执行一遍，因此有些 JS 将不会生效。为了保证功能不失效，需要重新再执行一次，即重载。&#xA;在Butterfly主题中已经集成了解决方法在pjax.pug中，每次使用时在引入这些文件的标签上添加 data-pjax 属性&#xA;1inject: 2 bottom: 3 - &amp;lt;script data-pjax src=&amp;#34;/js/ripples.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; </description>
     </item>
     <item>
       <title>Hexo &#43; Butterfly 添加阅读时间</title>
       <link>http://coldcoding.top/tech/blog/hexo/hexo-readtime/</link>
       <pubDate>Thu, 09 Mar 2023 20:33:02 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/blog/hexo/hexo-readtime/</guid>
-      <description>参考博客：花猪 在\themes\butterfly\source\js目录下创建一个readtime.js文件 1let oSpan = document.getElementsByTagName(&amp;#34;readtime&amp;#34;)[0]; 2let localhostTime = new Date(); //获取页面</description>
+      <description>参考博客：花猪&#xA;在\themes\butterfly\source\js目录下创建一个readtime.js文件&#xA;1let oSpan = document.getElementsByTagName(&amp;#34;readtime&amp;#34;)[0]; 2let localhostTime = new Date(); //获取页面打开的时间 3function tow(n) { 4 return n &amp;gt;= 0 &amp;amp;&amp;amp; n &amp;lt; 10 ? &amp;#34;0&amp;#34; + n : &amp;#34;&amp;#34; + n; 5} 6setInterval(function () { 7 let goTime = new Date(); //获取动态时间 8 let diffTime = goTime.getTime() - localhostTime.getTime(); 9 var second = Math.floor(diffTime / 1000); //未来时间距离现在的秒数 10 second = second % 86400; //余数代表剩下的秒数； 11 var hour = Math.</description>
     </item>
     <item>
       <title>Hexo &#43; Butterfly 修改H1~H6标题图标</title>
       <link>http://coldcoding.top/tech/blog/hexo/hexo-title-icon/</link>
       <pubDate>Sun, 05 Mar 2023 20:10:58 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/blog/hexo/hexo-title-icon/</guid>
-      <description>获取图标Unicide值 在 fontawesome上找到需要的图标，记录下Unicode值 配置文件 在主题配置文件_config.butterf</description>
+      <description>获取图标Unicide值 在 fontawesome上找到需要的图标，记录下Unicode值&#xA;配置文件 在主题配置文件_config.butterfly.yml的beautify处，修改标题图标&#xA;1beautify: 2 enable: true 3 field: post # site/post 4 # title-prefix-icon: &amp;#39;\f0c1&amp;#39; 原锁链标题 5 title-prefix-icon: &amp;#39;\f14e&amp;#39; 6 title-prefix-icon-color: &amp;#39;#F47466&amp;#39; 在\themes\butterfly\source\css目录下新建title_icon.css文件，添加：&#xA;1/* 文章页H1-H6图标样式效果 */ 2h1::before, h2::before, h3::before, h4::before, h5::before, h6::before { 3 -webkit-animation: ccc 1.6s linear infinite ; 4 animation: ccc 1.6s linear infinite ; 5} 6@-webkit-keyframes ccc { 7 0% { 8 -webkit-transform: rotate(0deg); 9 transform: rotate(0deg) 10 } 11 to { 12 -webkit-transform: rotate(-1turn); 13 transform: rotate(-1turn) 14 } 15} 16@keyframes ccc { 17 0% { 18 -webkit-transform: rotate(0deg); 19 transform: rotate(0deg) 20 } 21 to { 22 -webkit-transform: rotate(-1turn); 23 transform: rotate(-1turn) 24 } 25} 给 H1~H6 标题设置不同颜色，在title_icon.</description>
     </item>
     <item>
       <title>Hexo &#43; Butterfly 文章页透明</title>
       <link>http://coldcoding.top/tech/blog/hexo/hexo-transparent/</link>
       <pubDate>Sun, 05 Mar 2023 12:16:58 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/blog/hexo/hexo-transparent/</guid>
-      <description>在 \themes\butterfly\source\css目录下新建 article_transparent.css文件，添加： 1/* 首页文章栏背</description>
+      <description> 在 \themes\butterfly\source\css目录下新建 article_transparent.css文件，添加：&#xA;1/* 首页文章栏背景透明 */ 2#recent-posts&amp;gt;.recent-post-item,.layout_page&amp;gt;div:first-child:not(.recent-posts),.layout_post&amp;gt;#page,.layout_post&amp;gt;#post,.read-mode .layout_post&amp;gt;#post { 3 background: var(--light_bg_color) 4} 5 6/* 侧边栏透明 */ 7#aside-content .card-widget { 8 background: var(--light_bg_color) 9} 在主题配置文件 _config.butterfly.yml的 inject，在 head直接引入 css文件&#xA;1- &amp;lt;script src=&amp;#34;/css/article_transparent.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; </description>
     </item>
     <item>
       <title>Hexo &#43; Butterfly 修改浏览器标题</title>
       <link>http://coldcoding.top/tech/blog/hexo/hexo-funnytitle/</link>
       <pubDate>Sun, 05 Mar 2023 12:10:58 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/blog/hexo/hexo-funnytitle/</guid>
-      <description>在\themes\butterfly\source\js目录下新建funny_title.js文件，添加： 1var OriginTitle = document.title; 2var titleTime; 3document.addEventListener(&amp;#39;visibilitychange&amp;#39;, function () { 4 if (document.hidden) { 5 $(&amp;#39;[rel=&amp;#34;icon&amp;#34;]&amp;#39;).attr(&amp;#39;href&amp;#39;, &amp;#34;/funny.ico&amp;#34;);</description>
+      <description> 在\themes\butterfly\source\js目录下新建funny_title.js文件，添加：&#xA;1var OriginTitle = document.title; 2var titleTime; 3document.addEventListener(&amp;#39;visibilitychange&amp;#39;, function () { 4 if (document.hidden) { 5 $(&amp;#39;[rel=&amp;#34;icon&amp;#34;]&amp;#39;).attr(&amp;#39;href&amp;#39;, &amp;#34;/funny.ico&amp;#34;); 6 document.title = &amp;#39;╭(°A°`)╮ 怎么走了 ~&amp;#39;; 7 clearTimeout(titleTime); 8 } 9 else { 10 $(&amp;#39;[rel=&amp;#34;icon&amp;#34;]&amp;#39;).attr(&amp;#39;href&amp;#39;, &amp;#34;/favicon.ico&amp;#34;); 11 document.title = &amp;#39;(ฅ&amp;gt;ω&amp;lt;*ฅ) 欢迎回来 ~&amp;#39; + OriginTitle; 12 titleTime = setTimeout(function () { 13 document.title = OriginTitle; 14 }, 2000); 15 } 16}); 在主题配置文件_config.butterfly.yml的inject，在bottom直接引入js文件&#xA;1- &amp;lt;script src=&amp;#34;/js/funny_title.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; </description>
     </item>
     <item>
       <title>Hexo &#43; Butterfly 背景添加雪花、樱花、动线特效</title>
       <link>http://coldcoding.top/tech/blog/hexo/hexo-snow/</link>
       <pubDate>Sun, 05 Mar 2023 11:35:58 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/blog/hexo/hexo-snow/</guid>
-      <description>雪花 在\themes\butterfly\source\js目录下新建snow.js文件，添加： 1if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) { 2 // 移动端不显示 3 } 4else { 5 (function($){ 6 $.fn.snow = function(options){ 7</description>
+      <description>雪花 在\themes\butterfly\source\js目录下新建snow.js文件，添加：&#xA;1if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) { 2&#x9;// 移动端不显示 3 } 4else { 5&#x9;(function($){ 6&#x9;$.fn.snow = function(options){ 7&#x9;var $flake = $(&amp;#39;&amp;lt;div id=&amp;#34;snowbox&amp;#34; /&amp;gt;&amp;#39;).css({&amp;#39;position&amp;#39;: &amp;#39;absolute&amp;#39;,&amp;#39;z-index&amp;#39;:&amp;#39;9999&amp;#39;, &amp;#39;top&amp;#39;: &amp;#39;-50px&amp;#39;}).html(&amp;#39;&amp;amp;#10052;&amp;#39;), 8&#x9;documentHeight = $(document).height(), 9&#x9;documentWidth&#x9;= $(document).width(), 10&#x9;defaults = { 11&#x9;minSize&#x9;: 10, 12&#x9;maxSize&#x9;: 20, 13&#x9;newOn&#x9;: 1000, 14&#x9;flakeColor&#x9;: &amp;#34;#AFDAEF&amp;#34; /* 此处可以定义雪花颜色，若要白色可以改为#FFFFFF */ 15&#x9;}, 16&#x9;options&#x9;= $.extend({}, defaults, options); 17&#x9;var interval= setInterval( function(){ 18&#x9;var startPositionLeft = Math.</description>
     </item>
     <item>
       <title>利用Github分支备份Hexo博客源文件</title>
       <link>http://coldcoding.top/tech/blog/hexo/hexo_backup/</link>
       <pubDate>Fri, 03 Mar 2023 21:41:58 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/blog/hexo/hexo_backup/</guid>
-      <description>前言 虽然Hexo部署博客很方便，但是当我们更换电脑时呢，在github中的其实只是在我们本地目录里的.deploy_git里面的内容，显然我</description>
+      <description>前言 虽然Hexo部署博客很方便，但是当我们更换电脑时呢，在github中的其实只是在我们本地目录里的.deploy_git里面的内容，显然我们需要把源文件备份push到github上，这样只需要克隆到本地，简单配置后就可以了。&#xA;备份 新建分支 在Github上的博客仓库下创建一个新的分支hexo，并且将这个分支设置为默认分支&#xA;克隆hexo分支 1$ git clone git@...git #(github page 的仓库地址) 把克隆下来的文件夹中的.git文件复制到博客根目录下，如果没有找到.git文件，其实是被隐藏了 开始备份 进入到博客的根目录下Git Bash&#xA;1$ git add . 2$ git commit -m &amp;#34;Backup&amp;#34; 3$ git push origin hexo 此时可以在Github上发现完成备份。 之后每次在更改后，可以执行以下命令：&#xA;1$ hexo clean 2$ git add . 3$ git commit -m &amp;#34;backup&amp;#34; 4$ git push 5$ hexo g -d 本地恢复 换一台电脑，配置好 Hexo 的环境，配置 Git SSH key，把博客源文件代码克隆下来:&#xA;1$ git clone git@...git # (github page 的仓库地址) 克隆后，默认分支是 master，需要切换到hexo分支（省略）&#xA;1$ git branch -a # 查看所有分支 2$ git checkout origin/hexo # 切换到xxx分支 执行如下命令</description>
     </item>
     <item>
       <title>Hexo &#43; Butterfly 更换加载动画</title>
       <link>http://coldcoding.top/tech/blog/hexo/hexo-loading-car/</link>
       <pubDate>Fri, 03 Mar 2023 17:00:00 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/blog/hexo/hexo-loading-car/</guid>
-      <description>参考文章：https://blog.zhheo.com/p/32776e99.html 资源文件 CodePen 配置 在主题配置文件_config.butte</description>
+      <description>参考文章：https://blog.zhheo.com/p/32776e99.html&#xA;资源文件 CodePen&#xA;配置 在主题配置文件_config.butterfly.yml中，找到preloader并设置enable为true&#xA;在 \themes\butterfly\source\css目录下新建 loading_car.css文件，添加：&#xA;1/* loading背景 */ 2.loading-bg, #loading-box .loading-left-bg, #loading-box .loading-right-bg{ 3 background-color: #3f3f3f; 4} 5 6.carplay{ 7 box-sizing: border-box; 8 9 --black :#1a1c20 ; 10 --white : #fff ; 11 --green : #3f3f3f ; 12 --d-green : #1e1e1e ; 13 --gray : #c1c1c1 ; 14 --l-gray: #c4c4c4 ; 15 --m-gray : #373838 ; 16 --d-gray : #282724 ; 17 --d-blue: #202428 ; 18 --orange : #ef6206 ; 19 --yellow : #dfa500 ; 20 --l-yellow: #deb953; 21 --light: #fbfbfb ; 22 --n-road : -4em; 23 --p-road : 7em; 24 25 /* background-color: var(--green) ; */ 26 27 28} 29 30.</description>
     </item>
     <item>
       <title>Hexo &#43; Butterfly 添加鼠标移动特效</title>
       <link>http://coldcoding.top/tech/blog/hexo/hexo-mouse-move/</link>
       <pubDate>Fri, 03 Mar 2023 16:37:22 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/blog/hexo/hexo-mouse-move/</guid>
-      <description>在/themes/butterfly/source/js文件夹中新建mouse_move.js文件 1(function () { 2 function t() { 3 i(), a(); 4 } 5 function i() { 6 document.addEventListener(&amp;#34;mousemove&amp;#34;, o), 7 document.addEventListener(&amp;#34;touchmove&amp;#34;,</description>
+      <description>在/themes/butterfly/source/js文件夹中新建mouse_move.js文件&#xA;1(function () { 2 function t() { 3 i(), a(); 4 } 5 function i() { 6 document.addEventListener(&amp;#34;mousemove&amp;#34;, o), 7 document.addEventListener(&amp;#34;touchmove&amp;#34;, e), 8 document.addEventListener(&amp;#34;touchstart&amp;#34;, e), 9 window.addEventListener(&amp;#34;resize&amp;#34;, n); 10 } 11 function n(t) { 12 (d = window.innerWidth), window.innerHeight; 13 } 14 function e(t) { 15 if (t.touches.length &amp;gt; 0) 16 for (var i = 0; i &amp;lt; t.touches.length; i++) 17 s( 18 t.touches[i].clientX, 19 t.touches[i].clientY, 20 r[Math.floor(Math.random() * r.</description>
     </item>
     <item>
       <title>hexo_fish</title>
       <link>http://coldcoding.top/tech/blog/hexo/hexo-fish/</link>
       <pubDate>Thu, 02 Mar 2023 22:42:41 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/blog/hexo/hexo-fish/</guid>
-      <description>参考文章：Hexo页脚养鱼效果 引入必须的jquery文件 https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js 把上述文件保存在\themes\butterfly\source\js并命名为jq</description>
+      <description>参考文章：Hexo页脚养鱼效果&#xA;引入必须的jquery文件&#xA;https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js 把上述文件保存在\themes\butterfly\source\js并命名为jquery.min.js和fish.js&#xA;在\themes\butterfly\source\js路径下新建fish.js文件，代码内容如下：&#xA;1fish(); 2function fish() { 3 return ( 4 $(&amp;#34;footer&amp;#34;).append( 5 &amp;#39;&amp;lt;div class=&amp;#34;fish_container&amp;#34; id=&amp;#34;jsi-flying-fish-container&amp;#34;&amp;gt;&amp;lt;/div&amp;gt;&amp;#39; 6 ), 7 $(&amp;#34;.fish_container&amp;#34;).css({ 8 &amp;#34;z-index&amp;#34;: -1, 9 width: &amp;#34;100%&amp;#34;, 10 height: &amp;#34;160px&amp;#34;, 11 margin: 0, 12 padding: 0, 13 }), 14 $(&amp;#34;#footer-wrap&amp;#34;).css({ 15 position: &amp;#34;absolute&amp;#34;, 16 &amp;#34;text-align&amp;#34;: &amp;#34;center&amp;#34;, 17 top: 0, 18 right: 0, 19 left: 0, 20 bottom: 0, 21 }), 22 this 23 ); 24} 25var RENDERER = { 26&#x9;POINT_INTERVAL : 5, 27&#x9;FISH_COUNT : 3, 28&#x9;MAX_INTERVAL_COUNT : 50, 29&#x9;INIT_HEIGHT_RATE : 0.</description>
     </item>
     <item>
       <title>Hexo &#43; Butterfly 添加备案信息</title>
       <link>http://coldcoding.top/tech/blog/beian/</link>
       <pubDate>Thu, 02 Mar 2023 22:12:32 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/blog/beian/</guid>
-      <description>在/themes/butterfly/layout/includes/footer.pug文件中添加以下代码 1.framework-info 2 img(src = &amp;#39;https://static.dy208.cn/o_1dfilp8ruo521thr1hvf18ji17soa.png&amp;#39;) 3 span= &amp;#39; &amp;#39; 4 a(href=&amp;#39;https://beian.miit.gov.cn/&amp;#39;)= &amp;#39;</description>
+      <description>在/themes/butterfly/layout/includes/footer.pug文件中添加以下代码&#xA;1.framework-info 2 img(src = &amp;#39;https://static.dy208.cn/o_1dfilp8ruo521thr1hvf18ji17soa.png&amp;#39;) 3 span= &amp;#39; &amp;#39; 4 a(href=&amp;#39;https://beian.miit.gov.cn/&amp;#39;)= &amp;#39;黔ICP备2022002429号-1&amp;#39; </description>
     </item>
     <item>
       <title>Hexo 数学公式渲染(KaTeX)</title>
       <link>http://coldcoding.top/tech/blog/hexo/hexo-math/</link>
       <pubDate>Thu, 02 Mar 2023 17:03:10 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/blog/hexo/hexo-math/</guid>
-      <description>The fastest math typesetting library for the web. Katex 在网页中如何插入公式？如 $x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$ 一个办法是图片，但是极不方便，最好的办法还是用文字来描述数学公式，把渲染的工作交给引擎。LaTe</description>
+      <description>The fastest math typesetting library for the web.&#xA;Katex 在网页中如何插入公式？如 $x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$&#xA;一个办法是图片，但是极不方便，最好的办法还是用文字来描述数学公式，把渲染的工作交给引擎。LaTeX就是一个常用的排版工具，包括但不限于数学公式、表格、化学公式，而我们更多的需求是展示数学公式，所以只需要一个LaTeX的子集，能渲染数学公式即可，KaTeX就是这样一个支持HTML的轻量级的数学公式引擎。&#xA;文件配置 打开主题配置文件_config.butterfly.yml，禁用MathJax，并修改 KaTeX&#xA;1# MathJax 2mathjax: 3 enable: false 4 per_page: false 5 6# KaTeX 7katex: 8 enable: true # false 需要時加載，須在使用的Markdown Front-matter 加上 katex: true 9 per_page: false 10 hide_scrollbar: true 卸載掉marked或者kramed插件，安裝hexo-renderer-markdown-it，可以在package.json文件中查看。&#xA;1npm un hexo-renderer-marked --save # 卸载 marked 插件 2npm un hexo-renderer-kramed --save # 卸载 kramed 插件 3npm i hexo-renderer-markdown-it --save # 安装渲染插件 4npm install katex @renbaoshuo/markdown-it-katex # 安装渲染插件 在hexo的根目录的_config.</description>
     </item>
     <item>
       <title>Hexo 添加天气插件</title>
       <link>http://coldcoding.top/tech/blog/hexo/widget-weather/</link>
       <pubDate>Thu, 02 Mar 2023 11:46:21 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/blog/hexo/widget-weather/</guid>
-      <description>注册 和风天气 生成代码 根据个人需求自定义创建天气插件，最后点击生成代码。 1&amp;lt;div id=&amp;#34;he-plugin-simple&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; 2&amp;lt;script&amp;gt; 3WIDGET = { 4 &amp;#34;CONFIG&amp;#34;: { 5 &amp;#34;modules&amp;#34;: &amp;#34;01234&amp;#34;, 6 &amp;#34;background&amp;#34;: &amp;#34;5&amp;#34;, 7 &amp;#34;tmpColor&amp;#34;: &amp;#34;FF9900&amp;#34;, 8 &amp;#34;tmpSize&amp;#34;: &amp;#34;16&amp;#34;, 9 &amp;#34;cityColor&amp;#34;: &amp;#34;CCCCCC&amp;#34;, 10 &amp;#34;citySize&amp;#34;: &amp;#34;16&amp;#34;, 11 &amp;#34;aqiColor&amp;#34;: &amp;#34;D9D9D9&amp;#34;, 12 &amp;#34;aqiSize&amp;#34;: &amp;#34;16&amp;#34;, 13 &amp;#34;weatherIconSize&amp;#34;:</description>
+      <description>注册 和风天气 生成代码 根据个人需求自定义创建天气插件，最后点击生成代码。&#xA;1&amp;lt;div id=&amp;#34;he-plugin-simple&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; 2&amp;lt;script&amp;gt; 3WIDGET = { 4 &amp;#34;CONFIG&amp;#34;: { 5 &amp;#34;modules&amp;#34;: &amp;#34;01234&amp;#34;, 6 &amp;#34;background&amp;#34;: &amp;#34;5&amp;#34;, 7 &amp;#34;tmpColor&amp;#34;: &amp;#34;FF9900&amp;#34;, 8 &amp;#34;tmpSize&amp;#34;: &amp;#34;16&amp;#34;, 9 &amp;#34;cityColor&amp;#34;: &amp;#34;CCCCCC&amp;#34;, 10 &amp;#34;citySize&amp;#34;: &amp;#34;16&amp;#34;, 11 &amp;#34;aqiColor&amp;#34;: &amp;#34;D9D9D9&amp;#34;, 12 &amp;#34;aqiSize&amp;#34;: &amp;#34;16&amp;#34;, 13 &amp;#34;weatherIconSize&amp;#34;: &amp;#34;24&amp;#34;, 14 &amp;#34;alertIconSize&amp;#34;: &amp;#34;18&amp;#34;, 15 &amp;#34;padding&amp;#34;: &amp;#34;15px 10px 10px 20px&amp;#34;, 16 &amp;#34;shadow&amp;#34;: &amp;#34;0&amp;#34;, 17 &amp;#34;language&amp;#34;: &amp;#34;auto&amp;#34;, 18 &amp;#34;borderRadius&amp;#34;: &amp;#34;5&amp;#34;, 19 &amp;#34;fixed&amp;#34;: &amp;#34;true&amp;#34;, 20 &amp;#34;vertical&amp;#34;: &amp;#34;top&amp;#34;, 21 &amp;#34;horizontal&amp;#34;: &amp;#34;left&amp;#34;, 22 &amp;#34;left&amp;#34;: &amp;#34;170&amp;#34;, 23 &amp;#34;top&amp;#34;: &amp;#34;5&amp;#34;, 24 &amp;#34;key&amp;#34;: &amp;#34;4b948664cade49598ad&amp;#34; 25 } 26} 27&amp;lt;/script&amp;gt; 28&amp;lt;script src=&amp;#34;https://widget.</description>
     </item>
     <item>
       <title>Hello World</title>

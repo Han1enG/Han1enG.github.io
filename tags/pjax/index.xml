@@ -15,14 +15,14 @@
       <link>http://coldcoding.top/tech/blog/hexo/pjax-readtime/</link>
       <pubDate>Sat, 11 Mar 2023 16:20:04 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/blog/hexo/pjax-readtime/</guid>
-      <description>刚开启的PJAX就出问题了，有些JS虽然加了 data-pjax 属性，依然没有重载，出现在用户自己编写的用于计算阅读时间的js函数中。 1// 原函数写法 2aaaaaaaaaaaaaaa; 3// 现在的写</description>
+      <description> 刚开启的PJAX就出问题了，有些JS虽然加了 data-pjax 属性，依然没有重载，出现在用户自己编写的用于计算阅读时间的js函数中。&#xA;1// 原函数写法 2aaaaaaaaaaaaaaa; 3// 现在的写法 4function pjax_reload() { 5 aaaaaaaaaaaaaaa; 6} 7document.addEventListener(&amp;#34;pjax:complete&amp;#34;, function () { 8 pjax_reload(); // Pjax 完成后，重新加载上面的函数 9}); </description>
     </item>
     <item>
       <title>网站开启PJAX</title>
       <link>http://coldcoding.top/tech/blog/hexo/pjax/</link>
       <pubDate>Sat, 11 Mar 2023 14:48:04 +0000</pubDate><author>hanlengcold@gmail.com (Cold)</author>
       <guid>http://coldcoding.top/tech/blog/hexo/pjax/</guid>
-      <description>参考文章： 保罗 云泥 AJAX AJAX = 异步 JavaScript 和 XML，是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新</description>
+      <description> 参考文章： 保罗 云泥&#xA;AJAX AJAX = 异步 JavaScript 和 XML，是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。传统的网页（不使用 AJAX）如果需要更新内容，必需重载整个网页面。有很多使用 AJAX 的应用程序案例，最常见的就是页面拉到底时浏览器会自动加载下一页的内容。&#xA;PJAX PJAX = PushState + AJAX，当用户点击链接发起请求时，PJAX 会拦截请求，然后触发 Ajax 请求和 PushState。其中，Ajax 使你的页面局部刷新，pushState 用于修改 URL 而不跳转页面，从而实现不跳转页面局部刷新的功能。可以提高用户体验，同时极大的减少服务器和宽带消耗。&#xA;Butterfly + PJAX 开启PJAX 在Butterfly主题中已经集成了PJAX，在主题配置文件_config.butterfly.yml中找到Pjax将enable设置为true即可。&#xA;重载 JS 由于通过 PJAX 切换的页面并没有完全刷新，浏览器不会将网页从头执行一遍，因此有些 JS 将不会生效。为了保证功能不失效，需要重新再执行一次，即重载。&#xA;在Butterfly主题中已经集成了解决方法在pjax.pug中，每次使用时在引入这些文件的标签上添加 data-pjax 属性&#xA;1inject: 2 bottom: 3 - &amp;lt;script data-pjax src=&amp;#34;/js/ripples.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; </description>
     </item>
   </channel>
 </rss>
